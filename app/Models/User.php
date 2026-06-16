@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -14,24 +15,33 @@ class User extends Authenticatable
 
     // Các cột được phép gán dữ liệu
     protected $fillable = [
-        'name',
+        'role_id',
         'email',
         'password',
-        'role',
     ];
 
     // Các cột bị ẩn khi trả về JSON
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     // Kiểu dữ liệu tự động chuyển đổi
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password'          => 'hashed',
+            'password' => 'hashed',
         ];
+    }
+
+    // Quan hệ: user thuộc về một role
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    // Helper: lấy tên role
+    public function getRoleName(): string
+    {
+        return $this->role->name;
     }
 }

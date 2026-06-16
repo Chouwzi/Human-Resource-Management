@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Hash;
@@ -87,8 +88,10 @@ class AuthControllerTest extends TestCase
     #[Test]
     public function bao_loi_khi_mat_khau_sai(): void
     {
-        // Tạo user mẫu trong DB (sẽ tự rollback sau test)
+        $role = Role::firstOrCreate(['name' => 'employee']);
+
         User::factory()->create([
+            'role_id'  => $role->id,
             'email'    => 'nhanvien@example.com',
             'password' => Hash::make('mat-khau-dung'),
         ]);
@@ -108,10 +111,12 @@ class AuthControllerTest extends TestCase
     #[Test]
     public function admin_duoc_chuyen_den_trang_quan_tri(): void
     {
+        $role = Role::firstOrCreate(['name' => 'admin']);
+
         $user = User::factory()->create([
+            'role_id'  => $role->id,
             'email'    => 'admin@example.com',
             'password' => Hash::make('123456'),
-            'role'     => 'admin',
         ]);
 
         $response = $this->post(route('login'), [
@@ -130,10 +135,12 @@ class AuthControllerTest extends TestCase
     #[Test]
     public function nhan_vien_duoc_chuyen_den_trang_ca_nhan(): void
     {
+        $role = Role::firstOrCreate(['name' => 'employee']);
+
         User::factory()->create([
+            'role_id'  => $role->id,
             'email'    => 'nv@example.com',
             'password' => Hash::make('123456'),
-            'role'     => 'employee',
         ]);
 
         $response = $this->post(route('login'), [

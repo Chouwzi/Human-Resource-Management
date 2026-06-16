@@ -30,8 +30,8 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        // Tìm user theo email
-        $user = User::where('email', $request->input('email'))->first();
+        // Tìm user theo email, eager load role
+        $user = User::with('role')->where('email', $request->input('email'))->first();
 
         // Kiểm tra user tồn tại và mật khẩu đúng
         if (!$user || !Hash::check($request->input('password'), $user->password)) {
@@ -41,14 +41,16 @@ class AuthController extends Controller
         // Lưu thông tin đăng nhập vào session
         $request->session()->regenerate();
         $request->session()->put('user_id', $user->id);
-        $request->session()->put('user_role', $user->role);
+        $request->session()->put('user_role', $user->getRoleName());
 
         // Chuyển hướng theo role
-        if ($user->role === 'admin' || $user->role === 'hr') {
+        $roleName = $user->getRoleName();
+
+        if ($roleName === 'admin' || $roleName === 'hr') {
             return redirect()->route('admin.home');
         }
 
-        if ($user->role === 'employee') {
+        if ($roleName === 'employee') {
             return redirect()->route('user.home');
         }
 
