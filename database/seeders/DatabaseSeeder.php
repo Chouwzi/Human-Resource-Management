@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Tạo roles cơ bản
+
         $admin    = Role::firstOrCreate(['name' => 'admin'],    ['description' => 'Quản trị viên hệ thống']);
         $hr       = Role::firstOrCreate(['name' => 'hr'],       ['description' => 'Nhân sự']);
         $employee = Role::firstOrCreate(['name' => 'employee'], ['description' => 'Nhân viên']);
 
-        // Tạo tài khoản demo
+
         User::factory()->create([
             'role_id'  => $admin->id,
             'email'    => 'admin@example.com',

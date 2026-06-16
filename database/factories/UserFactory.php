@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Hash;
  */
 class UserFactory extends Factory
 {
-    /**
-     * Tạo dữ liệu mẫu cho User khi test.
-     */
+    /** @return array<string, mixed> */
     public function definition(): array
     {
         return [

@@ -9,20 +9,12 @@ use Illuminate\Support\Facades\Hash;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-/**
- * Test cho AuthController (Đăng nhập / Đăng xuất)
- *
- * Chạy test: php artisan test tests/Feature/AuthControllerTest.php
- *
- * Lưu ý: Dùng DatabaseTransactions nên data thật KHÔNG bị xóa sau khi test.
- */
+
 class AuthControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
-    // ==========================================================
-    // Test trang đăng nhập (GET /login)
-    // ==========================================================
+    // --- GET /login ---
 
     #[Test]
     public function khach_co_the_xem_trang_dang_nhap(): void
@@ -33,9 +25,7 @@ class AuthControllerTest extends TestCase
         $response->assertViewIs('auth.login');
     }
 
-    // ==========================================================
-    // Test validation form đăng nhập
-    // ==========================================================
+    // --- Validation ---
 
     #[Test]
     public function bao_loi_khi_email_trong(): void
@@ -70,9 +60,7 @@ class AuthControllerTest extends TestCase
         $response->assertSessionHasErrors('password');
     }
 
-    // ==========================================================
-    // Test đăng nhập sai thông tin
-    // ==========================================================
+    // --- Sai thông tin ---
 
     #[Test]
     public function bao_loi_khi_email_khong_ton_tai(): void
@@ -104,9 +92,7 @@ class AuthControllerTest extends TestCase
         $response->assertSessionHasErrors('email');
     }
 
-    // ==========================================================
-    // Test đăng nhập thành công → redirect đúng theo role
-    // ==========================================================
+    // --- Redirect theo role ---
 
     #[Test]
     public function admin_duoc_chuyen_den_trang_quan_tri(): void
@@ -124,10 +110,8 @@ class AuthControllerTest extends TestCase
             'password' => '123456',
         ]);
 
-        // Kiểm tra redirect đúng trang
         $response->assertRedirect(route('admin.home'));
 
-        // Kiểm tra session được lưu đúng
         $this->assertEquals($user->id, session('user_id'));
         $this->assertEquals('admin', session('user_role'));
     }
@@ -151,23 +135,21 @@ class AuthControllerTest extends TestCase
         $response->assertRedirect(route('user.home'));
     }
 
-    // ==========================================================
-    // Test đăng xuất
-    // ==========================================================
+    // --- Đăng xuất ---
 
     #[Test]
     public function dang_xuat_xoa_session_va_quay_ve_trang_login(): void
     {
-        // Giả lập đang đăng nhập
+
         $response = $this->withSession([
             'user_id'   => 1,
             'user_role' => 'admin',
         ])->post(route('logout'));
 
-        // Phải redirect về trang login
+
         $response->assertRedirect(route('login'));
 
-        // Session phải bị xóa
+
         $this->assertNull(session('user_id'));
         $this->assertNull(session('user_role'));
     }
