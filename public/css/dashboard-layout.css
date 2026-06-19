@@ -1,0 +1,119 @@
+/* =========================================
+   DASHBOARD CHUNG (Admin & Employee)
+   File: public/css/dashboard-layout.css
+========================================= */
+
+body {
+    background-color: var(--color-bg-dashboard);
+    display: flex;
+}
+
+/* --- SIDEBAR DÙNG CHUNG --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--color-white);
+    height: 100vh;
+    position: fixed;
+    border-right: 1px solid var(--color-border-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-area {
+    padding: 30px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--color-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+/* --- MAIN CONTENT & HEADER DÙNG CHUNG --- */
+.main-content {
+    margin-left: 250px;
+    padding: 30px 40px;
+    width: calc(100% - 250px);
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    padding: 20px 40px;
+    margin: -30px -40px 40px -40px;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: var(--color-muted);
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- TÌM KIẾM DÙNG CHUNG --- */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-input {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: 30px;
+    background-color: var(--color-input-bg);
+}
+.search-input.active {
+    width: 200px;
+    opacity: 1;
+    visibility: visible;
+    border-color: var(--color-border);
+}
+.search-icon {
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 10;
+}

@@ -1,0 +1,86 @@
+/* =========================================
+   FILE CSS DÀNH RIÊNG CHO ADMIN
+   File: public/css/admin.css
+========================================= */
+
+/* Ghi đè màu sắc riêng cho Admin */
+.logo-area {
+    color: var(--color-navy-dark);
+}
+.menu-item.active {
+    color: var(--color-primary);
+    border-left: 5px solid var(--color-primary);
+}
+.menu-item:hover {
+    color: var(--color-navy-dark);
+    background-color: var(--color-navy-hover);
+}
+.search-icon:hover {
+    color: var(--color-navy-dark);
+}
+
+/* Các thẻ thống kê đặc thù chỉ Admin mới có */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.stat-card {
+    background-color: var(--color-white);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+/* Áp dụng chuẩn biến Design Tokens cho Icon */
+.icon-blue {
+    background-color: var(--icon-blue-bg);
+    color: var(--icon-blue-color);
+}
+.icon-purple {
+    background-color: var(--icon-purple-bg);
+    color: var(--icon-purple-color);
+}
+.icon-orange {
+    background-color: var(--icon-orange-bg);
+    color: var(--icon-orange-color);
+}
+.icon-green {
+    background-color: var(--icon-green-bg);
+    color: var(--icon-green-color);
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+.stat-label {
+    color: var(--color-muted);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+}

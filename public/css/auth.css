@@ -1,0 +1,109 @@
+.login-body {
+    background-color: var(--color-bg-login);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.team-intro {
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--color-dark);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.login-card {
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 420px;
+}
+
+.title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 35px;
+    color: var(--color-dark);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: var(--color-input-bg);
+    transition:
+        border-color 0.3s,
+        box-shadow 0.3s;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-light-gray);
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.input-group input:focus + .icon {
+    color: var(--color-primary);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-login:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.forgot-password:hover {
+    color: var(--color-primary);
+}

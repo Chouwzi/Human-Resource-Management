@@ -1,0 +1,72 @@
+/* --- HỆ THỐNG BIẾN (DESIGN TOKENS) --- */
+:root {
+    /* Font chữ */
+    --font-primary: "Poppins", "Segoe UI", Arial, sans-serif;
+
+    /* Màu nền chung */
+    --color-bg-login: #f0f2f5;
+    --color-bg-dashboard: #f5f7fa;
+    --color-white: #ffffff;
+
+    /* Màu Text & Border */
+    --color-dark: #333333;
+    --color-muted: #888888;
+    --color-light-gray: #aaaaaa;
+    --color-border: #dddddd;
+    --color-border-light: #eeeeee;
+    --color-input-bg: #f9f9f9;
+
+    /* Màu nhấn thương hiệu */
+    --color-primary: #007bff;
+    --color-primary-hover: #0056b3;
+    --color-navy-dark: #1e3a8a;
+    --color-navy-hover: #f0f4ff;
+
+    /* Mã màu hệ thống Icon/Dashboard */
+    --icon-blue-bg: #e7edff;
+    --icon-blue-color: #396aff;
+    --icon-purple-bg: #f4e8ff;
+    --icon-purple-color: #9b51e0;
+    --icon-orange-bg: #fff2e5;
+    --icon-orange-color: #ff8c00;
+    --icon-green-bg: #e5f9f0;
+    --icon-green-color: #00c48c;
+
+    /* Trạng thái thông báo lỗi */
+    --color-error-bg: #fee2e2;
+    --color-error-text: #ef4444;
+}
+
+/* --- ĐỊNH DẠNG CƠ BẢN (RESET) --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+    color: var(--color-dark);
+}
+
+/* --- THÀNH PHẦN DÙNG CHUNG (UTILITIES) --- */
+
+/* Khung báo lỗi tổng quát (Dùng cho cả Login và các form tạo mới) */
+.alert-error {
+    background-color: var(--color-error-bg);
+    color: var(--color-error-text);
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #fecaca;
+}
+
+/* Chữ báo lỗi ngay dưới ô Input (Dùng cho @error của Blade) */
+.field-error-text {
+    color: var(--color-error-text);
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 15px;
+    display: block;
+}
