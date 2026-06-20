@@ -39,9 +39,12 @@
                 @enderror
             </div>
 
-            <div class="input-group">
+            <div class="input-group" style="position: relative;">
                 <i class="fas fa-lock icon"></i>
                 <input type="password" id="password" name="password" placeholder="Mật khẩu" maxlength="32">
+                <i class="fas fa-eye toggle-password" toggle="#password"
+                    style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #9ca3af;"
+                    title="Xem/Ẩn mật khẩu"></i>
                 @error('password')
                 <span class="field-error-text">{{ $message }}</span>
                 @enderror
@@ -51,6 +54,10 @@
 
             <a href="{{ route('password.request') }}" class="forgot-password">Quên mật khẩu?</a>
         </form>
+    </div>
+
+    <div id="js-error-message" class="alert-error" style="display: none;">
+
     </div>
 
     <script src="{{ asset('js/auth.js') }}"></script>

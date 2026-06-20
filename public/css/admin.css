@@ -1,86 +1,350 @@
-/* =========================================
-   FILE CSS DÀNH RIÊNG CHO ADMIN
-   File: public/css/admin.css
-========================================= */
-
-/* Ghi đè màu sắc riêng cho Admin */
-.logo-area {
-    color: var(--color-navy-dark);
-}
-.menu-item.active {
-    color: var(--color-primary);
-    border-left: 5px solid var(--color-primary);
-}
-.menu-item:hover {
-    color: var(--color-navy-dark);
-    background-color: var(--color-navy-hover);
-}
-.search-icon:hover {
-    color: var(--color-navy-dark);
+/* Container chính của Admin */
+.admin-container {
+    padding: 10px 0;
 }
 
-/* Các thẻ thống kê đặc thù chỉ Admin mới có */
+/* Chia Grid 4 cột đều nhau, không nhồi nhét */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
+    margin-bottom: 40px;
 }
 
+/* Style cho từng thẻ Card */
 .stat-card {
     background-color: var(--color-white);
-    border-radius: 20px;
+    border-radius: 16px;
     padding: 25px;
     display: flex;
     align-items: center;
     gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--color-border-light);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .stat-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
-.icon-circle {
+/* Icon trong Card */
+.stat-icon {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 14px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
 }
 
-/* Áp dụng chuẩn biến Design Tokens cho Icon */
-.icon-blue {
-    background-color: var(--icon-blue-bg);
+/* Màu sắc riêng biệt cho từng loại Card dựa trên biến Design Tokens */
+.card-employees .stat-icon {
+    background: var(--icon-blue-bg);
     color: var(--icon-blue-color);
 }
-.icon-purple {
-    background-color: var(--icon-purple-bg);
+.card-departments .stat-icon {
+    background: var(--icon-purple-bg);
     color: var(--icon-purple-color);
 }
-.icon-orange {
-    background-color: var(--icon-orange-bg);
+.card-pending .stat-icon {
+    background: var(--icon-orange-bg);
     color: var(--icon-orange-color);
 }
-.icon-green {
-    background-color: var(--icon-green-bg);
+.card-attendance .stat-icon {
+    background: var(--icon-green-bg);
     color: var(--icon-green-color);
 }
 
-.stat-info {
+/* Text bên trong Card */
+.stat-details {
     display: flex;
     flex-direction: column;
 }
+
 .stat-label {
-    color: var(--color-muted);
     font-size: 14px;
-    margin-bottom: 5px;
+    color: var(--color-muted);
+    font-weight: 500;
 }
+
 .stat-value {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--color-dark);
-    margin: 0;
+    margin: 5px 0 0 0;
+}
+
+/* Màu trạng thái */
+.text-warning {
+    color: #f59e0b !important;
+}
+.text-success {
+    color: #10b981 !important;
+}
+.avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* Tablet: Rớt xuống 2 cột */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Điện thoại: Rớt xuống 1 cột kéo dài */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- TRANG DANH SÁCH NHÂN SỰ --- */
+
+/* Thanh công cụ */
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Nút bấm chung */
+.btn {
+    padding: 9px 18px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+.btn-primary {
+    background: #1d4ed8;
+    color: white;
+}
+.btn-primary:hover {
+    background: #1e40af;
+}
+.btn-outline {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+}
+.btn-outline:hover {
+    background: #f3f4f6;
+}
+
+/* Bộ lọc */
+.filter-select {
+    padding: 9px 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+/* Khung bọc bảng để cuộn ngang trên điện thoại */
+.table-responsive {
+    overflow-x: auto;
+}
+/* Định dạng Bảng */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; /* Chống co rúm bảng trên mobile */
+    /* Đã xóa text-align: left ở đây */
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    color: #374151;
+    text-align: center; /* Ép tất cả chữ và dữ liệu ra giữa */
+    vertical-align: middle; /* Ép nằm giữa theo chiều dọc của ô */
+}
+
+.admin-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.admin-table tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Nhãn trạng thái (Badge) */
+/* Nhãn trạng thái (Badge) */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+
+    /* --- THÊM 3 DÒNG NÀY ĐỂ ÉP KÍCH THƯỚC BẰNG NHAU --- */
+    display: inline-block;
+    min-width: 110px; /* Đảm bảo mọi nhãn đều to bằng nhau */
+    text-align: center; /* Căn giữa chữ bên trong nhãn */
+}
+
+.badge-success {
+    background: #dcfce3;
+    color: #166534;
+}
+.badge-warning {
+    background: #fef08a;
+    color: #854d0e;
+}
+.badge-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.badge-success {
+    background: #dcfce3;
+    color: #166534;
+}
+.badge-warning {
+    background: #fef08a;
+    color: #854d0e;
+}
+
+/* Nút sửa/xóa trong bảng */
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 12px;
+    transition: 0.2s;
+}
+.text-primary {
+    color: #3b82f6;
+}
+.text-danger {
+    color: #ef4444;
+}
+.btn-icon:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+/* --- TRANG CÀI ĐẶT (SETTINGS LAYOUT) --- */
+.settings-layout {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start; /* Giúp 2 cột độc lập chiều cao */
+}
+
+/* Cột Menu bên trái */
+.settings-sidebar {
+    width: 260px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    flex-shrink: 0;
+}
+
+.settings-menu-group {
+    margin-bottom: 25px;
+}
+.settings-menu-group:last-child {
+    margin-bottom: 0;
+}
+
+.settings-menu-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.settings-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.settings-link:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+}
+
+.settings-link.active {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border-left-color: #1d4ed8;
+}
+
+/* Cột Nội dung bên phải */
+.settings-content {
+    flex-grow: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Kéo xuống dưới cùng file, THÊM ĐOẠN NÀY VÀO KHỐI RESPONSIVE MOBILE (@media max-width: 767px) */
+@media (max-width: 767px) {
+    .settings-layout {
+        flex-direction: column; /* Trên điện thoại thì đẩy menu lên trên, nội dung xuống dưới */
+    }
+    .settings-sidebar {
+        width: 100%;
+    }
+}
+/* Màu bổ sung cho trang quản lý đơn nghỉ phép */
+.badge-danger {
+    background: #fee2e2;
+    color: #991b1b;
+} /* Màu nền đỏ nhạt cho đơn bị từ chối */
+.text-success {
+    color: #10b981;
+} /* Màu xanh lá cho nút tích duyệt */
+/* --- BẢNG / KHỐI NỘI DUNG DÙNG CHUNG (CARD) --- */
+.content-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.styled-table.bg-white {
+    background-color: var(--color-white);
 }

@@ -17,8 +17,8 @@
     <div class="login-card">
         <h2 class="title">Quên Mật Khẩu</h2>
 
-        <p class="auth-description">
-            <center>Nhập email của bạn .</center>
+        <p class="auth-description" style="text-align: center;">
+            Nhập email của bạn.
         </p>
 
         {{-- Hiển thị thông báo thành công từ Backend --}}
@@ -37,13 +37,13 @@
             <div class="input-group">
                 <i class="fas fa-envelope icon"></i>
                 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Nhập Email của bạn"
-                    autofocus>
+                    maxlength="255" autofocus>
                 @error('email')
                 <span class="field-error-text">{{ $message }}</span>
                 @enderror
             </div>
 
-            <button type="submit" class="btn-login" id="submitBtn">Gửi OTP </button>
+            <button type="submit" class="btn-login" id="submitBtn">Gửi OTP</button>
 
             <a href="{{ route('login') ?? '#' }}" class="forgot-password">
                 <i class="fas fa-arrow-left"></i> Quay lại Đăng nhập

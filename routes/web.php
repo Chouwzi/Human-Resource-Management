@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /* --- ROUTE HIỂN THỊ GIAO DIỆN (Frontend phụ trách) --- */
 
 Route::get('/login', function () {
@@ -34,17 +34,82 @@ Route::post('/verify-otp', function () {
     // [CẦN BACKEND CUNG CẤP] Xử lý logic kiểm tra OTP và cập nhật mật khẩu
 })->name('password.otp.verify');
 
+// ==========================================
+// KÊNH 1: DÀNH CHO QUẢN TRỊ VIÊN (ADMIN)
+// ==========================================
 Route::get('/admin', function () {
-    // 1. Giả lập dữ liệu mà sau này Backend sẽ lấy từ Database
-    $mockData = [
-        'userName'         => 'Nguyễn Văn Admin',
-        'avatarUrl'        => null, // Trả về null để test ảnh mặc định
-        'totalEmployees'   => 128,
-        'totalDepartments' => 8,
-        'pendingLeaves'    => 12,
-        'todayAttendance'  => 115
-    ];
+    return view('admin.dashboard', [
+        'total_employees' => 128,
+        'total_departments' => 8,
+        'pending_leaves' => 12,
+        'attendance_today' => 115,
+    ]);
+})->name('admin.dashboard');
 
-    // 2. Bắn dữ liệu giả lập ra View
-    return view('admin.dashboard', $mockData);
-})-> name('admin.dashboard');
+// 1. Quản lý Nhân sự
+Route::get('/admin/employees', function () {
+    return view('admin.employees');
+})->name('admin.employees');
+
+// 2. Quản lý Phòng ban
+Route::get('/admin/departments', function () {
+    return view('admin.departments');
+})->name('admin.departments');
+
+// 3. Quản lý Đơn nghỉ chờ duyệt
+Route::get('/admin/leaves', function () {
+    return view('admin.leaves');
+})->name('admin.leaves');
+
+// 4. Chấm công hôm nay
+Route::get('/admin/attendance', function () {
+    return view('admin.attendance');
+})->name('admin.attendance');
+
+
+// ==========================================
+// KÊNH 2: DÀNH CHO NHÂN VIÊN (EMPLOYEE)
+// ==========================================
+Route::get('/employee', function () {
+    return view('employee.dashboard', [
+        'myWorkDays' => 22,
+        'myLeaves' => 1,
+        'today_status' => 'Đã check-in (07:55 AM)', 
+        'today_class' => 'text-success', 
+        
+        'employee_info' => [
+            'code' => 'NV-066206017698',
+            'name' => 'Nguyen Trung Nguyen',
+            'department' => 'Công nghệ Thông tin',
+            'position' => 'Chuyên viên Phát triển',
+            'email' => 'nguyennt7698@ut.edu.vn'
+        ],
+
+        'recent_leave' => [
+            'code' => 'ĐNP001',
+            'reason' => 'Nghỉ phép năm',
+            'date' => '25/06/2026',
+            'status' => 'Chờ duyệt',
+            'status_class' => 'badge-warning'
+        ]
+    ]);
+})->name('employee.dashboard');
+
+// 1. Xem Đơn nghỉ cá nhân
+Route::get('/employee/leaves', function () {
+    return view('employee.leaves');
+})->name('employee.leaves');
+
+// 2. Lịch sử chấm công cá nhân
+Route::get('/employee/attendance', function () {
+    return view('employee.attendance');
+})->name('employee.attendance');
+
+Route::post('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/login');
+})->name('logout');
+
+?>

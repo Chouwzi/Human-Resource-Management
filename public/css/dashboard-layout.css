@@ -1,31 +1,26 @@
-/* =========================================
-   DASHBOARD CHUNG (Admin & Employee)
-   File: public/css/dashboard-layout.css
-========================================= */
-
+/* Khung nền chung */
 body {
-    background-color: var(--color-bg-dashboard);
+    margin: 0;
     display: flex;
+    background-color: #f3f4f6;
+    font-family: Arial, sans-serif;
 }
 
-/* --- SIDEBAR DÙNG CHUNG --- */
+/* Cột Menu Trái (Sidebar) */
 .sidebar {
     width: 250px;
-    background-color: var(--color-white);
+    background-color: #ffffff;
     height: 100vh;
     position: fixed;
-    border-right: 1px solid var(--color-border-light);
-    display: flex;
-    flex-direction: column;
+    border-right: 1px solid #e5e7eb;
 }
 
 .logo-area {
-    padding: 30px 20px;
-    font-size: 24px;
+    padding: 20px;
+    font-size: 20px;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    color: #1d4ed8;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .menu-list {
@@ -35,85 +30,201 @@ body {
 }
 
 .menu-item {
-    padding: 15px 30px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    color: var(--color-muted);
+    padding: 15px 20px;
+    color: #4b5563;
     text-decoration: none;
+    gap: 12px;
     font-weight: 500;
-    transition: all 0.3s;
+    transition: 0.2s;
 }
 
-/* --- MAIN CONTENT & HEADER DÙNG CHUNG --- */
+.menu-item:hover,
+.menu-item.active {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border-right: 4px solid #1d4ed8;
+}
+
+/* Xóa padding bọc ngoài để Header bám sát lề trên */
 .main-content {
     margin-left: 250px;
-    padding: 30px 40px;
     width: calc(100% - 250px);
-    box-sizing: border-box;
+    padding: 0; /* Xóa khoảng trắng thừa */
 }
 
+/* Biến Header thành thanh điều hướng phẳng */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-white);
-    padding: 20px 40px;
-    margin: -30px -40px 40px -40px;
-    border-bottom: 1px solid var(--color-border-light);
+    background-color: #ffffff;
+    padding: 0 25px;
+    height: 65px; /* Ép chiều cao khớp chính xác với ô Logo bên trái */
+    border-bottom: 1px solid #e5e7eb; /* Kẻ vạch dưới nối liền với vạch của Logo */
+    border-radius: 0; /* Xóa bo góc */
+    box-shadow: none; /* Xóa bóng đổ */
+    gap: 20px; /* Ép khoảng cách an toàn giữa Tiêu đề và Ô tìm kiếm */
+    flex-wrap: nowrap; /* TUYỆT ĐỐI KHÔNG cho phép các thành phần rớt dòng */
+}
+
+/* Bù lại khoảng cách cho phần ruột bên dưới */
+.content-body {
+    padding: 25px;
 }
 
 .header-title {
-    font-size: 28px;
-    font-weight: 600;
     margin: 0;
+    font-size: 22px;
+    white-space: nowrap;
+    flex-shrink: 0; /* CHÌA KHÓA: Cấm bóp méo tiêu đề trong mọi trường hợp */
 }
 
 .profile-area {
     display: flex;
     align-items: center;
     gap: 20px;
-    font-size: 20px;
-    color: var(--color-muted);
+    flex-shrink: 0; /* Khóa cứng khu vực này, không cho phép trình duyệt bóp méo Avatar và Ô tìm kiếm */
+}
+
+.avatar-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: var(--color-border);
+    width: 40px;
+    height: 40px;
     background-size: cover;
     background-position: center;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
 }
 
-/* --- TÌM KIẾM DÙNG CHUNG --- */
+/* Ẩn bớt gạch chân của link */
+a {
+    text-decoration: none;
+}
+/* --- SỬA THANH TÌM KIẾM --- */
 .search-box {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 300px; /* Giới hạn độ to tối đa */
 }
+
 .search-input {
-    width: 0;
-    opacity: 0;
-    visibility: hidden;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    padding: 8px 15px;
-    font-size: 14px;
+    padding: 10px 35px 10px 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 25px;
     outline: none;
-    transition: all 0.3s ease;
-    position: absolute;
-    right: 30px;
-    background-color: var(--color-input-bg);
+    width: 250px;
+    font-size: 14px;
 }
-.search-input.active {
-    width: 200px;
-    opacity: 1;
-    visibility: visible;
-    border-color: var(--color-border);
-}
+
 .search-icon {
-    cursor: pointer;
-    transition: color 0.2s;
-    z-index: 10;
+    position: absolute;
+    right: 15px;
+    color: #6b7280;
+}
+/* =========================================
+   1. DESKTOP (Width >= 1024px) 
+   (Code mặc định ở trên cùng file đã lo phần này)
+========================================= */
+
+/* =========================================
+   2. TABLET (768px <= Width < 1024px)
+========================================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Ép thẻ thống kê rớt xuống 2 cột (Dành cho trang Tổng quan) */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Giảm bớt lề thừa */
+    .content-body {
+        padding: 15px;
+    }
+
+    /* --- BỔ SUNG FIX LỖI HEADER BỊ TRÀN CHỮ --- */
+
+    /* 1. Thu nhỏ tiêu đề, cấm rớt dòng, nếu dài quá thì hiện dấu ... */
+    .header-title {
+        font-size: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+
+    /* 2. Ẩn tên tài khoản, chỉ giữ lại Avatar để tiết kiệm diện tích ngang */
+    .user-name {
+        display: none;
+    }
+
+    /* 3. Khống chế lại chiều rộng thanh tìm kiếm ở mức vừa phải */
+    .search-box {
+        width: 220px;
+    }
+
+    .profile-area {
+        gap: 15px; /* Giảm khoảng cách giữa ô tìm kiếm và avatar */
+    }
+}
+/* =========================================
+   3. MOBILE (Width < 768px)
+========================================= */
+@media (max-width: 767px) {
+    /* ... (giữ nguyên phần .sidebar và .main-content cũ) ... */
+
+    /* --- ĐỒNG BỘ HEADER MOBILE GIỐNG TABLET --- */
+    .header {
+        height: 65px;
+        padding: 0 15px;
+        display: flex; /* Dùng Flexbox giống Desktop/Tablet thay vì Grid phức tạp */
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .header-title {
+        font-size: 18px; /* Chữ nhỏ gọn, dễ nhìn */
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Dài quá tự có dấu ... */
+        flex: 1; /* Cho phép Tiêu đề chiếm không gian nhưng không lấn át phần khác */
+    }
+
+    .profile-area {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Khoảng cách giữa Search và Avatar */
+    }
+
+    .user-name {
+        display: none; /* Ẩn tên Admin, chỉ giữ Avatar */
+    }
+
+    /* Thu nhỏ thanh tìm kiếm cho vừa điện thoại */
+    .search-box {
+        width: 150px; /* Nhỏ lại để nhường chỗ cho Tiêu đề */
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 6px 30px 6px 15px;
+        font-size: 13px;
+        box-sizing: border-box;
+    }
+
+    .search-icon {
+        right: 10px;
+        font-size: 12px;
+    }
+
+    /* ... (giữ nguyên phần .stats-grid cũ) ... */
 }

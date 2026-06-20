@@ -48,15 +48,24 @@
                     autocomplete="one-time-code" autofocus>
             </div>
 
-            <div class="input-group">
+            {{-- Mật khẩu mới giới hạn 32 ký tự & tích hợp Xem/Ẩn mật khẩu --}}
+            <div class="input-group" style="position: relative;">
                 <i class="fas fa-lock icon"></i>
-                <input type="password" id="password" name="password" placeholder="Mật khẩu mới (Tối thiểu 8 ký tự)">
+                <input type="password" id="password" name="password" placeholder="Mật khẩu mới (Tối thiểu 8 ký tự)"
+                    maxlength="32">
+                <i class="fas fa-eye toggle-password" toggle="#password"
+                    style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #9ca3af;"
+                    title="Xem/Ẩn mật khẩu"></i>
             </div>
 
-            <div class="input-group">
+            {{-- Xác nhận mật khẩu mới giới hạn 32 ký tự & tích hợp Xem/Ẩn mật khẩu --}}
+            <div class="input-group" style="position: relative;">
                 <i class="fas fa-check-circle icon"></i>
                 <input type="password" id="password_confirmation" name="password_confirmation"
-                    placeholder="Xác nhận mật khẩu mới">
+                    placeholder="Xác nhận mật khẩu mới" maxlength="32">
+                <i class="fas fa-eye toggle-password" toggle="#password_confirmation"
+                    style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #9ca3af;"
+                    title="Xem/Ẩn mật khẩu"></i>
             </div>
 
             <button type="submit" class="btn-login" id="submitBtn">Xác Nhận & Cập Nhật</button>
