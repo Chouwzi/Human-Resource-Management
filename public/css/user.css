@@ -1,0 +1,69 @@
+/* header */
+.user-header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: var(--topbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+.user-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+.user-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+.nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary);
+}
+.user-profile-menu {
+    border-left: 1px solid var(--border-color);
+    padding-left: 1.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* Container */
+.user-main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* responsive mobile - chuyển thanh header sang ngang*/
+@media (max-width: 640px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    .user-nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .user-profile-menu {
+        border-left: none;
+        padding-left: 0;
+    }
+}
