@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Cổng thông tin Nhân viên')</title>
+    <title>Cổng thông tin Nhân viên</title> <!--Có thể chỉnh chỗ này-->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
@@ -17,14 +17,14 @@
                 <a href="#" class="nav-link active">Dashboard</a>
                 <a href="#" class="nav-link">Đơn nghỉ phép</a>
                 <div class="user-profile-menu">
-                    <span>Mã NV: 1245</span>
+                    <span>placeholder mã nv</span> <!--Có thể chỉnh chỗ này-->
                 </div>
             </nav>
         </div>
     </header>
 
     <main class="user-main-content">
-        @yield('content')
+        placeholder content <!--Bỏ content vào đây-->
     </main>
 
 </body>
