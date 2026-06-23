@@ -1,17 +1,31 @@
+/* Khung bao ngoài cùng */
 .admin-layout {
     display: flex;
-    min-height: 100vh;
+    height: 100vh; /* Chốt cứng chiều cao bằng đúng 1 khung hình trình duyệt */
+    overflow: hidden; /* Cấm cuộn toàn trang */
 }
 
-/* sidebar */
+/* Sidebar cố định bên trái */
 .admin-sidebar {
-    width: var(--sidebar-width);
-    background-color: #0f172a;
-    color: #f8fafc;
+    width: var(--sidebar-width, 260px);
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
+    height: 100vh; /* Chiều cao sidebar luôn bằng màn hình */
+    overflow-y: auto; /* Chỉ cho phép cuộn riêng bên trong sidebar nếu menu quá dài */
     transition: transform 0.3s ease;
     z-index: 100;
+}
+
+/* Khu vực nội dung chính bên phải tự cuộn */
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Chiều cao vùng nội dung bằng màn hình */
+    overflow-y: auto; /* Thanh cuộn của trang sẽ xuất hiện ở đây */
 }
 .sidebar-brand {
     height: var(--topbar-height);
@@ -20,7 +34,8 @@
     padding: 0 1.5rem;
     font-size: 1.25rem;
     font-weight: 700;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid var(--border-color); /* Đổi viền dưới cho đồng bộ */
+    color: var(--text-main); /* Đổi màu chữ logo */
 }
 .sidebar-menu {
     padding: 1rem 0.75rem;
@@ -30,14 +45,18 @@
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    color: #94a3b8;
+    color: #475569; /* Chữ xám mặc định cho dịu mắt */
     border-radius: 0.375rem;
     margin-bottom: 0.25rem;
     font-weight: 500;
+    border: 1px solid transparent; /* Thêm sẵn viền trong suốt để không bị giật khung khi hover */
+    transition: all 0.2s ease;
 }
-.menu-item:hover, .menu-item.active {
-    background-color: #1e293b;
-    color: #fff;
+
+.menu-item:hover,
+.menu-item.active {
+    background-color: #f0f8ff; /* Nền xanh lam cực kỳ nhạt */
+    color: #007bff; /* Màu xanh dương chuẩn, không bị ám tím */
 }
 
 /* main content area */
@@ -58,7 +77,11 @@
     justify-content: space-between;
     padding: 0 1.5rem;
 }
-.topbar-left { display: flex; align-items: center; gap: 1rem; }
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 .btn-toggle-sidebar {
     display: none;
     background: none;
@@ -67,7 +90,13 @@
     cursor: pointer;
     color: var(--text-main);
 }
-.topbar-right { font-weight: 500; }
+.topbar-right {
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
 
 /* crud content */
 .admin-content {
