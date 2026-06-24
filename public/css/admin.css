@@ -26,7 +26,9 @@
     flex-direction: column;
     height: 100vh; /* Chiều cao vùng nội dung bằng màn hình */
     overflow-y: auto; /* Thanh cuộn của trang sẽ xuất hiện ở đây */
+    min-width: 0; /* Chống tràn Flexbox */
 }
+
 .sidebar-brand {
     height: var(--topbar-height);
     display: flex;
@@ -34,13 +36,19 @@
     padding: 0 1.5rem;
     font-size: 1.25rem;
     font-weight: 700;
-    border-bottom: 1px solid var(--border-color); /* Đổi viền dưới cho đồng bộ */
-    color: var(--text-main); /* Đổi màu chữ logo */
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    
+    /* FIX: Ép cứng kích thước, không cho co giãn và tính luôn viền */
+    box-sizing: border-box;
+    flex-shrink: 0; 
 }
+
 .sidebar-menu {
     padding: 1rem 0.75rem;
     flex: 1;
 }
+
 .menu-item {
     display: flex;
     align-items: center;
@@ -59,14 +67,6 @@
     color: #007bff; /* Màu xanh dương chuẩn, không bị ám tím */
 }
 
-/* main content area */
-.admin-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-width: 0; /* Chống tràn Flexbox */
-}
-
 /* topbar */
 .admin-topbar {
     height: var(--topbar-height);
@@ -76,12 +76,24 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
+    
+    /* FIX: Ép cứng kích thước, không cho co giãn và tính luôn viền */
+    box-sizing: border-box;
+    flex-shrink: 0;
 }
+
+/* FIX: Ngăn chặn thẻ h2 bên trong đẩy lệch chiều cao của Topbar */
+.admin-topbar h2 {
+    margin: 0;
+    line-height: 1;
+}
+
 .topbar-left {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .btn-toggle-sidebar {
     display: none;
     background: none;
@@ -90,12 +102,21 @@
     cursor: pointer;
     color: var(--text-main);
 }
+
 .topbar-right {
     font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+/* =========================================
+   THÊM MỚI: CĂN CHỈNH ICON AVATAR
+   ========================================= */
+.topbar-right i {
+    font-size: 1.5rem;   /* Phóng to icon bằng với size chữ */
+    margin-left: 8px;    /* Đẩy icon cách xa tên một khoảng vừa phải */
 }
 
 /* crud content */
