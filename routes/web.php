@@ -49,3 +49,4 @@ Route::get('/user', function (Request $request) {
 
     return view('dashboard.user', ['role' => 'employee']);
 })->name('user.home');
+
