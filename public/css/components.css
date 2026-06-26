@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. CÁC COMPONENT GỐC CỦA BẠN (Đã khôi phục)
+   ========================================================================== */
 /* buttons */
 .btn {
     display: inline-flex;
@@ -11,12 +14,32 @@
     cursor: pointer;
     transition: all 0.2s ease;
 }
-.btn-primary { background-color: var(--primary); color: #fff; }
-.btn-primary:hover { background-color: var(--primary-hover); }
-.btn-secondary { background-color: #fff; border-color: var(--border-color); color: var(--text-main); }
-.btn-secondary:hover { background-color: #f1f5f9; }
-.btn-danger { background-color: var(--danger); color: #fff; }
-.btn-danger:hover { opacity: 0.9; }
+.btn-primary {
+    background-color: var(--primary);
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+.btn-secondary {
+    background-color: #fff;
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+.btn-secondary:hover {
+    background-color: #f1f5f9;
+}
+.btn-danger {
+    background-color: var(--danger);
+    color: #fff;
+}
+.btn-danger:hover {
+    opacity: 0.9;
+}
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
 
 /* input */
 .form-control {
@@ -43,22 +66,22 @@
     border-radius: 0.5rem;
     border: 1px solid var(--border-color);
 }
+
 .table {
     width: 100%;
+    min-width: 700px;
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
     font-size: 0.875rem;
 }
-.table th, .table td {
+
+.table th,
+.table td {
     padding: 1rem;
     border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+    vertical-align: middle;
 }
-.table th {
-    background-color: #f8fafc;
-    font-weight: 600;
-    color: var(--text-muted);
-}
-.table tr:last-child td { border-bottom: none; }
 
 /* badges */
 .badge {
@@ -68,9 +91,18 @@
     font-weight: 600;
     border-radius: 9999px;
 }
-.badge-success { background-color: #dcfce7; color: #15803d; }
-.badge-warning { background-color: #fef3c7; color: #92400e; }
-.badge-danger { background-color: #fee2e2; color: #b91c1c; }
+.badge-success {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+.badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+.badge-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
 
 /* alert */
 .alert {
@@ -80,6 +112,187 @@
     font-size: 0.875rem;
     border: 1px solid transparent;
 }
-.alert-info { background-color: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
-.alert-success { background-color: #f0fdf4; border-color: #bbf7d0; color: #166534; }
-.alert-danger { background-color: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+.alert-info {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+.alert-success {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+.alert-danger {
+    background-color: #fef2f2;
+    border-color: #fca5a5;
+    color: #991b1b;
+}
+
+/* ==========================================================================
+   2. CÁC COMPONENT MỚI BỔ SUNG CHO DASHBOARD
+   ========================================================================== */
+
+/* Lời chào (Welcome Header) */
+.dashboard-welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.welcome-title {
+    margin: 0;
+    color: var(--text-main);
+}
+.welcome-subtitle {
+    margin: 0.5rem 0 0 0;
+    color: var(--text-muted);
+}
+.status-badge {
+    font-size: 0.875rem; 
+    padding: 0.5rem 1rem;
+}
+
+/* Thẻ thống kê (Stats Grid) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.stat-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    text-align: center;
+}
+.stat-card-title {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.stat-card-value {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.stat-card-value.success {
+    color: #15803d; 
+}
+.stat-card-subtext {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* Thẻ thống kê ngang của Admin */
+.stat-card-flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+}
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.bg-indigo { background: #e0e7ff; color: var(--primary); }
+.bg-warning-light { background: #fef3c7; color: #d97706; }
+
+/* Thanh công cụ Admin */
+.action-bar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Lưới nội dung chính (Profile & Bảng) */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+.content-card {
+    background: var(--bg-card);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+}
+.content-card-header {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.content-card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.content-card-header-flex h4 {
+    margin: 0;
+    color: var(--primary);
+}
+.link-view-all {
+    font-size: 0.875rem;
+    color: #1d4ed8; 
+    text-decoration: none;
+}
+
+/* Xử lý bảng trong thẻ để không viền kép */
+.content-card .table-responsive {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* Danh sách hồ sơ */
+.profile-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.profile-info-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.profile-info-label { color: var(--text-muted); }
+.profile-info-value { color: var(--text-main); font-weight: 700; }
+
+/* Tiện ích (Utilities) */
+.card-actions {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+.w-100 { width: 100%; }
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.m-0 { margin: 0 !important; }
+.mr-2 { margin-right: 0.5rem; }
+.brand-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
