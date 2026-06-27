@@ -24,17 +24,11 @@ $myInfo = (object)[
     'salary_month' => 'Tháng 05/2026',
     'salary_status' => 'Đã thanh toán'
 ];
-
-// Lịch sử xin nghỉ phép
-$myLeaves = [
-    (object)['type' => 'Nghỉ ốm', 'date' => '10/06/2026', 'days' => 1, 'status' => 'Đã duyệt', 'status_class' => 'success'],
-    (object)['type' => 'Việc cá nhân', 'date' => '25/06/2026', 'days' => 2, 'status' => 'Chờ duyệt', 'status_class' => 'warning'],
-];
 @endphp
 
 <div class="dashboard-welcome">
     <div>
-        <h3 class="welcome-title">Xin chào, {{ $myInfo->full_name }}! 👋</h3>
+        <h3 class="welcome-title">Xin chào, {{ $myInfo->full_name }}! </h3>
         <p class="welcome-subtitle">Chúc bạn một ngày làm việc hiệu quả.</p>
     </div>
     <div>
@@ -53,7 +47,7 @@ $myLeaves = [
     <div class="stat-card">
         <div class="stat-card-title">Phép Năm Còn Lại</div>
         <div class="stat-card-value">
-            {{ $myInfo->leave_balance - $myInfo->leave_taken }} 
+            {{ $myInfo->leave_balance - $myInfo->leave_taken }}
             <span class="stat-card-subtext">/ {{ $myInfo->leave_balance }} ngày</span>
         </div>
     </div>
@@ -91,10 +85,10 @@ $myLeaves = [
     <div class="content-card">
         <div class="content-card-header-flex">
             <h4>Đơn Nghỉ Phép Gần Đây</h4>
-            <a href="#" class="link-view-all">Xem tất cả</a>
+            <a href="{{ route('leaves.index') }}" class="link-view-all">Xem tất cả</a>
         </div>
 
-        @if(count($myLeaves) > 0)
+        @if($recentLeaves->count() > 0)
         <div class="table-responsive m-0">
             <table class="table" style="min-width: unset;">
                 <thead>
@@ -105,11 +99,23 @@ $myLeaves = [
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($myLeaves as $leave)
+                    @foreach($recentLeaves as $leave)
+                    @php
+                        $statusMap = [
+                            'pending'   => ['label' => 'Chờ duyệt', 'class' => 'warning'],
+                            'approved'  => ['label' => 'Đã duyệt',  'class' => 'success'],
+                            'rejected'  => ['label' => 'Từ chối',   'class' => 'danger'],
+                            'cancelled' => ['label' => 'Đã hủy',    'class' => 'secondary'],
+                        ];
+                        $s = $statusMap[$leave->status] ?? ['label' => $leave->status, 'class' => 'secondary'];
+                    @endphp
                     <tr>
-                        <td><strong>{{ $leave->type }}</strong><br><small class="text-muted">{{ $leave->days }} ngày</small></td>
-                        <td>{{ $leave->date }}</td>
-                        <td><span class="badge badge-{{ $leave->status_class }}">{{ $leave->status }}</span></td>
+                        <td>
+                            <strong>{{ $leave->leave_type }}</strong><br>
+                            <small class="text-muted">{{ $leave->days }} ngày</small>
+                        </td>
+                        <td>{{ \Carbon\Carbon::parse($leave->start_date)->format('d/m/Y') }}</td>
+                        <td><span class="badge badge-{{ $s['class'] }}">{{ $s['label'] }}</span></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -122,7 +128,7 @@ $myLeaves = [
         @endif
 
         <div class="card-actions">
-            <button class="btn btn-primary w-100">Tạo đơn nghỉ phép mới</button>
+            <a href="{{ route('leaves.create') }}" class="btn btn-primary w-100" style="text-decoration: none; box-sizing: border-box;">Tạo đơn nghỉ phép mới</a>
         </div>
     </div>
 </div>

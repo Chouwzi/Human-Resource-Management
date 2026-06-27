@@ -6,9 +6,11 @@
 @section('content')
 
 @php
+// 1. Lấy tổng số đơn chờ duyệt thực tế từ Database thông qua Model Leave
+$pendingLeavesCount = \App\Models\Leave::where('status', 'pending')->count();
+
 // Dữ liệu demo bám sát 100% các cột trong migration 'employees'
 $totalEmployees = 12;
-$pendingLeaves = 3;
 
 $recentEmployees = [
     (object)[
@@ -65,7 +67,7 @@ $recentEmployees = [
         </div>
         <div>
             <div class="stat-card-title">Đơn Chờ Duyệt</div>
-            <div class="stat-card-value">{{ $pendingLeaves }}</div>
+            <div class="stat-card-value">{{ $pendingLeavesCount }}</div>
         </div>
     </div>
 </div>

@@ -141,3 +141,51 @@
         transform: translateX(0);
     }
 }
+
+
+.pending-grid {
+    display: block;
+}
+
+.pending-header {
+    border: none;
+    padding-bottom: 1rem;
+    margin: 0;
+}
+
+.table-custom {
+    min-width: 900px;
+}
+
+/* Các class căn chỉnh kích thước & vị trí */
+.w-5 { width: 5%; }
+.w-15 { width: 15%; }
+.w-20 { width: 20%; }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+
+/* Các class định dạng chữ */
+.text-muted-sm {
+    font-size: 0.85em;
+    color: var(--text-muted); /* Nhớ đảm bảo biến này đã có trong hệ thống CSS của bạn, hoặc đổi thành #6c757d */
+}
+
+.reason-text {
+    white-space: normal;
+    color: var(--text-muted);
+}
+
+/* Các class cho nút bấm (Hành động) */
+.form-action {
+    display: inline-block;
+}
+
+.form-reject {
+    margin-left: 0.5rem;
+}
+
+.btn-action {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.875rem;
+}
