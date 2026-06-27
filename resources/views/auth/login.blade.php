@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f8fafc; margin: 0; }
-        .container { max-width: 420px; margin: 80px auto; padding: 24px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 8px 24px rgba(15,23,42,.08); }
-        .title { margin-bottom: 16px; font-size: 22px; font-weight: 600; }
-        .field { margin-bottom: 16px; }
-        .field label { display: block; margin-bottom: 6px; color: #334155; font-weight: 600; }
-        .field input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; }
-        .button { width: 100%; padding: 12px 14px; background: #0f766e; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; }
-        .error { margin-bottom: 16px; color: #b91c1c; background: #fef2f2; border: 1px solid #fecaca; padding: 12px; border-radius: 8px; }
-        .hint { margin-top: 18px; color: #475569; font-size: 14px; }
-        .hint strong { color: #0f766e; }
-    </style>
+    <title>Đăng Nhập - Team 6 HRM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
-<body>
-    <div class="container">
-        <h1 class="title">Đăng nhập</h1>
+
+<body class="login-body">
+
+    <div class="team-intro">Dự Án Quản Lý Nhân Sự - Team 6</div>
+
+    <div class="login-card">
+        <h2 class="title">Đăng Nhập</h2>
+
+        <div id="js-error-message" class="alert-error"></div>
 
         @if ($errors->any())
-            <div class="error">
-                {{ $errors->first() }}
-            </div>
+        <div class="alert-error">
+            {{ $errors->first() }}
+        </div>
         @endif
 
-        <form method="POST" action="{{ route('login.store') }}">
+        <form id="loginForm" action="{{ route('login.store') }}" method="POST">
             @csrf
-
-            <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" value="{{ old('email') }}" required autofocus>
+            <div class="input-group">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Nhập Email của bạn"
+                    maxlength="255" autofocus>
             </div>
 
-            <div class="field">
-                <label for="password">Mật khẩu</label>
-                <input id="password" name="password" type="password" required>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="password" name="password" placeholder="Mật khẩu" maxlength="100">
+                <i class="far fa-eye toggle-password" onclick="togglePasswordVisibility()"></i>
             </div>
 
-            <button class="button" type="submit">Đăng nhập</button>
+            <button type="submit" class="btn-login" id="submitBtn">
+                <span class="spinner" id="loginSpinner"></span>
+                <span id="btnText">Đăng Nhập</span>
+            </button>
         </form>
 
         <p class="hint">
             Demo accounts:<br>
-            admin@example.com / password<br>
-            hr@example.com / password<br>
-            employee@example.com / password
+            <strong>admin@example.com</strong> / password<br>
+            <strong>hr@example.com</strong> / password<br>
+            <strong>employee@example.com</strong> / password
         </p>
     </div>
+
+    <script src="{{ asset('js/auth.js') }}"></script>
 </body>
+
 </html>

@@ -5,11 +5,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.store');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -60,11 +56,3 @@ Route::get('/user', function (Request $request) {
     // Truyền biến $user sang cho View
     return view('leaves.employee', ['user' => $user]);
 })->name('user.home');
-// Route tạm để test UI Task 8
-Route::get('/ui-nghi-phep', function () {
-    return view('leaves.employee');
-});
-
-Route::get('/ui-duyet-phep', function () {
-    return view('leaves.admin');
-});
