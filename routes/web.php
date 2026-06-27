@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Models\User; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::get('/dashboard', function (Request $request) {
         : redirect()->route('user.home');
 })->name('dashboard');
 
+// SỬA ROUTE ADMIN
 Route::get('/admin', function (Request $request) {
     if (! $request->session()->has('user_id')) {
         return redirect()->route('login');
@@ -35,9 +37,14 @@ Route::get('/admin', function (Request $request) {
         abort(403, 'Không có quyền truy cập.');
     }
 
-    return view('dashboard.admin', ['role' => $role]);
+    // Truy vấn thông tin người dùng từ Database dựa vào Session
+    $user = User::find($request->session()->get('user_id'));
+
+    // Truyền biến $user sang cho View
+    return view('leaves.admin', ['user' => $user]); 
 })->name('admin.home');
 
+// SỬA ROUTE USER
 Route::get('/user', function (Request $request) {
     if (! $request->session()->has('user_id')) {
         return redirect()->route('login');
@@ -47,5 +54,17 @@ Route::get('/user', function (Request $request) {
         abort(403, 'Không có quyền truy cập.');
     }
 
-    return view('dashboard.user', ['role' => 'employee']);
+    // Truy vấn thông tin người dùng từ Database dựa vào Session
+    $user = User::find($request->session()->get('user_id'));
+
+    // Truyền biến $user sang cho View
+    return view('leaves.employee', ['user' => $user]);
 })->name('user.home');
+// Route tạm để test UI Task 8
+Route::get('/ui-nghi-phep', function () {
+    return view('leaves.employee');
+});
+
+Route::get('/ui-duyet-phep', function () {
+    return view('leaves.admin');
+});
