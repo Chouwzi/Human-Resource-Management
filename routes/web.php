@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LeaveController;
+use App\Models\Leave;
 
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.store');
@@ -34,6 +36,11 @@ Route::get('/admin', function (Request $request) {
     return view('dashboard.admin', ['role' => $role]);
 })->name('admin.home');
 
+
+Route::get('/admin/leaves/pending', function () {
+    return view('admin.leaves.pending');
+})->name('admin.leaves.pending');
+
 Route::get('/user', function (Request $request) {
     if (! $request->session()->has('user_id')) {
         return redirect()->route('login');
@@ -43,6 +50,39 @@ Route::get('/user', function (Request $request) {
         abort(403, 'Không có quyền truy cập.');
     }
 
-    return view('dashboard.user', ['role' => 'employee']);
+     $recentLeaves = \App\Models\Leave::where('emp_id', '1')
+        ->orderBy('created_at', 'desc')
+        ->take(3)
+        ->get();
+
+    return view('dashboard.user', [
+        'role'         => 'employee',
+        'recentLeaves' => $recentLeaves,
+    ]);
 })->name('user.home');
 
+Route::get('/leaves', function () {
+    return view('user.leaves.index');
+})->name('leaves.index');
+
+Route::get('/leaves/create', function () {
+    return view('user.leaves.create'); 
+})->name('leaves.create');
+// Phân hệ cho Nhân viên (User)
+Route::get('/leaves', [LeaveController::class, 'index'])->name('leaves.index');
+Route::get('/leaves/create', [LeaveController::class, 'create'])->name('leaves.create');
+Route::post('/leaves/store', [LeaveController::class, 'store'])->name('leaves.store');
+Route::post('/leaves/cancel/{id}', [LeaveController::class, 'cancel'])->name('leaves.cancel');
+
+// Phân hệ cho Quản lý (Admin/HR)
+Route::get('/admin/leaves/pending', [LeaveController::class, 'pending'])->name('admin.leaves.pending');
+Route::post('/admin/leaves/approve/{id}', [LeaveController::class, 'approve'])->name('admin.leaves.approve');
+Route::post('/admin/leaves/reject/{id}', [LeaveController::class, 'reject'])->name('admin.leaves.reject');
+
+Route::get('/api/leaves/pending-count', function() {
+    return response()->json([
+        'count' => Leave::where('status', 'pending')->count()
+    ]);
+});
+// Route xóa đơn nghỉ phép
+Route::delete('/leaves/delete/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');

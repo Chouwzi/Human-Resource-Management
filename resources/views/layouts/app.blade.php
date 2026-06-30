@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components.css') }}">
-
+    
     @stack('styles')
 </head>
 
@@ -33,17 +33,27 @@
                 </a>
 
                 @if(request()->is('admin*'))
-                <a href="#" class="menu-item">
-                    Nhân Sự
-                </a>
-                <a href="#" class="menu-item">
-                    Phòng Ban
-                </a>
+                    <a href="#" class="menu-item">
+                        Nhân Sự
+                    </a>
+                    <a href="#" class="menu-item">
+                        Phòng Ban
+                    </a>
+                    <a href="{{ route('admin.leaves.pending') }}" 
+                        class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
+                        Duyệt Đơn Nghỉ Phép
+                    </a>
+                @else
+                    <a href="{{ route('leaves.create') }}" 
+                        class="menu-item {{ request()->routeIs('leaves.create') ? 'active' : '' }}">
+                        Tạo Đơn Nghỉ Phép
+                    </a>
+                    <a href="{{ route('leaves.index') }}" 
+                        class="menu-item {{ request()->routeIs('leaves.index') ? 'active' : '' }}">
+                        Lịch Sử Đơn Nghỉ Phép
+                    </a>
                 @endif
 
-                <a href="#" class="menu-item">
-                    Đơn Nghỉ Phép
-                </a>
                 <a href="#" class="menu-item">
                     Chấm Công
                 </a>
@@ -105,8 +115,9 @@
             }
         }
     });
+    
     </script>
-
+    <script src="{{ asset('js/main.js') }}"></script>
     @stack('scripts')
 </body>
 

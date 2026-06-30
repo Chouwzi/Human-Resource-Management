@@ -296,3 +296,42 @@
     width: 100%;
     height: 100%;
 }
+/* ==========================================================================
+   FORM COMPONENTS (Dành cho trang Tạo Đơn, Cập nhật hồ sơ...)
+   ========================================================================== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical; /* Cho phép User kéo dọc để mở rộng ô nhập */
+}
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Căn các nút bấm sang phải */
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+/* Ẩn bớt chữ dài trong bảng bằng dấu ba chấm */
+.reason-ellipsis {
+    max-width: 150px;       /* Giới hạn độ rộng tối đa của cột */
+    white-space: nowrap;    /* Không cho chữ xuống dòng */
+    overflow: hidden;       /* Ẩn phần chữ bị tràn ra ngoài */
+    text-overflow: ellipsis;/* Hiển thị dấu ... ở cuối */
+    cursor: pointer;        /* Đổi con trỏ chuột thành hình bàn tay để báo hiệu có thể xem */
+    text-align: center;     /* Căn giữa nội dung */
+    vertical-align: middle; /* Căn giữa theo chiều dọc */
+}
