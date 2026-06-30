@@ -12,8 +12,12 @@ class LeaveController extends Controller
     // 1. Nhân viên xem lịch sử đơn của mình
     public function index()
     {
-    $leavesHistory = \App\Models\Leave::orderBy('created_at', 'desc')->get();
-    return view('user.leaves.index', compact('leavesHistory'));
+        $userId = session('user_id');
+        $leavesHistory = \App\Models\Leave::where('emp_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $user = \App\Models\User::find($userId);
+        return view('user.leaves.index', compact('leavesHistory', 'user'));
     }
 
     // 2. Nhân viên vào trang tạo đơn
@@ -32,21 +36,24 @@ class LeaveController extends Controller
             'reason' => 'required',
         ]);
 
+        $userId = session('user_id');
+        $user = \App\Models\User::find($userId);
+        $empName = $user ? ($user->name ?? $user->email) : 'Không rõ';
+
         // Tự động tính toán số ngày nghỉ dựa trên khoảng cách ngày
         $start = Carbon::parse($request->start_date);
         $end = Carbon::parse($request->end_date);
         $days = $start->diffInDays($end) + 1;
 
-        // Lưu thông tin vào Database (Tạm thời dùng thông tin cứng, sau này ráp Auth::user() vào)
         Leave::create([
-            'emp_id' => '1',
-            'emp_name' => 'Nguyễn Trung Nguyên',
+            'emp_id'     => $userId,
+            'emp_name'   => $empName,
             'leave_type' => $request->leave_type,
             'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'days' => $days,
-            'reason' => $request->reason,
-            'status' => 'pending',
+            'end_date'   => $request->end_date,
+            'days'       => $days,
+            'reason'     => $request->reason,
+            'status'     => 'pending',
         ]);
 
         return redirect()->route('leaves.index')->with('success', 'Gửi đơn nghỉ phép thành công!');
@@ -118,17 +125,5 @@ class LeaveController extends Controller
         $leave->delete();
 
         return redirect()->route('leaves.index')->with('success', 'Đã xóa đơn nghỉ phép thành công!');
-    }
-    
-    public function dashboard()
-    {
-    $emp_id = '1'; // Sau này thay bằng Auth::user()->emp_id
-
-    $recentLeaves = Leave::where('emp_id', $emp_id)
-        ->orderBy('created_at', 'desc')
-        ->take(5)
-        ->get();
-
-    return view('dashboard.user', compact('recentLeaves'));
     }
 }
