@@ -145,3 +145,25 @@ function confirmDeleteLeave(id) {
         }
     });
 }
+// Hàm mở Modal
+function openModal(id) {
+    const modal = document.getElementById('modal' + id);
+    if (modal) {
+        modal.style.display = "block";
+    }
+}
+
+// Hàm đóng Modal
+function closeModal(id) {
+    const modal = document.getElementById('modal' + id);
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Đóng khi người dùng click vào vùng mờ xung quanh
+window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('my-modal')) {
+        event.target.style.display = "none";
+    }
+});
