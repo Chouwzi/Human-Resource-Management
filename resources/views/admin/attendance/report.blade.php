@@ -76,7 +76,6 @@
                         $s = $statusMap[$item->status] ?? ['class' => '', 'text' => 'Khác'];
                     @endphp
 
-                    <span class="badge {{ $s['class'] }}">{{ $s['text'] }}</span>
                     <tr>
                         <td><strong>{{ date('d/m/Y', strtotime($item->work_date)) }}</strong></td>
                         <td class="text-primary font-weight-bold">{{ $item->user->name ?? $item->user->email ?? 'ID: '.$item->employee_id }}</td>
@@ -84,7 +83,7 @@
                         <td class="text-danger">{{ $item->check_out ?? '--:--' }}</td>
                         <td>{{ $item->worked_minutes }} p</td>
                         <td class="text-info">{{ $item->overtime_minutes }} p</td>
-                        <td><span class="badge" {!! $s['attr'] !!}>{{ $s['text'] }}</span></td>
+                        <td><span class="badge {{ $s['class'] }}">{{ $s['text'] }}</span></td>
                         <td>
                             <button type="button" class="btn btn-sm btn-primary" onclick="openModal('{{ $item->id }}')">Sửa</button>
                         </td>
