@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LeaveController;
 use App\Models\Leave;
+use App\Http\Controllers\AttendanceController;
+use App\Models\Attendance;
 
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.store');
@@ -77,3 +79,13 @@ Route::get('/api/leaves/pending-count', function() {
 
 // Route xóa đơn nghỉ phép
 Route::delete('/leaves/delete/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');
+
+// Phân hệ Chấm công
+Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+Route::post('/attendance/checkin', [AttendanceController::class, 'checkIn'])->name('attendance.checkin');
+Route::post('/attendance/checkout', [AttendanceController::class, 'checkOut'])->name('attendance.checkout');
+
+// Admin sửa bản ghi chấm công
+Route::post('/attendance/update/{id}', [AttendanceController::class, 'update'])->name('attendance.update');
+Route::post('/attendance/finalize', [AttendanceController::class, 'finalizeAttendance'])->name('attendance.finalize');
+

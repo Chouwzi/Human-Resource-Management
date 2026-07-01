@@ -27,37 +27,30 @@
             </div>
 
             <nav class="sidebar-menu">
-                <a href="{{ request()->is('admin*') ? route('admin.home') : route('user.home') }}"
+                <a href="{{ in_array(session('user_role'), ['admin', 'hr']) ? route('admin.home') : route('user.home') }}"
                     class="menu-item {{ (request()->routeIs('admin.home') || request()->routeIs('user.home')) ? 'active' : '' }}">
                     Tổng Quan
                 </a>
 
-                @if(request()->is('admin*'))
-                    <a href="#" class="menu-item">
-                        Nhân Sự
-                    </a>
-                    <a href="#" class="menu-item">
-                        Phòng Ban
-                    </a>
-                    <a href="{{ route('admin.leaves.pending') }}" 
-                        class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
+                @if(in_array(session('user_role'), ['admin', 'hr']))
+                    <a href="#" class="menu-item">Nhân Sự</a>
+                    <a href="#" class="menu-item">Phòng Ban</a>
+                    <a href="{{ route('admin.leaves.pending') }}" class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
                         Duyệt Đơn Nghỉ Phép
                     </a>
                 @else
-                    <a href="{{ route('leaves.create') }}" 
-                        class="menu-item {{ request()->routeIs('leaves.create') ? 'active' : '' }}">
+                    <a href="{{ route('leaves.create') }}" class="menu-item {{ request()->routeIs('leaves.create') ? 'active' : '' }}">
                         Tạo Đơn Nghỉ Phép
                     </a>
-                    <a href="{{ route('leaves.index') }}" 
-                        class="menu-item {{ request()->routeIs('leaves.index') ? 'active' : '' }}">
+                    <a href="{{ route('leaves.index') }}" class="menu-item {{ request()->routeIs('leaves.index') ? 'active' : '' }}">
                         Lịch Sử Đơn Nghỉ Phép
                     </a>
                 @endif
 
-                <a href="#" class="menu-item">
+                <a href="{{ route('attendance.index') }}" class="menu-item {{ Request::is('attendance*') ? 'active' : '' }}">
                     Chấm Công
                 </a>
-            </nav>
+            </nav>  
 
             <div style="padding: 1rem;">
                 <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
@@ -80,12 +73,20 @@
                 </div>
 
                 <div class="topbar-right">
-                    <span>
-                        {{ request()->is('admin*') ? 'Admin' : session('user_name', 'Nguyễn Trung Nguyên') }}
-                    </span>
+        <span>
+            @if(session('user_role') === 'admin' || (Auth::check() && Auth::user()->role_id == 1))
+                Admin
+            @elseif(session('user_role') === 'hr' || (Auth::check() && Auth::user()->role_id == 2))
+                HR
+            @elseif(Auth::check())
+                {{ Auth::user()->name }}
+            @else
+                {{ session('user_name') }}
+            @endif
+        </span>
 
-                    <i class="fas fa-user-circle"></i>
-                </div>
+        <i class="fas fa-user-circle"></i>
+    </div>
             </header>
 
             <div class="admin-content">
