@@ -51,7 +51,28 @@
 </div>
 
 <div class="content-card">
-    <h4 class="content-card-header">Bảng chấm công</h4>
+    <div class="content-card-header-flex">
+        <h4>Bảng chấm công</h4>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <!-- Nút Chốt công -->
+            <form method="POST" action="{{ route('admin.attendance.finalize') }}" style="margin: 0;">
+                @csrf
+                <button type="submit" class="btn btn-secondary" onclick="return confirm('Chốt công cho ngày hôm nay?')">
+                    <i class="fas fa-check-circle"></i> Chốt công hôm nay
+                </button>
+            </form>
+
+            <!-- Lọc theo tháng -->
+            <form method="GET" action="{{ route('admin.attendance.index') }}" style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                <select name="month" style="padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+                    @for($m=1; $m<=12; $m++)
+                        <option value="{{ sprintf('%02d', $m) }}" @selected($month == $m)>Tháng {{ $m }}</option>
+                    @endfor
+                </select>
+                <button type="submit" class="btn btn-secondary" style="padding: 0.35rem 0.75rem;">Lọc</button>
+            </form>
+        </div>
+    </div>
     <div class="table-responsive m-0">
         <table class="table">
             <thead>
@@ -67,17 +88,31 @@
             </thead>
             <tbody>
                 @forelse($logs as $log)
+                @php
+                    $statusMap = [
+                        'present' => ['class' => 'badge-success', 'text' => 'Đúng giờ'],
+                        'late'    => ['class' => 'badge-warning', 'text' => 'Đi muộn'],
+                        'absent'  => ['class' => 'badge-danger', 'text' => 'Vắng mặt'],
+                        'leave'   => ['class' => 'badge-info', 'text' => 'Nghỉ phép']
+                    ];
+                    $s = $statusMap[$log->status] ?? ['class' => '', 'text' => $log->status];
+                @endphp
                 <tr>
-                    <td>{{ $log->work_date }}</td>
+                    <td><strong>{{ date('d/m/Y', strtotime($log->work_date)) }}</strong></td>
                     <td>{{ $log->employee->full_name }}</td>
                     <td>{{ $log->check_in_at ? \Carbon\Carbon::parse($log->check_in_at)->format('H:i') : '-' }}</td>
                     <td>{{ $log->check_out_at ? \Carbon\Carbon::parse($log->check_out_at)->format('H:i') : '-' }}</td>
-                    <td>{{ $log->worked_minutes }}</td>
-                    <td>{{ $log->overtime_minutes }}</td>
-                    <td><span class="badge badge-secondary">{{ $log->status }}</span></td>
+                    <td>{{ $log->worked_minutes }} phút</td>
+                    <td style="color: var(--info);">{{ $log->overtime_minutes }} phút</td>
+                    <td>
+                        <span class="badge {{ $s['class'] }}">{{ $s['text'] }}</span>
+                        @if($log->note)
+                            <br><small style="color: var(--text-muted);">({{ $log->note }})</small>
+                        @endif
+                    </td>
                 </tr>
                 @empty
-                <tr><td colspan="7" class="text-center">Chưa có dữ liệu chấm công.</td></tr>
+                <tr><td colspan="7" class="text-center" style="color: var(--text-muted); padding: 2rem 0;">Chưa có dữ liệu chấm công.</td></tr>
                 @endforelse
             </tbody>
         </table>

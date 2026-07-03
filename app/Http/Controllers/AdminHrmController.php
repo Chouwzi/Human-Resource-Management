@@ -178,15 +178,20 @@ class AdminHrmController extends Controller
         return back()->with('success', 'Đã vô hiệu hóa nhân viên để giữ dữ liệu demo.');
     }
 
-    public function attendance(): View
+    public function attendance(Request $request): View
     {
+        $month = $request->input('month', date('m'));
+        $year = $request->input('year', date('Y'));
+
         $logs = AttendanceLog::with('employee')
+            ->whereMonth('work_date', $month)
+            ->whereYear('work_date', $year)
             ->orderByDesc('work_date')
             ->orderBy('employee_id')
             ->get();
         $employees = Employee::orderBy('full_name')->get();
 
-        return view('admin.hrm.attendance', compact('logs', 'employees'));
+        return view('admin.hrm.attendance', compact('logs', 'employees', 'month', 'year'));
     }
 
     public function storeAttendance(Request $request): RedirectResponse
