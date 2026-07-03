@@ -34,7 +34,7 @@ tests/                  Kiểm thử
 - PHP 8.3 trở lên.
 - Composer.
 - MySQL.
-- Các extension PHP cần thiết cho Laravel.
+- Extension PHP thường dùng: `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `json`.
 
 ## Cài đặt và chạy dự án
 
@@ -69,10 +69,10 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-4. Chạy migration:
+4. Chạy migration và seed dữ liệu demo:
 
 ```bash
-php artisan migrate
+php artisan migrate:fresh --seed
 ```
 
 5. Chạy server local:
@@ -86,6 +86,36 @@ Mặc định ứng dụng sẽ chạy tại:
 ```text
 http://127.0.0.1:8000
 ```
+
+## Tài khoản demo
+
+Sau khi chạy seed, có thể dùng các tài khoản sau:
+
+| Vai trò | Email | Mật khẩu |
+| --- | --- | --- |
+| Admin | `admin@example.com` | `password` |
+| HR | `hr@example.com` | `password` |
+| Nhân viên | `employee@example.com` | `password` |
+
+## Luồng demo gợi ý
+
+1. Đăng nhập bằng Admin hoặc HR.
+2. Kiểm tra dashboard quản trị.
+3. CRUD phòng ban và chức vụ.
+4. CRUD nhân viên, tìm kiếm và lọc theo phòng ban.
+5. Đăng nhập nhân viên và gửi đơn nghỉ phép.
+6. Đăng nhập Admin/HR để duyệt hoặc từ chối đơn nghỉ phép.
+7. Nhập chấm công và tạo bảng lương đơn giản.
+
+## Kiểm thử nhanh
+
+```bash
+php artisan route:list
+php artisan view:cache
+php artisan test
+```
+
+Nếu `php artisan test` hoặc `migrate:fresh --seed` báo lỗi kết nối, hãy kiểm tra MySQL đã chạy và thông tin `DB_*` trong `.env` đã đúng.
 
 ## Quy ước phát triển
 
