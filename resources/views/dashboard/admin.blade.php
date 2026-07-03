@@ -6,44 +6,10 @@
 @section('content')
 
 @php
-// 1. Lấy tổng số đơn chờ duyệt thực tế từ Database thông qua Model Leave
+// Lấy số liệu thật để dashboard bám dữ liệu demo.
 $pendingLeavesCount = \App\Models\Leave::where('status', 'pending')->count();
-
-// Dữ liệu demo bám sát 100% các cột trong migration 'employees'
-$totalEmployees = 12;
-
-$recentEmployees = [
-    (object)[
-        'employee_code' => 'NV001',
-        'full_name' => 'Nguyễn Trung Nguyên',
-        'position' => '', 
-        'phone' => '0901234567',
-        'hire_date' => '15/05/2025',
-        'status' => 'active',
-        'status_label' => 'Chính thức',
-        'status_class' => 'success'
-    ],
-    (object)[
-        'employee_code' => 'NV002',
-        'full_name' => 'Trần Nhật Minh',
-        'position' => 'Chuyên viên Nhân sự',
-        'phone' => '0987654321',
-        'hire_date' => '10/06/2026',
-        'status' => 'probation',
-        'status_label' => 'Thử việc',
-        'status_class' => 'warning'
-    ],
-    (object)[
-        'employee_code' => 'NV003',
-        'full_name' => 'Hoàng Thế Đoàn',
-        'position' => 'Kế toán viên',
-        'phone' => '0912345678',
-        'hire_date' => '01/01/2025',
-        'status' => 'resigned',
-        'status_label' => 'Đã nghỉ việc',
-        'status_class' => 'danger' 
-    ]
-];
+$totalEmployees = \App\Models\Employee::count();
+$recentEmployees = \App\Models\Employee::with('position')->latest()->take(5)->get();
 @endphp
 
 <div class="alert alert-success">
@@ -73,8 +39,8 @@ $recentEmployees = [
 </div>
 
 <div class="action-bar">
-    <button class="btn btn-primary"><i class="fas fa-plus"></i> Thêm Nhân Viên Mới</button>
-    <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Xuất Báo Cáo</button>
+    <a href="{{ route('admin.employees.index') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm Nhân Viên Mới</a>
+    <a href="{{ route('admin.salaries.index') }}" class="btn btn-secondary"><i class="fas fa-file-export"></i> Xem Bảng Lương</a>
 </div>
 
 <div class="table-responsive">
@@ -95,12 +61,12 @@ $recentEmployees = [
             <tr>
                 <td><strong>{{ $emp->employee_code }}</strong></td>
                 <td>{{ $emp->full_name }}</td>
-                <td>{{ $emp->position }}</td>
+                <td>{{ $emp->position->name ?? 'Chưa có' }}</td>
                 <td>{{ $emp->phone }}</td>
-                <td>{{ $emp->hire_date }}</td>
-                <td><span class="badge badge-{{ $emp->status_class }}">{{ $emp->status_label }}</span></td>
+                <td>{{ \Carbon\Carbon::parse($emp->hire_date)->format('d/m/Y') }}</td>
+                <td><span class="badge badge-{{ $emp->status === 'active' ? 'success' : ($emp->status === 'probation' ? 'warning' : 'secondary') }}">{{ $emp->status }}</span></td>
                 <td>
-                    <button class="btn btn-secondary btn-sm">Sửa</button>
+                    <a href="{{ route('admin.employees.index', ['edit_employee' => $emp->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
                 </td>
             </tr>
             @endforeach

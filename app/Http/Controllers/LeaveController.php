@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\Leave;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 class LeaveController extends Controller
 {
@@ -38,9 +38,10 @@ class LeaveController extends Controller
 
         $userId = session('user_id');
         $user = \App\Models\User::find($userId);
-        $empName = $user ? ($user->name ?? $user->email) : 'Không rõ';
+        $employee = Employee::where('user_id', $userId)->first();
+        $empName = $employee?->full_name ?? ($user ? $user->email : 'Không rõ');
 
-        // Tự động tính toán số ngày nghỉ dựa trên khoảng cách ngày
+        // Tính số ngày nghỉ theo khoảng ngày người dùng chọn.
         $start = Carbon::parse($request->start_date);
         $end = Carbon::parse($request->end_date);
         $days = $start->diffInDays($end) + 1;
@@ -108,7 +109,7 @@ class LeaveController extends Controller
     // 7. Nhân viên tự bấm "Hủy đơn"
     public function cancel($id)
     {
-        $leave = Leave::findOrFail($id);
+        $leave = Leave::where('emp_id', session('user_id'))->findOrFail($id);
         
         // Chỉ cho phép hủy khi đơn vẫn đang ở trạng thái chờ duyệt
         if ($leave->status === 'pending') {
@@ -121,7 +122,7 @@ class LeaveController extends Controller
     // Xóa đơn nghỉ phép khỏi cơ sở dữ liệu
     public function destroy($id)
     {
-        $leave = Leave::findOrFail($id);
+        $leave = Leave::where('emp_id', session('user_id'))->findOrFail($id);
         $leave->delete();
 
         return redirect()->route('leaves.index')->with('success', 'Đã xóa đơn nghỉ phép thành công!');

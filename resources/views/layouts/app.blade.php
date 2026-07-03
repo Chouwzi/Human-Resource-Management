@@ -32,10 +32,17 @@
                     Tổng Quan
                 </a>
 
-                @if(in_array(session('user_role'), ['admin', 'hr']))
-                    <a href="#" class="menu-item">Nhân Sự</a>
-                    <a href="#" class="menu-item">Phòng Ban</a>
-                    <a href="{{ route('admin.leaves.pending') }}" class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
+                @if(request()->is('admin*'))
+                    <a href="{{ route('admin.employees.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
+                        Nhân Sự
+                    </a>
+                    <a href="{{ route('admin.departments.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*') ? 'active' : '' }}">
+                        Phòng Ban
+                    </a>
+                    <a href="{{ route('admin.leaves.pending') }}" 
+                        class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
                         Duyệt Đơn Nghỉ Phép
                     </a>
                 @else
@@ -47,10 +54,17 @@
                     </a>
                 @endif
 
-                <a href="{{ route('attendance.index') }}" class="menu-item {{ Request::is('attendance*') ? 'active' : '' }}">
+                <a href="{{ request()->is('admin*') ? route('admin.attendance.index') : route('attendance.index') }}"
+                   class="menu-item {{ (request()->routeIs('admin.attendance.*') || request()->routeIs('attendance.index')) ? 'active' : '' }}">
                     Chấm Công
                 </a>
-            </nav>  
+                @if(request()->is('admin*'))
+                    <a href="{{ route('admin.salaries.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.salaries.*') ? 'active' : '' }}">
+                        Bảng Lương
+                    </a>
+                @endif
+            </nav>
 
             <div style="padding: 1rem;">
                 <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
@@ -100,17 +114,15 @@
     const sidebar = document.getElementById('sidebar');
     const btnToggleSidebar = document.getElementById('btnToggleSidebar');
 
-    // Khi bấm vào nút băm burger (Toggle)
+    // Bật/tắt sidebar trên màn hình nhỏ.
     btnToggleSidebar.addEventListener('click', function(e) {
         sidebar.classList.toggle('active');
-        e.stopPropagation(); // Ngăn sự kiện click bị lan ra ngoài document gây tự động đóng luôn
+        e.stopPropagation();
     });
 
-    // Khi bấm vào bất kỳ đâu trên màn hình
+    // Bấm ngoài sidebar thì đóng menu mobile.
     document.addEventListener('click', function(e) {
-        // Kiểm tra nếu sidebar đang mở trên mobile (đang có class active)
         if (sidebar.classList.contains('active')) {
-            // Nếu vùng bấm KHÔNG nằm trong sidebar VÀ KHÔNG phải nút bật menu thì đóng sidebar lại
             if (!sidebar.contains(e.target) && !btnToggleSidebar.contains(e.target)) {
                 sidebar.classList.remove('active');
             }
