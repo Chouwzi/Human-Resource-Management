@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminHrmController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,7 @@ Route::get('/admin', function (Request $request) {
     }
 
     return view('dashboard.admin', ['role' => $role]);
-})->name('admin.home');
+})->middleware('require.role:admin,hr')->name('admin.home');
 
 Route::get('/user', function (Request $request) {
     if (! $request->session()->has('user_id')) {
@@ -56,24 +57,49 @@ Route::get('/user', function (Request $request) {
         'role'         => 'employee',
         'recentLeaves' => $recentLeaves,
     ]);
-})->name('user.home');
+})->middleware('require.role:employee')->name('user.home');
 
 // Phân hệ cho Nhân viên (User)
-Route::get('/leaves', [LeaveController::class, 'index'])->name('leaves.index');
-Route::get('/leaves/create', [LeaveController::class, 'create'])->name('leaves.create');
-Route::post('/leaves/store', [LeaveController::class, 'store'])->name('leaves.store');
-Route::post('/leaves/cancel/{id}', [LeaveController::class, 'cancel'])->name('leaves.cancel');
+Route::middleware('require.role:employee')->group(function () {
+    Route::get('/leaves', [LeaveController::class, 'index'])->name('leaves.index');
+    Route::get('/leaves/create', [LeaveController::class, 'create'])->name('leaves.create');
+    Route::post('/leaves/store', [LeaveController::class, 'store'])->name('leaves.store');
+    Route::post('/leaves/cancel/{id}', [LeaveController::class, 'cancel'])->name('leaves.cancel');
+    Route::delete('/leaves/delete/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');
+});
 
 // Phân hệ cho Quản lý (Admin/HR)
-Route::get('/admin/leaves/pending', [LeaveController::class, 'pending'])->name('admin.leaves.pending');
-Route::post('/admin/leaves/approve/{id}', [LeaveController::class, 'approve'])->name('admin.leaves.approve');
-Route::post('/admin/leaves/reject/{id}', [LeaveController::class, 'reject'])->name('admin.leaves.reject');
+Route::middleware('require.role:admin,hr')->group(function () {
+    Route::get('/admin/leaves/pending', [LeaveController::class, 'pending'])->name('admin.leaves.pending');
+    Route::post('/admin/leaves/approve/{id}', [LeaveController::class, 'approve'])->name('admin.leaves.approve');
+    Route::post('/admin/leaves/reject/{id}', [LeaveController::class, 'reject'])->name('admin.leaves.reject');
+});
 
-Route::get('/api/leaves/pending-count', function() {
+Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->group(function () {
+    Route::get('/departments', [AdminHrmController::class, 'departments'])->name('departments.index');
+    Route::post('/departments', [AdminHrmController::class, 'storeDepartment'])->name('departments.store');
+    Route::put('/departments/{department}', [AdminHrmController::class, 'updateDepartment'])->name('departments.update');
+    Route::delete('/departments/{department}', [AdminHrmController::class, 'destroyDepartment'])->name('departments.destroy');
+
+    Route::get('/positions', [AdminHrmController::class, 'positions'])->name('positions.index');
+    Route::post('/positions', [AdminHrmController::class, 'storePosition'])->name('positions.store');
+    Route::put('/positions/{position}', [AdminHrmController::class, 'updatePosition'])->name('positions.update');
+    Route::delete('/positions/{position}', [AdminHrmController::class, 'destroyPosition'])->name('positions.destroy');
+
+    Route::get('/employees', [AdminHrmController::class, 'employees'])->name('employees.index');
+    Route::post('/employees', [AdminHrmController::class, 'storeEmployee'])->name('employees.store');
+    Route::put('/employees/{employee}', [AdminHrmController::class, 'updateEmployee'])->name('employees.update');
+    Route::delete('/employees/{employee}', [AdminHrmController::class, 'destroyEmployee'])->name('employees.destroy');
+
+    Route::get('/attendance', [AdminHrmController::class, 'attendance'])->name('attendance.index');
+    Route::post('/attendance', [AdminHrmController::class, 'storeAttendance'])->name('attendance.store');
+
+    Route::get('/salaries', [AdminHrmController::class, 'salaries'])->name('salaries.index');
+    Route::post('/salaries', [AdminHrmController::class, 'storeSalary'])->name('salaries.store');
+});
+
+Route::get('/api/leaves/pending-count', function () {
     return response()->json([
         'count' => Leave::where('status', 'pending')->count()
     ]);
-});
-
-// Route xóa đơn nghỉ phép
-Route::delete('/leaves/delete/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');
+})->middleware('require.role:admin,hr');
