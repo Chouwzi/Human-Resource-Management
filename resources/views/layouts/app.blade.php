@@ -33,10 +33,12 @@
                 </a>
 
                 @if(request()->is('admin*'))
-                    <a href="#" class="menu-item">
+                    <a href="{{ route('admin.employees.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
                         Nhân Sự
                     </a>
-                    <a href="#" class="menu-item">
+                    <a href="{{ route('admin.departments.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*') ? 'active' : '' }}">
                         Phòng Ban
                     </a>
                     <a href="{{ route('admin.leaves.pending') }}" 
@@ -54,9 +56,16 @@
                     </a>
                 @endif
 
-                <a href="#" class="menu-item">
+                <a href="{{ request()->is('admin*') ? route('admin.attendance.index') : route('user.home') }}"
+                   class="menu-item {{ request()->routeIs('admin.attendance.*') ? 'active' : '' }}">
                     Chấm Công
                 </a>
+                @if(request()->is('admin*'))
+                    <a href="{{ route('admin.salaries.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.salaries.*') ? 'active' : '' }}">
+                        Bảng Lương
+                    </a>
+                @endif
             </nav>
 
             <div style="padding: 1rem;">
@@ -99,17 +108,15 @@
     const sidebar = document.getElementById('sidebar');
     const btnToggleSidebar = document.getElementById('btnToggleSidebar');
 
-    // Khi bấm vào nút băm burger (Toggle)
+    // Bật/tắt sidebar trên màn hình nhỏ.
     btnToggleSidebar.addEventListener('click', function(e) {
         sidebar.classList.toggle('active');
-        e.stopPropagation(); // Ngăn sự kiện click bị lan ra ngoài document gây tự động đóng luôn
+        e.stopPropagation();
     });
 
-    // Khi bấm vào bất kỳ đâu trên màn hình
+    // Bấm ngoài sidebar thì đóng menu mobile.
     document.addEventListener('click', function(e) {
-        // Kiểm tra nếu sidebar đang mở trên mobile (đang có class active)
         if (sidebar.classList.contains('active')) {
-            // Nếu vùng bấm KHÔNG nằm trong sidebar VÀ KHÔNG phải nút bật menu thì đóng sidebar lại
             if (!sidebar.contains(e.target) && !btnToggleSidebar.contains(e.target)) {
                 sidebar.classList.remove('active');
             }

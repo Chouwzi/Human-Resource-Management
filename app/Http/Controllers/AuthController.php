@@ -35,6 +35,9 @@ class AuthController extends Controller
             return back()->withErrors(['email' => 'Email hoặc mật khẩu không đúng'])->withInput();
         }
 
+        if ($user->status === 'locked') {
+            return back()->withErrors(['email' => 'Tài khoản đã bị khóa'])->withInput();
+        }
 
         $request->session()->regenerate();
         $request->session()->put('user_id', $user->id);
