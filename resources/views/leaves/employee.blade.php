@@ -69,7 +69,7 @@
                             
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 mb-1">Thời gian nghỉ (Chi tiết)</label>
-                                <input type="text" id="leave-duration" placeholder="VD: 25/06 - 27/06 (3 ngày)" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition" required>
+                                <input type="text" id="leave-duration" class="form-control" placeholder="VD: 25/06 - 27/06 (3 ngày)" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none transition" required>
                             </div>
 
                             <div>
