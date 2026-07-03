@@ -24,25 +24,25 @@
         <div>
             <label>Tháng / năm</label>
             <div class="month-year">
-                <input name="month" type="number" min="1" max="12" value="{{ old('month', now()->month) }}" required>
-                <input name="year" type="number" min="2020" max="2100" value="{{ old('year', now()->year) }}" required>
+                <input name="month" class="form-control" type="number" min="1" max="12" value="{{ old('month', now()->month) }}" required>
+                <input name="year" class="form-control" type="number" min="2020" max="2100" value="{{ old('year', now()->year) }}" required>
             </div>
         </div>
         <div>
             <label>Lương cơ bản</label>
-            <input name="base_salary" type="number" min="0" step="100000" value="{{ old('base_salary', 8000000) }}" required>
+            <input name="base_salary" class="form-control" type="number" min="0" step="100000" value="{{ old('base_salary', 8000000) }}" required>
         </div>
         <div>
             <label>Phụ cấp</label>
-            <input name="allowance" type="number" min="0" step="100000" value="{{ old('allowance', 0) }}">
+            <input name="allowance" class="form-control" type="number" min="0" step="100000" value="{{ old('allowance', 0) }}">
         </div>
         <div>
             <label>Thưởng</label>
-            <input name="bonus" type="number" min="0" step="100000" value="{{ old('bonus', 0) }}">
+            <input name="bonus" class="form-control" type="number" min="0" step="100000" value="{{ old('bonus', 0) }}">
         </div>
         <div>
             <label>Khấu trừ</label>
-            <input name="deduction" type="number" min="0" step="100000" value="{{ old('deduction', 0) }}">
+            <input name="deduction" class="form-control" type="number" min="0" step="100000" value="{{ old('deduction', 0) }}">
         </div>
         <div>
             <label>Trạng thái</label>

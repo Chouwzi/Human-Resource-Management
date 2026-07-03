@@ -22,15 +22,15 @@
             @error('department_id')<small class="form-error">{{ $message }}</small>@enderror
 
             <label>Tên chức vụ</label>
-            <input name="name" value="{{ old('name', $editingPosition->name ?? '') }}" required maxlength="150">
+            <input name="name" class="form-control" value="{{ old('name', $editingPosition->name ?? '') }}" required maxlength="150">
             @error('name')<small class="form-error">{{ $message }}</small>@enderror
 
             <label>Lương mặc định</label>
-            <input type="number" name="default_salary" value="{{ old('default_salary', $editingPosition->default_salary ?? 0) }}" min="0" step="100000" required>
+            <input type="number" class="form-control" name="default_salary" value="{{ old('default_salary', $editingPosition->default_salary ?? 0) }}" min="0" step="100000" required>
             @error('default_salary')<small class="form-error">{{ $message }}</small>@enderror
 
             <label>Mô tả</label>
-            <input name="description" value="{{ old('description', $editingPosition->description ?? '') }}" maxlength="255">
+            <input name="description" class="form-control" value="{{ old('description', $editingPosition->description ?? '') }}" maxlength="255">
 
             <button class="btn btn-primary" type="submit">{{ $editingPosition ? 'Cập nhật' : 'Thêm mới' }}</button>
             @if($editingPosition)

@@ -21,15 +21,15 @@
         </div>
         <div>
             <label>Ngày làm việc</label>
-            <input name="work_date" type="date" value="{{ old('work_date', now()->toDateString()) }}" required>
+            <input name="work_date" class="form-control" type="date" value="{{ old('work_date', now()->toDateString()) }}" required>
         </div>
         <div>
             <label>Check-in</label>
-            <input name="check_in_at" type="time" value="{{ old('check_in_at', '08:00') }}">
+            <input name="check_in_at" class="form-control" type="time" value="{{ old('check_in_at', '08:00') }}">
         </div>
         <div>
             <label>Check-out</label>
-            <input name="check_out_at" type="time" value="{{ old('check_out_at', '17:00') }}">
+            <input name="check_out_at" class="form-control" type="time" value="{{ old('check_out_at', '17:00') }}">
         </div>
         <div>
             <label>Trạng thái</label>
@@ -42,7 +42,7 @@
         </div>
         <div>
             <label>Ghi chú</label>
-            <input name="note" value="{{ old('note') }}" maxlength="255">
+            <input name="note" class="form-control" value="{{ old('note') }}" maxlength="255">
         </div>
         <div class="hrm-form-full">
             <button class="btn btn-primary" type="submit">Lưu chấm công</button>

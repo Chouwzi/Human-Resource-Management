@@ -38,10 +38,10 @@
     font-weight: 700;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-main);
-    
+
     /* FIX: Ép cứng kích thước, không cho co giãn và tính luôn viền */
     box-sizing: border-box;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .sidebar-menu {
@@ -76,7 +76,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
-    
+
     /* FIX: Ép cứng kích thước, không cho co giãn và tính luôn viền */
     box-sizing: border-box;
     flex-shrink: 0;
@@ -111,12 +111,10 @@
     position: relative;
 }
 
-/* =========================================
-   THÊM MỚI: CĂN CHỈNH ICON AVATAR
-   ========================================= */
+/*THÊM MỚI: CĂN CHỈNH ICON AVATAR */
 .topbar-right i {
-    font-size: 1.5rem;   /* Phóng to icon bằng với size chữ */
-    margin-left: 8px;    /* Đẩy icon cách xa tên một khoảng vừa phải */
+    font-size: 1.5rem; /* Phóng to icon bằng với size chữ */
+    margin-left: 8px; /* Đẩy icon cách xa tên một khoảng vừa phải */
 }
 
 /* crud content */
@@ -142,7 +140,6 @@
     }
 }
 
-
 .pending-grid {
     display: block;
 }
@@ -158,17 +155,27 @@
 }
 
 /* Các class căn chỉnh kích thước & vị trí */
-.w-5 { width: 5%; }
-.w-15 { width: 15%; }
-.w-20 { width: 20%; }
+.w-5 {
+    width: 5%;
+}
+.w-15 {
+    width: 15%;
+}
+.w-20 {
+    width: 20%;
+}
 
-.text-left { text-align: left; }
-.text-center { text-align: center; }
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
 
 /* Các class định dạng chữ */
 .text-muted-sm {
     font-size: 0.85em;
-    color: var(--text-muted); /* Nhớ đảm bảo biến này đã có trong hệ thống CSS của bạn, hoặc đổi thành #6c757d */
+    color: var(--text-muted); /* đảm bảo biến này đã có trong hệ thống */
 }
 
 .reason-text {
@@ -176,7 +183,7 @@
     color: var(--text-muted);
 }
 
-/* Các class cho nút bấm (Hành động) */
+/* Các class cho nút bấm */
 .form-action {
     display: inline-block;
 }
@@ -188,4 +195,36 @@
 .btn-action {
     padding: 0.4rem 0.8rem;
     font-size: 0.875rem;
+}
+
+/* Hộp chứa bảng cuộn ngang trên điện thoại */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive cho Layout chính */
+@media (max-width: 768px) {
+    .page-header,
+    .filter-form,
+    .admin-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-action,
+    .filter-form .form-group {
+        width: 100%;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+    .table th,
+    .table td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
 }

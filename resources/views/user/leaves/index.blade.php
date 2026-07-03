@@ -37,14 +37,14 @@
 
                 <div class="form-group">
                     <label for="start_date">Ngày bắt đầu</label>
-                    <input type="date" name="start_date" id="start_date"
+                    <input type="date" class="form-control" name="start_date" id="start_date"
                            value="{{ old('start_date') }}" required>
                     @error('start_date')<span class="form-error">{{ $message }}</span>@enderror
                 </div>
 
                 <div class="form-group">
                     <label for="end_date">Ngày kết thúc</label>
-                    <input type="date" name="end_date" id="end_date"
+                    <input type="date" class="form-control" name="end_date" id="end_date"
                            value="{{ old('end_date') }}" required>
                     @error('end_date')<span class="form-error">{{ $message }}</span>@enderror
                 </div>

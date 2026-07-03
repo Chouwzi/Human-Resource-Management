@@ -26,12 +26,12 @@
             <div class="grid-2-cols">
                 <div class="form-group m-0">
                     <label class="form-label">Từ ngày <span style="color: var(--danger);">*</span></label>
-                    <input type="date" name="start_date" id="start_date" class="form-control" min="{{ date('Y-m-d', strtotime('+1 day')) }}" required>
+                    <input type="date" class="form-control" name="start_date" id="start_date" class="form-control" min="{{ date('Y-m-d', strtotime('+1 day')) }}" required>
                 </div>
                 
                 <div class="form-group m-0">
                     <label class="form-label">Đến ngày <span style="color: var(--danger);">*</span></label>
-                    <input type="date" name="end_date" id="end_date" class="form-control" min="{{ date('Y-m-d', strtotime('+1 day')) }}" required>
+                    <input type="date" class="form-control" name="end_date" id="end_date" class="form-control" min="{{ date('Y-m-d', strtotime('+1 day')) }}" required>
                 </div>
             </div>
 

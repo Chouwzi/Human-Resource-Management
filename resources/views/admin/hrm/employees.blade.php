@@ -14,22 +14,22 @@
 
         <div>
             <label>Email đăng nhập</label>
-            <input name="email" type="email" value="{{ old('email', $editingEmployee->user->email ?? '') }}" required>
+            <input name="email" class="form-control" type="email" value="{{ old('email', $editingEmployee->user->email ?? '') }}" required>
             @error('email')<small class="form-error">{{ $message }}</small>@enderror
         </div>
         <div>
             <label>Mật khẩu {{ $editingEmployee ? '(bỏ trống nếu không đổi)' : '' }}</label>
-            <input name="password" type="password" {{ $editingEmployee ? '' : 'required' }}>
+            <input name="password"  class="form-control"type="password" {{ $editingEmployee ? '' : 'required' }}>
             @error('password')<small class="form-error">{{ $message }}</small>@enderror
         </div>
         <div>
             <label>Mã nhân viên</label>
-            <input name="employee_code" value="{{ old('employee_code', $editingEmployee->employee_code ?? '') }}" required>
+            <input name="employee_code" class="form-control" value="{{ old('employee_code', $editingEmployee->employee_code ?? '') }}" required>
             @error('employee_code')<small class="form-error">{{ $message }}</small>@enderror
         </div>
         <div>
             <label>Họ tên</label>
-            <input name="full_name" value="{{ old('full_name', $editingEmployee->full_name ?? '') }}" required>
+            <input name="full_name" class="form-control" value="{{ old('full_name', $editingEmployee->full_name ?? '') }}" required>
             @error('full_name')<small class="form-error">{{ $message }}</small>@enderror
         </div>
         <div>
@@ -62,20 +62,20 @@
         </div>
         <div>
             <label>Ngày sinh</label>
-            <input name="date_of_birth" type="date" value="{{ old('date_of_birth', $editingEmployee->date_of_birth ?? '') }}" required>
+            <input name="date_of_birth" class="form-control" type="date" value="{{ old('date_of_birth', $editingEmployee->date_of_birth ?? '') }}" required>
         </div>
         <div>
             <label>Số điện thoại</label>
-            <input name="phone" value="{{ old('phone', $editingEmployee->phone ?? '') }}" required>
+            <input name="phone" class="form-control" value="{{ old('phone', $editingEmployee->phone ?? '') }}" required>
         </div>
         <div>
             <label>CCCD/CMND</label>
-            <input name="citizen_id" value="{{ old('citizen_id', $editingEmployee->citizen_id ?? '') }}" required>
+            <input name="citizen_id" class="form-control" value="{{ old('citizen_id', $editingEmployee->citizen_id ?? '') }}" required>
             @error('citizen_id')<small class="form-error">{{ $message }}</small>@enderror
         </div>
         <div>
             <label>Ngày vào làm</label>
-            <input name="hire_date" type="date" value="{{ old('hire_date', $editingEmployee->hire_date ?? '') }}" required>
+            <input name="hire_date" class="form-control" type="date" value="{{ old('hire_date', $editingEmployee->hire_date ?? '') }}" required>
         </div>
         <div>
             <label>Trạng thái</label>
@@ -87,7 +87,7 @@
         </div>
         <div class="hrm-form-full">
             <label>Địa chỉ</label>
-            <input name="address" value="{{ old('address', $editingEmployee->address ?? '') }}" required>
+            <input name="address" class="form-control" value="{{ old('address', $editingEmployee->address ?? '') }}" required>
         </div>
         <div class="hrm-form-full">
             <button class="btn btn-primary" type="submit">{{ $editingEmployee ? 'Cập nhật' : 'Thêm mới' }}</button>
@@ -101,7 +101,7 @@
 <div class="content-card">
     <h4 class="content-card-header">Tìm kiếm nhân viên</h4>
     <form method="GET" action="{{ route('admin.employees.index') }}" class="hrm-filter">
-        <input name="keyword" value="{{ request('keyword') }}" placeholder="Tên, mã nhân viên, CCCD">
+        <input name="keyword" class="form-control" value="{{ request('keyword') }}" placeholder="Tên, mã nhân viên, CCCD">
         <select name="department_id">
             <option value="">Tất cả phòng ban</option>
             @foreach($departments as $department)

@@ -13,11 +13,11 @@
             @csrf
             @if($editingDepartment) @method('PUT') @endif
             <label>Tên phòng ban</label>
-            <input name="name" value="{{ old('name', $editingDepartment->name ?? '') }}" required maxlength="150">
+            <input name="name" class="form-control" value="{{ old('name', $editingDepartment->name ?? '') }}" required maxlength="150">
             @error('name')<small class="form-error">{{ $message }}</small>@enderror
 
             <label>Mô tả</label>
-            <input name="description" value="{{ old('description', $editingDepartment->description ?? '') }}" maxlength="255">
+            <input name="description" class="form-control" value="{{ old('description', $editingDepartment->description ?? '') }}" maxlength="255">
             @error('description')<small class="form-error">{{ $message }}</small>@enderror
 
             <button class="btn btn-primary" type="submit">{{ $editingDepartment ? 'Cập nhật' : 'Thêm mới' }}</button>

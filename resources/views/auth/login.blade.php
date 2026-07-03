@@ -28,13 +28,13 @@
             @csrf
             <div class="input-group">
                 <i class="fas fa-envelope icon"></i>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Nhập Email của bạn"
+                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Nhập Email của bạn"
                     maxlength="255" autofocus>
             </div>
 
             <div class="input-group">
                 <i class="fas fa-lock icon"></i>
-                <input type="password" id="password" name="password" placeholder="Mật khẩu" maxlength="100">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu" maxlength="100">
                 <i class="far fa-eye toggle-password" onclick="togglePasswordVisibility()"></i>
             </div>
 

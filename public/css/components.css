@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CÁC COMPONENT GỐC CỦA BẠN (Đã khôi phục)
+   1. CÁC COMPONENT GỐC 
    ========================================================================== */
 /* buttons */
 .btn {
@@ -141,7 +141,7 @@
    2. CÁC COMPONENT MỚI BỔ SUNG CHO DASHBOARD
    ========================================================================== */
 
-/* Lời chào (Welcome Header) */
+/* Lời chào */
 .dashboard-welcome {
     display: flex;
     justify-content: space-between;
@@ -159,11 +159,11 @@
     color: var(--text-muted);
 }
 .status-badge {
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
     padding: 0.5rem 1rem;
 }
 
-/* Thẻ thống kê (Stats Grid) */
+/* Thẻ thống kê  */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -175,7 +175,7 @@
     padding: 1.5rem;
     border-radius: 0.5rem;
     border: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 .stat-card-title {
@@ -190,7 +190,7 @@
     font-weight: 700;
 }
 .stat-card-value.success {
-    color: #15803d; 
+    color: #15803d;
 }
 .stat-card-subtext {
     font-size: 1rem;
@@ -214,8 +214,14 @@
     justify-content: center;
     font-size: 1.5rem;
 }
-.bg-indigo { background: #e0e7ff; color: var(--primary); }
-.bg-warning-light { background: #fef3c7; color: #d97706; }
+.bg-indigo {
+    background: #e0e7ff;
+    color: var(--primary);
+}
+.bg-warning-light {
+    background: #fef3c7;
+    color: #d97706;
+}
 
 /* Thanh công cụ Admin */
 .action-bar {
@@ -224,7 +230,7 @@
     margin-bottom: 1.5rem;
 }
 
-/* Lưới nội dung chính (Profile & Bảng) */
+/* Lưới nội dung chính  */
 .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -234,7 +240,7 @@
     background: var(--bg-card);
     border-radius: 0.5rem;
     border: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
 }
 .content-card-header {
@@ -258,7 +264,7 @@
 }
 .link-view-all {
     font-size: 0.875rem;
-    color: #1d4ed8; 
+    color: #1d4ed8;
     text-decoration: none;
 }
 
@@ -281,22 +287,33 @@
     border-bottom: 1px dashed var(--border-color);
     padding-bottom: 0.5rem;
 }
-.profile-info-label { color: var(--text-muted); }
-.profile-info-value { color: var(--text-main); font-weight: 700; }
+.profile-info-label {
+    color: var(--text-muted);
+}
+.profile-info-value {
+    color: var(--text-main);
+    font-weight: 700;
+}
 
-/* Tiện ích (Utilities) */
+/* Tiện ích */
 .card-actions {
     margin-top: 1.5rem;
     text-align: center;
 }
-.w-100 { width: 100%; }
+.w-100 {
+    width: 100%;
+}
 .flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.m-0 { margin: 0 !important; }
-.mr-2 { margin-right: 0.5rem; }
+.m-0 {
+    margin: 0 !important;
+}
+.mr-2 {
+    margin-right: 0.5rem;
+}
 .brand-link {
     color: inherit;
     text-decoration: none;
@@ -305,9 +322,9 @@
     width: 100%;
     height: 100%;
 }
-/* ==========================================================================
-   FORM COMPONENTS (Dành cho trang Tạo Đơn, Cập nhật hồ sơ...)
-   ========================================================================== */
+/* =====================
+   FORM COMPONENTS 
+   ===================== */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -336,12 +353,12 @@ textarea.form-control {
 }
 /* Ẩn bớt chữ dài trong bảng bằng dấu ba chấm */
 .reason-ellipsis {
-    max-width: 150px;       /* Giới hạn độ rộng tối đa của cột */
-    white-space: nowrap;    /* Không cho chữ xuống dòng */
-    overflow: hidden;       /* Ẩn phần chữ bị tràn ra ngoài */
-    text-overflow: ellipsis;/* Hiển thị dấu ... ở cuối */
-    cursor: pointer;        /* Đổi con trỏ chuột thành hình bàn tay để báo hiệu có thể xem */
-    text-align: center;     /* Căn giữa nội dung */
+    max-width: 150px; /* Giới hạn độ rộng tối đa của cột */
+    white-space: nowrap; /* Không cho chữ xuống dòng */
+    overflow: hidden; /* Ẩn phần chữ bị tràn ra ngoài */
+    text-overflow: ellipsis; /* Hiển thị dấu ... ở cuối */
+    cursor: pointer; /* Đổi con trỏ chuột thành hình bàn tay để báo hiệu có thể xem */
+    text-align: center; /* Căn giữa nội dung */
     vertical-align: middle; /* Căn giữa theo chiều dọc */
 }
 /* Giao diện khung nền mờ */
@@ -362,7 +379,7 @@ textarea.form-control {
     padding: 20px;
     width: 450px; /* Độ rộng của form */
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Giao diện phần tiêu đề */
@@ -385,4 +402,79 @@ textarea.form-control {
 }
 .close-btn:hover {
     color: #000;
+}
+
+/* button */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-primary {
+    background-color: #4f46e5;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+/* inputs */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.form-group input:focus {
+    border-color: #4f46e5;
+}
+
+/* badge & alert */
+.badge-status {
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 50px;
+}
+.alert {
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* bổ sung reposive */
+@media (max-width: 768px) {
+    /* Ép các thanh tiêu đề, bộ lọc từ hàng ngang thành hàng dọc trên điện thoại */
+    .page-header,
+    .filter-form,
+    .admin-container,
+    .dashboard-stats {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    /* Cho các ô lọc và nút bấm giãn hết cỡ 100% chiều ngang mobile */
+    .header-action,
+    .filter-form .form-group,
+    .btn {
+        width: 100% !important;
+    }
+
+    /* Thu nhỏ padding tổng thể của trang để màn hình nhỏ hiển thị được nhiều thông tin hơn */
+    .admin-container {
+        padding: 1rem (16px) !important;
+    }
 }
