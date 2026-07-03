@@ -30,7 +30,7 @@ class AuthControllerTest extends TestCase
     #[Test]
     public function bao_loi_khi_email_trong(): void
     {
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('login.store'), [
             'email'    => '',
             'password' => '123456',
         ]);
@@ -41,7 +41,7 @@ class AuthControllerTest extends TestCase
     #[Test]
     public function bao_loi_khi_email_sai_dinh_dang(): void
     {
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('login.store'), [
             'email'    => 'khong-phai-email',
             'password' => '123456',
         ]);
@@ -52,7 +52,7 @@ class AuthControllerTest extends TestCase
     #[Test]
     public function bao_loi_khi_mat_khau_trong(): void
     {
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('login.store'), [
             'email'    => 'test@example.com',
             'password' => '',
         ]);
@@ -65,7 +65,7 @@ class AuthControllerTest extends TestCase
     #[Test]
     public function bao_loi_khi_email_khong_ton_tai(): void
     {
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('login.store'), [
             'email'    => 'khongtontai@example.com',
             'password' => '123456',
         ]);
@@ -84,7 +84,7 @@ class AuthControllerTest extends TestCase
             'password' => Hash::make('mat-khau-dung'),
         ]);
 
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('login.store'), [
             'email'    => 'nhanvien@example.com',
             'password' => 'mat-khau-sai',
         ]);
@@ -105,7 +105,7 @@ class AuthControllerTest extends TestCase
             'password' => Hash::make('123456'),
         ]);
 
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('login.store'), [
             'email'    => 'admin@example.com',
             'password' => '123456',
         ]);
@@ -127,7 +127,7 @@ class AuthControllerTest extends TestCase
             'password' => Hash::make('123456'),
         ]);
 
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('login.store'), [
             'email'    => 'nv@example.com',
             'password' => '123456',
         ]);
