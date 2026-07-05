@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminHrmController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\SalaryController;
+use App\Models\Leave;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LeaveController;
-use App\Models\Leave;
-use App\Http\Controllers\AttendanceController;
-use App\Models\Attendance;
 
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.store');
@@ -50,13 +50,13 @@ Route::get('/user', function (Request $request) {
     }
 
     $userId = $request->session()->get('user_id');
-    $recentLeaves = \App\Models\Leave::where('emp_id', $userId)
+    $recentLeaves = Leave::where('emp_id', $userId)
         ->orderBy('created_at', 'desc')
         ->take(3)
         ->get();
 
     return view('dashboard.user', [
-        'role'         => 'employee',
+        'role' => 'employee',
         'recentLeaves' => $recentLeaves,
     ]);
 })->middleware('require.role:employee')->name('user.home');
@@ -68,6 +68,7 @@ Route::middleware('require.role:employee')->group(function () {
     Route::post('/leaves/store', [LeaveController::class, 'store'])->name('leaves.store');
     Route::post('/leaves/cancel/{id}', [LeaveController::class, 'cancel'])->name('leaves.cancel');
     Route::delete('/leaves/delete/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');
+    Route::get('/salaries', [SalaryController::class, 'index'])->name('salaries.index');
 });
 
 // Phân hệ cho Quản lý (Admin/HR)
@@ -102,7 +103,7 @@ Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->gro
 
 Route::get('/api/leaves/pending-count', function () {
     return response()->json([
-        'count' => Leave::where('status', 'pending')->count()
+        'count' => Leave::where('status', 'pending')->count(),
     ]);
 })->middleware('require.role:admin,hr');
 

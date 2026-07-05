@@ -52,6 +52,9 @@
                     <a href="{{ route('leaves.index') }}" class="menu-item {{ request()->routeIs('leaves.index') ? 'active' : '' }}">
                         Lịch Sử Đơn Nghỉ Phép
                     </a>
+                    <a href="{{ route('salaries.index') }}" class="menu-item {{ request()->routeIs('salaries.*') ? 'active' : '' }}">
+                        Bảng Lương
+                    </a>
                 @endif
 
                 <a href="{{ request()->is('admin*') ? route('admin.attendance.index') : route('attendance.index') }}"
