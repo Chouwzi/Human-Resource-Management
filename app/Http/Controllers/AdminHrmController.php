@@ -36,7 +36,7 @@ class AdminHrmController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:150', 'unique:departments,name'],
             'description' => ['nullable', 'string', 'max:255'],
-        ]);
+        ], $this->validationMessages(), $this->validationAttributes());
 
         Department::create($data);
 
@@ -48,7 +48,7 @@ class AdminHrmController extends Controller
         $data = $request->validate([
             'name' => ['required', 'string', 'max:150', Rule::unique('departments', 'name')->ignore($department->id)],
             'description' => ['nullable', 'string', 'max:255'],
-        ]);
+        ], $this->validationMessages(), $this->validationAttributes());
 
         $department->update($data);
 
@@ -82,7 +82,7 @@ class AdminHrmController extends Controller
 
     public function storePosition(Request $request): RedirectResponse
     {
-        $data = $request->validate($this->positionRules());
+        $data = $request->validate($this->positionRules(), $this->validationMessages(), $this->validationAttributes());
         Position::create($data);
 
         return back()->with('success', 'Đã thêm chức vụ.');
@@ -90,7 +90,7 @@ class AdminHrmController extends Controller
 
     public function updatePosition(Request $request, Position $position): RedirectResponse
     {
-        $data = $request->validate($this->positionRules($position));
+        $data = $request->validate($this->positionRules($position), $this->validationMessages(), $this->validationAttributes());
         $position->update($data);
 
         return redirect()->route('admin.positions.index')->with('success', 'Đã cập nhật chức vụ.');
@@ -137,7 +137,7 @@ class AdminHrmController extends Controller
 
     public function storeEmployee(Request $request): RedirectResponse
     {
-        $data = $request->validate($this->employeeRules());
+        $data = $request->validate($this->employeeRules(), $this->validationMessages(), $this->validationAttributes());
         $role = Role::where('name', 'employee')->firstOrFail();
 
         // Tạo user cùng lúc để nhân viên demo đăng nhập được ngay.
@@ -157,7 +157,7 @@ class AdminHrmController extends Controller
 
     public function updateEmployee(Request $request, Employee $employee): RedirectResponse
     {
-        $data = $request->validate($this->employeeRules($employee));
+        $data = $request->validate($this->employeeRules($employee), $this->validationMessages(), $this->validationAttributes());
 
         $userData = ['email' => $data['email']];
         if (! empty($data['password'])) {
@@ -197,7 +197,7 @@ class AdminHrmController extends Controller
 
     public function storeAttendance(Request $request): RedirectResponse
     {
-        $data = $request->validate($this->attendanceRules());
+        $data = $request->validate($this->attendanceRules(), $this->validationMessages(), $this->validationAttributes());
         $data = $this->calculateAttendance($data);
 
         AttendanceLog::updateOrCreate(
@@ -221,7 +221,7 @@ class AdminHrmController extends Controller
 
     public function storeSalary(Request $request): RedirectResponse
     {
-        $data = $request->validate($this->salaryRules());
+        $data = $request->validate($this->salaryRules(), $this->validationMessages(), $this->validationAttributes());
         $data = $this->calculateSalary($data);
 
         Salary::updateOrCreate(
@@ -248,7 +248,7 @@ class AdminHrmController extends Controller
 
     public function storeContract(Request $request): RedirectResponse
     {
-        $data = $request->validate($this->contractRules());
+        $data = $request->validate($this->contractRules(), $this->validationMessages(), $this->validationAttributes());
         Contract::create($data);
 
         return back()->with('success', 'Đã thêm hợp đồng.');
@@ -256,7 +256,7 @@ class AdminHrmController extends Controller
 
     public function updateContract(Request $request, Contract $contract): RedirectResponse
     {
-        $data = $request->validate($this->contractRules($contract));
+        $data = $request->validate($this->contractRules($contract), $this->validationMessages(), $this->validationAttributes());
         $contract->update($data);
 
         return redirect()->route('admin.contracts.index')->with('success', 'Đã cập nhật hợp đồng.');
@@ -344,6 +344,69 @@ class AdminHrmController extends Controller
             'salary' => ['required', 'numeric', 'min:0'],
             'working_hours_per_week' => ['required', 'numeric', 'min:0', 'max:168'],
             'status' => ['required', Rule::in(['active', 'expired', 'terminated'])],
+        ];
+    }
+
+    private function validationAttributes(): array
+    {
+        return [
+            'name' => 'tên',
+            'description' => 'mô tả',
+            'department_id' => 'phòng ban',
+            'default_salary' => 'lương mặc định',
+            'email' => 'email',
+            'password' => 'mật khẩu',
+            'position_id' => 'chức vụ',
+            'manager_id' => 'quản lý trực tiếp',
+            'employee_code' => 'mã nhân viên',
+            'full_name' => 'họ tên',
+            'gender' => 'giới tính',
+            'date_of_birth' => 'ngày sinh',
+            'phone' => 'số điện thoại',
+            'address' => 'địa chỉ',
+            'citizen_id' => 'CCCD/CMND',
+            'hire_date' => 'ngày vào làm',
+            'employee_id' => 'nhân viên',
+            'work_date' => 'ngày làm việc',
+            'check_in_at' => 'giờ vào',
+            'check_out_at' => 'giờ ra',
+            'note' => 'ghi chú',
+            'month' => 'tháng',
+            'year' => 'năm',
+            'base_salary' => 'lương cơ bản',
+            'allowance' => 'phụ cấp',
+            'bonus' => 'thưởng',
+            'deduction' => 'khấu trừ',
+            'contract_code' => 'mã hợp đồng',
+            'contract_type' => 'loại hợp đồng',
+            'start_date' => 'ngày bắt đầu',
+            'end_date' => 'ngày kết thúc',
+            'salary' => 'lương thỏa thuận',
+            'working_hours_per_week' => 'giờ làm mỗi tuần',
+            'status' => 'trạng thái',
+        ];
+    }
+
+    private function validationMessages(): array
+    {
+        return [
+            'check_out_at.after' => 'Giờ ra phải sau giờ vào.',
+            'end_date.after_or_equal' => 'Ngày kết thúc phải sau hoặc bằng ngày bắt đầu.',
+            'required' => ':attribute là bắt buộc.',
+            'email' => ':attribute không đúng định dạng.',
+            'unique' => ':attribute đã tồn tại.',
+            'exists' => ':attribute không hợp lệ.',
+            'in' => ':attribute không hợp lệ.',
+            'date' => ':attribute không đúng định dạng ngày.',
+            'date_format' => ':attribute không đúng định dạng giờ.',
+            'after' => ':attribute phải sau mốc được chọn.',
+            'after_or_equal' => ':attribute phải sau hoặc bằng mốc được chọn.',
+            'integer' => ':attribute phải là số nguyên.',
+            'numeric' => ':attribute phải là số.',
+            'string' => ':attribute phải là chuỗi.',
+            'min' => ':attribute không được nhỏ hơn :min.',
+            'max' => ':attribute không được lớn hơn :max.',
+            'between' => ':attribute phải nằm trong khoảng :min đến :max.',
         ];
     }
 

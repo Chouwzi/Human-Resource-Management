@@ -31,6 +31,13 @@
     background: #fee2e2;
     color: #991b1b;
 }
+.validation-error-list {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+}
+.validation-error-list li {
+    margin-top: 0.25rem;
+}
 @media (max-width: 900px) {
     .content-grid {
         grid-template-columns: 1fr;
