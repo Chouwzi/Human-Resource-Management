@@ -43,7 +43,10 @@
                     </a>
                     <a href="{{ route('admin.leaves.pending') }}" 
                         class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
-                        Duyệt Đơn Nghỉ Phép
+                        <span>Duyệt Đơn Nghỉ Phép</span>
+                        <span class="badge badge-warning pending-leave-badge" data-pending-leave-badge>
+                            {{ \App\Models\Leave::where('status', 'pending')->count() }}
+                        </span>
                     </a>
                 @else
                     <a href="{{ route('leaves.create') }}" class="menu-item {{ request()->routeIs('leaves.create') ? 'active' : '' }}">
