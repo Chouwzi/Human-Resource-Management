@@ -31,7 +31,8 @@
     color: var(--text-muted);
     transition: color 0.2s ease;
 }
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--primary);
 }
 .user-profile-menu {

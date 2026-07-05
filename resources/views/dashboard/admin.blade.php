@@ -1,39 +1,77 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin / HR Dashboard</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f8fafc; margin: 0; }
-        .wrapper { max-width: 720px; margin: 60px auto; padding: 24px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
-        .title { font-size: 24px; font-weight: 700; }
-        .badge { color: #0f766e; font-weight: 700; }
-        .button { color: #ffffff; background: #0f766e; border: none; padding: 10px 14px; border-radius: 8px; text-decoration: none; }
-        .section { margin-bottom: 18px; }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <div class="header">
-            <div>
-                <h1 class="title">Trang quản trị</h1>
-                <div class="badge">Role: {{ ucfirst($role) }}</div>
-            </div>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button class="button" type="submit">Đăng xuất</button>
-            </form>
-        </div>
+@extends('layouts.app')
 
-        <div class="section">
-            <p>Chào mừng Admin / HR, bạn đã đăng nhập thành công và chỉ có role Admin / HR mới truy cập được trang này.</p>
-        </div>
+@section('title', 'Dashboard Quản Trị')
+@section('header_title', 'Tổng Quan Hệ Thống')
 
-        <div class="section">
-            <p>Đây là khu vực quản trị mẫu cho Admin và HR.</p>
+@section('content')
+
+@php
+// Lấy số liệu thật để dashboard bám dữ liệu demo.
+$pendingLeavesCount = \App\Models\Leave::where('status', 'pending')->count();
+$totalEmployees = \App\Models\Employee::count();
+$recentEmployees = \App\Models\Employee::with('position')->latest()->take(5)->get();
+@endphp
+
+<div class="alert alert-success">
+    <i class="fas fa-check-circle"></i> Chào mừng bạn quay trở lại giao diện Quản trị viên!
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card stat-card-flex">
+        <div class="stat-icon bg-indigo">
+            <i class="fas fa-users"></i>
+        </div>
+        <div>
+            <div class="stat-card-title">Tổng Nhân Sự</div>
+            <div class="stat-card-value">{{ $totalEmployees }}</div>
         </div>
     </div>
-</body>
-</html>
+
+    <div class="stat-card stat-card-flex">
+        <div class="stat-icon bg-warning-light">
+            <i class="fas fa-file-signature"></i>
+        </div>
+        <div>
+            <div class="stat-card-title">Đơn Chờ Duyệt</div>
+            <div class="stat-card-value">{{ $pendingLeavesCount }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="action-bar">
+    <a href="{{ route('admin.employees.index') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm Nhân Viên Mới</a>
+    <a href="{{ route('admin.salaries.index') }}" class="btn btn-secondary"><i class="fas fa-file-export"></i> Xem Bảng Lương</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã NV</th>
+                <th>Họ Tên</th>
+                <th>Chức Vụ</th>
+                <th>Điện Thoại</th>
+                <th>Ngày Vào Làm</th>
+                <th>Trạng Thái</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($recentEmployees as $emp)
+            <tr>
+                <td><strong>{{ $emp->employee_code }}</strong></td>
+                <td>{{ $emp->full_name }}</td>
+                <td>{{ $emp->position->name ?? 'Chưa có' }}</td>
+                <td>{{ $emp->phone }}</td>
+                <td>{{ \Carbon\Carbon::parse($emp->hire_date)->format('d/m/Y') }}</td>
+                <td><span class="badge badge-{{ $emp->status === 'active' ? 'success' : ($emp->status === 'probation' ? 'warning' : 'secondary') }}">{{ $emp->status }}</span></td>
+                <td>
+                    <a href="{{ route('admin.employees.index', ['edit_employee' => $emp->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+@endsection
