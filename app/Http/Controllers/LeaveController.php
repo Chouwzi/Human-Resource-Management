@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Leave;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class LeaveController extends Controller
 {
@@ -13,10 +15,11 @@ class LeaveController extends Controller
     public function index()
     {
         $userId = session('user_id');
-        $leavesHistory = \App\Models\Leave::where('emp_id', $userId)
+        $leavesHistory = Leave::where('emp_id', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
-        $user = \App\Models\User::find($userId);
+        $user = User::find($userId);
+
         return view('user.leaves.index', compact('leavesHistory', 'user'));
     }
 
@@ -30,14 +33,14 @@ class LeaveController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'leave_type' => 'required',
+            'leave_type' => ['required', Rule::in(['annual', 'sick', 'unpaid', 'personal'])],
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
-            'reason' => 'required',
+            'reason' => 'required|string|max:500',
         ]);
 
         $userId = session('user_id');
-        $user = \App\Models\User::find($userId);
+        $user = User::find($userId);
         $employee = Employee::where('user_id', $userId)->first();
         $empName = $employee?->full_name ?? ($user ? $user->email : 'Không rõ');
 
@@ -47,14 +50,14 @@ class LeaveController extends Controller
         $days = $start->diffInDays($end) + 1;
 
         Leave::create([
-            'emp_id'     => $userId,
-            'emp_name'   => $empName,
+            'emp_id' => $userId,
+            'emp_name' => $empName,
             'leave_type' => $request->leave_type,
             'start_date' => $request->start_date,
-            'end_date'   => $request->end_date,
-            'days'       => $days,
-            'reason'     => $request->reason,
-            'status'     => 'pending',
+            'end_date' => $request->end_date,
+            'days' => $days,
+            'reason' => $request->reason,
+            'status' => 'pending',
         ]);
 
         return redirect()->route('leaves.index')->with('success', 'Gửi đơn nghỉ phép thành công!');
@@ -63,25 +66,26 @@ class LeaveController extends Controller
     // 4. Admin xem danh sách đơn chờ xử lý
     public function pending()
     {
-        $pendingLeaves = \App\Models\Leave::where('status', 'pending')->orderBy('created_at', 'desc')->get();
+        $pendingLeaves = Leave::where('status', 'pending')->orderBy('created_at', 'desc')->get();
+
         return view('admin.leaves.pending', compact('pendingLeaves'));
     }
 
     // 5. Admin bấm "Duyệt" đơn
     public function approve($id)
     {
-        $leave = \App\Models\Leave::findOrFail($id);
-    
+        $leave = Leave::findOrFail($id);
+
         $leave->status = 'approved';
-        
+
         // 👉 Lấy ID của người đang đăng nhập từ Session
-        $adminId = session('user_id'); 
-        $admin = \App\Models\User::find($adminId);
-        
+        $adminId = session('user_id');
+        $admin = User::find($adminId);
+
         // Lấy email nếu tìm thấy admin, không thì để tên mặc định
-        $leave->approved_by = $admin ? $admin->email : 'Admin'; 
+        $leave->approved_by = $admin ? $admin->email : 'Admin';
         $leave->approved_at = now();
-        
+
         $leave->save();
 
         return redirect()->back()->with('success', 'Đã phê duyệt đơn nghỉ phép.');
@@ -90,17 +94,17 @@ class LeaveController extends Controller
     // 6. Admin bấm "Từ chối" đơn
     public function reject($id)
     {
-        $leave = \App\Models\Leave::findOrFail($id);
-    
+        $leave = Leave::findOrFail($id);
+
         $leave->status = 'rejected';
-        
+
         // 👉 Lấy ID của người đang đăng nhập từ Session
         $adminId = session('user_id');
-        $admin = \App\Models\User::find($adminId);
-        
-        $leave->approved_by = $admin ? $admin->email : 'Admin'; 
+        $admin = User::find($adminId);
+
+        $leave->approved_by = $admin ? $admin->email : 'Admin';
         $leave->approved_at = now();
-        
+
         $leave->save();
 
         return redirect()->back()->with('success', 'Đã từ chối đơn nghỉ phép.');
@@ -110,15 +114,17 @@ class LeaveController extends Controller
     public function cancel($id)
     {
         $leave = Leave::where('emp_id', session('user_id'))->findOrFail($id);
-        
+
         // Chỉ cho phép hủy khi đơn vẫn đang ở trạng thái chờ duyệt
         if ($leave->status === 'pending') {
             $leave->update(['status' => 'cancelled']);
+
             return redirect()->route('leaves.index')->with('success', 'Đã hủy đơn nghỉ phép thành công!');
         }
 
         return redirect()->route('leaves.index')->with('error', 'Không thể hủy đơn này!');
     }
+
     // Xóa đơn nghỉ phép khỏi cơ sở dữ liệu
     public function destroy($id)
     {

@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Contracts\View\View;
 
 class AuthController extends Controller
 {
-
     public function showLogin(Request $request): View|RedirectResponse
     {
         if ($request->session()->has('user_id')) {
@@ -20,18 +19,17 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-
     public function login(Request $request): RedirectResponse
     {
 
         $request->validate([
-            'email'    => ['required', 'email'],
+            'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        $user = User::with('role')->where('email', $request->input('email'))->first();
+        $user = User::with(['role', 'employee'])->where('email', $request->input('email'))->first();
 
-        if (!$user || !Hash::check($request->input('password'), $user->password)) {
+        if (! $user || ! Hash::check($request->input('password'), $user->password)) {
             return back()->withErrors(['email' => 'Email hoặc mật khẩu không đúng'])->withInput();
         }
 
@@ -42,7 +40,8 @@ class AuthController extends Controller
         $request->session()->regenerate();
         $request->session()->put('user_id', $user->id);
         $request->session()->put('user_role', $user->getRoleName());
-
+        // Lưu tên hiển thị để layout dùng được với cơ chế đăng nhập bằng session.
+        $request->session()->put('user_name', $user->employee?->full_name ?? $user->email);
 
         $roleName = $user->getRoleName();
 
@@ -56,7 +55,6 @@ class AuthController extends Controller
 
         return redirect()->route('dashboard');
     }
-
 
     public function logout(Request $request): RedirectResponse
     {

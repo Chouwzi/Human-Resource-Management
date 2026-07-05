@@ -87,7 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (badgeMenu) {
         function updatePendingBadge() {
             fetch('/api/leaves/pending-count')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+
+                    return response.json();
+                })
                 .then(data => {
                     if (data.count > 0) {
                         badgeMenu.style.display = 'inline-block';
@@ -111,9 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const charCountNotice = document.getElementById('charCountNotice');
     
     if (reasonTextarea && charCountNotice) {
-        const maxChars = 50; // Giới hạn tương đương 50 chữ
+        const maxChars = Number(reasonTextarea.getAttribute('maxlength')) || 500;
 
-        reasonTextarea.addEventListener('input', function() {
+        function updateReasonCount() {
             const currentLength = reasonTextarea.value.length;
             const charsLeft = maxChars - currentLength;
 
@@ -124,7 +130,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 charCountNotice.style.color = 'var(--text-muted, #6c757d)';
                 charCountNotice.textContent = `Còn lại ${charsLeft} ký tự.`;
             }
-        });
+        }
+
+        reasonTextarea.addEventListener('input', updateReasonCount);
+        updateReasonCount();
     }
 });
 // Hàm bật bảng xác nhận Xóa đơn nghỉ phép
