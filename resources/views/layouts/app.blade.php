@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Quản Trị Hệ Thống') - HRM Team 14</title>
+    <title>@yield('title', 'Quản trị hệ thống') - HRM Portal</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -22,56 +22,56 @@
             <div class="sidebar-brand">
                 <a href="{{ request()->is('admin*') ? route('admin.home') : route('user.home') }}"
                     style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
-                    HRM Team 14
+                    HRM Portal
                 </a>
             </div>
 
             <nav class="sidebar-menu">
                 <a href="{{ in_array(session('user_role'), ['admin', 'hr']) ? route('admin.home') : route('user.home') }}"
                     class="menu-item {{ (request()->routeIs('admin.home') || request()->routeIs('user.home')) ? 'active' : '' }}">
-                    Tổng Quan
+                    Tổng quan
                 </a>
 
                 @if(request()->is('admin*'))
                     <a href="{{ route('admin.employees.index') }}"
                        class="menu-item {{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
-                        Nhân Sự
+                        Nhân sự
                     </a>
                     <a href="{{ route('admin.departments.index') }}"
                        class="menu-item {{ request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*') ? 'active' : '' }}">
-                        Phòng Ban
+                        Cơ cấu tổ chức
                     </a>
                     <a href="{{ route('admin.leaves.pending') }}" 
                         class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
-                        <span>Duyệt Đơn Nghỉ Phép</span>
+                        <span>Duyệt nghỉ phép</span>
                         <span class="badge badge-warning pending-leave-badge" data-pending-leave-badge>
                             {{ \App\Models\Leave::where('status', 'pending')->count() }}
                         </span>
                     </a>
                 @else
                     <a href="{{ route('leaves.create') }}" class="menu-item {{ request()->routeIs('leaves.create') ? 'active' : '' }}">
-                        Tạo Đơn Nghỉ Phép
+                        Đăng ký nghỉ phép
                     </a>
                     <a href="{{ route('leaves.index') }}" class="menu-item {{ request()->routeIs('leaves.index') ? 'active' : '' }}">
-                        Lịch Sử Đơn Nghỉ Phép
+                        Lịch sử nghỉ phép
                     </a>
                     <a href="{{ route('salaries.index') }}" class="menu-item {{ request()->routeIs('salaries.*') ? 'active' : '' }}">
-                        Bảng Lương
+                        Bảng lương
                     </a>
                 @endif
 
                 <a href="{{ request()->is('admin*') ? route('admin.attendance.index') : route('attendance.index') }}"
                    class="menu-item {{ (request()->routeIs('admin.attendance.*') || request()->routeIs('attendance.index')) ? 'active' : '' }}">
-                    Chấm Công
+                    Chấm công
                 </a>
                 @if(request()->is('admin*'))
                     <a href="{{ route('admin.contracts.index') }}"
                        class="menu-item {{ request()->routeIs('admin.contracts.*') ? 'active' : '' }}">
-                        Hợp Đồng
+                        Hợp đồng
                     </a>
                     <a href="{{ route('admin.salaries.index') }}"
                        class="menu-item {{ request()->routeIs('admin.salaries.*') ? 'active' : '' }}">
-                        Bảng Lương
+                        Bảng lương
                     </a>
                 @endif
             </nav>
@@ -93,7 +93,7 @@
                     <button class="btn-toggle-sidebar" id="btnToggleSidebar">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h2 style="font-size: 1.1rem; margin: 0;">@yield('header_title', 'Bảng Điều Khiển')</h2>
+                    <h2 style="font-size: 1.1rem; margin: 0;">@yield('header_title', 'Bảng điều khiển')</h2>
                 </div>
 
                 <div class="topbar-right">

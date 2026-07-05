@@ -28,7 +28,7 @@ class AdminAttendancePageTest extends TestCase
         ])->get(route('admin.attendance.index'));
 
         $response->assertOk();
-        $response->assertSee('Quản Lý Chấm Công');
+        $response->assertSee('Quản lý chấm công');
         $response->assertSee(route('attendance.finalize'), false);
     }
 

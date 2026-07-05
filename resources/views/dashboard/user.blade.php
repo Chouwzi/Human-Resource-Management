@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Trang Cá Nhân')
-@section('header_title', 'Tổng Quan Khung Làm Việc')
+@section('title', 'Tổng quan cá nhân')
+@section('header_title', 'Tổng quan cá nhân')
 
 @section('content')
 
@@ -35,7 +35,7 @@ $leaveTypeMap = [
 <div class="dashboard-welcome">
     <div>
         <h3 class="welcome-title">Xin chào, {{ $employee?->full_name ?? session('user_name') }}!</h3>
-        <p class="welcome-subtitle">Chúc bạn một ngày làm việc hiệu quả.</p>
+        <p class="welcome-subtitle">Theo dõi nhanh hồ sơ, chấm công, nghỉ phép và bảng lương của bạn.</p>
     </div>
     <div>
         <span class="badge badge-{{ $employeeStatus['class'] }} status-badge">
@@ -50,12 +50,12 @@ $leaveTypeMap = [
 
 <div class="stats-grid">
     <div class="stat-card">
-        <div class="stat-card-title">Check-in Hôm Nay</div>
+        <div class="stat-card-title">Check-in hôm nay</div>
         <div class="stat-card-value">{{ $checkInToday }}</div>
     </div>
 
     <div class="stat-card">
-        <div class="stat-card-title">Nghỉ Phép Đã Duyệt</div>
+        <div class="stat-card-title">Nghỉ phép đã duyệt</div>
         <div class="stat-card-value">
             {{ (int) $approvedLeaveDays }}
             <span class="stat-card-subtext">ngày trong năm</span>
@@ -70,19 +70,19 @@ $leaveTypeMap = [
 
 <div class="content-grid">
     <div class="content-card">
-        <h4 class="content-card-header">Thông Tin Hồ Sơ</h4>
+        <h4 class="content-card-header">Thông tin hồ sơ</h4>
 
         <div class="profile-info-list">
             <div class="profile-info-item">
-                <span class="profile-info-label">Mã Nhân Viên</span>
+                <span class="profile-info-label">Mã nhân viên</span>
                 <strong class="profile-info-value">{{ $employee?->employee_code ?? 'Chưa có' }}</strong>
             </div>
             <div class="profile-info-item">
-                <span class="profile-info-label">Chức Vụ</span>
+                <span class="profile-info-label">Chức vụ</span>
                 <strong class="profile-info-value">{{ $employee?->position?->name ?? 'Chưa có' }}</strong>
             </div>
             <div class="profile-info-item">
-                <span class="profile-info-label">Ngày Vào Làm</span>
+                <span class="profile-info-label">Ngày vào làm</span>
                 <strong class="profile-info-value">
                     {{ $employee?->hire_date ? \Carbon\Carbon::parse($employee->hire_date)->format('d/m/Y') : 'Chưa có' }}
                 </strong>
@@ -92,7 +92,7 @@ $leaveTypeMap = [
 
     <div class="content-card">
         <div class="content-card-header-flex">
-            <h4>Đơn Nghỉ Phép Gần Đây</h4>
+            <h4>Đơn nghỉ phép gần đây</h4>
             <a href="{{ route('leaves.index') }}" class="link-view-all">Xem tất cả</a>
         </div>
 
@@ -101,9 +101,9 @@ $leaveTypeMap = [
             <table class="table" style="min-width: unset;">
                 <thead>
                     <tr>
-                        <th>Loại Đơn</th>
-                        <th>Ngày Nghỉ</th>
-                        <th>Trạng Thái</th>
+                        <th>Loại đơn</th>
+                        <th>Ngày nghỉ</th>
+                        <th>Trạng thái</th>
                     </tr>
                 </thead>
                 <tbody>

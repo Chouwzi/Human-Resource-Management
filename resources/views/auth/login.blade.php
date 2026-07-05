@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập - Team 14 HRM</title>
+    <title>Đăng nhập - HRM Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 
 <body class="login-body">
 
-    <div class="team-intro">Dự Án Quản Lý Nhân Sự - Team 14</div>
+    <div class="team-intro">
+        <div class="login-brand-title">HRM Portal</div>
+        <div class="login-brand-subtitle">Hệ thống quản trị nhân sự</div>
+    </div>
 
     <div class="login-card">
-        <h2 class="title">Đăng Nhập</h2>
+        <h2 class="title">Đăng nhập hệ thống</h2>
 
         <div id="js-error-message" class="alert-error"></div>
 
@@ -40,7 +43,7 @@
 
             <button type="submit" class="btn-login" id="submitBtn">
                 <span class="spinner" id="loginSpinner"></span>
-                <span id="btnText">Đăng Nhập</span>
+                <span id="btnText">Đăng nhập</span>
             </button>
         </form>
     </div>

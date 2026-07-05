@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Lịch Sử & Đăng Ký Nghỉ Phép')
-@section('header_title', 'Quản Lý Nghỉ Phép Của Tôi')
+@section('header_title', 'Nghỉ phép cá nhân')
 
 @section('content')
 <div class="leave-split-layout">

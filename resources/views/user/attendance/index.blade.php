@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Chấm công')
-@section('header_title', 'Chấm Công Hàng Ngày')
+@section('header_title', 'Chấm công cá nhân')
 
 @section('content')
 @include('admin.hrm.partials.flash')
@@ -9,7 +9,7 @@
 <div class="content-grid">
     <!-- Cột bên trái: Thao tác chấm công -->
     <div class="content-card text-center" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2.5rem 1.5rem;">
-        <h4 style="margin-top: 0; margin-bottom: 0.5rem; color: var(--primary);">HỆ THỐNG CHẤM CÔNG</h4>
+        <h4 style="margin-top: 0; margin-bottom: 0.5rem; color: var(--primary);">Chấm công hôm nay</h4>
         <p style="color: var(--text-muted); margin-bottom: 2rem; font-weight: 500;">Hôm nay: {{ date('d/m/Y') }}</p>
         
         <div style="display: flex; gap: 1rem; width: 100%; justify-content: center; flex-wrap: wrap;">
@@ -32,7 +32,7 @@
     <!-- Cột bên phải: Lịch sử chấm công -->
     <div class="content-card">
         <div class="content-card-header-flex">
-            <h4>Lịch Sử Chấm Công Của Tôi</h4>
+            <h4>Lịch sử chấm công</h4>
             <!-- Form lọc dữ liệu theo tháng -->
             <form method="GET" action="{{ route('attendance.index') }}" style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
                 <select name="month" style="padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
