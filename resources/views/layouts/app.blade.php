@@ -87,20 +87,18 @@
                 </div>
 
                 <div class="topbar-right">
-        <span>
-            @if(session('user_role') === 'admin' || (Auth::check() && Auth::user()->role_id == 1))
-                Admin
-            @elseif(session('user_role') === 'hr' || (Auth::check() && Auth::user()->role_id == 2))
-                HR
-            @elseif(Auth::check())
-                {{ Auth::user()->name }}
-            @else
-                {{ session('user_name') }}
-            @endif
-        </span>
+                    <span>
+                        @if(session('user_role') === 'admin')
+                            Admin
+                        @elseif(session('user_role') === 'hr')
+                            HR
+                        @else
+                            {{ session('user_name') }}
+                        @endif
+                    </span>
 
-        <i class="fas fa-user-circle"></i>
-    </div>
+                    <i class="fas fa-user-circle"></i>
+                </div>
             </header>
 
             <div class="admin-content">
