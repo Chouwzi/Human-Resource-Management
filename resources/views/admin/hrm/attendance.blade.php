@@ -55,7 +55,7 @@
         <h4>Bảng chấm công</h4>
         <div style="display: flex; gap: 1rem; align-items: center;">
             <!-- Nút Chốt công -->
-            <form method="POST" action="{{ route('admin.attendance.finalize') }}" style="margin: 0;">
+            <form method="POST" action="{{ route('attendance.finalize') }}" style="margin: 0;">
                 @csrf
                 <button type="submit" class="btn btn-secondary" onclick="return confirm('Chốt công cho ngày hôm nay?')">
                     <i class="fas fa-check-circle"></i> Chốt công hôm nay
