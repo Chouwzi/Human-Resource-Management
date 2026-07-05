@@ -5,5 +5,12 @@
     <div class="alert alert-error"><i class="fas fa-triangle-exclamation"></i> {{ session('error') }}</div>
 @endif
 @if($errors->any())
-    <div class="alert alert-error"><i class="fas fa-circle-exclamation"></i> Vui lòng kiểm tra lại dữ liệu nhập.</div>
+    <div class="alert alert-error">
+        <i class="fas fa-circle-exclamation"></i> Vui lòng kiểm tra lại dữ liệu nhập.
+        <ul class="validation-error-list">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
