@@ -25,9 +25,13 @@ Route::get('/dashboard', function (Request $request) {
 
     $role = $request->session()->get('user_role');
 
-    return in_array($role, ['admin', 'hr'], true)
-        ? redirect()->route('admin.home')
-        : redirect()->route('user.home');
+    if ($role === 'admin') {
+        return redirect()->route('admin.home');
+    } elseif ($role === 'hr') {
+        return redirect()->route('hr.home');
+    }
+
+    return redirect()->route('user.home');
 })->name('dashboard');
 
 Route::get('/admin', function (Request $request) {
@@ -35,14 +39,34 @@ Route::get('/admin', function (Request $request) {
         return redirect()->route('login');
     }
 
-    $role = $request->session()->get('user_role');
-
-    if (! in_array($role, ['admin', 'hr'], true)) {
+    if ($request->session()->get('user_role') !== 'admin') {
         abort(403, 'Không có quyền truy cập.');
     }
 
-    return view('dashboard.admin', ['role' => $role]);
-})->middleware('require.role:admin,hr')->name('admin.home');
+    $pendingLeavesCount = \App\Models\Leave::where('status', 'pending')->count();
+    $totalEmployees     = \App\Models\Employee::count();
+    $totalContracts     = \App\Models\Contract::where('status', 'active')->count();
+    $recentEmployees    = \App\Models\Employee::with('position')->latest()->take(5)->get();
+
+    return view('dashboard.admin', compact('pendingLeavesCount', 'totalEmployees', 'totalContracts', 'recentEmployees'));
+})->middleware('require.role:admin')->name('admin.home');
+
+Route::get('/hr', function (Request $request) {
+    if (! $request->session()->has('user_id')) {
+        return redirect()->route('login');
+    }
+
+    if ($request->session()->get('user_role') !== 'hr') {
+        abort(403, 'Không có quyền truy cập.');
+    }
+
+    $pendingLeavesCount = \App\Models\Leave::where('status', 'pending')->count();
+    $totalEmployees     = \App\Models\Employee::count();
+    $activeEmployees    = \App\Models\Employee::where('status', 'active')->count();
+    $recentEmployees    = \App\Models\Employee::with('position')->latest()->take(5)->get();
+
+    return view('dashboard.hr', compact('pendingLeavesCount', 'totalEmployees', 'activeEmployees', 'recentEmployees'));
+})->middleware('require.role:hr')->name('hr.home');
 
 Route::get('/user', function (Request $request) {
     if (! $request->session()->has('user_id')) {
@@ -102,25 +126,26 @@ Route::middleware('require.role:admin,hr')->group(function () {
     Route::post('/admin/leaves/reject/{id}', [LeaveController::class, 'reject'])->name('admin.leaves.reject');
 });
 
+// CRUD chung cho Admin và HR (không bao gồm xóa)
 Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->group(function () {
     Route::get('/departments', [AdminHrmController::class, 'departments'])->name('departments.index');
     Route::post('/departments', [AdminHrmController::class, 'storeDepartment'])->name('departments.store');
     Route::put('/departments/{department}', [AdminHrmController::class, 'updateDepartment'])->name('departments.update');
-    Route::delete('/departments/{department}', [AdminHrmController::class, 'destroyDepartment'])->name('departments.destroy');
 
     Route::get('/positions', [AdminHrmController::class, 'positions'])->name('positions.index');
     Route::post('/positions', [AdminHrmController::class, 'storePosition'])->name('positions.store');
     Route::put('/positions/{position}', [AdminHrmController::class, 'updatePosition'])->name('positions.update');
-    Route::delete('/positions/{position}', [AdminHrmController::class, 'destroyPosition'])->name('positions.destroy');
 
     Route::get('/employees', [AdminHrmController::class, 'employees'])->name('employees.index');
     Route::post('/employees', [AdminHrmController::class, 'storeEmployee'])->name('employees.store');
     Route::put('/employees/{employee}', [AdminHrmController::class, 'updateEmployee'])->name('employees.update');
-    Route::delete('/employees/{employee}', [AdminHrmController::class, 'destroyEmployee'])->name('employees.destroy');
 
     Route::get('/attendance', [AdminHrmController::class, 'attendance'])->name('attendance.index');
     Route::post('/attendance', [AdminHrmController::class, 'storeAttendance'])->name('attendance.store');
+});
 
+// Chỉ Admin mới được phép quản lý Hợp đồng, Lương và XÓA dữ liệu
+Route::prefix('admin')->name('admin.')->middleware('require.role:admin')->group(function () {
     Route::get('/salaries', [AdminHrmController::class, 'salaries'])->name('salaries.index');
     Route::post('/salaries', [AdminHrmController::class, 'storeSalary'])->name('salaries.store');
 
@@ -128,6 +153,10 @@ Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->gro
     Route::post('/contracts', [AdminHrmController::class, 'storeContract'])->name('contracts.store');
     Route::put('/contracts/{contract}', [AdminHrmController::class, 'updateContract'])->name('contracts.update');
     Route::delete('/contracts/{contract}', [AdminHrmController::class, 'destroyContract'])->name('contracts.destroy');
+
+    Route::delete('/departments/{department}', [AdminHrmController::class, 'destroyDepartment'])->name('departments.destroy');
+    Route::delete('/positions/{position}', [AdminHrmController::class, 'destroyPosition'])->name('positions.destroy');
+    Route::delete('/employees/{employee}', [AdminHrmController::class, 'destroyEmployee'])->name('employees.destroy');
 });
 
 Route::get('/api/leaves/pending-count', function () {

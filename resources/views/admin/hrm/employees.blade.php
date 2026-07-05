@@ -135,10 +135,12 @@
                     <td><span class="badge badge-{{ $employee->status === 'active' ? 'success' : ($employee->status === 'probation' ? 'warning' : 'secondary') }}">{{ $employee->status }}</span></td>
                     <td class="table-actions">
                         <a href="{{ route('admin.employees.index', ['edit_employee' => $employee->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                        @if(session('user_role') === 'admin')
                         <form method="POST" action="{{ route('admin.employees.destroy', $employee) }}">
                             @csrf @method('DELETE')
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Vô hiệu hóa nhân viên này?')">Khóa</button>
                         </form>
+                        @endif
                     </td>
                 </tr>
                 @empty

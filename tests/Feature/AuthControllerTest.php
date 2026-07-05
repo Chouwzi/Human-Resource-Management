@@ -117,6 +117,28 @@ class AuthControllerTest extends TestCase
     }
 
     #[Test]
+    public function hr_duoc_chuyen_den_trang_hr(): void
+    {
+        $role = Role::firstOrCreate(['name' => 'hr']);
+
+        $user = User::factory()->create([
+            'role_id'  => $role->id,
+            'email'    => 'hr@example.com',
+            'password' => Hash::make('123456'),
+        ]);
+
+        $response = $this->post(route('login.store'), [
+            'email'    => 'hr@example.com',
+            'password' => '123456',
+        ]);
+
+        $response->assertRedirect(route('hr.home'));
+
+        $this->assertEquals($user->id, session('user_id'));
+        $this->assertEquals('hr', session('user_role'));
+    }
+
+    #[Test]
     public function nhan_vien_duoc_chuyen_den_trang_ca_nhan(): void
     {
         $role = Role::firstOrCreate(['name' => 'employee']);

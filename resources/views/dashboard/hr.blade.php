@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Tổng quan quản trị')
-@section('header_title', 'Tổng quan hệ thống')
+@section('title', 'Tổng quan nhân sự (HR)')
+@section('header_title', 'Tổng quan nhân sự')
 
 @section('content')
 
 <div class="dashboard-welcome">
     <div>
-        <h3 class="welcome-title">Xin chào, Admin!</h3>
-        <p class="welcome-subtitle">Quản trị toàn bộ hệ thống nhân sự, lương thưởng và hợp đồng.</p>
+        <h3 class="welcome-title">Xin chào, HR {{ session('user_name') }}!</h3>
+        <p class="welcome-subtitle">Quản lý nhân sự, duyệt đơn nghỉ phép và theo dõi chấm công.</p>
     </div>
     <div>
-        <span class="badge badge-danger status-badge">Quản trị viên</span>
+        <span class="badge badge-info status-badge">Nhân sự (HR)</span>
     </div>
 </div>
 
@@ -21,8 +21,18 @@
             <i class="fas fa-users"></i>
         </div>
         <div>
-            <div class="stat-card-title">Tổng nhân sự</div>
+            <div class="stat-card-title">Tổng nhân viên</div>
             <div class="stat-card-value">{{ $totalEmployees }}</div>
+        </div>
+    </div>
+
+    <div class="stat-card stat-card-flex">
+        <div class="stat-icon" style="background:#dcfce7; color:#15803d;">
+            <i class="fas fa-user-check"></i>
+        </div>
+        <div>
+            <div class="stat-card-title">Đang làm việc</div>
+            <div class="stat-card-value">{{ $activeEmployees }}</div>
         </div>
     </div>
 
@@ -35,27 +45,20 @@
             <div class="stat-card-value">{{ $pendingLeavesCount }}</div>
         </div>
     </div>
-
-    <div class="stat-card stat-card-flex">
-        <div class="stat-icon" style="background:#dcfce7; color:#15803d;">
-            <i class="fas fa-file-contract"></i>
-        </div>
-        <div>
-            <div class="stat-card-title">Hợp đồng hiệu lực</div>
-            <div class="stat-card-value">{{ $totalContracts }}</div>
-        </div>
-    </div>
 </div>
 
 <div class="action-bar">
     <a href="{{ route('admin.employees.index') }}" class="btn btn-primary">
         <i class="fas fa-plus" style="margin-right:6px;"></i> Thêm nhân viên
     </a>
-    <a href="{{ route('admin.salaries.index') }}" class="btn btn-secondary">
-        <i class="fas fa-file-export" style="margin-right:6px;"></i> Bảng lương
+    <a href="{{ route('admin.leaves.pending') }}" class="btn btn-secondary">
+        <i class="fas fa-clipboard-check" style="margin-right:6px;"></i> Duyệt nghỉ phép
+        @if($pendingLeavesCount > 0)
+            <span class="badge badge-warning" style="margin-left:6px;">{{ $pendingLeavesCount }}</span>
+        @endif
     </a>
-    <a href="{{ route('admin.contracts.index') }}" class="btn btn-secondary">
-        <i class="fas fa-file-contract" style="margin-right:6px;"></i> Hợp đồng
+    <a href="{{ route('admin.attendance.index') }}" class="btn btn-secondary">
+        <i class="fas fa-calendar-alt" style="margin-right:6px;"></i> Chấm công
     </a>
 </div>
 

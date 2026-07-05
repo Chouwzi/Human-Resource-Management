@@ -20,57 +20,103 @@
 
         <aside class="admin-sidebar" id="sidebar">
             <div class="sidebar-brand">
-                <a href="{{ request()->is('admin*') ? route('admin.home') : route('user.home') }}"
+                @php $role = session('user_role'); @endphp
+                <a href="{{ $role === 'admin' ? route('admin.home') : ($role === 'hr' ? route('hr.home') : route('user.home')) }}"
                     style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
                     HRM Portal
                 </a>
             </div>
 
             <nav class="sidebar-menu">
-                <a href="{{ in_array(session('user_role'), ['admin', 'hr']) ? route('admin.home') : route('user.home') }}"
-                    class="menu-item {{ (request()->routeIs('admin.home') || request()->routeIs('user.home')) ? 'active' : '' }}">
+                {{-- Menu mục Tổng quan --}}
+                <a href="{{ $role === 'admin' ? route('admin.home') : ($role === 'hr' ? route('hr.home') : route('user.home')) }}"
+                    class="menu-item {{ (request()->routeIs('admin.home') || request()->routeIs('hr.home') || request()->routeIs('user.home')) ? 'active' : '' }}">
+                    <i class="fas fa-tachometer-alt" style="margin-right:8px; width:16px;"></i>
                     Tổng quan
                 </a>
 
-                @if(request()->is('admin*'))
+                @if($role === 'admin')
+                    {{-- === MENU ADMIN === --}}
                     <a href="{{ route('admin.employees.index') }}"
                        class="menu-item {{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
+                        <i class="fas fa-users" style="margin-right:8px; width:16px;"></i>
                         Nhân sự
                     </a>
                     <a href="{{ route('admin.departments.index') }}"
-                       class="menu-item {{ request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*') ? 'active' : '' }}">
+                       class="menu-item {{ (request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*')) ? 'active' : '' }}">
+                        <i class="fas fa-sitemap" style="margin-right:8px; width:16px;"></i>
                         Cơ cấu tổ chức
                     </a>
-                    <a href="{{ route('admin.leaves.pending') }}" 
+                    <a href="{{ route('admin.leaves.pending') }}"
                         class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
+                        <i class="fas fa-clipboard-check" style="margin-right:8px; width:16px;"></i>
                         <span>Duyệt nghỉ phép</span>
                         <span class="badge badge-warning pending-leave-badge" data-pending-leave-badge>
                             {{ \App\Models\Leave::where('status', 'pending')->count() }}
                         </span>
                     </a>
-                @else
-                    <a href="{{ route('leaves.create') }}" class="menu-item {{ request()->routeIs('leaves.create') ? 'active' : '' }}">
-                        Đăng ký nghỉ phép
+                    <a href="{{ route('admin.attendance.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.attendance.*') ? 'active' : '' }}">
+                        <i class="fas fa-calendar-alt" style="margin-right:8px; width:16px;"></i>
+                        Chấm công
                     </a>
-                    <a href="{{ route('leaves.index') }}" class="menu-item {{ request()->routeIs('leaves.index') ? 'active' : '' }}">
-                        Lịch sử nghỉ phép
-                    </a>
-                    <a href="{{ route('salaries.index') }}" class="menu-item {{ request()->routeIs('salaries.*') ? 'active' : '' }}">
-                        Bảng lương
-                    </a>
-                @endif
-
-                <a href="{{ request()->is('admin*') ? route('admin.attendance.index') : route('attendance.index') }}"
-                   class="menu-item {{ (request()->routeIs('admin.attendance.*') || request()->routeIs('attendance.index')) ? 'active' : '' }}">
-                    Chấm công
-                </a>
-                @if(request()->is('admin*'))
                     <a href="{{ route('admin.contracts.index') }}"
                        class="menu-item {{ request()->routeIs('admin.contracts.*') ? 'active' : '' }}">
+                        <i class="fas fa-file-contract" style="margin-right:8px; width:16px;"></i>
                         Hợp đồng
                     </a>
                     <a href="{{ route('admin.salaries.index') }}"
                        class="menu-item {{ request()->routeIs('admin.salaries.*') ? 'active' : '' }}">
+                        <i class="fas fa-money-bill-wave" style="margin-right:8px; width:16px;"></i>
+                        Bảng lương
+                    </a>
+
+                @elseif($role === 'hr')
+                    {{-- === MENU HR === --}}
+                    <a href="{{ route('admin.employees.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
+                        <i class="fas fa-users" style="margin-right:8px; width:16px;"></i>
+                        Nhân sự
+                    </a>
+                    <a href="{{ route('admin.departments.index') }}"
+                       class="menu-item {{ (request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*')) ? 'active' : '' }}">
+                        <i class="fas fa-sitemap" style="margin-right:8px; width:16px;"></i>
+                        Cơ cấu tổ chức
+                    </a>
+                    <a href="{{ route('admin.leaves.pending') }}"
+                        class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
+                        <i class="fas fa-clipboard-check" style="margin-right:8px; width:16px;"></i>
+                        <span>Duyệt nghỉ phép</span>
+                        <span class="badge badge-warning pending-leave-badge" data-pending-leave-badge>
+                            {{ \App\Models\Leave::where('status', 'pending')->count() }}
+                        </span>
+                    </a>
+                    <a href="{{ route('admin.attendance.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.attendance.*') ? 'active' : '' }}">
+                        <i class="fas fa-calendar-alt" style="margin-right:8px; width:16px;"></i>
+                        Chấm công
+                    </a>
+
+                @else
+                    {{-- === MENU NHÂN VIÊN === --}}
+                    <a href="{{ route('leaves.create') }}"
+                       class="menu-item {{ request()->routeIs('leaves.create') ? 'active' : '' }}">
+                        <i class="fas fa-plus-circle" style="margin-right:8px; width:16px;"></i>
+                        Đăng ký nghỉ phép
+                    </a>
+                    <a href="{{ route('leaves.index') }}"
+                       class="menu-item {{ request()->routeIs('leaves.index') ? 'active' : '' }}">
+                        <i class="fas fa-list-alt" style="margin-right:8px; width:16px;"></i>
+                        Lịch sử nghỉ phép
+                    </a>
+                    <a href="{{ route('attendance.index') }}"
+                       class="menu-item {{ request()->routeIs('attendance.index') ? 'active' : '' }}">
+                        <i class="fas fa-calendar-alt" style="margin-right:8px; width:16px;"></i>
+                        Chấm công
+                    </a>
+                    <a href="{{ route('salaries.index') }}"
+                       class="menu-item {{ request()->routeIs('salaries.*') ? 'active' : '' }}">
+                        <i class="fas fa-money-bill-wave" style="margin-right:8px; width:16px;"></i>
                         Bảng lương
                     </a>
                 @endif
@@ -97,19 +143,20 @@
                 </div>
 
                 <div class="topbar-right">
-                    <span>
-                        @if(session('user_role') === 'admin')
-                            Admin
-                        @elseif(session('user_role') === 'hr')
-                            HR
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                        @if($role === 'admin')
+                            <span class="badge badge-danger">Admin</span>
+                        @elseif($role === 'hr')
+                            <span class="badge badge-info">HR</span>
                         @else
-                            {{ session('user_name') }}
+                            <span class="badge badge-success">Nhân viên</span>
                         @endif
-                    </span>
-
+                        <span style="font-weight:500;">{{ session('user_name') ?? session('user_email') }}</span>
+                    </div>
                     <i class="fas fa-user-circle"></i>
                 </div>
             </header>
+
 
             <div class="admin-content">
                 @yield('content')

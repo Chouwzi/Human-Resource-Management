@@ -121,10 +121,12 @@
                     <td><span class="badge {{ $status['class'] }}">{{ $status['text'] }}</span></td>
                     <td class="table-actions">
                         <a href="{{ route('admin.contracts.index', ['edit_contract' => $contract->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                        @if(session('user_role') === 'admin')
                         <form method="POST" action="{{ route('admin.contracts.destroy', $contract) }}">
                             @csrf @method('DELETE')
                             <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa hợp đồng này?')">Xóa</button>
                         </form>
+                        @endif
                     </td>
                 </tr>
                 @empty

@@ -45,8 +45,12 @@ class AuthController extends Controller
 
         $roleName = $user->getRoleName();
 
-        if ($roleName === 'admin' || $roleName === 'hr') {
+        if ($roleName === 'admin') {
             return redirect()->route('admin.home');
+        }
+
+        if ($roleName === 'hr') {
+            return redirect()->route('hr.home');
         }
 
         if ($roleName === 'employee') {

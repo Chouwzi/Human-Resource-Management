@@ -62,6 +62,34 @@ class SalaryControllerTest extends TestCase
         $response->assertDontSee('Nhân Viên Hai');
     }
 
+    #[Test]
+    public function hr_khong_duoc_truy_cap_quan_ly_luong(): void
+    {
+        $role = Role::firstOrCreate(['name' => 'hr'], ['description' => 'Nhân sự']);
+        $hrUser = User::factory()->create(['role_id' => $role->id]);
+
+        $response = $this->withSession([
+            'user_id' => $hrUser->id,
+            'user_role' => 'hr',
+        ])->get(route('admin.salaries.index'));
+
+        $response->assertForbidden();
+    }
+
+    #[Test]
+    public function nhan_vien_khong_duoc_truy_cap_quan_ly_luong(): void
+    {
+        $role = Role::firstOrCreate(['name' => 'employee'], ['description' => 'Nhân viên']);
+        $employeeUser = User::factory()->create(['role_id' => $role->id]);
+
+        $response = $this->withSession([
+            'user_id' => $employeeUser->id,
+            'user_role' => 'employee',
+        ])->get(route('admin.salaries.index'));
+
+        $response->assertForbidden();
+    }
+
     private function createEmployee(string $email, string $code, string $name): array
     {
         $role = Role::firstOrCreate(['name' => 'employee'], ['description' => 'Nhân viên']);

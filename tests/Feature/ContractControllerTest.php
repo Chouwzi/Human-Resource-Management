@@ -81,6 +81,19 @@ class ContractControllerTest extends TestCase
     }
 
     #[Test]
+    public function hr_khong_duoc_truy_cap_quan_ly_hop_dong(): void
+    {
+        $hrUser = $this->createUserWithRole('hr');
+
+        $response = $this->withSession([
+            'user_id' => $hrUser->id,
+            'user_role' => 'hr',
+        ])->get(route('admin.contracts.index'));
+
+        $response->assertForbidden();
+    }
+
+    #[Test]
     public function khong_cho_luu_hop_dong_co_ngay_ket_thuc_truoc_ngay_bat_dau(): void
     {
         $admin = $this->createUserWithRole('admin');
