@@ -99,6 +99,9 @@
     background-color: #fef3c7;
     color: #92400e;
 }
+.pending-leave-badge {
+    margin-left: auto;
+}
 .badge-danger {
     background-color: #fee2e2;
     color: #b91c1c;

@@ -82,7 +82,7 @@ function confirmCancel(id) {
    CẬP NHẬT SỐ LƯỢNG ĐƠN CHỜ DUYỆT (REAL-TIME)
    ========================================== */
 document.addEventListener('DOMContentLoaded', function() {
-    const badgeMenu = document.querySelector('.right.badge.badge-warning');
+    const badgeMenu = document.querySelector('[data-pending-leave-badge]');
 
     if (badgeMenu) {
         function updatePendingBadge() {
