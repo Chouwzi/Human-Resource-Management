@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard Quản Trị')
-@section('header_title', 'Tổng Quan Hệ Thống')
+@section('title', 'Tổng quan quản trị')
+@section('header_title', 'Tổng quan nhân sự')
 
 @section('content')
 
@@ -13,7 +13,7 @@ $recentEmployees = \App\Models\Employee::with('position')->latest()->take(5)->ge
 @endphp
 
 <div class="alert alert-success">
-    <i class="fas fa-check-circle"></i> Chào mừng bạn quay trở lại giao diện Quản trị viên!
+    <i class="fas fa-check-circle"></i> Chào mừng bạn quay lại hệ thống quản trị.
 </div>
 
 <div class="stats-grid">
@@ -22,7 +22,7 @@ $recentEmployees = \App\Models\Employee::with('position')->latest()->take(5)->ge
             <i class="fas fa-users"></i>
         </div>
         <div>
-            <div class="stat-card-title">Tổng Nhân Sự</div>
+            <div class="stat-card-title">Tổng nhân sự</div>
             <div class="stat-card-value">{{ $totalEmployees }}</div>
         </div>
     </div>
@@ -32,15 +32,15 @@ $recentEmployees = \App\Models\Employee::with('position')->latest()->take(5)->ge
             <i class="fas fa-file-signature"></i>
         </div>
         <div>
-            <div class="stat-card-title">Đơn Chờ Duyệt</div>
+            <div class="stat-card-title">Đơn chờ duyệt</div>
             <div class="stat-card-value">{{ $pendingLeavesCount }}</div>
         </div>
     </div>
 </div>
 
 <div class="action-bar">
-    <a href="{{ route('admin.employees.index') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm Nhân Viên Mới</a>
-    <a href="{{ route('admin.salaries.index') }}" class="btn btn-secondary"><i class="fas fa-file-export"></i> Xem Bảng Lương</a>
+    <a href="{{ route('admin.employees.index') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm nhân viên</a>
+    <a href="{{ route('admin.salaries.index') }}" class="btn btn-secondary"><i class="fas fa-file-export"></i> Xem bảng lương</a>
 </div>
 
 <div class="table-responsive">

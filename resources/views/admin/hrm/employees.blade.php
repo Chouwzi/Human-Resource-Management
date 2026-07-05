@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Nhân viên')
-@section('header_title', 'Quản Lý Nhân Viên')
+@section('header_title', 'Quản lý nhân sự')
 
 @section('content')
 @include('admin.hrm.partials.flash')
