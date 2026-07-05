@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
-@section('title', 'Tạo Đơn Nghỉ Phép')
-@section('header_title', 'Đăng Ký Nghỉ Phép')
+@section('title', 'Đăng ký nghỉ phép')
+@section('header_title', 'Đăng ký nghỉ phép')
 
 @section('content')
 <div class="content-grid" style="display: block; max-width: 800px; margin: 0 auto;">
     
     <div class="content-card">
-        <h4 class="content-card-header">Thông Tin Đơn Nghỉ Phép</h4>
+        <h4 class="content-card-header">Thông tin đơn nghỉ phép</h4>
 
         <form action="{{ route('leaves.store') }}" method="POST">
             @csrf
 
             <div class="form-group">
-                <label class="form-label">Loại Nghỉ Phép <span style="color: var(--danger);">*</span></label>
+                <label class="form-label">Loại nghỉ phép <span style="color: var(--danger);">*</span></label>
                 <select name="leave_type" class="form-control" required>
                     <option value="">-- Chọn loại nghỉ phép --</option>
                     <option value="annual" @selected(old('leave_type') === 'annual')>Nghỉ phép năm</option>
@@ -49,9 +49,9 @@
             </div>
 
             <div class="form-actions">
-                <a href="{{ route('leaves.index') }}" class="btn btn-secondary">Hủy Bỏ</a>
+                <a href="{{ route('leaves.index') }}" class="btn btn-secondary">Hủy bỏ</a>
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-paper-plane mr-2"></i> Gửi Đơn
+                    <i class="fas fa-paper-plane mr-2"></i> Gửi đơn
                 </button>
             </div>
 
