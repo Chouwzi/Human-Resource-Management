@@ -118,5 +118,7 @@ Route::middleware('require.role:employee')->group(function () {
 
 // Admin chốt công và sửa đổi chấm công (AdminHrmController.php và AttendanceController.php)
 Route::middleware('require.role:admin,hr')->group(function () {
+    Route::post('/admin/attendance/finalize', [App\Http\Controllers\Admin\AttendanceController::class, 'finalize'])
+    ->name('admin.attendance.finalize');
     Route::post('/attendance/finalize', [AttendanceController::class, 'finalizeAttendance'])->name('attendance.finalize');
 });

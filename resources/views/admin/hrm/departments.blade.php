@@ -6,6 +6,7 @@
 @section('content')
 @include('admin.hrm.partials.flash')
 
+
 <div class="content-grid">
     <div class="content-card">
         <h4 class="content-card-header">{{ $editingDepartment ? 'Cập nhật phòng ban' : 'Thêm phòng ban' }}</h4>
