@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Quản Trị Hệ Thống') - HRM Team 6</title>
+    <title>@yield('title', 'Quản Trị Hệ Thống') - HRM Team 14</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -22,7 +22,7 @@
             <div class="sidebar-brand">
                 <a href="{{ request()->is('admin*') ? route('admin.home') : route('user.home') }}"
                     style="color: inherit; text-decoration: none; display: flex; align-items: center; width: 100%; height: 100%;">
-                    HRM Team 6
+                    HRM Team 14
                 </a>
             </div>
 

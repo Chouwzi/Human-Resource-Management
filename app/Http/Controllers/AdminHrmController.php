@@ -140,7 +140,7 @@ class AdminHrmController extends Controller
         $data = $request->validate($this->employeeRules(), $this->validationMessages(), $this->validationAttributes());
         $role = Role::where('name', 'employee')->firstOrFail();
 
-        // Tạo user cùng lúc để nhân viên demo đăng nhập được ngay.
+        // Tạo user cùng lúc để nhân viên đăng nhập được ngay.
         $user = User::create([
             'role_id' => $role->id,
             'email' => $data['email'],
@@ -176,7 +176,7 @@ class AdminHrmController extends Controller
         $employee->update(['status' => 'resigned']);
         $employee->user?->update(['status' => 'locked']);
 
-        return back()->with('success', 'Đã vô hiệu hóa nhân viên để giữ dữ liệu demo.');
+        return back()->with('success', 'Đã vô hiệu hóa nhân viên và giữ lại lịch sử liên quan.');
     }
 
     public function attendance(Request $request): View
