@@ -5,27 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class AttendanceLog extends Model
+class Contract extends Model
 {
     protected $fillable = [
         'employee_id',
-        'work_date',
-        'check_in_at',
-        'check_out_at',
+        'contract_code',
+        'contract_type',
+        'start_date',
+        'end_date',
+        'salary',
+        'working_hours_per_week',
         'status',
-        'worked_minutes',
-        'overtime_minutes',
-        'note',
     ];
 
     protected function casts(): array
     {
         return [
-            'work_date' => 'date',
-            'check_in_at' => 'datetime',
-            'check_out_at' => 'datetime',
-            'worked_minutes' => 'integer',
-            'overtime_minutes' => 'integer',
+            'start_date' => 'date',
+            'end_date' => 'date',
+            'salary' => 'decimal:2',
+            'working_hours_per_week' => 'decimal:2',
         ];
     }
 

@@ -15,6 +15,13 @@ class Position extends Model
         'default_salary',
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'default_salary' => 'decimal:2',
+        ];
+    }
+
     public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
