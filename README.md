@@ -69,7 +69,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-4. Chạy migration và seed dữ liệu demo:
+4. Chạy migration và seed dữ liệu ban đầu:
 
 ```bash
 php artisan migrate:fresh --seed
@@ -87,7 +87,7 @@ Mặc định ứng dụng sẽ chạy tại:
 http://127.0.0.1:8000
 ```
 
-## Tài khoản demo
+## Tài khoản kiểm thử
 
 Sau khi chạy seed, có thể dùng các tài khoản sau:
 
@@ -97,7 +97,7 @@ Sau khi chạy seed, có thể dùng các tài khoản sau:
 | HR | `hr@example.com` | `password` |
 | Nhân viên | `employee@example.com` | `password` |
 
-## Luồng demo gợi ý
+## Luồng kiểm thử gợi ý
 
 1. Đăng nhập bằng Admin hoặc HR.
 2. Kiểm tra dashboard quản trị.

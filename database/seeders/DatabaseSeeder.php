@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $hr = Role::firstOrCreate(['name' => 'hr'], ['description' => 'Nhân sự']);
         $employee = Role::firstOrCreate(['name' => 'employee'], ['description' => 'Nhân viên']);
 
-        // Tài khoản demo dùng chung mật khẩu: password.
+        // Tạo tài khoản ban đầu để kiểm tra các vai trò chính.
         User::factory()->create([
             'role_id' => $admin->id,
             'email' => 'admin@example.com',
@@ -147,7 +147,7 @@ class DatabaseSeeder extends Seeder
                 'status' => $index === 2 ? 'late' : 'present',
                 'worked_minutes' => $workedMinutes,
                 'overtime_minutes' => max(0, $workedMinutes - 480),
-                'note' => 'Dữ liệu demo',
+                'note' => 'Chấm công từ hệ thống',
             ]);
 
             $baseSalary = (float) ($employeeModel->position->default_salary ?? 8000000);

@@ -5,8 +5,12 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\SalaryController;
+use App\Models\AttendanceLog;
+use App\Models\Employee;
 use App\Models\Leave;
+use App\Models\Salary;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,13 +54,33 @@ Route::get('/user', function (Request $request) {
     }
 
     $userId = $request->session()->get('user_id');
+    $employee = Employee::with('position')->where('user_id', $userId)->first();
     $recentLeaves = Leave::where('emp_id', $userId)
         ->orderBy('created_at', 'desc')
         ->take(3)
         ->get();
+    $todayAttendance = $employee
+        ? AttendanceLog::where('employee_id', $employee->id)
+            ->whereDate('work_date', Carbon::today())
+            ->first()
+        : null;
+    $approvedLeaveDays = Leave::where('emp_id', $userId)
+        ->where('status', 'approved')
+        ->whereYear('start_date', Carbon::now()->year)
+        ->sum('days');
+    $latestSalary = $employee
+        ? Salary::where('employee_id', $employee->id)
+            ->orderByDesc('year')
+            ->orderByDesc('month')
+            ->first()
+        : null;
 
     return view('dashboard.user', [
         'role' => 'employee',
+        'employee' => $employee,
+        'todayAttendance' => $todayAttendance,
+        'approvedLeaveDays' => $approvedLeaveDays,
+        'latestSalary' => $latestSalary,
         'recentLeaves' => $recentLeaves,
     ]);
 })->middleware('require.role:employee')->name('user.home');

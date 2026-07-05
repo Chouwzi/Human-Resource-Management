@@ -6,7 +6,7 @@
 @section('content')
 
 @php
-// Lấy số liệu thật để dashboard bám dữ liệu demo.
+// Lấy số liệu thật từ database cho dashboard quản trị.
 $pendingLeavesCount = \App\Models\Leave::where('status', 'pending')->count();
 $totalEmployees = \App\Models\Employee::count();
 $recentEmployees = \App\Models\Employee::with('position')->latest()->take(5)->get();

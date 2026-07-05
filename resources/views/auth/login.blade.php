@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập - Team 6 HRM</title>
+    <title>Đăng Nhập - Team 14 HRM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 </head>
 
 <body class="login-body">
 
-    <div class="team-intro">Dự Án Quản Lý Nhân Sự - Team 6</div>
+    <div class="team-intro">Dự Án Quản Lý Nhân Sự - Team 14</div>
 
     <div class="login-card">
         <h2 class="title">Đăng Nhập</h2>
@@ -43,13 +43,6 @@
                 <span id="btnText">Đăng Nhập</span>
             </button>
         </form>
-
-        <p class="hint">
-            Demo accounts:<br>
-            <strong>admin@example.com</strong> / password<br>
-            <strong>hr@example.com</strong> / password<br>
-            <strong>employee@example.com</strong> / password
-        </p>
     </div>
 
     <script src="{{ asset('js/auth.js') }}"></script>

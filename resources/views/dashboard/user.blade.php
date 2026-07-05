@@ -6,55 +6,65 @@
 @section('content')
 
 @php
-// Dữ liệu demo cá nhân hóa, bổ sung thông tin lương tháng gần nhất
-$myInfo = (object)[
-    'employee_code' => 'NV001',
-    'full_name' => 'Nguyễn Trung Nguyên',
-    'position' => 'Lập trình viên Backend',
-    'hire_date' => '15/05/2025',
-    'status_label' => 'Chính thức',
-    'status_class' => 'success',
+$statusMap = [
+    'active' => ['label' => 'Đang làm', 'class' => 'success'],
+    'probation' => ['label' => 'Thử việc', 'class' => 'warning'],
+    'resigned' => ['label' => 'Đã nghỉ', 'class' => 'secondary'],
+];
+$employeeStatus = $statusMap[$employee?->status] ?? ['label' => 'Chưa có hồ sơ', 'class' => 'secondary'];
 
-    // Thống kê cá nhân
-    'leave_balance' => 12,
-    'leave_taken' => 2,
-    'attendance_today' => '08:00 AM',
-
-    // Thông tin lương
-    'salary_month' => 'Tháng 05/2026',
-    'salary_status' => 'Đã thanh toán'
+$salaryStatusMap = [
+    'paid' => 'Đã thanh toán',
+    'draft' => 'Đang xử lý',
+];
+$salaryMonth = $latestSalary
+    ? 'Tháng '.str_pad((string) $latestSalary->month, 2, '0', STR_PAD_LEFT).'/'.$latestSalary->year
+    : 'Chưa có kỳ lương';
+$salaryStatus = $latestSalary ? ($salaryStatusMap[$latestSalary->status] ?? $latestSalary->status) : 'Chưa có dữ liệu';
+$checkInToday = $todayAttendance?->check_in_at
+    ? \Carbon\Carbon::parse($todayAttendance->check_in_at)->format('H:i')
+    : 'Chưa chấm công';
+$leaveTypeMap = [
+    'annual' => 'Nghỉ phép năm',
+    'sick' => 'Nghỉ ốm',
+    'unpaid' => 'Nghỉ không lương',
+    'personal' => 'Nghỉ việc riêng',
 ];
 @endphp
 
 <div class="dashboard-welcome">
     <div>
-        <h3 class="welcome-title">Xin chào, {{ $myInfo->full_name }}! </h3>
+        <h3 class="welcome-title">Xin chào, {{ $employee?->full_name ?? session('user_name') }}!</h3>
         <p class="welcome-subtitle">Chúc bạn một ngày làm việc hiệu quả.</p>
     </div>
     <div>
-        <span class="badge badge-{{ $myInfo->status_class }} status-badge">
-            Trạng thái: {{ $myInfo->status_label }}
+        <span class="badge badge-{{ $employeeStatus['class'] }} status-badge">
+            Trạng thái: {{ $employeeStatus['label'] }}
         </span>
     </div>
 </div>
 
+@if(! $employee)
+<div class="alert alert-error">Không tìm thấy hồ sơ nhân sự của tài khoản này.</div>
+@endif
+
 <div class="stats-grid">
     <div class="stat-card">
         <div class="stat-card-title">Check-in Hôm Nay</div>
-        <div class="stat-card-value">{{ $myInfo->attendance_today ?? 'Chưa chấm công' }}</div>
+        <div class="stat-card-value">{{ $checkInToday }}</div>
     </div>
 
     <div class="stat-card">
-        <div class="stat-card-title">Phép Năm Còn Lại</div>
+        <div class="stat-card-title">Nghỉ Phép Đã Duyệt</div>
         <div class="stat-card-value">
-            {{ $myInfo->leave_balance - $myInfo->leave_taken }}
-            <span class="stat-card-subtext">/ {{ $myInfo->leave_balance }} ngày</span>
+            {{ (int) $approvedLeaveDays }}
+            <span class="stat-card-subtext">ngày trong năm</span>
         </div>
     </div>
 
     <div class="stat-card">
-        <div class="stat-card-title">Lương {{ $myInfo->salary_month }}</div>
-        <div class="stat-card-value success">{{ $myInfo->salary_status }}</div>
+        <div class="stat-card-title">Lương {{ $salaryMonth }}</div>
+        <div class="stat-card-value {{ $latestSalary?->status === 'paid' ? 'success' : '' }}">{{ $salaryStatus }}</div>
     </div>
 </div>
 
@@ -65,20 +75,18 @@ $myInfo = (object)[
         <div class="profile-info-list">
             <div class="profile-info-item">
                 <span class="profile-info-label">Mã Nhân Viên</span>
-                <strong class="profile-info-value">{{ $myInfo->employee_code }}</strong>
+                <strong class="profile-info-value">{{ $employee?->employee_code ?? 'Chưa có' }}</strong>
             </div>
             <div class="profile-info-item">
                 <span class="profile-info-label">Chức Vụ</span>
-                <strong class="profile-info-value">{{ $myInfo->position }}</strong>
+                <strong class="profile-info-value">{{ $employee?->position?->name ?? 'Chưa có' }}</strong>
             </div>
             <div class="profile-info-item">
                 <span class="profile-info-label">Ngày Vào Làm</span>
-                <strong class="profile-info-value">{{ $myInfo->hire_date }}</strong>
+                <strong class="profile-info-value">
+                    {{ $employee?->hire_date ? \Carbon\Carbon::parse($employee->hire_date)->format('d/m/Y') : 'Chưa có' }}
+                </strong>
             </div>
-        </div>
-
-        <div class="card-actions">
-            <button class="btn btn-secondary w-100">Cập nhật hồ sơ</button>
         </div>
     </div>
 
@@ -111,7 +119,7 @@ $myInfo = (object)[
                     @endphp
                     <tr>
                         <td>
-                            <strong>{{ $leave->leave_type }}</strong><br>
+                            <strong>{{ $leaveTypeMap[$leave->leave_type] ?? $leave->leave_type }}</strong><br>
                             <small class="text-muted">{{ $leave->days }} ngày</small>
                         </td>
                         <td>{{ \Carbon\Carbon::parse($leave->start_date)->format('d/m/Y') }}</td>
