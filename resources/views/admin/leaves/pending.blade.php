@@ -1,27 +1,29 @@
 @extends('layouts.app')
 
-@section('title', 'Duyệt Đơn Nghỉ Phép')
-@section('header_title', 'Danh Sách Đơn Chờ Duyệt')
+@section('title', 'Duyệt đơn nghỉ phép')
+@section('header_title', 'Danh sách đơn chờ duyệt')
 
 @section('content')
+@include('admin.hrm.partials.flash')
+
 <div class="content-grid pending-grid">
     <div class="content-card">
-        <h4 class="content-card-header pending-header">Đơn Chờ Xử Lý</h4>
+        <h4 class="content-card-header pending-header">Đơn chờ xử lý</h4>
 
         <div class="table-responsive m-0">
             <table class="table table-custom">
                 <thead>
                     <tr>
                         <th class="w-5">STT</th>
-                        <th class="w-20 text-left">Nhân Viên</th>
-                        <th class="w-15">Loại Đơn</th>
-                        <th class="w-20">Thời Gian</th>
-                        <th class="w-20 text-left">Lý Do</th>
-                        <th class="w-20 text-center">Hành Động</th>
+                        <th class="w-20 text-left">Nhân viên</th>
+                        <th class="w-15">Loại đơn</th>
+                        <th class="w-20">Thời gian</th>
+                        <th class="w-20 text-left">Lý do</th>
+                        <th class="w-20 text-center">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($pendingLeaves as $index => $item)
+                    @forelse($pendingLeaves as $index => $item)
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td class="text-left">
@@ -53,7 +55,8 @@
                                 </button>
                             </form>
                             
-                            <form action="{{ route('admin.leaves.reject', $item->id) }}" method="POST" id="form-reject-{{ $item->id }}" class="form-action form-reject">                                @csrf
+                            <form action="{{ route('admin.leaves.reject', $item->id) }}" method="POST" id="form-reject-{{ $item->id }}" class="form-action form-reject">
+                                @csrf
                                 <button type="button" onclick="confirmReject('{{ $item->id }}')" class="btn btn-danger btn-action" title="Từ chối">
                                     <i class="fas fa-times"></i> Từ chối
                                 </button>
@@ -61,7 +64,13 @@
 
                         </td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center" style="padding: 2rem 0; color: var(--text-muted);">
+                            Hiện không có đơn nghỉ phép nào đang chờ xử lý.
+                        </td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

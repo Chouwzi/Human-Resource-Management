@@ -136,9 +136,6 @@ Route::get('/api/leaves/pending-count', function () {
     ]);
 })->middleware('require.role:admin,hr');
 
-// Route xóa đơn nghỉ phép
-Route::delete('/leaves/delete/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');
-
 // Phân hệ Chấm công cho Nhân viên (User)
 Route::middleware('require.role:employee')->group(function () {
     Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
