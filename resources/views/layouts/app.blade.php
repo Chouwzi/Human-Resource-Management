@@ -65,6 +65,10 @@
                     Chấm Công
                 </a>
                 @if(request()->is('admin*'))
+                    <a href="{{ route('admin.contracts.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.contracts.*') ? 'active' : '' }}">
+                        Hợp Đồng
+                    </a>
                     <a href="{{ route('admin.salaries.index') }}"
                        class="menu-item {{ request()->routeIs('admin.salaries.*') ? 'active' : '' }}">
                         Bảng Lương

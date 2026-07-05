@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\AttendanceLog;
+use App\Models\Contract;
 use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Leave;
@@ -24,20 +25,20 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Tạo các quyền (Roles)
-        $admin    = Role::firstOrCreate(['name' => 'admin'],    ['description' => 'Quản trị viên hệ thống']);
-        $hr       = Role::firstOrCreate(['name' => 'hr'],       ['description' => 'Nhân sự']);
+        $admin = Role::firstOrCreate(['name' => 'admin'], ['description' => 'Quản trị viên hệ thống']);
+        $hr = Role::firstOrCreate(['name' => 'hr'], ['description' => 'Nhân sự']);
         $employee = Role::firstOrCreate(['name' => 'employee'], ['description' => 'Nhân viên']);
 
         // Tài khoản demo dùng chung mật khẩu: password.
         User::factory()->create([
-            'role_id'  => $admin->id,
-            'email'    => 'admin@example.com',
+            'role_id' => $admin->id,
+            'email' => 'admin@example.com',
             'password' => 'password',
         ]);
 
         $hrUser = User::factory()->create([
-            'role_id'  => $hr->id,
-            'email'    => 'hr@example.com',
+            'role_id' => $hr->id,
+            'email' => 'hr@example.com',
             'password' => 'password',
         ]);
 
@@ -123,6 +124,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         foreach ($employees as $index => $employeeModel) {
+            Contract::create([
+                'employee_id' => $employeeModel->id,
+                'contract_code' => 'HD'.str_pad((string) ($index + 1), 3, '0', STR_PAD_LEFT),
+                'contract_type' => $index === 2 ? 'probation' : 'fixed_term',
+                'start_date' => '2026-01-01',
+                'end_date' => $index === 2 ? '2026-03-31' : '2026-12-31',
+                'salary' => (float) ($employeeModel->position->default_salary ?? 8000000),
+                'working_hours_per_week' => 40,
+                'status' => 'active',
+            ]);
+
             $checkIn = Carbon::parse(now()->toDateString().' 08:0'.$index);
             $checkOut = Carbon::parse(now()->toDateString().' 17:15');
             $workedMinutes = $checkIn->diffInMinutes($checkOut);

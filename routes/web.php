@@ -99,6 +99,11 @@ Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->gro
 
     Route::get('/salaries', [AdminHrmController::class, 'salaries'])->name('salaries.index');
     Route::post('/salaries', [AdminHrmController::class, 'storeSalary'])->name('salaries.store');
+
+    Route::get('/contracts', [AdminHrmController::class, 'contracts'])->name('contracts.index');
+    Route::post('/contracts', [AdminHrmController::class, 'storeContract'])->name('contracts.store');
+    Route::put('/contracts/{contract}', [AdminHrmController::class, 'updateContract'])->name('contracts.update');
+    Route::delete('/contracts/{contract}', [AdminHrmController::class, 'destroyContract'])->name('contracts.destroy');
 });
 
 Route::get('/api/leaves/pending-count', function () {
