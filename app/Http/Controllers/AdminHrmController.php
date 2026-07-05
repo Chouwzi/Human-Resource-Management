@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AttendanceLog;
+use App\Models\Contract;
 use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Position;
@@ -231,6 +232,43 @@ class AdminHrmController extends Controller
         return back()->with('success', 'Đã lưu bảng lương.');
     }
 
+    public function contracts(Request $request): View
+    {
+        $contracts = Contract::with('employee')
+            ->orderByDesc('start_date')
+            ->orderBy('contract_code')
+            ->get();
+        $employees = Employee::orderBy('full_name')->get();
+        $editingContract = $request->filled('edit_contract')
+            ? Contract::find($request->integer('edit_contract'))
+            : null;
+
+        return view('admin.hrm.contracts', compact('contracts', 'employees', 'editingContract'));
+    }
+
+    public function storeContract(Request $request): RedirectResponse
+    {
+        $data = $request->validate($this->contractRules());
+        Contract::create($data);
+
+        return back()->with('success', 'Đã thêm hợp đồng.');
+    }
+
+    public function updateContract(Request $request, Contract $contract): RedirectResponse
+    {
+        $data = $request->validate($this->contractRules($contract));
+        $contract->update($data);
+
+        return redirect()->route('admin.contracts.index')->with('success', 'Đã cập nhật hợp đồng.');
+    }
+
+    public function destroyContract(Contract $contract): RedirectResponse
+    {
+        $contract->delete();
+
+        return back()->with('success', 'Đã xóa hợp đồng.');
+    }
+
     private function positionRules(?Position $position = null): array
     {
         return [
@@ -292,6 +330,20 @@ class AdminHrmController extends Controller
             'bonus' => ['nullable', 'numeric', 'min:0'],
             'deduction' => ['nullable', 'numeric', 'min:0'],
             'status' => ['required', Rule::in(['draft', 'paid'])],
+        ];
+    }
+
+    private function contractRules(?Contract $contract = null): array
+    {
+        return [
+            'employee_id' => ['required', 'exists:employees,id'],
+            'contract_code' => ['required', 'string', 'max:50', Rule::unique('contracts', 'contract_code')->ignore($contract?->id)],
+            'contract_type' => ['required', Rule::in(['probation', 'fixed_term', 'indefinite'])],
+            'start_date' => ['required', 'date'],
+            'end_date' => ['nullable', 'date', 'after_or_equal:start_date'],
+            'salary' => ['required', 'numeric', 'min:0'],
+            'working_hours_per_week' => ['required', 'numeric', 'min:0', 'max:168'],
+            'status' => ['required', Rule::in(['active', 'expired', 'terminated'])],
         ];
     }
 
