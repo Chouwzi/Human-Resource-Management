@@ -87,6 +87,10 @@ $leaveTypeMap = [
                     {{ $employee?->hire_date ? \Carbon\Carbon::parse($employee->hire_date)->format('d/m/Y') : 'Chưa có' }}
                 </strong>
             </div>
+            <div class="profile-info-item">
+                <span class="profile-info-label">Quản lý trực tiếp</span>
+                <strong class="profile-info-value">{{ $employee?->manager?->full_name ?? 'Không có' }}</strong>
+            </div>
         </div>
     </div>
 

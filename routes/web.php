@@ -80,7 +80,7 @@ Route::get('/user', function (Request $request) {
     }
 
     $userId = $request->session()->get('user_id');
-    $employee = Employee::with('position')->where('user_id', $userId)->first();
+    $employee = Employee::with(['position', 'manager'])->where('user_id', $userId)->first();
     $recentLeaves = Leave::where('emp_id', $userId)
         ->orderBy('created_at', 'desc')
         ->take(3)
