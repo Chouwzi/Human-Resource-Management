@@ -1,319 +1,191 @@
-# CẨM NANG TOÀN DIỆN: BỐ CỤC SLIDE, KỊCH BẢN THOẠI & KỸ THUẬT THUYẾT TRÌNH BẠO CÁO BÀI TẬP LỚN HRM
-**Người thuyết trình & Demo:** Nguyễn Trần Đình Chương (Trưởng nhóm - Đại diện nhóm thuyết trình toàn bài)
-**Đối tượng lắng nghe:** Giảng viên phụ trách môn học & Các bạn sinh viên trong lớp
-**Thời lượng:** 15 phút tổng (Thuyết trình: 8-9 phút | Live Demo: 4-5 phút | Hỏi đáp Q&A: 2 phút)
-**Công nghệ:** Laravel 11 + MySQL + Bootstrap 5
+# CẨM NANG THUYẾT TRÌNH BÁO CÁO BÀI TẬP LỚN HRM
+**Người thuyết trình & Demo:** Nguyễn Trần Đình Chương (Trưởng nhóm)
+**Thời lượng tối ưu:** 12-15 phút tổng (Thuyết trình: 8 phút | Live Demo: 4 phút | Hỏi đáp: 2 phút)
 
 ---
 
-## PHẦN 1: KỸ NĂNG LÀM CHỦ SÂN KHẤU CHO DIỄN GIẢ ĐỘC THOẠI
+## PHẦN 1: KỸ NĂNG VẬT LÝ & TƯ THẾ TRÊN SÂN KHẤU
 
-Khi thuyết trình và demo một mình toàn bộ đề tài với **micro cầm tay có dây** và **màn hình LCD lớn**, cần kiểm soát tốt năng lượng và các ràng buộc lý học:
-
-### 1. Kỹ thuật xử lý Micro & Thiết bị khi Demo một mình
-*   **Thách thức vật lý:** Một tay cầm mic, một tay cầm Clicker thuyết trình slide. Đến phần Live Demo, nếu vừa cầm mic vừa gõ bàn phím/di chuột bằng 1 tay sẽ cực kỳ luống cuống và thiếu chuyên nghiệp.
-*   **Giải pháp tối ưu (Phân công hỗ trợ kỹ thuật):** 
-    *   Mặc dù trưởng nhóm Chương là người thuyết trình và nói 100%, hãy chỉ định **1 thành viên trong nhóm (ví dụ bạn Long hoặc Minh) ngồi sẵn ở máy tính kỹ thuật** để thao tác click chuột và gõ bàn phím theo lời thuyết minh.
-    *   Trưởng nhóm đứng chếch cạnh màn hình LCD, cầm mic bằng tay trái, tay phải cử chỉ tự do và điều hướng: *"Bây giờ, xin mời giảng viên cùng các bạn quan sát màn hình khi thành viên nhóm mình thực hiện bấm Check-in..."*. Việc này giúp người nói luôn đối mặt với cả lớp, giữ vững phong thái chủ động.
-    *   *Trường hợp bắt buộc tự bấm máy:* Hãy đặt micro lên **chân đế mic (stand)** trên bàn máy tính hoặc kẹp mic vào giá đỡ trước khi ngồi xuống để giải phóng hoàn toàn 2 tay di chuột và gõ phím.
-*   **Quản lý dây mic:** Do nói liên tục 12 slide và demo, hãy quấn nhẹ một vòng dây cáp quanh tay cầm mic để giữ dây cố định, tránh kéo căng dây gây lỏng giắc cắm trên bục.
-
-### 2. Tư thế đứng cạnh màn hình LCD lớn và Bảng viết
-*   **Tư thế đứng chéo 45 độ (The Diagonal Stance):** Đứng nghiêng 45 độ so với bề mặt hiển thị. Một vai hướng về bảng/màn hình để chỉ thông tin, vai còn lại và lồng ngực luôn mở hướng về phía giảng viên và các bạn sinh viên dưới lớp. **Tuyệt đối không quay lưng 100% về phía người nghe.**
-*   **Cử chỉ chỉ dẫn mở (Open Gestures):** Đứng bên trái màn hình thì dùng tay phải để chỉ, đứng bên phải màn hình thì dùng tay trái. Chỉ bằng **lòng bàn tay ngửa mở hướng lên trên**, không chỉ bằng một ngón tay trỏ.
-*   **Nguyên tắc "Viết xong mới nói" (Stop and Talk):** Khi cần viết lên bảng trắng, hãy dừng nói -> xoay người viết nhanh từ khóa hoặc vẽ sơ đồ -> xoay người lại đối mặt với lớp -> bắt đầu giải thích.
-
-### 3. Điều phối năng lượng và Nhịp điệu nói (Vocal Pacing)
-*   **Tránh monotone (giọng đều đều):** Do nói liên tục 10 phút một mình, giọng nói rất dễ bị rơi vào trạng thái đều đều. Hãy chủ động nhấn giọng ở các danh từ kỹ thuật và các con số kết quả (ví dụ: *chốt công tự động*, *mã hóa một chiều*, *47 bài test*).
-*   **Khoảng dừng quyền lực (Power of Pause):** Dành từ **1 đến 2 giây** dừng lại sau khi kết thúc một Slide hoặc sau khi đưa ra một kết luận cốt lõi để cả lớp kịp quan sát slide và tiêu hóa thông tin.
-*   **Phát âm thuật ngữ kỹ thuật:** Đọc rõ ràng và chuẩn xác: *Laravel* (La-ra-vel), *Middleware* (Mít-đơn-we), *Eloquent ORM* (Ê-lô-quần O-R-M), *Bootstrap* (Bút-strap), *AJAX* (A-dắc), *SweetAlert* (Suýt A-lợt).
+*   **Tư thế đứng chéo 45 độ:** Đứng nghiêng so với màn hình LCD. Một vai hướng về màn hình để chỉ thông tin, một vai hướng xuống giảng viên và các bạn sinh viên. Tuyệt đối không quay lưng 100% về phía người nghe.
+*   **Chỉ màn hình bằng lòng bàn tay ngửa:** Đứng bên trái màn hình thì dùng tay phải để chỉ, đứng bên phải thì dùng tay trái. Chỉ bằng lòng bàn tay ngửa hướng lên trên, tránh dùng ngón trỏ chỉ trỏ.
+*   **Vừa thuyết trình vừa Demo một mình:** Chỉ định 1 thành viên trong nhóm (ví dụ bạn Long hoặc Minh) ngồi máy tính thao tác click chuột/gõ phím theo lời nói của bạn để bạn rảnh cả hai tay cầm mic và thuyết minh trước lớp. Nếu tự bấm máy, hãy kẹp mic vào chân đế đặt sẵn trên bàn.
 
 ---
 
-## PHẦN 2: CHI TIẾT 12 SLIDE BÁO CÁO & KỊCH BẢN THOẠI (SPEAKING SCRIPT)
+## PHẦN 2: KỊCH BẢN THOẠI & GIẢI THÍCH THUẬT NGỮ TỪNG SLIDE
 
 ### SLIDE 1: GIỚI THIỆU ĐỀ TÀI & THÀNH VIÊN
-*   **Bố cục hiển thị:** Logo trường Đại học, Tên đề tài lớn: **"HỆ THỐNG QUẢN LÝ NHÂN SỰ (HRM SYSTEM)"**. Danh sách 5 thành viên Nhóm 14 kèm MSSV xếp gọn gàng. Dưới cùng hiển thị logo các công nghệ: Laravel, PHP, Bootstrap, MySQL.
-*   **Keywords:** Hệ thống HRM, Bài tập lớn, Nhóm 14, Laravel 11.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng thẳng ở trung tâm sân khấu, tay trái cầm mic cách cằm 5cm. Tay phải mở tự nhiên, lòng bàn tay hướng về phía cả lớp. Mắt quét qua giảng viên và các bạn sinh viên, mỉm cười và chào tự tin.
+*   **Bố cục hiển thị:** Logo trường, Tên đề tài: **"HỆ THỐNG QUẢN LÝ NHÂN SỰ (HRM SYSTEM)"**. Danh sách 5 thành viên Nhóm 14 kèm MSSV. Logo công nghệ: Laravel, PHP, Bootstrap, MySQL.
+*   **Cử chỉ:** Đứng thẳng ở trung tâm, tay cầm mic cách cằm 5cm. Tay tự do mở rộng tự nhiên. Mắt nhìn bao quát cả lớp, mỉm cười chào tự tin.
 *   **Kịch bản thoại:**
-    > *"Kính chào giảng viên cùng toàn thể các bạn sinh viên đang có mặt trong buổi báo cáo bài tập lớn ngày hôm nay. Nhóm mình là Nhóm 14. Hôm nay, mình xin đại diện nhóm trình bày kết quả nghiên cứu và phát triển sản phẩm của bài tập lớn môn Lập trình Web với đề tài: **'Hệ thống Quản lý Nhân sự - HRM'**. 
-    > Đây là một ứng dụng được nhóm mình xây dựng trên nền tảng framework Laravel 11 - một bộ khung phát triển web bằng ngôn ngữ PHP, kết hợp cơ sở dữ liệu MySQL và thư viện giao diện Bootstrap 5, hướng tới việc tối ưu hóa toàn diện công tác quản trị nhân sự, chấm công và tính toán bảng lương cho các doanh nghiệp vừa và nhỏ. Sau đây, nhóm xin phép bắt đầu phần trình bày."*
+    > *"Kính chào giảng viên cùng toàn thể các bạn sinh viên. Nhóm mình là Nhóm 14. Hôm nay, mình xin đại diện nhóm báo cáo bài tập lớn môn Lập trình Web với đề tài: **'Hệ thống Quản lý Nhân sự - HRM'**. 
+    > Sản phẩm được nhóm mình xây dựng trên nền tảng framework Laravel 11 kết hợp cơ sở dữ liệu MySQL và thư viện giao diện Bootstrap 5, hướng tới việc tự động hóa chấm công và tính lương cho các doanh nghiệp vừa và nhỏ."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Framework (Laravel 11):** Giống như *khung nhà lắp ghép* có sẵn móng, cột, điện nước. Nhóm chỉ việc xây tường và sơn (viết logic nhân sự) chứ không cần tự code lại từ đầu.
+    *   **PHP:** Ngôn ngữ lập trình backend dùng để xử lý logic trên máy chủ.
+    *   **MySQL:** Cơ sở dữ liệu dùng để lưu trữ thông tin (thông tin nhân viên, ngày công, lương).
 
 ---
 
 ### SLIDE 2: LÝ DO CHỌN ĐỀ TÀI & MỤC TIÊU HỆ THỐNG
-*   **Bố cục hiển thị:** Bento Grid 2 cột đối lập:
-    *   *Cột 1 (Nỗi đau doanh nghiệp):* Các icon cảnh báo lỗi Excel thủ công, thất thoát ngày công, rò rỉ bảng lương.
-    *   *Cột 2 (Giải pháp HRM):* Các icon cơ sở dữ liệu tập trung, chấm công trực tuyến, tự động tính lương, duyệt phép trực quan.
-*   **Keywords:** Quản lý thủ công, Excel rời rạc, Số hóa toàn diện.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng chếch 45 độ so với màn hình LCD. Dùng tay phải mở ngửa bàn tay hướng về phía cột "Nỗi đau", nét mặt hơi nghiêm túc để biểu thị thách thức. Sau đó xoay tay chỉ sang cột "Giải pháp", mỉm cười để biểu thị sự giải tỏa khó khăn.
+*   **Bố cục hiển thị:** Bento Grid 2 cột: Cột 1 (Nỗi đau Excel thủ công, sai sót ngày công, rò rỉ lương) đối lập với Cột 2 (Hệ thống HRM chấm công trực tuyến, tự động tính lương, duyệt phép tức thời).
+*   **Cử chỉ:** Tay phải mở ngửa chỉ cột "Nỗi đau" (nét mặt nghiêm túc), sau đó xoay tay chỉ sang cột "Giải pháp" (mỉm cười nhẹ).
 *   **Kịch bản thoại:**
-    > *"Thưa giảng viên và các bạn, phần lớn các doanh nghiệp quy mô vừa và nhỏ hiện nay vẫn đang quản lý hồ sơ nhân viên và tính lương thông qua các file Excel thủ công. Cách làm này không chỉ gây tốn kém thời gian mà còn dễ dẫn đến sai lệch số liệu ngày công và rò rỉ thông tin lương nhạy cảm. 
-    > Mục tiêu của hệ thống HRM do nhóm mình xây dựng là số hóa toàn diện - tức là chuyển đổi toàn bộ quy trình giấy tờ thủ công sang dữ liệu số lưu trên cơ sở dữ liệu tập trung, giúp chấm công trực tuyến tức thời, tự động đối chiếu đơn xin nghỉ phép và tính toán bảng lương cuối tháng chính xác 100%."*
+    > *"Thưa giảng viên và các bạn, phần lớn doanh nghiệp vừa và nhỏ hiện nay vẫn quản lý nhân sự qua file Excel thủ công, rất tốn thời gian, dễ sai lệch ngày công và rò rỉ bảng lương nhạy cảm. 
+    > Mục tiêu của hệ thống HRM này là số hóa toàn bộ quy trình: lưu dữ liệu tập trung, cho phép nhân viên chấm công trực tuyến bằng điện thoại, tự động đối chiếu ngày nghỉ phép để tính lương cuối tháng chính xác 100%."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Số hóa:** Chuyển đổi toàn bộ quy trình giấy tờ, file Excel rời rạc sang lưu trữ dữ liệu số trên máy chủ để máy tính tự động xử lý.
 
 ---
 
 ### SLIDE 3: CÔNG NGHỆ CHỦ ĐẠO & KIẾN TRÚC HỆ THỐNG
-*   **Bố cục hiển thị:** Sơ đồ khối kiến trúc 3 lớp (3-Tier Architecture) chạy trên mô hình MVC: Client (Blade views) <=> Application Backend (Laravel 11 Controllers/Middleware) <=> Database Storage (MySQL).
-*   **Keywords:** Kiến trúc MVC, Eloquent ORM, Responsive Bootstrap 5.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Vẫn giữ tư thế đứng chéo 45 độ. Tay phải chỉ vào khối trung tâm "Middleware & Controller" trên sơ đồ LCD để biểu thị nơi xử lý chính của hệ thống. Nói chậm lại khi liệt kê các công nghệ cốt lõi.
+*   **Bố cục hiển thị:** Sơ đồ khối kiến trúc 3 lớp: Client (Giao diện hiển thị) <=> Backend Laravel (Logic xử lý & Bộ lọc) <=> Database MySQL (Lưu trữ dữ liệu).
+*   **Cử chỉ:** Đứng chếch 45 độ, chỉ vào khối trung tâm "Backend Laravel" trên màn hình.
 *   **Kịch bản thoại:**
-    > *"Về mặt kiến trúc, nhóm mình lựa chọn mô hình MVC cổ điển - tức là phân chia ứng dụng thành 3 phần: View là giao diện người dùng hiển thị, Controller đóng vai trò điều khiển logic và Model quản lý dữ liệu. Hệ thống chạy trên nền tảng Laravel 11 bảo mật cao. 
-    > Nhóm cũng sử dụng Eloquent ORM - một công cụ giúp code PHP giao tiếp với cơ sở dữ liệu MySQL mà không cần viết các câu truy vấn SQL thô phức tạp. Giao diện được xây dựng responsive bằng Bootstrap 5 để tự động co giãn đẹp mắt trên cả PC lẫn điện thoại. Tiếp theo, nhóm mình xin trình bày về phần thiết kế cơ sở dữ liệu."*
+    > *"Về mặt kiến trúc, nhóm mình lựa chọn mô hình MVC được hỗ trợ bởi Laravel 11. Giao diện được thiết kế responsive bằng Bootstrap 5 để hiển thị tối ưu trên cả máy tính lẫn di động. Dữ liệu được lưu trữ có cấu trúc trong MySQL và được quản lý nhất quán qua hệ thống migrations."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **MVC (Model - View - Controller):** Chia code làm 3 phần như quy trình nhà hàng: View là bàn ăn nơi khách ngồi (giao diện), Controller là phục vụ bàn (nhận yêu cầu, điều hướng logic), Model là nhà bếp (truy xuất dữ liệu).
+    *   **Responsive:** Khả năng tự động co giãn giao diện cho vừa vặn với kích thước màn hình PC, máy tính bảng hoặc điện thoại di động.
+    *   **Migrations:** Lịch sử phiên bản của cơ sở dữ liệu giúp cả nhóm tạo bảng đồng bộ bằng lệnh mà không cần gửi file SQL thủ công.
 
 ---
 
 ### SLIDE 4: THIẾT KẾ CƠ SỞ DỮ LIỆU (CSDL - ERD)
-*   **Bố cục hiển thị:** Sơ đồ ERD phóng lớn. Làm nổi bật các bảng cốt lõi: `users`, `employees`, `departments`, `positions`, `contracts`, `attendance_logs`, `salaries`, `leaves` và mối liên kết khóa ngoại.
-*   **Keywords:** Quan hệ 1-1, Khóa ngoại đệ quy `manager_id`, Chỉ mục duy nhất (Unique Index).
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Tay phải chỉ vào liên kết tự đệ quy của `manager_id` trong bảng `employees` để giải thích sơ đồ cây quản lý của công ty.
+*   **Bố cục hiển thị:** Sơ đồ ERD phóng lớn. Làm nổi bật các bảng chính và các liên kết khóa ngoại.
+*   **Cử chỉ:** Chỉ vào trường `manager_id` tự liên kết và chỉ mục duy nhất của bảng lương.
 *   **Kịch bản thoại:**
-    > *"Về mặt cơ sở dữ liệu, nhóm mình thiết kế 11 bảng dữ liệu được chuẩn hóa theo chuẩn 3NF để tránh dư thừa và trùng lặp thông tin. 
-    > Mối quan hệ 1-1 giữa bảng tài khoản `users` và hồ sơ nhân viên `employees` giúp tách biệt thông tin đăng nhập và thông tin cá nhân. Điểm đặc biệt ở đây là khóa ngoại đệ quy `manager_id` tự liên kết lại chính bảng `employees`, giúp hệ thống biết được mỗi nhân viên thuộc quyền quản lý của ai để xây dựng sơ đồ tổ chức. Nhóm mình cũng thiết lập các ràng buộc duy nhất (Unique Index) để cơ sở dữ liệu tự động ngăn chặn việc tạo trùng lặp bảng lương cho cùng một nhân viên trong cùng một tháng. Tiếp theo, nhóm xin đi vào hệ thống phân quyền."*
+    > *"CSDL của hệ thống gồm 11 bảng được chuẩn hóa để tránh trùng lặp thông tin. Điểm nổi bật là trường `manager_id` tự liên kết lại chính bảng nhân viên để quản lý cây sơ đồ tổ chức công ty. Nhóm cũng thiết lập các chỉ mục duy nhất ở mức cơ sở dữ liệu để ngăn ngừa tuyệt đối lỗi tạo trùng lặp bảng lương của nhân viên trong cùng một tháng."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Chuẩn hóa CSDL:** Sắp xếp các bảng dữ liệu khoa học để không có thông tin nào bị trùng lặp thừa thãi.
+    *   **Khóa ngoại đệ quy `manager_id`:** Nhân viên trỏ đến ID của quản lý, mà quản lý cũng là nhân viên. Giúp tạo sơ đồ phân cấp trực tiếp trong cùng một bảng.
+    *   **Chỉ mục duy nhất (Unique Index):** Ràng buộc ở tầng database không cho phép lưu trùng lặp dữ liệu (ví dụ: không cho phép tạo 2 phiếu lương trùng nhân viên + trùng tháng).
 
 ---
 
 ### SLIDE 5: THIẾT HỆ HỆ THỐNG PHÂN QUYỀN (RBAC)
-*   **Bố cục hiển thị:** Bảng ma trận phân quyền (Role Matrix Table) so sánh quyền hạn của 3 vai trò: Admin (Tick xanh toàn bộ), HR (Không có quyền Lương/Hợp đồng), Employee (Chỉ được xem thông tin cá nhân).
-*   **Keywords:** Role-based Access Control (RBAC), Route Middleware, Đặc quyền Xóa.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Mắt nhìn bao quát cả lớp để nhấn mạnh yếu tố bảo mật và an toàn thông tin của hệ thống doanh nghiệp.
+*   **Bố cục hiển thị:** Bảng ma trận quyền hạn của 3 vai trò: Admin (Toàn quyền), HR (Quản lý hồ sơ & Duyệt phép, không được xóa/sửa lương), Employee (Chỉ thao tác trên thông tin cá nhân).
+*   **Cử chỉ:** Nhìn thẳng cả lớp để nhấn mạnh tính bảo mật thông tin.
 *   **Kịch bản thoại:**
-    > *"Để bảo vệ an toàn thông tin tổ chức, hệ thống áp dụng cơ chế phân quyền dựa trên vai trò, viết tắt là RBAC. Cơ chế này được kiểm soát chặt chẽ thông qua Route Middleware. Các bạn có thể hiểu đơn giản, **Middleware giống như những chốt bảo vệ hoặc bộ lọc** đứng giữa các đường dẫn (URL). Khi người dùng nhấn vào một trang nhạy cảm như xem lương, Middleware sẽ kiểm tra vai trò của họ. Nếu không phải Admin, Middleware sẽ chặn ngay lập tức và trả về mã lỗi từ chối truy cập 403. 
-    > Nhờ đó, Admin có toàn quyền quản lý tài chính; HR chỉ quản lý hồ sơ và duyệt phép mà không được xem lương; còn Nhân viên chỉ xem được thông tin của chính mình. Tiếp theo, nhóm mình xin giới thiệu phân hệ quản lý nhân sự."*
+    > *"Hệ thống áp dụng cơ chế phân quyền dựa trên vai trò, viết tắt là RBAC. Cơ chế này được kiểm soát chặt chẽ thông qua Route Middleware. 
+    > Nhờ đó, Admin có toàn quyền quản lý tài chính; HR chỉ quản lý hồ sơ và duyệt phép mà không được xem lương; còn Nhân viên chỉ xem được thông tin của chính mình, đảm bảo an toàn thông tin tối đa."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **RBAC (Role-based Access Control):** Phân quyền dựa trên vai trò chức vụ chứ không phân quyền cho từng cá nhân riêng lẻ.
+    *   **Middleware:** Hoạt động như **anh bảo vệ đứng ở cửa quán Bar**. Khi người dùng nhấn vào đường dẫn nhạy cảm, Middleware sẽ chặn lại kiểm tra quyền truy cập. Nếu không phải Admin, Middleware sẽ chặn đứng lại và trả về lỗi `403 Forbidden`.
 
 ---
 
 ### SLIDE 6: PHÂN HỆ ADMIN/HR - QUẢN LÝ NHÂN SỰ & CƠ CẤU
-*   **Bố cục hiển thị:** Screenshot danh sách nhân viên có bộ lọc phòng ban và chức vụ đồng bộ. Screenshot form thêm mới nhân viên có đầy đủ các trường nhập liệu.
-*   **Keywords:** Cơ cấu tổ chức động, Ràng buộc duy nhất, Bộ lọc thông minh.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng ở tư thế mở, tay trái cầm mic, tay phải chỉ vào form thêm mới nhân viên trên màn hình LCD để cả lớp thấy rõ giao diện sạch sẽ, chuyên nghiệp.
+*   **Bố cục hiển thị:** Screenshot danh sách nhân viên có bộ lọc phòng ban và chức vụ. Screenshot form thêm nhân viên mới.
+*   **Cử chỉ:** Chỉ vào bộ lọc thông minh trên màn hình để minh họa thao tác tìm kiếm nhanh.
 *   **Kịch bản thoại:**
-    > *"Đây là giao diện Quản lý Nhân sự dành cho Admin và HR. Hệ thống hỗ trợ khởi tạo cơ cấu tổ chức động thông qua việc tạo phòng ban và các chức vụ tương ứng với mức lương mặc định. 
-    > Khi tiếp nhận nhân viên mới, HR sẽ điền thông tin chi tiết vào form mẫu. Hệ thống tự động kiểm tra các ràng buộc duy nhất như mã nhân viên và số CCCD để tránh trùng lặp thông tin, đồng thời cho phép lựa chọn người quản lý trực tiếp từ danh sách nhân viên hiện hữu. Tiếp theo, nhóm xin trình bày phân hệ hợp đồng và lương."*
+    > *"Ở phân hệ nhân sự, HR có thể khởi tạo cơ cấu phòng ban và các chức vụ động. Khi thêm nhân viên mới, hệ thống tự động kiểm tra tính duy nhất của mã nhân viên và CCCD để tránh trùng lặp dữ liệu, đồng thời cho phép gán người quản lý trực tiếp từ danh sách nhân sự hiện có."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Cơ cấu tổ chức động:** Người dùng có thể tự thêm/sửa/xóa phòng ban trực tiếp trên giao diện và hệ thống tự động cập nhật, không cần can thiệp vào code.
 
 ---
 
 ### SLIDE 7: PHÂN HỆ ADMIN - QUẢN LÝ HỢP ĐỒNG & BẢNG LƯƠNG
-*   **Bố cục hiển thị:** Screenshot màn hình Quản lý Hợp đồng lao động và Bảng lương tự động tháng (Base salary, Allowance, Bonus, Deduction, Gross/Net).
-*   **Keywords:** Hợp đồng lao động, Lương Thực lĩnh (Net), Trạng thái thanh toán (Paid).
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Tay phải chỉ lên công thức tính lương trên màn hình LCD, thực hiện cử chỉ nâng tay lên khi nói về "Lương Gross" và hạ tay xuống khi nói đến "Khấu trừ/Lương Net".
+*   **Bố cục hiển thị:** Screenshot hợp đồng lao động và bảng lương tự động cuối tháng (Base salary, Allowance, Bonus, Deduction, Net).
+*   **Cử chỉ:** Thực hiện cử chỉ nâng tay lên khi nói về "Lương Gross" và hạ tay xuống khi nói đến "Khấu trừ".
 *   **Kịch bản thoại:**
-    > *"Tiếp theo là Phân hệ quản lý Hợp đồng và Lương của Admin. Mỗi nhân viên khi làm việc sẽ gắn liền với một Hợp đồng lao động quy định mức lương cơ bản và loại hợp đồng. 
-    > Bảng lương hàng tháng được tính toán tự động dựa trên mức lương hợp đồng, cộng với phụ cấp và tiền thưởng dự án, đồng thời trừ đi các khoản khấu trừ (Deductions) như tiền phạt đi muộn hoặc nghỉ không phép được lấy ra từ dữ liệu chấm công. Bảng lương sẽ được lưu ở trạng thái Nháp (Draft) để Admin rà soát kỹ lưỡng, và chỉ khi Admin đổi trạng thái sang Đã thanh toán (Paid) thì nhân viên mới có thể tra cứu trực tuyến phiếu lương của mình. Tiếp theo là phân hệ chấm công của nhân viên."*
+    > *"Mỗi nhân viên sẽ gắn liền với một hợp đồng lao động để làm căn cứ tính lương cơ bản. Bảng lương hàng tháng được tính toán tự động dựa trên mức lương hợp đồng, cộng với phụ cấp và tiền thưởng, đồng thời trừ đi các khoản khấu trừ như phạt đi muộn lấy từ dữ liệu chấm công."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Lương Gross:** Tổng thu nhập chưa trừ các khoản phí đóng góp.
+    *   **Lương Net (Thực lĩnh):** Số tiền thực tế nhân viên được cầm về tay sau khi lấy Lương Gross trừ đi các khoản khấu trừ (phạt đi muộn, nghỉ không phép).
 
 ---
 
 ### SLIDE 8: PHÂN HỆ NHÂN VIÊN - CHẤM CÔNG VÀ XIN NGHỈ PHÉP
-*   **Bố cục hiển thị:** Screenshot nút bấm Check-in/Check-out lớn trên giả lập di động. Screenshot biểu mẫu làm đơn xin nghỉ phép.
-*   **Keywords:** Chấm công một chạm, Số phút làm việc thực tế, Đơn phép trực tuyến.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng tự tin, tay cầm mic chuẩn cách miệng 5cm. Mắt nhìn bao quát giảng viên và các bạn sinh viên để tạo sự gắn kết.
+*   **Bố cục hiển thị:** Screenshot nút bấm Check-in/Check-out trên giao diện di động. Screenshot biểu mẫu xin nghỉ phép.
+*   **Cử chỉ:** Mắt quét qua giảng viên và các bạn sinh viên để giữ sự tương tác.
 *   **Kịch bản thoại:**
-    > *"Đối với phân hệ Nhân viên, nhóm mình thiết kế giao diện tối giản, tập trung vào hai tác vụ cốt lõi hàng ngày là Chấm công và Nghỉ phép. 
-    > Khi nhân viên bấm Check-in, backend sẽ đối chiếu với mốc thời gian 8 giờ sáng, nếu trễ hơn sẽ tự động chuyển trạng thái ngày công thành đi muộn (late). Khi Check-out, hệ thống tự động so khớp giờ ra về, nếu trước 17 giờ chiều sẽ đánh dấu ghi chú về sớm, ngược lại sẽ tính số phút làm việc thực tế và quy đổi số phút tăng ca (overtime) chính xác làm căn cứ tính lương."*
+    > *"Giao diện di động dành cho nhân viên được tối giản hóa. Khi nhân viên nhấn Check-in/Check-out, hệ thống tự động ghi nhận thời gian thực từ máy chủ, đối chiếu với mốc 8h00 sáng để xác định trạng thái đi muộn. Nhân viên cũng có thể làm đơn xin nghỉ phép trực tuyến gửi lên HR phê duyệt."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Check-in/Check-out:** Thao tác điểm danh giờ bắt đầu làm và giờ ra về của nhân viên.
+    *   **Giờ thực từ máy chủ:** Thời gian lấy từ máy chủ hệ thống chạy backend chứ không lấy từ giờ của điện thoại người dùng (để tránh việc nhân viên chỉnh giờ trên điện thoại để gian lận chấm công).
 
 ---
 
 ### SLIDE 9: KIẾN TRÚC CODE & XỬ LÝ NGHIỆP VỤ NỔI BẬT
-*   **Bố cục hiển thị:**
-    *   *Bên trái:* Sơ đồ luồng xử lý Request trong Laravel.
-    *   *Bên phải:* Đoạn code thực tế chứa hàm chốt công tự động `finalizeAttendance`.
-*   **Keywords:** Custom Middleware, Chốt công tự động (`finalizeAttendance`), ORM Relationships.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Xoay nghiêng người chỉ tay vào đoạn code hàm `finalizeAttendance` trên màn hình LCD để giảng viên thấy được logic chốt công tự động.
+*   **Bố cục hiển thị:** Đoạn code thực tế chứa hàm chốt công tự động `finalizeAttendance`.
+*   **Cử chỉ:** Chỉ vào đoạn code điều kiện kiểm tra đơn nghỉ phép trên màn hình LCD.
 *   **Kịch bản thoại:**
-    > *"Về mặt kỹ thuật, nhóm mình xây dựng bộ lọc **Kiểm tra quyền truy cập** (Middleware). Khi người dùng nhấn vào bất kỳ liên kết nào, bộ lọc này sẽ đối chiếu vai trò của họ (Admin, HR hay Nhân viên) được lưu trong Session. Nếu không đúng quyền, hệ thống sẽ lập tiếp chặn lại và trả về lỗi từ chối truy cập. 
-    > Một điểm sáng nghiệp vụ khác là thuật toán **Chốt công ngày** (`finalizeAttendance`). Cuối ngày làm việc, hệ thống tự động quét danh sách nhân sự không chấm công. Nếu họ đã có đơn nghỉ phép được duyệt, hệ thống ghi nhận là nghỉ có phép (`leave`), ngược lại sẽ ghi nhận vắng không phép (`absent`) để trừ lương tự động. Việc này giúp HR cắt giảm hoàn toàn thời gian đối chiếu thủ công. Tiếp theo là phần bảo mật thực tế và kiểm thử."*
+    > *"Về mặt kỹ thuật, nhóm mình xây dựng thuật toán chốt công tự động chạy cuối ngày. Hệ thống sẽ quét danh sách nhân viên không chấm công. Nếu họ đã có đơn xin nghỉ phép được duyệt, hệ thống ghi nhận là Nghỉ phép có lương, ngược lại sẽ ghi nhận là Vắng không phép và trừ lương tự động."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Hàm chốt công tự động:** Đoạn code tự động quét và cập nhật trạng thái công cho những người vắng mặt cuối ngày, giải phóng HR khỏi việc đối soát thủ công hàng ngày.
 
 ---
 
 ### SLIDE 10: BẢO MẬT THỰC TẾ & KIỂM THỬ TỰ ĐỘNG
-*   **Bố cục hiển thị:**
-    *   *Bên trái:* Danh sách 3 giải pháp bảo mật của hệ thống.
-    *   *Bên phải:* Screenshot terminal chạy `php artisan test` với kết quả **47 tests passed**.
-*   **Keywords:** SQL Injection, Cross-Site Scripting (XSS), Integration Testing, PHPUnit.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng thẳng nghiêm túc, nói với giọng chắc chắn để khẳng định độ tin cậy của mã nguồn. Chỉ tay vào dòng chữ "47 tests passed" màu xanh trên màn hình.
+*   **Bố cục hiển thị:** Danh sách giải pháp bảo mật và screenshot terminal chạy **47 tests passed**.
+*   **Cử chỉ:** Chỉ tay vào dòng chữ kết quả kiểm thử màu xanh trên màn hình.
 *   **Kịch bản thoại:**
-    > *"Nhóm mình xin trình bày về các giải pháp bảo mật và kiểm thử thực tế của hệ thống. Nhóm tập trung giải quyết các bài toán bảo mật dữ liệu nhân sự nhạy cảm:
-    > Thứ nhất, **Chống xem trộm lương:** Hệ thống không truyền mã nhân viên lên URL. Khi xem lương, code sẽ lấy trực tiếp ID tài khoản từ session trên máy chủ để truy vấn, ngăn chặn tuyệt đối việc đổi số trên URL để xem lương người khác. 
-    > Thứ hai, **Bảo mật phiên:** Ngay khi đăng nhập thành công, hệ thống làm mới mã định danh session để bảo vệ tài khoản. 
-    > Thứ ba, **Chống mã độc:** Nhóm mình tận dụng cơ chế lọc tham số của Eloquent và tự động mã hóa ký tự đặc biệt của Blade. 
-    > Cuối cùng, nhóm viết 47 kịch bản kiểm thử tự động bằng công cụ PHPUnit để kiểm tra nhanh các chức năng cốt lõi mỗi khi có thay đổi code. Tiếp theo, nhóm xin đi vào phân phối công việc."*
+    > *"Hệ thống được bảo mật chặt chẽ: chống xem trộm lương bằng cách truy vấn ID trực tiếp từ session máy chủ thay vì truyền tham số lên URL; chống tấn công SQL Injection và XSS. Nhóm mình cũng viết 47 kịch bản kiểm thử tự động qua PHPUnit để đảm bảo logic chạy đúng và không phát sinh lỗi."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **SQL Injection:** Kẻ tấn công nhập lệnh SQL phá hoại vào các ô input để hack database.
+    *   **XSS:** Kẻ tấn công chèn mã JavaScript độc hại vào form nhằm ăn cắp thông tin người xem.
+    *   **PHPUnit:** Công cụ giúp viết code tự động giả lập hành vi người dùng để chạy test nhanh toàn bộ hệ thống trong 2 giây.
 
 ---
 
 ### SLIDE 11: PHÂN PHỐI CÔNG VIỆC NHÓM & TỶ LỆ HOÀN THÀNH
 *   **Bố cục hiển thị:** Bảng phân công nhiệm vụ của 5 thành viên (Họ tên, Vai trò chính, Module đảm nhiệm, Tỷ lệ đóng góp 100%).
-*   **Keywords:** Phối hợp đồng bộ, Tỷ lệ hoàn thành 100%, Đúng tiến độ.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Mỉm cười tự tin, tay chỉ nhẹ vào bảng phân công. Mắt nhìn sang các thành viên trong nhóm đang đứng cạnh để thể hiện sự cảm ơn và tinh thần đồng lòng.
+*   **Cử chỉ:** Mỉm cười, chỉ tay nhẹ vào bảng phân công để thể hiện sự cảm ơn và tinh thần đồng lòng của nhóm.
 *   **Kịch bản thoại:**
-    > *"Để hoàn thành dự án bài tập lớn đúng thời hạn, nhóm mình đã phân chia công việc rõ ràng dựa trên thế mạnh của từng thành viên. Mình đảm nhiệm vai trò kiến trúc sư dữ liệu và lương hợp đồng. Bạn Nguyên chịu trách nhiệm chấm công và duyệt phép. Bạn Dũng phụ trách bảo mật, session và auth. Bạn Long thiết kế css layout và responsive, còn bạn Minh phụ trách UI/UX và logic Ajax real-time. Toàn bộ các thành viên đều nỗ lực hoàn thành công việc xuất sắc với mức đóng góp đồng thuận là 100%."*
+    > *"Để hoàn thành bài tập lớn đúng hạn, nhóm mình đã phân chia công việc rõ ràng dựa trên thế mạnh của từng thành viên. Mình phụ trách kiến trúc dữ liệu và lương hợp đồng. Bạn Nguyên lo chấm công và duyệt phép. Bạn Dũng quản lý bảo mật và auth. Bạn Long thiết kế css responsive, còn bạn Minh phát triển UI/UX và Ajax."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **UI/UX:** UI (User Interface) là giao diện người dùng nhìn thấy (màu sắc, nút bấm). UX (User Experience) là trải nghiệm người dùng (bấm có mượt không, thông báo có rõ ràng dễ hiểu không).
 
 ---
 
 ### SLIDE 12: TỔNG KẾT, HƯỚNG PHÁT TRIỂN & Q&A
-*   **Bố cục hiển thị:** Chữ lớn nổi bật: **"TRÂN TRỌNG CẢM ƠN THẦY VÀ CÁC BẠN ĐÃ LẮNG NGHE!"**. Định hướng nâng cấp hệ thống (FaceID, Xuất Excel/PDF, Email Alert).
-*   **Keywords:** Vận hành ổn định, Sinh trắc học, Live Demo trực quan.
-*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng thẳng ở trung tâm. Tay cầm mic chuẩn. Nói với giọng truyền cảm, tốc độ chậm rãi. Sau khi kết thúc câu thoại cuối cùng, cúi đầu nhẹ 15 độ để chào cảm ơn giảng viên và các bạn một cách lịch sự, sau đó di chuyển nhanh nhẹn sang máy tính để chuẩn bị Live Demo.
+*   **Bố cục hiển thị:** Chữ lớn: **"TRÂN TRỌNG CẢM ƠN THẦY VÀ CÁC BẠN ĐÃ LẮNG NGHE!"** và định hướng tương lai.
+*   **Cử chỉ:** Đứng thẳng ở trung tâm, nói chậm lại. Sau khi kết thúc, cúi đầu nhẹ chào lịch sự và bắt đầu bước sang phần Live Demo.
 *   **Kịch bản thoại:**
-    > *"Tổng kết lại, sản phẩm Website Quản lý Nhân sự của nhóm mình đã đạt được các mục tiêu đề ra ban đầu, hoạt động trơn tru tất cả các tính năng cơ bản, bảo mật vững chắc và có giao diện responsive mượt mà. Trong tương lai, nhóm định hướng nâng cấp hệ thống để hỗ trợ xuất báo cáo lương ra file Excel và gửi email thông báo tự động cho quản lý mỗi khi có đơn phép mới. 
-    > Sau đây, mình xin phép đại diện nhóm tiến hành chạy **Demo trực tiếp trang web** trên máy tính để giảng viên cùng các bạn có cái nhìn trực quan nhất về sản phẩm. Nhóm mình rất mong nhận được những nhận xét và câu hỏi từ phía giảng viên cũng như từ các bạn để nhóm hoàn thiện đề tài tốt hơn nữa. Nhóm xin trân trọng cảm ơn!"*
+    > *"Tóm lại, ứng dụng HRM của nhóm mình đã vận hành ổn định các tính năng cốt lõi, giao diện responsive mượt mà và bảo mật tốt. Hướng phát triển tiếp theo là tích hợp chấm công sinh trắc học và xuất file báo cáo lương. 
+    > Sau đây, mình xin phép chạy **Demo trực tiếp trang web** trên máy tính để giảng viên và các bạn có cái nhìn trực quan nhất. Nhóm mình rất mong nhận được những câu hỏi và nhận xét từ giảng viên cùng các bạn. Nhóm xin trân trọng cảm ơn!"*
 
 ---
 
 ## PHẦN 3: KỊCH BẢN LIVE DEMO CHI TIẾT (Thời gian: 3 - 4 phút)
-*Để demo diễn ra hoàn hảo không lỗi, hãy thiết lập và thực hiện chính xác theo kịch bản từng bước dưới đây.*
 
-### 1. Chuẩn bị kỹ thuật trước giờ G
-*   **Bước 1:** Chạy lệnh `php artisan migrate:fresh --seed` trong terminal trước buổi bảo vệ để làm sạch cơ sở dữ liệu và nạp dữ liệu mẫu đồng bộ.
-*   **Bước 2:** Mở sẵn **Chrome ở chế độ 2 cửa sổ song song** xếp cạnh nhau (Side-by-Side):
-    *   *Cửa sổ bên trái (PC View):* Đăng nhập tài khoản Admin/HR (`admin@example.com` / mật khẩu `password`).
-    *   *Cửa sổ bên phải (Mobile View - F12 di động):* Đăng nhập tài khoản Nhân viên (`employee@example.com` / mật khẩu `password`).
-*   **Bước 3:** Đảm bảo hệ thống Toast thông báo lỗi/thành công và thư viện SweetAlert hoạt động bình thường.
-*   **Bước 4 (Hỗ trợ vận hành):** **Chỉ định bạn Long hoặc Minh ngồi máy tính để click chuột và gõ phím theo lời nói của bạn.** Bạn Chương đứng cầm mic thuyết trình và tương tác với màn hình LCD. Đây là cách làm chuyên nghiệp nhất, giúp bạn rảnh tay tập trung thuyết minh.
+### 1. Thiết lập kỹ thuật ban đầu
+*   Mở sẵn trình duyệt Chrome chia đôi màn hình:
+    *   *Bên trái (PC View):* Đăng nhập tài khoản Admin/HR (`admin@example.com` / `password`).
+    *   *Bên phải (Mobile View - F12 di động):* Đăng nhập tài khoản Nhân viên (`employee@example.com` / `password`).
+*   **Phân công:** Bạn Long hoặc bạn Minh ngồi máy tính click chuột theo lời thoại. Bạn Chương đứng cầm mic thuyết minh và chỉ màn hình LCD.
 
----
-
-### 2. Kịch bản thao tác & Lời thoại song song (Step-by-Step)
+### 2. Luồng thao tác & Lời thuyết minh
 
 #### Tác vụ 1: Nhân viên thao tác trên điện thoại di động (Cửa sổ di động bên phải - 1 phút)
-1.  **Thao tác trên màn hình:** Bấm vào danh mục **Chấm công** (Attendance) trên di động.
-    *   *Lời thoại:* *"Nhóm mình xin bắt đầu demo ở vai trò một nhân viên sử dụng điện thoại để chấm công hàng ngày. Khi nhân viên bước chân đến văn phòng, họ sẽ vào phần Chấm công."*
-2.  **Thao tác trên màn hình:** Nhấn nút **Check-in**. Giao diện hiện Toast thông báo thành công góc trên bên phải.
-    *   *Lời thoại:* *"Khi nhấn nút Check-in, hệ thống ngay lập tức ghi nhận thời gian thực tế từ máy chủ. Do bây giờ đã trễ hơn mốc 8h00 sáng quy định, hệ thống tự động ghi nhận trạng thái ngày công hôm nay là đi muộn (late) kèm theo mốc thời gian chính xác."*
-3.  **Thao tác trên màn hình:** Nhấn nút **Check-out**. Toast thông báo thành công hiện lên.
-    *   *Lời thoại:* *"Vào cuối ngày, nhân viên nhấn Check-out. Hệ thống sẽ tự động tính toán số phút làm việc thực tế và ghi nhận vào lịch sử chấm công ngay bên dưới."*
-4.  **Thao tác trên màn hình:** Vào mục **Đơn xin nghỉ phép** (Leaves) -> Bấm **Xin nghỉ phép**. Chọn loại đơn là `Nghỉ phép năm`, chọn ngày bắt đầu và kết thúc (ví dụ: từ ngày mai đến ngày kia), nhập lý do: `"Giải quyết công việc gia đình"` và bấm **Gửi đơn**.
-    *   *Lời thoại:* *"Tiếp theo, nhân viên muốn đăng ký nghỉ phép. Nhóm mình sẽ điền thông tin vào form nghỉ phép trực tuyến. Hệ thống tự động tính số ngày nghỉ thực tế và hiển thị đơn mới tạo ở trạng thái Chờ duyệt (Pending)."*
+1.  **Click chuột:** Vào phần **Chấm công** -> Nhấn nút **Check-in**. Toast thông báo xanh lá hiện lên báo thành công.
+    *   *Lời thoại:* *"Đầu tiên, nhân viên đi làm và truy cập cổng chấm công trên di động. Khi nhấn Check-in, hệ thống ghi nhận thời gian thực trên server. Do bây giờ đã trễ hơn mốc quy định, hệ thống tự động ghi nhận trạng thái ngày công là đi muộn."*
+2.  **Click chuột:** Nhấn nút **Check-out** -> Vào phần **Đơn xin nghỉ phép** -> Chọn nghỉ phép năm từ ngày mai, nhập lý do: `"Giải quyết công việc gia đình"` và bấm **Gửi**.
+    *   *Lời thoại:* *"Cuối ngày nhân viên nhấn Check-out để tính giờ làm thực tế. Sau đó, nhân viên gửi một đơn xin nghỉ phép trực tuyến. Trạng thái đơn lúc này là Chờ duyệt (Pending)."*
 
 #### Tác vụ 2: Quản lý/HR phê duyệt và Chốt công trên máy tính (Cửa sổ PC bên trái - 1.5 phút)
-1.  **Thao tác trên màn hình:** Reload trang chủ quản trị Admin. Chỉ ra Badge số đếm đơn phép chờ duyệt trên menu.
-    *   *Lời thoại:* *"Bây giờ, mình chuyển sang giao diện máy tính dành cho Quản lý Nhân sự (HR). Trên thanh điều hướng, chúng ta thấy huy hiệu số đếm đơn phép chờ duyệt tự động tăng lên báo hiệu có đơn mới cần xử lý mà không cần tải lại trang."*
-2.  **Thao tác trên màn hình:** Vào mục **Duyệt phép** (Pending Leaves). Bấm nút **Duyệt** trên đơn của nhân viên vừa gửi ở Tác vụ 1. Hộp thoại SweetAlert xác nhận hiện lên -> Bấm đồng ý -> Toast thông báo thành công hiện lên.
-    *   *Lời thoại:* *"Vào danh sách đơn chờ duyệt, HR có thể đọc lý do và nhấn Duyệt. Hệ thống sẽ hiển thị một hộp thoại xác nhận chuyên nghiệp sử dụng SweetAlert trước khi chính thức phê duyệt đơn xin nghỉ này."*
-3.  **Thao tác trên màn hình:** Vào mục **Chốt công** (Attendance) -> Nhấp nút **Chốt công hôm nay**.
-    *   *Lời thoại:* *"Sau khi duyệt phép xong, cuối ngày Admin tiến hành chốt công bằng cách nhấn nút Chốt công. Thuật toán của hệ thống sẽ tự động đối chiếu dữ liệu: đối với những nhân viên không check-in nhưng đã có đơn xin nghỉ phép được duyệt, hệ thống sẽ tự động ghi nhận trạng thái công hôm nay là Nghỉ phép (leave) có lương, thay vì Vắng không phép (absent). Việc này giúp HR cắt giảm hoàn toàn thời gian đối soát thủ công."*
+1.  **Click chuột:** Reload trang Admin bên trái -> Vào danh sách đơn chờ duyệt -> Nhấn **Duyệt**. SweetAlert hiện lên xác nhận -> Bấm đồng ý.
+    *   *Lời thoại:* *"Bây giờ ở giao diện máy tính của HR, hệ thống tự động cập nhật số đếm đơn phép chờ duyệt. HR kiểm tra đơn xin nghỉ vừa rồi và nhấn Duyệt. Hệ thống sẽ hiển thị một hộp thoại xác nhận chuyên nghiệp trước khi chính thức phê duyệt đơn."*
+2.  **Click chuột:** Vào mục **Chốt công** -> Nhấn nút **Chốt công hôm nay**.
+    *   *Lời thoại:* *"Cuối ngày, Admin nhấn Chốt công. Thuật toán hệ thống tự động quét dữ liệu: nhân viên vắng mặt nhưng có đơn phép đã duyệt sẽ được chuyển trạng thái thành Nghỉ phép có lương, thay vì bị tính vắng không phép."*
 
-#### Tác vụ 3: Admin tạo bảng lương & kiểm tra phiếu lương (PC & Mobile - 1 phút)
-1.  **Thao tác trên màn hình:** Vào mục **Hợp đồng** (Contracts) trên PC -> Chỉ ra mức lương cơ bản trong hợp đồng lao động của nhân viên.
-    *   *Lời thoại:* *"Để tính lương cuối tháng, Admin truy cập vào quản lý hợp đồng để xác nhận mức lương cơ bản đã ký kết với nhân viên này."*
-2.  **Thao tác trên màn hình:** Vào mục **Bảng lương** (Salaries) trên PC -> Nhập tháng/năm, chọn nhân viên tương ứng và bấm **Lưu bảng lương**.
-    *   *Lời thoại:* *"Tại màn hình Bảng lương, mình tiến hành tạo bảng lương tháng hiện tại cho nhân viên. Hệ thống tự động tính toán Lương Gross và thực lĩnh Net dựa trên lương cơ bản cùng dữ liệu ngày công thực tế sau khi đã khấu trừ các ngày nghỉ không phép hoặc đi muộn. Trạng thái bảng lương lúc này là Nháp (Draft)."*
-3.  **Thao tác trên màn hình:** Đổi trạng thái bảng lương của nhân viên từ `Draft` sang `Paid` (Đã thanh toán).
-    *   *Lời thoại:* *"Sau khi rà soát kỹ lưu lượng, Admin đổi trạng thái bảng lương sang Đã thanh toán (Paid) để ghi nhận chi trả thành công và cho phép nhân viên tra cứu."*
-4.  **Thao tác trên màn hình:** Quay lại trình duyệt di động của nhân viên (bên phải), reload trang. Vào mục **Lịch sử phép** chỉ ra trạng thái đã là `Approved`. Vào mục **Bảng lương** cá nhân chỉ ra phiếu lương tháng vừa rồi đã hiển thị thông tin chi tiết.
-    *   *Lời thoại:* *"Quay trở lại giao diện di động của nhân viên. Khi mình tải lại trang, đơn xin nghỉ đã được cập nhật thành Đã duyệt (Approved) và phiếu lương tháng này đã xuất hiện trực quan trên màn hình cá nhân của nhân viên đó một cách tuyệt đối bảo mật. Buổi demo của nhóm 14 đến đây là kết thúc."*
+#### Tác vụ 3: Admin tính lương & Nhân viên tra cứu (PC & Mobile - 1 phút)
+1.  **Click chuột:** Vào mục **Bảng lương** trên PC -> Chọn nhân viên -> Bấm **Lưu bảng lương** -> Thay đổi trạng thái bảng lương từ `Draft` (Nháp) sang `Paid` (Đã thanh toán).
+    *   *Lời thoại:* *"Admin truy cập phân hệ lương để tạo bảng lương tháng hiện tại cho nhân viên. Lương Net thực nhận được tính toán tự động sau khi đã khấu trừ tiền đi muộn lấy từ dữ liệu chấm công. Sau khi kiểm tra, Admin chuyển trạng thái bảng lương sang Đã thanh toán."*
+2.  **Click chuột:** Quay lại trình duyệt di động bên phải, reload trang -> Vào mục **Lịch sử phép** chỉ ra trạng thái đã là `Approved`. Vào mục **Bảng lương** cá nhân xem chi tiết phiếu lương.
+    *   *Lời thoại:* *"Quay lại màn hình di động của nhân viên, khi tải lại trang, đơn nghỉ phép đã chuyển sang trạng thái Đã duyệt và phiếu lương tháng này đã hiển thị chi tiết, hoàn toàn bảo mật. Phần demo của nhóm 14 xin được kết thúc tại đây."*
 
 ---
 
-### 3. Kỹ thuật xử lý lỗi/Bug đột xuất khi Demo trực tiếp
-Nếu trong lúc bấm demo mà trang bị lỗi hoặc server bị đắt, hãy tuân thủ quy trình xử lý khủng hoảng sau:
-1.  **Tuyệt đối bình tĩnh:** Không giải thích vòng vo, không cuống cuồng sửa code tại chỗ.
-2.  **Mẫu câu phát ngôn chuẩn:** 
-    > *"Thưa giảng viên và các bạn, có một xung đột tài nguyên nhỏ trên môi trường demo chạy cục bộ lúc này. Nhóm mình đã chuẩn bị sẵn một video demo ghi lại toàn bộ quy trình này chạy mượt mà trên môi trường sạch trước buổi báo cáo ạ."*
-3.  Mở ngay video backup ở giây tương ứng và thuyết minh trực tiếp theo hình ảnh trong video.
+## PHẦN 4: BỘ CÂU HỎI VẤN ĐÁP THÔNG THƯỜNG & AN TOÀN (QA CHEAT SHEET)
 
----
-
-## PHẦN 4: BỘ CÂU HỎI VÀ CÂU TRẢ LỜI VẤN ĐÁP THÔNG THƯỜNG & AN TOÀN (QA CHEAT SHEET)
-*Áp dụng bản chất câu trả lời thẳng thắn, phản xạ khoa học theo cấu trúc **R-T-R (Rationale - Trade-off - Reflection)**.*
-
-### Câu 1: Tại sao trong CSDL có cả bảng `leaves` và bảng `leave_requests` nhưng code chỉ dùng bảng `leaves`?
-*   **Tư duyệt trả lời (R-T-R):** Thừa nhận thiết kế dư thừa trong quá trình làm bài tập lớn.
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, ý kiến của thầy/cô hoàn toàn chính xác ạ. Đây là một tàn dư trong thiết kế cơ sở dữ liệu ban đầu của nhóm. Ban đầu, nhóm dự định xây dựng một quy trình duyệt phép đa cấp phức tạp qua bảng trung gian `leave_requests`. Tuy nhiên, để ưu tiên hoàn thiện luồng nghiệp vụ chấm công và tính lương đúng tiến độ của bài tập lớn, nhóm đã tạm thời đơn giản hóa quy trình và lưu dữ liệu trực tiếp vào bảng phẳng `leaves`. Nhóm đã giữ lại bảng `leave_requests` trong database như một định hướng nâng cấp trong phiên bản tiếp theo để tích hợp luồng duyệt phép đa cấp qua nhiều phòng ban."*
-
-### Câu 2: Tại sao trường `emp_id` trong bảng `leaves` lại lưu `user_id` của bảng `users` chứ không phải `id` của bảng `employees`?
-*   **Tư duy trả lời (R-T-R):** Thừa nhận lỗi đặt tên chưa chuẩn hóa.
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, đây quả thực là một lỗi thiếu nhất quán trong việc đặt tên trường khóa ngoại của nhóm mình khi thiết kế database. Bản chất trường `emp_id` này liên kết đến bảng `users` để định danh tài khoản đăng nhập gửi đơn phép. Đáng lẽ để chuẩn hóa và tránh gây nhầm lẫn với bảng `employees`, nhóm phải đặt tên trường này là `user_id`. Nhóm mình xin tiếp thu nhận xét của thầy/cô và sẽ tiến hành sửa lại tên trường này trong migrations để mã nguồn đạt tính nhất quán cao nhất."*
-
-### Câu 3: Làm thế nào hệ thống ngăn chặn nhân viên sửa ID trên URL để xem trộm lương của người khác?
-*   **Tư duy trả lời (R-T-R):** Nhấn mạnh giải pháp bảo mật ở tầng Controller/Session.
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, hệ thống của nhóm mình không truyền ID nhân viên làm tham số trên URL hay trong request gửi đi khi xem phiếu lương cá nhân. 
-    > Trong file `SalaryController.php` ở route xem lương, hệ thống sẽ tự động lấy trực tiếp thông tin tài khoản đang đăng nhập từ Session được lưu trữ an toàn trên Server (`session('user_id')`). Do người dùng ở Client không thể thay đổi được thông tin Session trên máy chủ, nên nhân viên hoàn toàn không có cách nào sửa đổi ID để xem trộm lương của người khác."*
-
-### Câu 4: Em viết PHPUnit test như thế nào? Có chạy thực tế không?
-*   **Tư duy trả lời (R-T-R):** Khẳng định nhóm thực sự viết test tự động và chạy vượt qua 100%.
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, nhóm mình viết các Feature Test để giả lập hành vi cơ bản của người dùng trên hệ thống. Ví dụ: Giả lập một nhân viên đăng nhập vào hệ thống, sau đó gửi yêu cầu xem phiếu lương cá nhân để kiểm tra xem hệ thống có trả về kết quả thành công (mã trạng thái 200) hay không; hoặc giả lập một tài khoản nhân viên cố truy cập trang Admin xem có bị hệ thống chặn lại (trả về mã lỗi 403) hay không. Nhóm chạy các test tự động này bằng dòng lệnh `php artisan test` trước khi cập nhật code để đảm bảo các tính năng đăng nhập và phân quyền không bị lỗi logic."*
-
-### Câu 5: Hệ thống của nhóm giải quyết việc tính công trùng lặp hoặc chấm công nhiều lần trong ngày như thế nào?
-*   **Tư duy trả lời (R-T-R):** Ràng buộc ở tầng Database bằng khóa phức hợp.
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, đối với nghiệp vụ chấm công, hệ thống chỉ cho phép mỗi nhân viên có tối đa một bản ghi chấm công duy nhất cho mỗi ngày. 
-    > Ở tầng Database, nhóm mình thiết kế ràng buộc chỉ mục khóa phức hợp gồm `employee_id` và `work_date` làm khóa duy nhất (Unique Index). Khi nhân viên cố tình bấm check-in nhiều lần trong ngày, tầng cơ sở dữ liệu sẽ chặn đứng lỗi trùng lặp và trả về thông báo lỗi thân thiện thay vì tạo ra nhiều bản ghi làm sai lệch công thức tính lương cuối tháng."*
-
-### Câu 6: Tại sao nút "Xóa" tài khoản nhân viên lại được thiết kế thành nút "Khóa" (Vô hiệu hóa)?
-*   **Tư duy trả lời (R-T-R):** Giải thích dựa trên tư duy nghiệp vụ thực tế của phần mềm quản lý.
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, trong hệ thống nhân sự thực tế, dữ liệu chấm công, lương và hợp đồng của nhân viên đã nghỉ việc vẫn cần được lưu trữ tối thiểu vài năm để phục vụ quyết toán thuế và thanh tra lao động. Nếu thực hiện xóa cứng (Hard Delete) hồ sơ nhân viên, hệ thống sẽ gặp lỗi xung đột khóa ngoại trên các bảng lịch sử lương và công liên quan. 
-    > Vì vậy, nhóm thiết kế hành động xóa nhân sự thành hành động 'Khóa tài khoản và vô hiệu hóa'. Tài khoản nhân viên sẽ lập tức bị đăng xuất khỏi tất cả phiên làm việc và không thể đăng nhập lại, hồ sơ chuyển trạng thái 'Đã nghỉ' (inactive/resigned), đồng thời giữ lại dữ liệu lịch sử liên quan một cách an toàn."*
-
-### Câu 7: Nếu database có hàng triệu bản ghi chấm công, hệ thống của em sẽ bị chậm. Em giải quyết thế nào?
-*   **Tư duy trả lời (R-T-R):** Đưa ra giải pháp kỹ thuật nâng cao (Index, Partitioning).
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, đây là bài toán hiệu năng thực tế rất quan trọng. Khi số lượng bản ghi chấm công lên đến hàng triệu, các truy vấn tính lương cuối tháng sẽ bị ảnh hưởng lớn. Để giải quyết, nhóm mình đề xuất hai giải pháp: 
-    > 1. Thiết lập **Index** cho tổ hợp khóa ngoại và ngày tháng (`employee_id`, `work_date`) vì đây là các trường xuất hiện thường xuyên nhất trong điều kiện `WHERE` của câu lệnh SQL. 
-    > 2. Áp dụng kỹ thuật **Database Partitioning** để phân vùng bảng chấm công theo năm hoặc theo tháng. Như vậy, khi tính lương tháng hiện tại, hệ thống chỉ cần quét dữ liệu trong phân vùng của tháng đó thay vì quét toàn bộ hàng triệu dòng."*
-
-### Câu 8: Khi gặp câu hỏi hoàn toàn nằm ngoài kiến thức (Không biết câu trả lời)
-*   **Nguyên tắc vàng:** Tuyệt đối không "chém gió" hoặc giải thích lòng vòng gây mất thời gian và mất thiện cảm.
-*   **Mẫu trả lời:**
-    > *"Thưa thầy/cô, đây là một khía cạnh kỹ thuật rất hay và sâu sắc mà nhóm mình chưa kịp nghiên cứu kỹ hoặc chưa lường trước được trong quá trình thực hiện bài tập lớn lần này. Nhóm mình xin phép được ghi nhận câu hỏi của thầy/cô vào biên bản và sẽ tìm đọc thêm các tài liệu liên quan ngay sau buổi báo cáo hôm nay để bổ sung kiến thức ạ."*
-
----
-
-## PHẦN 5: TỪ ĐIỂN THUẬT NGỮ KỸ THUẬT CHO NGƯỜI THUYẾT TRÌNH (DÀNH CHO CHƯƠNG)
-
-*Dưới đây là định nghĩa và các so sánh trực quan cực kỳ đơn giản để bạn Chương hiểu sâu bản chất, tự tin trả lời bất kỳ câu hỏi phản biện nào trước lớp.*
-
-### 1. Framework & Laravel 11 là gì?
-*   **Giải thích dễ hiểu:** Hãy tưởng tượng bạn muốn xây một ngôi nhà. Thay vì tự đi đúc từng viên gạch, tự đục từng cái ống nước (code chay), bạn mua một khung nhà lắp ghép đã có sẵn móng, cột, hệ thống điện nước cơ bản. Bạn chỉ việc thiết kế nội thất và xây tường theo ý mình.
-*   **Thuật ngữ:** **Framework** chính là bộ khung lắp ghép sẵn đó. **Laravel** là framework nổi tiếng nhất của ngôn ngữ lập trình **PHP**. Nó cung cấp sẵn bộ khung cho bảo mật, cơ sở dữ liệu, quản lý đường dẫn (routing) để nhóm tập trung phát triển nghiệp vụ nhân sự.
-
-### 2. Mô hình MVC (Model - View - Controller)
-*   **Giải thích dễ hiểu:** Giống như quy trình phục vụ trong một nhà hàng:
-    *   **View (Giao diện):** Là thực đơn và không gian bàn ăn nơi khách hàng ngồi (nơi người dùng nhìn thấy, click vào nút bấm).
-    *   **Controller (Bộ điều khiển):** Là người phục vụ bàn. Khi khách gọi món (yêu cầu gửi đi), phục vụ tiếp nhận, chạy vào bếp yêu cầu đầu bếp làm, rồi bê món ăn ra cho khách.
-    *   **Model (Dữ liệu):** Là nhà kho thực phẩm và đầu bếp. Nơi quản lý, lấy nguyên liệu (dữ liệu trong database) và chế biến chúng.
-*   **Mục đích:** Giúp chia nhỏ code thành các phần độc lập, dễ sửa lỗi, dễ nâng cấp.
-
-### 3. Middleware (Bộ lọc / Chốt bảo vệ)
-*   **Giải thích dễ hiểu:** Giống như **anh bảo vệ đứng ở cửa quán Bar**. 
-    *   Khi có khách muốn đi vào (người dùng nhấn vào một liên kết URL), anh bảo vệ sẽ chặn lại kiểm tra chứng minh nhân dân (kiểm tra vai trò Role/Session trong mã nguồn).
-    *   Nếu đủ tuổi/hợp lệ (là Admin), anh bảo vệ mở cửa cho vào.
-    *   Nếu không đủ quyền (là Employee cố vào trang duyệt lương), anh bảo vệ chặn đứng lại và đuổi đi (trả về lỗi `403 Forbidden`).
-*   **Mục đích:** Bảo vệ các đường dẫn nhạy cảm khỏi sự truy cập trái phép.
-
-### 4. Eloquent ORM (Trình dịch ngôn ngữ DB)
-*   **Giải thích dễ hiểu:** Cơ sở dữ liệu MySQL chỉ hiểu tiếng SQL (ví dụ: `SELECT * FROM employees WHERE id = 1`). Nhưng lập trình viên lại viết code bằng PHP. 
-*   **Eloquent ORM** đóng vai trò là một **phiên dịch viên**. Nó dịch những dòng code PHP ngắn gọn (ví dụ: `Employee::find(1)`) thành câu lệnh SQL tương ứng để truy vấn MySQL. Giúp code ngắn, sạch và an toàn hơn.
-
-### 5. Database Migrations (Lịch sử cập nhật bảng vẽ)
-*   **Giải thích dễ hiểu:** Giống như **lịch sử cập nhật của bản vẽ thiết kế**. Thay vì bạn tự vào MySQL tạo bảng bằng tay và gửi file SQL cho bạn cùng nhóm (dễ bị lệch phiên bản database), bạn viết code định nghĩa cấu trúc bảng trong các file migration. Khi chạy lệnh `php artisan migrate`, Laravel sẽ tự động tạo bảng đồng bộ cho tất cả mọi người trong nhóm.
-
-### 6. Ràng buộc khóa ngoại đệ quy `manager_id` (Khóa ngoại tự tham chiếu)
-*   **Giải thích dễ hiểu:** Thông thường, khóa ngoại của bảng A sẽ trỏ đến ID của bảng B. Nhưng ở đây, trường `manager_id` của bảng `employees` lại **trỏ ngược lại trường `id` của chính bảng `employees`**. 
-*   Bởi vì người quản lý (Manager) cũng là một nhân viên (Employee). Thiết kế này giúp hệ thống tạo ra một sơ đồ cây nhân sự nhiều cấp (quản lý trực tiếp) mà không cần tạo thêm một bảng quản lý riêng biệt nào.
-
-### 7. Khóa phức hợp (Composite Key) & Ràng buộc Unique
-*   **Giải thích dễ hiểu:** Bình thường khóa chính là 1 trường (như `id`). **Khóa phức hợp** là sự kết hợp của 2 hoặc nhiều trường để tạo ra một định danh duy nhất.
-*   *Ví dụ trong bảng lương:* Nhóm kết hợp `employee_id` (mã nhân viên) và `salary_month` (tháng tính lương) làm khóa phức hợp duy nhất. Cơ sở dữ liệu sẽ chặn ngay lập tức nếu bạn cố tình chèn thêm dòng lương mới cho cùng một nhân viên trong cùng một tháng đã tồn tại.
-
-### 8. Lương Gross và Lương Net
-*   **Lương Gross (Lương tổng):** Là tổng thu nhập của nhân viên chưa trừ các khoản phí đóng góp (bằng lương cơ bản + phụ cấp + thưởng).
-*   **Lương Net (Lương thực lĩnh):** Là số tiền thực tế nhân viên được cầm về tay sau khi đã trừ đi các khoản khấu trừ (Deductions - như phạt đi muộn, nghỉ không phép, bảo hiểm). 
-*   *Công thức:* `Net = Gross - Khấu trừ`.
-
-### 9. AJAX (Asynchronous JavaScript and XML)
-*   **Giải thích dễ hiểu:** Giống như tính năng bình luận trên Facebook: Khi bạn bấm nút gửi bình luận, chỉ có đúng khung bình luận đó được cập nhật nội dung mới mà toàn bộ trang Facebook không bị tải lại (không bị màn hình trắng rồi load lại từ đầu).
-*   **Mục đích:** Giúp ứng dụng web HRM của nhóm chạy cực kỳ mượt mà, tải dữ liệu ngầm và cập nhật một phần giao diện lập tức.
-
-### 10. SQL Injection & Cross-Site Scripting (XSS)
-*   **SQL Injection (Tiêm mã độc SQL):** Là việc kẻ tấn công cố tình nhập các ký tự đặc biệt vào ô input (ví dụ ô tìm kiếm) để đánh lừa ứng dụng chạy các câu lệnh SQL phá hoại database. Laravel đã tự động chống lại điều này bằng Eloquent.
-*   **XSS (Tấn công chèn mã script):** Kẻ tấn công nhập các đoạn mã JavaScript độc hại vào form. Khi người dùng khác vào xem trang, trình duyệt sẽ tự động thực thi đoạn mã độc này. Laravel chống lại bằng cách tự động mã hóa (escape) mọi đầu ra bằng cú pháp `{{ $variable }}` của Blade.
-
-### 11. PHPUnit & Feature Tests (Kiểm thử tự động)
-*   **Feature Test (Kiểm thử chức năng):** Là viết code để giả lập hành vi người dùng (ví dụ: viết code tự động điền form đăng nhập và nhấn nút). 
-*   **PHPUnit:** Là thư viện chạy các kịch bản test này. Nó tự động chạy qua hàng chục luồng thao tác trong tích tắc để xem ứng dụng có trả về lỗi hay không, giúp nhóm phát hiện lỗi logic ngay khi đổi code mà không cần tự tay click chuột test lại từ đầu.
+*   **Câu 1: Tại sao trong CSDL có cả bảng `leaves` và bảng `leave_requests` nhưng code chỉ dùng bảng `leaves`?**
+    *   *Trả lời:* *"Thưa thầy/cô, đây là tàn dư trong thiết kế ban đầu của nhóm mình. Ban đầu, nhóm định làm tính năng duyệt phép đa cấp qua bảng trung gian `leave_requests`. Tuy nhiên, để ưu tiên hoàn thành luồng nghiệp vụ cốt lõi của bài tập lớn đúng tiến độ, nhóm đã đơn giản hóa quy trình và lưu thẳng đơn vào bảng `leaves`. Nhóm giữ lại bảng kia làm định hướng nâng cấp sau này."*
+*   **Câu 2: Tại sao trường `emp_id` trong bảng `leaves` lại lưu `user_id` của bảng `users` chứ không phải `id` của bảng `employees`?**
+    *   *Trả lời:* *"Thưa thầy/cô, đây quả thực là một lỗi thiếu nhất quán trong cách đặt tên trường của nhóm mình. Đúng ra trường này phải đặt tên là `user_id` để tránh gây nhầm lẫn với bảng `employees`. Nhóm mình xin tiếp thu và sẽ tiến hành refactor lại tên trường này trong migrations."*
+*   **Câu 3: Làm thế nào ngăn chặn nhân viên sửa ID trên URL để xem trộm lương của người khác?**
+    *   *Trả lời:* *"Hệ thống không truyền ID nhân viên lên URL. Khi xem lương, Controller sẽ tự động lấy ID tài khoản trực tiếp từ Session được lưu trữ an toàn trên Server (`session('user_id')`). Do đó người dùng không thể sửa đổi tham số để xem trộm lương người khác."*
+*   **Câu 4: Em viết PHPUnit test như thế nào? Có chạy thực tế không?**
+    *   *Trả lời:* *"Nhóm viết các Feature Test để giả lập hành vi người dùng. Ví dụ: giả lập một nhân viên đăng nhập thành công và gửi yêu cầu xem lương xem có trả về trạng thái 200 (thành công) hay không, hoặc giả lập nhân viên cố truy cập trang Admin xem có bị trả về lỗi 403 (chặn truy cập) hay không. Nhóm chạy các test này bằng lệnh `php artisan test` trước khi cập nhật code."*
+*   **Câu 5: Nếu database có hàng triệu bản ghi chấm công, hệ thống của em sẽ bị chậm. Em giải quyết thế nào?**
+    *   *Trả lời:* *"Khi dữ liệu lớn, nhóm mình đề xuất 2 giải pháp: 1. Thiết lập **Index** cho tổ hợp khóa ngoại và ngày tháng (`employee_id`, `work_date`) vì đây là các trường lọc nhiều nhất trong mệnh đề `WHERE`. 2. Áp dụng kỹ thuật **Database Partitioning** để phân vùng bảng chấm công theo năm hoặc tháng để hệ thống chỉ quét dữ liệu trong tháng hiện tại thay vì quét hàng triệu dòng."*
