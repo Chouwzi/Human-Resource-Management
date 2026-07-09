@@ -1,0 +1,7 @@
+Thứ tự thuyết trình: 6
+
+1. Thuyết trình -> Phân tích thiết kế hệ thống: Tính năng -> Dùng để làm gì + Thiết kế CSDL, Use Case, Sơ đồ UML. Kết luận những gì đã làm được / chưa làm được
+2. Demo -> Test các tính năng
+3. Kết luận -> Đánh giá thành viên, thang 100%
+
+Nộp file pptx, source code, database (mysql), báo cáo

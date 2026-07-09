@@ -1,0 +1,30 @@
+LẬP TRÌNH WEB
+BÀI TẬP NHÓM CUỐI KỲ
+Các nhóm chọn 1 trong những chủ đề Web sau để làm:
+Website bán hàng cơ bản
+Website dạng diễn đàn
+Website tin tức
+Website mạng xã hội
+Website giải trí
+Website quản lý nhân sự/công việc
+Website học trực tuyến
+Các yêu cầu kỹ thuật cơ bản:
+Sử dụng công nghệ PHP+MySQL
+Phải có trang cho người dùng và trang quản trị Admin
+Giao diện đẹp, hiện đại, responsive
+Phải có đầy đủ các chức năng CRUD (Create – Read – Update – Delete) cho các nội dung của trang web
+Có các chức năng người dùng cơ bản: đăng nhập, đăng xuất, phân quyền, …
+Yêu cầu về bài thuyết trình báo cáo:
+Ngắn gọn, đủ ý, trực quan
+Đầy đủ các phần phân tích thiết kế hệ thống, databases
+Đánh giá mức độ tham gia và hoàn thành công việc các thành viên của nhóm
+Yêu cầu nộp bài:
+Slide báo cáo.
+Source code.
+Link Demo nếu có.
+Tiêu chí chấm điểm:
+Chất lượng trình bày bài làm, source code (2 điểm).
+Demo, tính năng đầy đủ (3 điểm).
+Giao diện đẹp mắt, hiện đại (1 điểm).
+Slide đầy đủ yêu cầu (1 điểm).
+Thuyết trình (3 điểm). 
