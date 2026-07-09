@@ -15,11 +15,13 @@
                 <thead>
                     <tr>
                         <th class="w-5">STT</th>
-                        <th class="w-20 text-left">Nhân viên</th>
-                        <th class="w-15">Loại đơn</th>
-                        <th class="w-20">Thời gian</th>
-                        <th class="w-20 text-left">Lý do</th>
-                        <th class="w-20 text-center">Hành động</th>
+                        <th style="width: 18%; text-align: left;">Nhân viên</th>
+                        <th style="width: 12%;">Loại đơn</th>
+                        <th style="width: 10%;">Ngày bắt đầu</th>
+                        <th style="width: 10%;">Ngày kết thúc</th>
+                        <th style="width: 7%;">Số ngày</th>
+                        <th style="width: 18%; text-align: left;">Lý do</th>
+                        <th style="width: 20%; text-align: center;">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,10 +41,9 @@
                                 @endif
                             </strong>
                         </td>
-                        <td>
-                            {{ $item->start_date }} → {{ $item->end_date }}<br>
-                            <span class="text-muted-sm">({{ $item->days }} ngày)</span>
-                        </td>
+                        <td>{{ $item->start_date }}</td>
+                        <td>{{ $item->end_date }}</td>
+                        <td><strong>{{ $item->days }}</strong> ngày</td>
                         <td class="reason-ellipsis" title="{{ $item->reason }}">
                              {{ $item->reason }}
                         </td>
@@ -51,14 +52,14 @@
                             <form action="{{ route('admin.leaves.approve', $item->id) }}" method="POST" id="form-approve-{{ $item->id }}" class="form-action">
                                 @csrf
                                 <button type="button" onclick="confirmApprove('{{ $item->id }}')" class="btn btn-success btn-action" title="Phê duyệt">
-                                    <i class="fas fa-check"></i> Duyệt
+                                    Duyệt
                                 </button>
                             </form>
 
                             <form action="{{ route('admin.leaves.reject', $item->id) }}" method="POST" id="form-reject-{{ $item->id }}" class="form-action form-reject">
                                 @csrf
                                 <button type="button" onclick="confirmReject('{{ $item->id }}')" class="btn btn-danger btn-action" title="Từ chối">
-                                    <i class="fas fa-times"></i> Từ chối
+                                    Từ chối
                                 </button>
                             </form>
 
@@ -66,7 +67,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6" class="text-center" style="padding: 2rem 0; color: var(--text-muted);">
+                        <td colspan="8" class="text-center" style="padding: 2rem 0; color: var(--text-muted);">
                             Hiện không có đơn nghỉ phép nào đang chờ xử lý.
                         </td>
                     </tr>
@@ -85,11 +86,13 @@
                 <thead>
                     <tr>
                         <th class="w-5">STT</th>
-                        <th class="w-20 text-left">Nhân viên</th>
-                        <th class="w-15">Loại đơn</th>
-                        <th class="w-20">Thời gian nghỉ</th>
-                        <th class="w-20 text-left">Lý do</th>
-                        <th class="w-20 text-center">Trạng thái</th>
+                        <th style="width: 18%; text-align: left;">Nhân viên</th>
+                        <th style="width: 12%;">Loại đơn</th>
+                        <th style="width: 10%;">Ngày bắt đầu</th>
+                        <th style="width: 10%;">Ngày kết thúc</th>
+                        <th style="width: 7%;">Số ngày</th>
+                        <th style="width: 18%; text-align: left;">Lý do</th>
+                        <th style="width: 20%; text-align: center;">Trạng thái</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -109,10 +112,9 @@
                                 @endif
                             </strong>
                         </td>
-                        <td>
-                            {{ $item->start_date }} → {{ $item->end_date }}<br>
-                            <span class="text-muted-sm">({{ $item->days }} ngày)</span>
-                        </td>
+                        <td>{{ $item->start_date }}</td>
+                        <td>{{ $item->end_date }}</td>
+                        <td><strong>{{ $item->days }}</strong> ngày</td>
                         <td class="reason-ellipsis" title="{{ $item->reason }}">
                              {{ $item->reason }}
                         </td>
@@ -138,7 +140,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6" class="text-center" style="padding: 2rem 0; color: var(--text-muted);">
+                        <td colspan="8" class="text-center" style="padding: 2rem 0; color: var(--text-muted);">
                             Hiện chưa có lịch sử đơn nghỉ phép đã xử lý.
                         </td>
                     </tr>
