@@ -119,6 +119,7 @@ Route::middleware('require.role:employee')->group(function () {
     Route::post('/leaves/cancel/{id}', [LeaveController::class, 'cancel'])->name('leaves.cancel');
     Route::delete('/leaves/delete/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');
     Route::get('/salaries', [SalaryController::class, 'index'])->name('salaries.index');
+    Route::get('/contracts', [SalaryController::class, 'contracts'])->name('user.contracts.index');
 });
 
 // Phân hệ cho Quản lý (Admin/HR)

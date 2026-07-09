@@ -175,6 +175,90 @@ class ContractControllerTest extends TestCase
         $this->assertEquals('active', $contract4->effective_status);
     }
 
+    #[Test]
+    public function nhan_vien_chi_xem_duoc_hop_dong_cua_chinh_minh(): void
+    {
+        $employee = $this->createEmployee();
+        $employeeUser = $employee->user;
+
+        $otherEmployee = $this->createCustomEmployee('NVHD2', 'other@example.com');
+
+        $contract1 = Contract::create([
+            'employee_id' => $employee->id,
+            'contract_code' => 'HD-SELF',
+            'contract_type' => 'fixed_term',
+            'start_date' => '2026-01-01',
+            'salary' => 12000000,
+            'working_hours_per_week' => 40,
+            'status' => 'active',
+        ]);
+
+        $contract2 = Contract::create([
+            'employee_id' => $otherEmployee->id,
+            'contract_code' => 'HD-OTHER',
+            'contract_type' => 'fixed_term',
+            'start_date' => '2026-01-01',
+            'salary' => 15000000,
+            'working_hours_per_week' => 44,
+            'status' => 'active',
+        ]);
+
+        $response = $this->withSession([
+            'user_id' => $employeeUser->id,
+            'user_role' => 'employee',
+            'user_name' => $employee->full_name,
+        ])->get(route('user.contracts.index'));
+
+        $response->assertOk();
+        $response->assertSee('HD-SELF');
+        $response->assertSee('Nhân Viên Hợp Đồng');
+        $response->assertSee('Hợp đồng'); // Check structural sidebar link
+        $response->assertDontSee('HD-OTHER');
+    }
+
+    #[Test]
+    public function admin_va_hr_khong_duoc_truy_cap_contracts_ca_nhan(): void
+    {
+        $admin = $this->createUserWithRole('admin');
+        $responseAdmin = $this->withSession([
+            'user_id' => $admin->id,
+            'user_role' => 'admin',
+        ])->get(route('user.contracts.index'));
+        $responseAdmin->assertForbidden();
+
+        $hr = $this->createUserWithRole('hr');
+        $responseHr = $this->withSession([
+            'user_id' => $hr->id,
+            'user_role' => 'hr',
+        ])->get(route('user.contracts.index'));
+        $responseHr->assertForbidden();
+    }
+
+    private function createCustomEmployee(string $code, string $email): Employee
+    {
+        $role = Role::firstOrCreate(['name' => 'employee'], ['description' => 'employee']);
+        $user = User::factory()->create(['role_id' => $role->id, 'email' => $email]);
+        $department = Department::firstOrCreate(['name' => 'Công nghệ']);
+        $position = Position::firstOrCreate(
+            ['department_id' => $department->id, 'name' => 'Lập trình viên'],
+            ['default_salary' => 12000000]
+        );
+
+        return Employee::create([
+            'user_id' => $user->id,
+            'position_id' => $position->id,
+            'employee_code' => $code,
+            'full_name' => 'Employee ' . $code,
+            'gender' => 'male',
+            'date_of_birth' => '2000-01-01',
+            'phone' => '0900000000',
+            'address' => 'TP. Hồ Chí Minh',
+            'citizen_id' => '079' . $code,
+            'hire_date' => '2026-01-01',
+            'status' => 'active',
+        ]);
+    }
+
     private function createUserWithRole(string $roleName): User
     {
         $role = Role::firstOrCreate(['name' => $roleName], ['description' => $roleName]);

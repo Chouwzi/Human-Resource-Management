@@ -129,6 +129,11 @@
                         <i class="fas fa-money-bill-wave" style="margin-right:8px; width:16px;"></i>
                         Bảng lương
                     </a>
+                    <a href="{{ route('user.contracts.index') }}"
+                       class="menu-item {{ request()->routeIs('contracts*') || request()->routeIs('user.contracts.*') ? 'active' : '' }}">
+                        <i class="fas fa-file-contract" style="margin-right:8px; width:16px;"></i>
+                        Hợp đồng
+                    </a>
                 @endif
             </nav>
 

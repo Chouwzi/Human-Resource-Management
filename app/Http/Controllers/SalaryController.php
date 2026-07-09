@@ -25,4 +25,16 @@ class SalaryController extends Controller
 
         return view('user.salaries.index', compact('employee', 'salaries'));
     }
+
+    public function contracts()
+    {
+        $employee = \App\Models\Employee::where('user_id', session('user_id'))->first();
+        if (!$employee) {
+            return redirect()->back()->with('error', 'Không tìm thấy hồ sơ nhân sự!');
+        }
+        $contracts = \App\Models\Contract::where('employee_id', $employee->id)
+                        ->orderBy('start_date', 'desc')
+                        ->get();
+        return view('user.contracts.index', compact('contracts', 'employee'));
+    }
 }
