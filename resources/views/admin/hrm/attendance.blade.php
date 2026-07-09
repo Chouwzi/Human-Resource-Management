@@ -84,6 +84,7 @@
                     <th>Phút làm</th>
                     <th>Tăng ca</th>
                     <th>Trạng thái</th>
+                    <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
@@ -109,6 +110,19 @@
                         @if($log->note)
                             <br><small style="color: var(--text-muted);">({{ $log->note }})</small>
                         @endif
+                    </td>
+                    <td>
+                        <div class="table-actions">
+                            <form method="POST" action="{{ route('admin.attendance.destroy', $log) }}">
+                                @csrf
+                                @method('DELETE')
+                                @php $logDate = date('d/m/Y', strtotime($log->work_date)); @endphp
+                                <button class="btn btn-danger btn-sm" type="submit"
+                                    onclick="return confirm('Xóa chấm công ngày {{ $logDate }} của {{ $log->employee->full_name }}?')">
+                                    Xóa
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @empty

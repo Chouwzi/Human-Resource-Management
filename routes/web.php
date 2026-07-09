@@ -148,6 +148,8 @@ Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->gro
 Route::prefix('admin')->name('admin.')->middleware('require.role:admin')->group(function () {
     Route::get('/salaries', [AdminHrmController::class, 'salaries'])->name('salaries.index');
     Route::post('/salaries', [AdminHrmController::class, 'storeSalary'])->name('salaries.store');
+    Route::delete('/salaries/{salary}', [AdminHrmController::class, 'destroySalary'])->name('salaries.destroy');
+    Route::delete('/attendance/{log}', [AdminHrmController::class, 'destroyAttendance'])->name('attendance.destroy');
 
     Route::get('/contracts', [AdminHrmController::class, 'contracts'])->name('contracts.index');
     Route::post('/contracts', [AdminHrmController::class, 'storeContract'])->name('contracts.store');

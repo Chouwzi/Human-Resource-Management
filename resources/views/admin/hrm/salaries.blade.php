@@ -65,9 +65,14 @@
                 <tr>
                     <th>Tháng</th>
                     <th>Nhân viên</th>
+                    <th>Lương CB</th>
+                    <th>Phụ cấp</th>
+                    <th>Thưởng</th>
+                    <th>Khấu trừ</th>
                     <th>Gross</th>
                     <th>Net</th>
                     <th>Trạng thái</th>
+                    <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
@@ -75,12 +80,28 @@
                 <tr>
                     <td>{{ $salary->month }}/{{ $salary->year }}</td>
                     <td>{{ $salary->employee->full_name }}</td>
+                    <td>{{ number_format($salary->base_salary) }}</td>
+                    <td>{{ number_format($salary->allowance) }}</td>
+                    <td>{{ number_format($salary->bonus) }}</td>
+                    <td>{{ number_format($salary->deduction) }}</td>
                     <td>{{ number_format($salary->gross_salary) }} VND</td>
                     <td><strong>{{ number_format($salary->net_salary) }} VND</strong></td>
-                    <td><span class="badge badge-{{ $salary->status === 'paid' ? 'success' : 'warning' }}">{{ $salary->status }}</span></td>
+                    <td><span class="badge badge-{{ $salary->status === 'paid' ? 'success' : 'warning' }}">{{ $salary->status === 'paid' ? 'Đã trả' : 'Nháp' }}</span></td>
+                    <td>
+                        <div class="table-actions">
+                            <form method="POST" action="{{ route('admin.salaries.destroy', $salary) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm" type="submit"
+                                    onclick="return confirm('Xóa bảng lương tháng {{ $salary->month }}/{{ $salary->year }} của {{ $salary->employee->full_name }}?')">
+                                    Xóa
+                                </button>
+                            </form>
+                        </div>
+                    </td>
                 </tr>
                 @empty
-                <tr><td colspan="5" class="text-center">Chưa có bảng lương.</td></tr>
+                <tr><td colspan="10" class="text-center">Chưa có bảng lương.</td></tr>
                 @endforelse
             </tbody>
         </table>

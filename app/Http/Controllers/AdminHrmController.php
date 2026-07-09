@@ -208,6 +208,13 @@ class AdminHrmController extends Controller
         return back()->with('success', 'Đã lưu chấm công.');
     }
 
+    public function destroyAttendance(AttendanceLog $log): RedirectResponse
+    {
+        $log->delete();
+
+        return back()->with('success', 'Đã xóa bản ghi chấm công.');
+    }
+
     public function salaries(): View
     {
         $salaries = Salary::with('employee')
@@ -230,6 +237,13 @@ class AdminHrmController extends Controller
         );
 
         return back()->with('success', 'Đã lưu bảng lương.');
+    }
+
+    public function destroySalary(Salary $salary): RedirectResponse
+    {
+        $salary->delete();
+
+        return back()->with('success', 'Đã xóa bảng lương.');
     }
 
     public function contracts(Request $request): View
