@@ -65,6 +65,21 @@
 
 ---
 
+### SLIDE 4b: SƠ ĐỒ USE CASE HỆ THỐNG
+*   **Bố cục hiển thị:** Sơ đồ Use Case hệ thống phân chia rõ ràng ranh giới hệ thống (System Boundary) và 3 tác nhân tương tác.
+*   **Cử chỉ:** Tay trái cầm mic. Tay phải chỉ vào 3 nhóm tác nhân chính ở bên ngoài biên hệ thống, sau đó quét vào các vòng tròn chức năng (Use Cases) nằm bên trong ranh giới hệ thống để giảng viên thấy rõ sự phân cấp nhiệm vụ.
+*   **Kịch bản thoại:**
+    > *"Để giúp giảng viên và các bạn hình dung rõ ràng hơn về luồng tương tác của các tác nhân, nhóm mình đã thiết kế sơ đồ Use Case này. 
+    > Hệ thống quản lý 3 nhóm đối tượng sử dụng chính: 
+    > Nhân viên thực hiện các chức năng cá nhân gồm Chấm công, Xin nghỉ phép, Xem phiếu lương và hợp đồng. 
+    > Phân hệ HR tập trung vào quản lý hồ sơ nhân viên, phê duyệt đơn nghỉ phép và phòng ban chức vụ. 
+    > Riêng Admin có đặc quyền quản lý hợp đồng lao động, lập bảng lương, chốt công tự động và quyền xóa dữ liệu. Admin cũng thừa hưởng toàn bộ chức năng của HR để quản trị cao nhất hệ thống."*
+*   **💡 Giải thích thuật ngữ cho Chương:**
+    *   **Use Case:** Các trường hợp sử dụng (tính năng) mà hệ thống cung cấp cho người dùng tương tác.
+    *   **System Boundary (Ranh giới hệ thống):** Hộp giới hạn xác định rõ các tính năng nào nằm trong phần mềm của nhóm phát triển, phân biệt với các tác nhân bên ngoài.
+
+---
+
 ### SLIDE 5: THIẾT HỆ HỆ THỐNG PHÂN QUYỀN (RBAC)
 *   **Bố cục hiển thị:** Bảng ma trận quyền hạn của 3 vai trò: Admin (Toàn quyền), HR (Quản lý hồ sơ & Duyệt phép, không được xóa/sửa lương), Employee (Chỉ thao tác trên thông tin cá nhân).
 *   **Cử chỉ:** Nhìn thẳng cả lớp để nhấn mạnh tính bảo mật thông tin.
