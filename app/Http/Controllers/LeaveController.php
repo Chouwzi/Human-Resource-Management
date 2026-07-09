@@ -67,8 +67,13 @@ class LeaveController extends Controller
     public function pending()
     {
         $pendingLeaves = Leave::where('status', 'pending')->orderBy('created_at', 'desc')->get();
+        $processedLeaves = Leave::with('employee')
+            ->whereIn('status', ['approved', 'rejected'])
+            ->orderBy('updated_at', 'desc')
+            ->limit(50)
+            ->get();
 
-        return view('admin.leaves.pending', compact('pendingLeaves'));
+        return view('admin.leaves.pending', compact('pendingLeaves', 'processedLeaves'));
     }
 
     // 5. Admin bấm "Duyệt" đơn

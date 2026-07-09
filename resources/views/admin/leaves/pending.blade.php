@@ -47,14 +47,14 @@
                              {{ $item->reason }}
                         </td>
                         <td class="text-center">
-                            
+
                             <form action="{{ route('admin.leaves.approve', $item->id) }}" method="POST" id="form-approve-{{ $item->id }}" class="form-action">
                                 @csrf
                                 <button type="button" onclick="confirmApprove('{{ $item->id }}')" class="btn btn-success btn-action" title="Phê duyệt">
                                     <i class="fas fa-check"></i> Duyệt
                                 </button>
                             </form>
-                            
+
                             <form action="{{ route('admin.leaves.reject', $item->id) }}" method="POST" id="form-reject-{{ $item->id }}" class="form-action form-reject">
                                 @csrf
                                 <button type="button" onclick="confirmReject('{{ $item->id }}')" class="btn btn-danger btn-action" title="Từ chối">
@@ -74,7 +74,78 @@
                 </tbody>
             </table>
         </div>
-        
+
+    </div>
+
+    <div class="content-card" style="margin-top: 2rem;">
+        <h4 class="content-card-header pending-header" style="background-color: var(--secondary-color, #4b5563);">Lịch sử đơn đã xử lý</h4>
+
+        <div class="table-responsive m-0">
+            <table class="table table-custom">
+                <thead>
+                    <tr>
+                        <th class="w-5">STT</th>
+                        <th class="w-20 text-left">Nhân viên</th>
+                        <th class="w-15">Loại đơn</th>
+                        <th class="w-20">Thời gian nghỉ</th>
+                        <th class="w-20 text-left">Lý do</th>
+                        <th class="w-20 text-center">Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($processedLeaves as $index => $item)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td class="text-left">
+                            <strong>{{ $item->emp_name }}</strong><br>
+                            <span class="text-muted-sm">Mã NV: {{ $item->emp_id }}</span>
+                        </td>
+                        <td>
+                            <strong>
+                                @if($item->leave_type == 'annual') Nghỉ phép năm
+                                @elseif($item->leave_type == 'sick') Nghỉ ốm
+                                @elseif($item->leave_type == 'unpaid') Nghỉ không lương
+                                @else Việc cá nhân
+                                @endif
+                            </strong>
+                        </td>
+                        <td>
+                            {{ $item->start_date }} → {{ $item->end_date }}<br>
+                            <span class="text-muted-sm">({{ $item->days }} ngày)</span>
+                        </td>
+                        <td class="reason-ellipsis" title="{{ $item->reason }}">
+                             {{ $item->reason }}
+                        </td>
+                        <td class="text-center">
+                            @if($item->status == 'approved')
+                                <span class="badge badge-success">Đã duyệt</span>
+                                @if($item->approved_by)
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 3px;">
+                                    Bởi: {{ $item->approved_by }}
+                                </div>
+                                @endif
+                            @elseif($item->status == 'rejected')
+                                <span class="badge badge-danger">Từ chối</span>
+                                @if($item->approved_by)
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 3px;">
+                                    Bởi: {{ $item->approved_by }}
+                                </div>
+                                @endif
+                            @else
+                                <span class="badge badge-secondary">{{ $item->status }}</span>
+                            @endif
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center" style="padding: 2rem 0; color: var(--text-muted);">
+                            Hiện chưa có lịch sử đơn nghỉ phép đã xử lý.
+                        </td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection
