@@ -100,12 +100,12 @@
                         'fixed_term' => 'Có thời hạn',
                         'indefinite' => 'Không xác định thời hạn',
                     ];
-                    $statusMap = [
-                        'active' => ['class' => 'badge-success', 'text' => 'Đang hiệu lực'],
-                        'expired' => ['class' => 'badge-warning', 'text' => 'Hết hạn'],
-                        'terminated' => ['class' => 'badge-danger', 'text' => 'Đã chấm dứt'],
+                    $contractStatusMap = [
+                        'active'     => ['class' => 'badge-success', 'text' => 'Đang hiệu lực'],
+                        'expired'    => ['class' => 'badge-danger',  'text' => 'Hết hạn'],
+                        'terminated' => ['class' => 'badge-warning', 'text' => 'Đã chấm dứt'],
                     ];
-                    $status = $statusMap[$contract->status] ?? ['class' => 'badge-info', 'text' => $contract->status];
+                    $cs = $contractStatusMap[$contract->effective_status] ?? ['class' => '', 'text' => $contract->effective_status];
                 @endphp
                 <tr>
                     <td><strong>{{ $contract->contract_code }}</strong></td>
@@ -118,7 +118,7 @@
                     </td>
                     <td>{{ number_format($contract->salary) }} VND</td>
                     <td>{{ $contract->working_hours_per_week }}</td>
-                    <td><span class="badge {{ $status['class'] }}">{{ $status['text'] }}</span></td>
+                    <td><span class="badge {{ $cs['class'] }}">{{ $cs['text'] }}</span></td>
                     <td class="table-actions">
                         <a href="{{ route('admin.contracts.index', ['edit_contract' => $contract->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
                         @if(session('user_role') === 'admin')

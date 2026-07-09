@@ -117,6 +117,64 @@ class ContractControllerTest extends TestCase
         $this->assertDatabaseMissing('contracts', ['contract_code' => 'HD-BAD']);
     }
 
+    #[Test]
+    public function accessor_trang_thai_khoa_qua_han_dung_logic(): void
+    {
+        $employee = $this->createEmployee();
+
+        // 1. Terminated stays terminated (even if end_date is in the past)
+        $contract1 = Contract::create([
+            'employee_id' => $employee->id,
+            'contract_code' => 'HD1',
+            'contract_type' => 'fixed_term',
+            'start_date' => '2026-01-01',
+            'end_date' => '2026-06-01', // in the past relative to 2026-07-10
+            'salary' => 10000000,
+            'working_hours_per_week' => 40,
+            'status' => 'terminated',
+        ]);
+        $this->assertEquals('terminated', $contract1->effective_status);
+
+        // 2. Active in the past becomes expired
+        $contract2 = Contract::create([
+            'employee_id' => $employee->id,
+            'contract_code' => 'HD2',
+            'contract_type' => 'fixed_term',
+            'start_date' => '2026-01-01',
+            'end_date' => '2026-06-01', // past
+            'salary' => 10000000,
+            'working_hours_per_week' => 40,
+            'status' => 'active',
+        ]);
+        $this->assertEquals('expired', $contract2->effective_status);
+
+        // 3. Active in the future stays active
+        $contract3 = Contract::create([
+            'employee_id' => $employee->id,
+            'contract_code' => 'HD3',
+            'contract_type' => 'fixed_term',
+            'start_date' => '2026-01-01',
+            'end_date' => '2026-08-01', // future
+            'salary' => 10000000,
+            'working_hours_per_week' => 40,
+            'status' => 'active',
+        ]);
+        $this->assertEquals('active', $contract3->effective_status);
+
+        // 4. No end date stays active
+        $contract4 = Contract::create([
+            'employee_id' => $employee->id,
+            'contract_code' => 'HD4',
+            'contract_type' => 'indefinite',
+            'start_date' => '2026-01-01',
+            'end_date' => null,
+            'salary' => 10000000,
+            'working_hours_per_week' => 40,
+            'status' => 'active',
+        ]);
+        $this->assertEquals('active', $contract4->effective_status);
+    }
+
     private function createUserWithRole(string $roleName): User
     {
         $role = Role::firstOrCreate(['name' => $roleName], ['description' => $roleName]);

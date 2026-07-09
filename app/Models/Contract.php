@@ -28,6 +28,17 @@ class Contract extends Model
         ];
     }
 
+    public function getEffectiveStatusAttribute(): string
+    {
+        if ($this->status === 'terminated') {
+            return 'terminated';
+        }
+        if ($this->end_date && $this->end_date->isPast()) {
+            return 'expired';
+        }
+        return $this->status;
+    }
+
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class);
