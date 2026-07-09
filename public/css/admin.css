@@ -189,3 +189,11 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.875rem;
 }
+
+/* Ép độ rộng tối thiểu cho cột Thao tác/Hành động cuối cùng để tránh bị co/vỡ layout */
+.table-actions,
+.table th:last-child,
+.table td:last-child {
+    min-width: 140px;
+    width: 140px;
+}

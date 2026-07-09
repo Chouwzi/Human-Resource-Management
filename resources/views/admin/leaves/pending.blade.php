@@ -78,7 +78,7 @@
     </div>
 
     <div class="content-card" style="margin-top: 2rem;">
-        <h4 class="content-card-header pending-header" style="background-color: var(--secondary-color, #4b5563);">Lịch sử đơn đã xử lý</h4>
+        <h4 class="content-card-header pending-header">Lịch sử đơn đã xử lý</h4>
 
         <div class="table-responsive m-0">
             <table class="table table-custom">

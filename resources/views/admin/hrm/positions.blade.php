@@ -57,14 +57,16 @@
                         <td><strong>{{ $position->name }}</strong></td>
                         <td>{{ $position->department->name }}</td>
                         <td>{{ number_format($position->default_salary) }} VND</td>
-                        <td class="table-actions">
-                            <a href="{{ route('admin.positions.index', ['edit_position' => $position->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
-                            @if(session('user_role') === 'admin')
-                            <form method="POST" action="{{ route('admin.positions.destroy', $position) }}">
-                                @csrf @method('DELETE')
-                                <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa chức vụ này?')">Xóa</button>
-                            </form>
-                            @endif
+                        <td>
+                            <div class="table-actions">
+                                <a href="{{ route('admin.positions.index', ['edit_position' => $position->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                                @if(session('user_role') === 'admin')
+                                <form method="POST" action="{{ route('admin.positions.destroy', $position) }}">
+                                    @csrf @method('DELETE')
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa chức vụ này?')">Xóa</button>
+                                </form>
+                                @endif
+                            </div>
                         </td>
                     </tr>
                     @empty

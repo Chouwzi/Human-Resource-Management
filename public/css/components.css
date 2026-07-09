@@ -72,12 +72,12 @@
     min-width: 700px;
     border-collapse: collapse;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.825rem;
 }
 
 .table th,
 .table td {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
     border-bottom: 1px solid var(--border-color);
     white-space: nowrap;
     vertical-align: middle;

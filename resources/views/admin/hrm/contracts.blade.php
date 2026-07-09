@@ -119,14 +119,16 @@
                     <td>{{ number_format($contract->salary) }} VND</td>
                     <td>{{ $contract->working_hours_per_week }}</td>
                     <td><span class="badge {{ $cs['class'] }}">{{ $cs['text'] }}</span></td>
-                    <td class="table-actions">
-                        <a href="{{ route('admin.contracts.index', ['edit_contract' => $contract->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
-                        @if(session('user_role') === 'admin')
-                        <form method="POST" action="{{ route('admin.contracts.destroy', $contract) }}">
-                            @csrf @method('DELETE')
-                            <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa hợp đồng này?')">Xóa</button>
-                        </form>
-                        @endif
+                    <td>
+                        <div class="table-actions">
+                            <a href="{{ route('admin.contracts.index', ['edit_contract' => $contract->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                            @if(session('user_role') === 'admin')
+                            <form method="POST" action="{{ route('admin.contracts.destroy', $contract) }}">
+                                @csrf @method('DELETE')
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa hợp đồng này?')">Xóa</button>
+                            </form>
+                            @endif
+                        </div>
                     </td>
                 </tr>
                 @empty
