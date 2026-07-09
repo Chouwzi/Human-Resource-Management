@@ -29,17 +29,17 @@
 
 ### SLIDE 2: LÝ DO CHỌN ĐỀ TÀI & MỤC TIÊU HỆ THỐNG
 *   **Bố cục hiển thị:** Bento Grid 2 cột:
-    *   *Cột 1 (Nỗi đau thực tế):* **Số liệu dẫn chứng: 70% - 78% doanh nghiệp nhỏ và vừa (SME) dùng Excel để tính lương (Khảo sát của MISA & Báo cáo thường niên của Cục Phát triển doanh nghiệp - Bộ KH&ĐT).** Lỗi nhập liệu, thất thoát ngày công, rò rỉ lương.
+    *   *Cột 1 (Nỗi đau thực tế):* **Số liệu dẫn chứng: 70% - 78% doanh nghiệp nhỏ và vừa (SME) dùng Excel để tính lương (Báo cáo năm 2023 - 2024 của Bộ KH&ĐT và MISA).** Lỗi nhập liệu, thất thoát ngày công, rò rỉ lương.
     *   *Cột 2 (Giải pháp HRM):* Chấm công trực tuyến, tự động tính lương, duyệt phép tức thời, cơ sở dữ liệu tập trung.
 *   **Cử chỉ:** Tay phải mở ngửa chỉ cột "Nỗi đau" (nét mặt nghiêm túc), sau đó xoay tay chỉ sang cột "Giải pháp" (mỉm cười nhẹ).
 *   **Kịch bản thoại:**
-    > *"Thưa giảng viên và các bạn, theo **Báo cáo thường niên về Chuyển đổi số của Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư** phối hợp với USAID, cùng khảo sát diện rộng của **Tập đoàn Công nghệ MISA**, hiện nay có từ **70% đến 78%** doanh nghiệp vừa và nhỏ tại Việt Nam vẫn đang sử dụng Microsoft Excel làm công cụ chính để tính lương và quản lý nhân sự hàng ngày. 
+    > *"Thưa giảng viên và các bạn, theo **Báo cáo thường niên về Chuyển đổi số doanh nghiệp năm 2023 và 2024** của Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư, kết hợp với các khảo sát diện rộng năm **2023 - 2024** của **Tập đoàn Công nghệ MISA**, hiện nay có từ **70% đến 78%** doanh nghiệp vừa và nhỏ tại Việt Nam vẫn đang sử dụng Microsoft Excel làm công cụ chính để tính lương và quản lý nhân sự hàng ngày. 
     > Việc tính công bằng bảng tính thủ công rất tốn thời gian, dễ xảy ra sai sót khi tính toán ngày công thực tế và có nguy cơ rò rỉ bảng lương nhạy cảm. Vì vậy, mục tiêu của nhóm mình khi xây dựng hệ thống HRM này là số hóa toàn bộ quy trình: chấm công trực tuyến, tự động đối chiếu đơn xin nghỉ phép và tính lương chính xác 100% trên cơ sở dữ liệu tập trung."*
 *   **💡 Giải thích thuật ngữ cho Chương:**
     *   **Số hóa:** Chuyển đổi toàn bộ quy trình giấy tờ, file Excel rời rạc sang lưu trữ dữ liệu số trên máy chủ để máy tính tự động xử lý.
-    *   **Ai là người khảo sát:** 
-        1.  **Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư** (phối hợp với tổ chức USAID của Mỹ): Công bố trong Báo cáo thường niên về chuyển đổi số doanh nghiệp Việt Nam.
-        2.  **Tập đoàn Công nghệ MISA:** Khảo sát diện rộng trên tệp khách hàng hơn 250.000 doanh nghiệp nhỏ và vừa (SME) tại Việt Nam.
+    *   **Nguồn số liệu & Năm khảo sát:** 
+        1.  **Báo cáo thường niên Chuyển đổi số doanh nghiệp năm 2023 và 2024** của Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư phối hợp với USAID (công bố chính thức vào đầu năm 2024 và đầu năm 2025).
+        2.  **Khảo sát thực trạng doanh nghiệp Việt Nam giai đoạn 2023 - 2024** của Tập đoàn Công nghệ MISA thực hiện trên quy mô hơn 250.000 doanh nghiệp vừa và nhỏ (SME).
 
 ---
 
@@ -125,7 +125,7 @@
 *   **Bố cục hiển thị:** Danh sách giải pháp bảo mật và screenshot terminal chạy **47 tests passed**.
 *   **Cử chỉ:** Chỉ tay vào dòng chữ kết quả kiểm thử màu xanh trên màn hình.
 *   **Kịch bản thoại:**
-    > *"Hệ thống được bảo mật chặt chẽ: chống xem trộm lương bằng cách truy vấn ID trực tiếp từ session máy chủ thay vì truyền tham số lên URL; chống tấn công SQL Injection và XSS. Nhóm mình cũng viết 47 kịch bản kiểm thử tự động qua PHPUnit để đảm bảo logic chạy đúng và không phát sinh lỗi."*
+    > *"Hệ thống được bảo mật chặt chẽ: chống xem trộm lương bằng cách truy vấn ID trực tiếp từ session session máy chủ thay vì truyền tham số lên URL; chống tấn công SQL Injection và XSS. Nhóm mình cũng viết 47 kịch bản kiểm thử tự động qua PHPUnit để đảm bảo logic chạy đúng và không phát sinh lỗi."*
 *   **💡 Giải thích thuật ngữ cho Chương:**
     *   **SQL Injection:** Kẻ tấn công nhập lệnh SQL phá hoại vào các ô input để hack database.
     *   **XSS:** Kẻ tấn công chèn mã JavaScript độc hại vào form nhằm ăn cắp thông tin người xem.
