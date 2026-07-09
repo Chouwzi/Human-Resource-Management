@@ -7,7 +7,7 @@
 <div class="content-card">
     <div class="content-card-header-flex">
         <h4>Lịch sử đơn nghỉ phép</h4>
-        <a href="{{ route('leaves.create') }}" class="btn btn-primary">Tạo đơn mới</a>
+        <a href="{{ route('leaves.create') }}" class="btn btn-primary" title="Tạo đơn xin nghỉ phép mới">Tạo đơn mới</a>
     </div>
 
     @include('admin.hrm.partials.flash')
@@ -40,27 +40,27 @@
                     </td>
                     <td>{{ $item->start_date }} -> {{ $item->end_date }}</td>
                     <td>{{ $item->days }} ngày</td>
-                    <td class="reason-ellipsis" title="{{ $item->reason }}">{{ $item->reason }}</td>
+                    <td class="reason-ellipsis" title="Bấm để xem chi tiết lý do: {{ $item->reason }}">{{ $item->reason }}</td>
 
                     <td style="text-align:center">
                         @if($item->status == 'approved')
-                            <span class="badge badge-success">Đã duyệt</span>
+                            <span class="badge badge-success" title="Đơn đã được phê duyệt bởi {{ $item->approved_by }}">Đã duyệt</span>
                             @if($item->approved_by)
-                            <div class="approval-note">
+                            <div class="approval-note" title="Người phê duyệt: {{ $item->approved_by }}">
                                 <i class="fas fa-user-check"></i> {{ $item->approved_by }}
                             </div>
                             @endif
                         @elseif($item->status == 'pending')
-                            <span class="badge badge-warning">Chờ duyệt</span>
+                            <span class="badge badge-warning" title="Đơn nghỉ phép đang chờ cấp trên xét duyệt">Chờ duyệt</span>
                         @elseif($item->status == 'rejected')
-                            <span class="badge badge-danger">Từ chối</span>
+                            <span class="badge badge-danger" title="Đơn bị từ chối bởi {{ $item->approved_by }}">Từ chối</span>
                             @if($item->approved_by)
-                            <div class="approval-note">
+                            <div class="approval-note" title="Người từ chối: {{ $item->approved_by }}">
                                 <i class="fas fa-user-times"></i> {{ $item->approved_by }}
                             </div>
                             @endif
                         @elseif($item->status == 'cancelled')
-                            <span class="badge badge-secondary">Đã hủy</span>
+                            <span class="badge badge-secondary" title="Đơn nghỉ phép đã được hủy">Đã hủy</span>
                         @endif
                     </td>
 
@@ -70,7 +70,7 @@
                                   id="form-cancel-{{ $item->id }}" class="inline-action-form">
                                 @csrf
                                 <button type="button" onclick="confirmCancel('{{ $item->id }}')"
-                                        class="btn btn-danger btn-sm">
+                                        class="btn btn-danger btn-sm" title="Hủy bỏ đơn xin nghỉ phép này">
                                     <i class="fas fa-trash-alt"></i> Hủy
                                 </button>
                             </form>
@@ -79,7 +79,7 @@
                                   id="form-delete-{{ $item->id }}" class="inline-action-form">
                                 @csrf @method('DELETE')
                                 <button type="button" onclick="confirmDeleteLeave('{{ $item->id }}')"
-                                        class="btn btn-secondary btn-sm">
+                                        class="btn btn-secondary btn-sm" title="Xóa bản ghi đơn nghỉ phép này">
                                     <i class="fas fa-trash-alt"></i> Xóa
                                 </button>
                             </form>

@@ -14,7 +14,7 @@
 
             <div class="form-group">
                 <label class="form-label">Loại nghỉ phép <span style="color: var(--danger);">*</span></label>
-                <select name="leave_type" class="form-control" required>
+                <select name="leave_type" class="form-control" title="Chọn loại hình nghỉ phép phù hợp" required>
                     <option value="">-- Chọn loại nghỉ phép --</option>
                     <option value="annual" @selected(old('leave_type') === 'annual')>Nghỉ phép năm</option>
                     <option value="sick" @selected(old('leave_type') === 'sick')>Nghỉ ốm</option>
@@ -27,20 +27,20 @@
             <div class="grid-2-cols">
                 <div class="form-group m-0">
                     <label class="form-label">Từ ngày <span style="color: var(--danger);">*</span></label>
-                    <input type="date" name="start_date" id="start_date" class="form-control" value="{{ old('start_date') }}" min="{{ date('Y-m-d', strtotime('+1 day')) }}" required>
+                    <input type="date" name="start_date" id="start_date" class="form-control" title="Chọn ngày bắt đầu nghỉ phép" value="{{ old('start_date') }}" min="{{ date('Y-m-d', strtotime('+1 day')) }}" required>
                     @error('start_date')<small class="form-error">{{ $message }}</small>@enderror
                 </div>
                 
                 <div class="form-group m-0">
                     <label class="form-label">Đến ngày <span style="color: var(--danger);">*</span></label>
-                    <input type="date" name="end_date" id="end_date" class="form-control" value="{{ old('end_date') }}" min="{{ old('start_date', date('Y-m-d', strtotime('+1 day'))) }}" required>
+                    <input type="date" name="end_date" id="end_date" class="form-control" title="Chọn ngày kết thúc nghỉ phép" value="{{ old('end_date') }}" min="{{ old('start_date', date('Y-m-d', strtotime('+1 day'))) }}" required>
                     @error('end_date')<small class="form-error">{{ $message }}</small>@enderror
                 </div>
             </div>
 
             <div class="form-group" style="margin-top: 1.5rem;">
                 <label class="form-label">Lý do nghỉ <span style="color: var(--danger);">*</span></label>
-                <textarea name="reason" id="reasonTextarea" class="form-control" rows="4" placeholder="Nhập lý do nghỉ phép chi tiết (ví dụ: Đi khám sức khỏe định kỳ, có việc gia đình khẩn cấp ở quê)..." maxlength="500" required>{{ old('reason') }}</textarea>
+                <textarea name="reason" id="reasonTextarea" class="form-control" rows="4" placeholder="Nhập lý do nghỉ phép chi tiết (ví dụ: Đi khám sức khỏe định kỳ, có việc gia đình khẩn cấp ở quê)..." title="Ghi rõ lý do nghỉ phép để cấp trên dễ dàng xem xét" maxlength="500" required>{{ old('reason') }}</textarea>
                 @error('reason')<small class="form-error">{{ $message }}</small>@enderror
                 
                 <div id="charCountNotice" style="font-size: 0.85rem; color: var(--text-muted, #6c757d); margin-top: 0.3rem;">
@@ -49,8 +49,8 @@
             </div>
 
             <div class="form-actions">
-                <a href="{{ route('leaves.index') }}" class="btn btn-secondary">Hủy bỏ</a>
-                <button type="submit" class="btn btn-primary">
+                <a href="{{ route('leaves.index') }}" class="btn btn-secondary" title="Hủy bỏ và quay lại danh sách">Hủy bỏ</a>
+                <button type="submit" class="btn btn-primary" title="Gửi đơn xin nghỉ phép lên cấp trên xét duyệt">
                     <i class="fas fa-paper-plane mr-2"></i> Gửi đơn
                 </button>
             </div>

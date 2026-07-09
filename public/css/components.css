@@ -92,7 +92,7 @@ select {
     cursor: pointer;
 }
 
-/* table-chống vỡ layout mb*/
+/* Bảng chống vỡ bố cục trên thiết bị di động */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
@@ -351,14 +351,12 @@ select {
     width: 100%;
     height: 100%;
 }
-/* ==========================================================================
-   FORM COMPONENTS (Dành cho trang Tạo Đơn, Cập nhật hồ sơ...)
-   ========================================================================== */
+/* Các thành phần biểu mẫu */
 .form-group {
     margin-bottom: 1.5rem;
 }
 
-/* Biểu mẫu chia lưới lưới cột đôi linh hoạt và tự thích ứng di động */
+/* Biểu mẫu chia lưới hai cột linh hoạt và tự tương thích trên di động */
 .hrm-form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -381,7 +379,7 @@ select {
 }
 textarea.form-control {
     min-height: 100px;
-    resize: vertical; /* Cho phép User kéo dọc để mở rộng ô nhập */
+    resize: vertical; /* Cho phép người dùng kéo dọc để mở rộng ô nhập */
 }
 .grid-2-cols {
     display: grid;
@@ -390,7 +388,7 @@ textarea.form-control {
 }
 .form-actions {
     display: flex;
-    justify-content: flex-end; /* Căn các nút bấm sang phải */
+    justify-content: flex-end; /* Căn các nút bấm sang bên phải */
     gap: 1rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -401,8 +399,8 @@ textarea.form-control {
     max-width: 150px;       /* Giới hạn độ rộng tối đa của cột */
     white-space: nowrap;    /* Không cho chữ xuống dòng */
     overflow: hidden;       /* Ẩn phần chữ bị tràn ra ngoài */
-    text-overflow: ellipsis;/* Hiển thị dấu ... ở cuối */
-    cursor: pointer;        /* Đổi con trỏ chuột thành hình bàn tay để báo hiệu có thể xem */
+    text-overflow: ellipsis;/* Hiển thị dấu ba chấm ở cuối */
+    cursor: pointer;        /* Đổi con trỏ chuột thành hình bàn tay */
     text-align: center;     /* Căn giữa nội dung */
     vertical-align: middle; /* Căn giữa theo chiều dọc */
 }
@@ -414,15 +412,15 @@ textarea.form-control {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền đen mờ */
+    background-color: rgba(0, 0, 0, 0.5); /* Nền đen mờ */
 }
 
 /* Giao diện khung trắng chứa nội dung */
 .my-modal-content {
     background-color: #fff;
-    margin: 5% auto; /* Canh giữa màn hình */
+    margin: 5% auto; /* Căn giữa màn hình */
     padding: 20px;
-    width: 450px; /* Độ rộng của form */
+    width: 450px; /* Chiều rộng của biểu mẫu */
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
@@ -449,7 +447,7 @@ textarea.form-control {
     color: #000;
 }
 
-/* Sửa lỗi icon bị dính sát vào chữ trên toàn hệ thống */
+/* Giãn khoảng cách giữa biểu tượng và văn bản */
 .btn i,
 button i,
 a i,

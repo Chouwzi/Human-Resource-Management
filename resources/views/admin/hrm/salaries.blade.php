@@ -12,7 +12,7 @@
         @csrf
         <div>
             <label>Nhân viên</label>
-            <select name="employee_id" required>
+            <select name="employee_id" title="Chọn nhân viên cần tính lương" required>
                 <option value="">-- Chọn nhân viên --</option>
                 @foreach($employees as $employee)
                     <option value="{{ $employee->id }}" @selected(old('employee_id') == $employee->id)>
@@ -24,35 +24,35 @@
         <div>
             <label>Tháng / năm</label>
             <div class="month-year">
-                <input name="month" type="number" min="1" max="12" value="{{ old('month', now()->month) }}" required>
-                <input name="year" type="number" min="2020" max="2100" value="{{ old('year', now()->year) }}" required>
+                <input name="month" type="number" min="1" max="12" title="Nhập tháng (1-12)" value="{{ old('month', now()->month) }}" required>
+                <input name="year" type="number" min="2020" max="2100" title="Nhập năm (2020-2100)" value="{{ old('year', now()->year) }}" required>
             </div>
         </div>
         <div>
             <label>Lương cơ bản</label>
-            <input name="base_salary" type="number" min="0" step="100000" value="{{ old('base_salary', 8000000) }}" required>
+            <input name="base_salary" type="number" min="0" step="100000" title="Nhập mức lương cơ bản (VND)" value="{{ old('base_salary', 8000000) }}" required>
         </div>
         <div>
             <label>Phụ cấp</label>
-            <input name="allowance" type="number" min="0" step="100000" value="{{ old('allowance', 0) }}">
+            <input name="allowance" type="number" min="0" step="100000" title="Nhập phụ cấp thêm (VND)" value="{{ old('allowance', 0) }}">
         </div>
         <div>
             <label>Thưởng</label>
-            <input name="bonus" type="number" min="0" step="100000" value="{{ old('bonus', 0) }}">
+            <input name="bonus" type="number" min="0" step="100000" title="Nhập các khoản thưởng hiệu suất (VND)" value="{{ old('bonus', 0) }}">
         </div>
         <div>
             <label>Khấu trừ</label>
-            <input name="deduction" type="number" min="0" step="100000" value="{{ old('deduction', 0) }}">
+            <input name="deduction" type="number" min="0" step="100000" title="Nhập các khoản khấu trừ (VND)" value="{{ old('deduction', 0) }}">
         </div>
         <div>
             <label>Trạng thái</label>
-            <select name="status">
+            <select name="status" title="Chọn trạng thái thanh toán bảng lương">
                 <option value="draft">Nháp</option>
                 <option value="paid">Đã trả</option>
             </select>
         </div>
         <div class="hrm-form-full">
-            <button class="btn btn-primary" type="submit">Lưu bảng lương</button>
+            <button class="btn btn-primary" type="submit" title="Lưu thông tin bảng lương vừa nhập">Lưu bảng lương</button>
         </div>
     </form>
 </div>
@@ -86,13 +86,13 @@
                     <td>{{ number_format($salary->deduction) }}</td>
                     <td>{{ number_format($salary->gross_salary) }} VND</td>
                     <td><strong>{{ number_format($salary->net_salary) }} VND</strong></td>
-                    <td><span class="badge badge-{{ $salary->status === 'paid' ? 'success' : 'warning' }}">{{ $salary->status === 'paid' ? 'Đã trả' : 'Nháp' }}</span></td>
+                    <td><span class="badge badge-{{ $salary->status === 'paid' ? 'success' : 'warning' }}" title="{{ $salary->status === 'paid' ? 'Bảng lương đã thanh toán thành công' : 'Bảng lương nháp đang trong quá trình tính toán' }}">{{ $salary->status === 'paid' ? 'Đã trả' : 'Nháp' }}</span></td>
                     <td>
                         <div class="table-actions">
                             <form method="POST" action="{{ route('admin.salaries.destroy', $salary) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-sm" type="submit"
+                                <button class="btn btn-danger btn-sm" type="submit" title="Xóa bảng lương này"
                                     onclick="return confirm('Xóa bảng lương tháng {{ $salary->month }}/{{ $salary->year }} của {{ $salary->employee->full_name }}?')">
                                     <i class="fas fa-trash-alt"></i> Xóa
                                 </button>

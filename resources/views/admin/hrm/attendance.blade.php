@@ -13,20 +13,20 @@
         <div>
             <label>Nhân viên</label>
             <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <select id="filter_department" style="flex: 1;">
+                <select id="filter_department" style="flex: 1;" title="Lọc danh sách nhân viên theo phòng ban">
                     <option value="">-- Tất cả phòng ban --</option>
                     @foreach($departments as $dept)
                         <option value="{{ $dept->id }}">{{ $dept->name }}</option>
                     @endforeach
                 </select>
-                <select id="filter_position" style="flex: 1;">
+                <select id="filter_position" style="flex: 1;" title="Lọc danh sách nhân viên theo chức vụ">
                     <option value="">-- Tất cả chức vụ --</option>
                     @foreach($positions as $pos)
                         <option value="{{ $pos->id }}" data-dept="{{ $pos->department_id }}">{{ $pos->name }}</option>
                     @endforeach
                 </select>
             </div>
-            <select name="employee_id" id="employee_select" required>
+            <select name="employee_id" id="employee_select" title="Chọn nhân viên cần chấm công" required>
                 <option value="">-- Chọn nhân viên --</option>
                 @foreach($employees as $employee)
                     <option value="{{ $employee->id }}" 
@@ -40,19 +40,19 @@
         </div>
         <div>
             <label>Ngày làm việc</label>
-            <input name="work_date" type="date" value="{{ old('work_date', now()->toDateString()) }}" required>
+            <input name="work_date" type="date" title="Chọn ngày làm việc" value="{{ old('work_date', now()->toDateString()) }}" required>
         </div>
         <div>
             <label>Check-in</label>
-            <input name="check_in_at" type="time" value="{{ old('check_in_at', '08:00') }}">
+            <input name="check_in_at" type="time" title="Giờ vào làm thực tế" value="{{ old('check_in_at', '08:00') }}">
         </div>
         <div>
             <label>Check-out</label>
-            <input name="check_out_at" type="time" value="{{ old('check_out_at', '17:00') }}">
+            <input name="check_out_at" type="time" title="Giờ tan làm thực tế" value="{{ old('check_out_at', '17:00') }}">
         </div>
         <div>
             <label>Trạng thái</label>
-            <select name="status" required>
+            <select name="status" title="Chọn trạng thái đi làm" required>
                 <option value="present">Có mặt</option>
                 <option value="late">Đi muộn</option>
                 <option value="absent">Vắng</option>
@@ -61,10 +61,10 @@
         </div>
         <div>
             <label>Ghi chú</label>
-            <input name="note" value="{{ old('note') }}" maxlength="255">
+            <input name="note" title="Nhập ghi chú thêm nếu cần" value="{{ old('note') }}" maxlength="255">
         </div>
         <div class="hrm-form-full">
-            <button class="btn btn-primary" type="submit">Lưu chấm công</button>
+            <button class="btn btn-primary" type="submit" title="Lưu thông tin chấm công vừa nhập">Lưu chấm công</button>
         </div>
     </form>
 </div>
@@ -73,27 +73,27 @@
     <div class="content-card-header-flex">
         <h4>Bảng chấm công</h4>
         <div style="display: flex; gap: 1rem; align-items: center;">
-            <!-- Nút Chốt công -->
+            {{-- Nút chốt công --}}
             <form method="POST" action="{{ route('attendance.finalize') }}" style="margin: 0;">
                 @csrf
-                <button type="submit" class="btn btn-secondary" onclick="return confirm('Chốt công cho ngày hôm nay?')">
+                <button type="submit" class="btn btn-secondary" title="Khóa dữ liệu chấm công ngày hôm qua" onclick="return confirm('Chốt công cho ngày hôm nay?')">
                     <i class="fas fa-check-circle"></i> Chốt công hôm nay
                 </button>
             </form>
 
-            <!-- Nút Xuất CSV -->
-            <a href="{{ route('admin.attendance.export', ['month' => $month, 'year' => $year]) }}" class="btn btn-primary">
+            {{-- Nút xuất dữ liệu CSV --}}
+            <a href="{{ route('admin.attendance.export', ['month' => $month, 'year' => $year]) }}" class="btn btn-primary" title="Tải xuống tệp CSV chấm công tháng này">
                 <i class="fas fa-file-csv"></i> Xuất CSV
             </a>
 
-            <!-- Lọc theo tháng -->
+            {{-- Lọc dữ liệu theo tháng --}}
             <form method="GET" action="{{ route('admin.attendance.index') }}" style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-                <select name="month" style="padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+                <select name="month" title="Chọn tháng cần xem bảng chấm công" style="padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
                     @for($m=1; $m<=12; $m++)
                         <option value="{{ sprintf('%02d', $m) }}" @selected($month == $m)>Tháng {{ $m }}</option>
                     @endfor
                 </select>
-                <button type="submit" class="btn btn-secondary" style="padding: 0.35rem 0.75rem;">Lọc</button>
+                <button type="submit" class="btn btn-secondary" title="Lọc bảng chấm công theo tháng đã chọn" style="padding: 0.35rem 0.75rem;">Lọc</button>
             </form>
         </div>
     </div>
@@ -115,12 +115,12 @@
                 @forelse($logs as $log)
                 @php
                     $statusMap = [
-                        'present' => ['class' => 'badge-success', 'text' => 'Đúng giờ'],
-                        'late'    => ['class' => 'badge-warning', 'text' => 'Đi muộn'],
-                        'absent'  => ['class' => 'badge-danger', 'text' => 'Vắng mặt'],
-                        'leave'   => ['class' => 'badge-info', 'text' => 'Nghỉ phép']
+                        'present' => ['class' => 'badge-success', 'text' => 'Đúng giờ', 'title' => 'Đi làm đúng giờ quy định'],
+                        'late'    => ['class' => 'badge-warning', 'text' => 'Đi muộn', 'title' => 'Đi làm muộn so với giờ quy định'],
+                        'absent'  => ['class' => 'badge-danger', 'text' => 'Vắng mặt', 'title' => 'Không đi làm và không có lý do báo trước'],
+                        'leave'   => ['class' => 'badge-info', 'text' => 'Nghỉ phép', 'title' => 'Nghỉ phép đã được phê duyệt']
                     ];
-                    $s = $statusMap[$log->status] ?? ['class' => '', 'text' => $log->status];
+                    $s = $statusMap[$log->status] ?? ['class' => '', 'text' => $log->status, 'title' => 'Trạng thái chấm công'];
                 @endphp
                 <tr>
                     <td><strong>{{ date('d/m/Y', strtotime($log->work_date)) }}</strong></td>
@@ -130,7 +130,7 @@
                     <td>{{ $log->worked_minutes }} phút</td>
                     <td style="color: var(--info);">{{ $log->overtime_minutes }} phút</td>
                     <td>
-                        <span class="badge {{ $s['class'] }}">{{ $s['text'] }}</span>
+                        <span class="badge {{ $s['class'] }}" title="{{ $s['title'] }}">{{ $s['text'] }}</span>
                         @if($log->note)
                             <br><small style="color: var(--text-muted);">({{ $log->note }})</small>
                         @endif
@@ -141,7 +141,7 @@
                                 @csrf
                                 @method('DELETE')
                                 @php $logDate = date('d/m/Y', strtotime($log->work_date)); @endphp
-                                <button class="btn btn-danger btn-sm" type="submit"
+                                <button class="btn btn-danger btn-sm" type="submit" title="Xóa bản ghi chấm công này"
                                     onclick="return confirm('Xóa chấm công ngày {{ $logDate }} của {{ $log->employee->full_name }}?')">
                                     <i class="fas fa-trash-alt"></i> Xóa
                                 </button>
@@ -150,7 +150,7 @@
                     </td>
                 </tr>
                 @empty
-                <tr><td colspan="7" class="text-center" style="color: var(--text-muted); padding: 2rem 0;">Chưa có dữ liệu chấm công.</td></tr>
+                <tr><td colspan="8" class="text-center" style="color: var(--text-muted); padding: 2rem 0;">Chưa có dữ liệu chấm công.</td></tr>
                 @endforelse
             </tbody>
         </table>
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const selectedDept = filterDept.value;
             const selectedPos = filterPos.value;
             
-            // 1. Lọc danh sách chức vụ theo phòng ban
+            // Lọc danh sách chức vụ theo phòng ban
             filterPos.innerHTML = '';
             originalPosOptions.forEach(opt => {
                 if (opt.value === '' || !selectedDept || opt.getAttribute('data-dept') === selectedDept) {
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 filterPos.value = '';
             }
             
-            // 2. Lọc danh sách nhân viên theo phòng ban và chức vụ
+            // Lọc danh sách nhân viên theo phòng ban và chức vụ
             const finalDept = filterDept.value;
             const finalPos = filterPos.value;
             

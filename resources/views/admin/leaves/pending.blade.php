@@ -44,21 +44,21 @@
                         <td>{{ $item->start_date }}</td>
                         <td>{{ $item->end_date }}</td>
                         <td><strong>{{ $item->days }}</strong> ngày</td>
-                        <td class="reason-ellipsis" title="{{ $item->reason }}">
+                        <td class="reason-ellipsis" title="Xem chi tiết lý do: {{ $item->reason }}">
                              {{ $item->reason }}
                         </td>
                         <td class="text-center">
 
                             <form action="{{ route('admin.leaves.approve', $item->id) }}" method="POST" id="form-approve-{{ $item->id }}" class="form-action">
                                 @csrf
-                                <button type="button" onclick="confirmApprove('{{ $item->id }}')" class="btn btn-success btn-action" title="Phê duyệt">
+                                <button type="button" onclick="confirmApprove('{{ $item->id }}')" class="btn btn-success btn-action" title="Phê duyệt đơn nghỉ phép này">
                                     Duyệt
                                 </button>
                             </form>
 
                             <form action="{{ route('admin.leaves.reject', $item->id) }}" method="POST" id="form-reject-{{ $item->id }}" class="form-action form-reject">
                                 @csrf
-                                <button type="button" onclick="confirmReject('{{ $item->id }}')" class="btn btn-outline-danger btn-action" title="Từ chối">
+                                <button type="button" onclick="confirmReject('{{ $item->id }}')" class="btn btn-outline-danger btn-action" title="Từ chối đơn nghỉ phép này">
                                     Từ chối
                                 </button>
                             </form>
@@ -115,26 +115,26 @@
                         <td>{{ $item->start_date }}</td>
                         <td>{{ $item->end_date }}</td>
                         <td><strong>{{ $item->days }}</strong> ngày</td>
-                        <td class="reason-ellipsis" title="{{ $item->reason }}">
+                        <td class="reason-ellipsis" title="Xem chi tiết lý do: {{ $item->reason }}">
                              {{ $item->reason }}
                         </td>
                         <td class="text-center">
                             @if($item->status == 'approved')
-                                <span class="badge badge-success">Đã duyệt</span>
+                                <span class="badge badge-success" title="Đơn đã được duyệt bởi {{ $item->approved_by }}">Đã duyệt</span>
                                 @if($item->approved_by)
-                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 3px;">
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 3px;" title="Người phê duyệt: {{ $item->approved_by }}">
                                     Bởi: {{ $item->approved_by }}
                                 </div>
                                 @endif
                             @elseif($item->status == 'rejected')
-                                <span class="badge badge-danger">Từ chối</span>
+                                <span class="badge badge-danger" title="Đơn đã bị từ chối bởi {{ $item->approved_by }}">Từ chối</span>
                                 @if($item->approved_by)
-                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 3px;">
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 3px;" title="Người từ chối: {{ $item->approved_by }}">
                                     Bởi: {{ $item->approved_by }}
                                 </div>
                                 @endif
                             @else
-                                <span class="badge badge-secondary">{{ $item->status }}</span>
+                                <span class="badge badge-secondary" title="Trạng thái đơn: {{ $item->status }}">{{ $item->status }}</span>
                             @endif
                         </td>
                     </tr>

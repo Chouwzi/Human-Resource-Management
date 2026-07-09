@@ -13,7 +13,7 @@
             @csrf
             @if($editingPosition) @method('PUT') @endif
             <label>Phòng ban</label>
-            <select name="department_id" required>
+            <select name="department_id" title="Chọn phòng ban trực thuộc cho chức vụ này" required>
                 <option value="">-- Chọn phòng ban --</option>
                 @foreach($departments as $department)
                     <option value="{{ $department->id }}" @selected(old('department_id', $editingPosition->department_id ?? '') == $department->id)>{{ $department->name }}</option>
@@ -22,19 +22,19 @@
             @error('department_id')<small class="form-error">{{ $message }}</small>@enderror
 
             <label>Tên chức vụ</label>
-            <input name="name" value="{{ old('name', $editingPosition->name ?? '') }}" required maxlength="150">
+            <input name="name" value="{{ old('name', $editingPosition->name ?? '') }}" title="Nhập tên chức danh chức vụ" required maxlength="150">
             @error('name')<small class="form-error">{{ $message }}</small>@enderror
 
             <label>Lương mặc định</label>
-            <input type="number" name="default_salary" value="{{ old('default_salary', $editingPosition->default_salary ?? 0) }}" min="0" step="100000" required>
+            <input type="number" name="default_salary" value="{{ old('default_salary', $editingPosition->default_salary ?? 0) }}" min="0" step="100000" title="Nhập mức lương cơ bản mặc định (VND)" required>
             @error('default_salary')<small class="form-error">{{ $message }}</small>@enderror
 
             <label>Mô tả</label>
-            <input name="description" value="{{ old('description', $editingPosition->description ?? '') }}" maxlength="255">
+            <input name="description" value="{{ old('description', $editingPosition->description ?? '') }}" title="Nhập mô tả ngắn gọn về nhiệm vụ của chức vụ" maxlength="255">
 
-            <button class="btn btn-primary" type="submit">{{ $editingPosition ? 'Cập nhật' : 'Thêm mới' }}</button>
+            <button class="btn btn-primary" type="submit" title="{{ $editingPosition ? 'Lưu lại các thay đổi của chức vụ này' : 'Tạo chức vụ mới' }}">{{ $editingPosition ? 'Cập nhật' : 'Thêm mới' }}</button>
             @if($editingPosition)
-                <a href="{{ route('admin.positions.index') }}" class="btn btn-secondary">Hủy</a>
+                <a href="{{ route('admin.positions.index') }}" class="btn btn-secondary" title="Hủy chỉnh sửa và quay lại">Hủy</a>
             @endif
         </form>
     </div>
@@ -59,13 +59,13 @@
                         <td>{{ number_format($position->default_salary) }} VND</td>
                         <td>
                             <div class="table-actions">
-                                <a href="{{ route('admin.positions.index', ['edit_position' => $position->id]) }}" class="btn btn-secondary btn-sm">
+                                <a href="{{ route('admin.positions.index', ['edit_position' => $position->id]) }}" class="btn btn-secondary btn-sm" title="Chỉnh sửa thông tin chức vụ này">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
                                 @if(session('user_role') === 'admin')
                                 <form method="POST" action="{{ route('admin.positions.destroy', $position) }}">
                                     @csrf @method('DELETE')
-                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa chức vụ này?')">
+                                    <button class="btn btn-danger btn-sm" title="Xóa chức vụ này" onclick="return confirm('Xóa chức vụ này?')">
                                         <i class="fas fa-trash-alt"></i> Xóa
                                     </button>
                                 </form>

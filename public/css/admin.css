@@ -1,8 +1,8 @@
 /* Khung bao ngoài cùng */
 .admin-layout {
     display: flex;
-    height: 100vh; /* Chốt cứng chiều cao bằng đúng 1 khung hình trình duyệt */
-    overflow: hidden; /* Cấm cuộn toàn trang */
+    height: 100vh; /* Cố định chiều cao theo khung hình trình duyệt */
+    overflow: hidden; /* Ngăn chặn cuộn toàn trang */
 }
 
 /* Sidebar cố định bên trái */
@@ -13,20 +13,20 @@
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Chiều cao sidebar luôn bằng màn hình */
-    overflow: hidden; /* Cố định đầu Brand và cuối Logout, chỉ cuộn riêng menu ở giữa */
+    height: 100vh; /* Chiều cao thanh bên luôn bằng màn hình */
+    overflow: hidden; /* Cố định tiêu đề và nút đăng xuất, chỉ cuộn menu ở giữa */
     transition: transform 0.3s ease;
     z-index: 100;
 }
 
-/* Khu vực nội dung chính bên phải tự cuộn */
+/* Vùng nội dung chính tự cuộn */
 .admin-main {
     flex: 1;
     display: flex;
     flex-direction: column;
     height: 100vh; /* Chiều cao vùng nội dung bằng màn hình */
     overflow-y: auto; /* Thanh cuộn của trang sẽ xuất hiện ở đây */
-    min-width: 0; /* Chống tràn Flexbox */
+    min-width: 0; /* Ngăn chặn tràn khung flexbox */
 }
 
 .sidebar-brand {
@@ -39,7 +39,7 @@
     border-bottom: 1px solid var(--border-color);
     color: var(--text-main);
     
-    /* FIX: Ép cứng kích thước, không cho co giãn và tính luôn viền */
+    /* Cố định kích thước để tránh co giãn */
     box-sizing: border-box;
     flex-shrink: 0; 
 }
@@ -61,18 +61,18 @@
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    color: #475569; /* Chữ xám mặc định cho dịu mắt */
+    color: #475569; /* Màu chữ xám mặc định cho dịu mắt */
     border-radius: 0.375rem;
     margin-bottom: 0.25rem;
     font-weight: 500;
-    border: 1px solid transparent; /* Thêm sẵn viền trong suốt để không bị giật khung khi hover */
+    border: 1px solid transparent; /* Tạo viền trong suốt trước để tránh giật khung khi rê chuột qua */
     transition: all 0.2s ease;
 }
 
 .menu-item:hover,
 .menu-item.active {
-    background-color: #f0f8ff; /* Nền xanh lam cực kỳ nhạt */
-    color: #007bff; /* Màu xanh dương chuẩn, không bị ám tím */
+    background-color: #f0f8ff; /* Nền xanh lam nhạt */
+    color: #007bff; /* Màu xanh dương chuẩn */
 }
 
 /* topbar */
@@ -85,12 +85,12 @@
     justify-content: space-between;
     padding: 0 1.5rem;
     
-    /* FIX: Ép cứng kích thước, không cho co giãn và tính luôn viền */
+    /* Cố định kích thước để tránh co giãn */
     box-sizing: border-box;
     flex-shrink: 0;
 }
 
-/* FIX: Ngăn chặn thẻ h2 bên trong đẩy lệch chiều cao của Topbar */
+/* Ngăn chặn thẻ h2 bên trong đẩy lệch chiều cao của thanh trên cùng */
 .admin-topbar h2 {
     margin: 0;
     line-height: 1;
@@ -127,21 +127,19 @@
     background-color: var(--bg-hover, #f1f5f9);
 }
 
-/* =========================================
-   THÊM MỚI: CĂN CHỈNH ICON AVATAR
-   ========================================= */
+/* Định dạng biểu tượng hình đại diện */
 .topbar-right i {
-    font-size: 1.5rem;   /* Phóng to icon bằng với size chữ */
-    margin-left: 8px;    /* Đẩy icon cách xa tên một khoảng vừa phải */
+    font-size: 1.5rem;   /* Phóng to biểu tượng bằng với kích thước chữ */
+    margin-left: 8px;    /* Đẩy biểu tượng cách xa tên một khoảng vừa phải */
 }
 
-/* crud content */
+/* Nội dung của trang quản trị */
 .admin-content {
     padding: 1.5rem;
     flex: 1;
 }
 
-/* responsive cho moblie và tablet */
+/* Tương thích hiển thị trên điện thoại và máy tính bảng */
 @media (max-width: 1024px) {
     .btn-toggle-sidebar {
         display: block;
@@ -160,7 +158,7 @@
 
 @media (max-width: 480px) {
     .topbar-right span {
-        display: none; /* Ẩn tên tài khoản trên mobile để tránh chật chội, giữ lại avatar */
+        display: none; /* Ẩn tên tài khoản trên điện thoại để tránh chật chội, giữ lại hình đại diện */
     }
 }
 
@@ -179,7 +177,7 @@
     min-width: 900px;
 }
 
-/* Các class căn chỉnh kích thước & vị trí */
+/* Các lớp định dạng kích thước và vị trí */
 .w-5 { width: 5%; }
 .w-15 { width: 15%; }
 .w-20 { width: 20%; }
@@ -187,10 +185,10 @@
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 
-/* Các class định dạng chữ */
+/* Các lớp định dạng kiểu chữ */
 .text-muted-sm {
     font-size: 0.85em;
-    color: var(--text-muted); /* Nhớ đảm bảo biến này đã có trong hệ thống CSS của bạn, hoặc đổi thành #6c757d */
+    color: var(--text-muted); /* Sử dụng biến màu chữ mờ hoặc màu xám mặc định */
 }
 
 .reason-text {
@@ -212,7 +210,7 @@
     font-size: 0.875rem;
 }
 
-/* Ép độ rộng tối thiểu cho cột Thao tác/Hành động cuối cùng để tránh bị co/vỡ layout */
+/* Cố định độ rộng cho cột thao tác để tránh vỡ bố cục */
 .table-actions {
     display: flex;
     gap: 0.4rem;
@@ -227,7 +225,7 @@
     text-align: center;
 }
 
-/* Định dạng thanh tìm kiếm/lọc nhân viên đồng bộ và thẳng hàng */
+/* Căn chỉnh thanh tìm kiếm và lọc nhân viên thẳng hàng */
 .hrm-filter {
     display: flex;
     gap: 0.75rem;
