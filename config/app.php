@@ -67,6 +67,8 @@ return [
 
     'timezone' => 'Asia/Ho_Chi_Minh',
 
+    'work_saturday' => env('APP_WORK_SATURDAY', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

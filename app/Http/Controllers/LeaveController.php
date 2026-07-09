@@ -49,7 +49,7 @@ class LeaveController extends Controller
         $end = Carbon::parse($request->end_date);
         
         $days = 0;
-        $workSaturday = env('APP_WORK_SATURDAY', false);
+        $workSaturday = config('app.work_saturday', false);
         for ($date = $start->copy(); $date->lte($end); $date->addDay()) {
             if ($date->isSunday()) {
                 continue;

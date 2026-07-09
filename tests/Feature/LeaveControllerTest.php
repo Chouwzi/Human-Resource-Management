@@ -25,8 +25,9 @@ class LeaveControllerTest extends TestCase
             'user_role' => 'employee',
         ])->post(route('leaves.store'), [
             'leave_type' => 'annual',
-            'start_date' => now()->addDay()->toDateString(),
-            'end_date' => now()->addDays(3)->toDateString(),
+            // Sử dụng ngày cố định từ thứ Hai đến thứ Tư để tránh rơi vào ngày cuối tuần bị loại trừ trong phép tính mới.
+            'start_date' => '2026-06-01',
+            'end_date' => '2026-06-03',
             'reason' => 'Nghỉ việc gia đình',
         ]);
 
