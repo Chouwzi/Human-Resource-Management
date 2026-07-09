@@ -195,6 +195,74 @@ class AdminHrmController extends Controller
         return view('admin.hrm.attendance', compact('logs', 'employees', 'month', 'year'));
     }
 
+    public function exportAttendance(Request $request)
+    {
+        $month = $request->input('month', date('m'));
+        $year = $request->input('year', date('Y'));
+
+        $logs = AttendanceLog::with('employee')
+            ->whereMonth('work_date', $month)
+            ->whereYear('work_date', $year)
+            ->orderByDesc('work_date')
+            ->orderBy('employee_id')
+            ->get();
+
+        $fileName = "cham-cong-{$month}-{$year}.csv";
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"{$fileName}\"",
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        $callback = function () use ($logs) {
+            $file = fopen('php://output', 'w');
+
+            // UTF-8 BOM
+            fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
+
+            // Write CSV headers
+            fputcsv($file, [
+                'Ngày',
+                'Mã NV',
+                'Họ tên',
+                'Check-in',
+                'Check-out',
+                'Phút làm',
+                'Tăng ca',
+                'Trạng thái',
+                'Ghi chú'
+            ]);
+
+            $statusMap = [
+                'present' => 'Có mặt',
+                'late' => 'Đi muộn',
+                'absent' => 'Vắng mặt',
+                'leave' => 'Nghỉ phép',
+            ];
+
+            foreach ($logs as $log) {
+                fputcsv($file, [
+                    $log->work_date ? Carbon::parse($log->work_date)->format('d/m/Y') : '',
+                    $log->employee->employee_code,
+                    $log->employee->full_name,
+                    $log->check_in_at ? Carbon::parse($log->check_in_at)->format('H:i') : '-',
+                    $log->check_out_at ? Carbon::parse($log->check_out_at)->format('H:i') : '-',
+                    $log->worked_minutes . ' phút',
+                    $log->overtime_minutes . ' phút',
+                    $statusMap[$log->status] ?? $log->status,
+                    $log->note ?? '',
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
     public function storeAttendance(Request $request): RedirectResponse
     {
         $data = $request->validate($this->attendanceRules(), $this->validationMessages(), $this->validationAttributes());

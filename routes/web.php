@@ -145,6 +145,7 @@ Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->gro
 
     Route::get('/attendance', [AdminHrmController::class, 'attendance'])->name('attendance.index');
     Route::post('/attendance', [AdminHrmController::class, 'storeAttendance'])->name('attendance.store');
+    Route::get('/attendance/export', [AdminHrmController::class, 'exportAttendance'])->name('attendance.export');
 });
 
 // Chỉ Admin mới được phép quản lý Hợp đồng, Lương và XÓA dữ liệu

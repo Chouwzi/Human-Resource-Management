@@ -62,6 +62,11 @@
                 </button>
             </form>
 
+            <!-- Nút Xuất CSV -->
+            <a href="{{ route('admin.attendance.export', ['month' => $month, 'year' => $year]) }}" class="btn btn-primary">
+                <i class="fas fa-file-csv"></i> Xuất CSV
+            </a>
+
             <!-- Lọc theo tháng -->
             <form method="GET" action="{{ route('admin.attendance.index') }}" style="display: flex; align-items: center; gap: 0.5rem; margin: 0;">
                 <select name="month" style="padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
