@@ -121,11 +121,15 @@
                     <td><span class="badge {{ $cs['class'] }}">{{ $cs['text'] }}</span></td>
                     <td>
                         <div class="table-actions">
-                            <a href="{{ route('admin.contracts.index', ['edit_contract' => $contract->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                            <a href="{{ route('admin.contracts.index', ['edit_contract' => $contract->id]) }}" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
                             @if(session('user_role') === 'admin')
                             <form method="POST" action="{{ route('admin.contracts.destroy', $contract) }}">
                                 @csrf @method('DELETE')
-                                <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa hợp đồng này?')">Xóa</button>
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa hợp đồng này?')">
+                                    <i class="fas fa-trash-alt"></i> Xóa
+                                </button>
                             </form>
                             @endif
                         </div>
@@ -142,9 +146,4 @@
 
 @push('styles')
 @include('admin.hrm.partials.styles')
-<style>
-.hrm-form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.hrm-form-full { grid-column: 1 / -1; }
-@media (max-width: 900px) { .hrm-form-grid { grid-template-columns: 1fr; } }
-</style>
 @endpush

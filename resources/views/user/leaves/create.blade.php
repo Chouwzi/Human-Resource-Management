@@ -40,7 +40,7 @@
 
             <div class="form-group" style="margin-top: 1.5rem;">
                 <label class="form-label">Lý do nghỉ <span style="color: var(--danger);">*</span></label>
-                <textarea name="reason" id="reasonTextarea" class="form-control" rows="4" placeholder="Vui lòng nhập lý do chi tiết (tối đa 500 ký tự)..." maxlength="500" required>{{ old('reason') }}</textarea>
+                <textarea name="reason" id="reasonTextarea" class="form-control" rows="4" placeholder="Nhập lý do nghỉ phép chi tiết (ví dụ: Đi khám sức khỏe định kỳ, có việc gia đình khẩn cấp ở quê)..." maxlength="500" required>{{ old('reason') }}</textarea>
                 @error('reason')<small class="form-error">{{ $message }}</small>@enderror
                 
                 <div id="charCountNotice" style="font-size: 0.85rem; color: var(--text-muted, #6c757d); margin-top: 0.3rem;">

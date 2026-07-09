@@ -137,7 +137,7 @@
                 @endif
             </nav>
 
-            <div style="padding: 1rem;">
+            <div class="sidebar-footer">
                 <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
                     @csrf
                     <button type="submit" class="btn btn-danger" style="width: 100%; justify-content: center;">

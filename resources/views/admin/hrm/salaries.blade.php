@@ -94,7 +94,7 @@
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm" type="submit"
                                     onclick="return confirm('Xóa bảng lương tháng {{ $salary->month }}/{{ $salary->year }} của {{ $salary->employee->full_name }}?')">
-                                    Xóa
+                                    <i class="fas fa-trash-alt"></i> Xóa
                                 </button>
                             </form>
                         </div>
@@ -112,9 +112,6 @@
 @push('styles')
 @include('admin.hrm.partials.styles')
 <style>
-.hrm-form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.hrm-form-full { grid-column: 1 / -1; }
 .month-year { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-@media (max-width: 900px) { .hrm-form-grid { grid-template-columns: 1fr; } }
 </style>
 @endpush

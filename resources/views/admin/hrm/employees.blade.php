@@ -146,11 +146,15 @@
                     </td>
                     <td>
                         <div class="table-actions">
-                            <a href="{{ route('admin.employees.index', ['edit_employee' => $employee->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                            <a href="{{ route('admin.employees.index', ['edit_employee' => $employee->id]) }}" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
                             @if(session('user_role') === 'admin')
                             <form method="POST" action="{{ route('admin.employees.destroy', $employee) }}">
                                 @csrf @method('DELETE')
-                                <button class="btn btn-danger btn-sm" onclick="return confirm('Vô hiệu hóa nhân viên này?')">Khóa</button>
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Vô hiệu hóa nhân viên này?')">
+                                    <i class="fas fa-lock"></i> Khóa
+                                </button>
                             </form>
                             @endif
                         </div>
@@ -169,20 +173,13 @@
 @push('styles')
 @include('admin.hrm.partials.styles')
 <style>
-.hrm-form-grid,
-.hrm-filter {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.hrm-form-full {
-    grid-column: 1 / -1;
-}
 .hrm-filter {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
     margin-bottom: 1rem;
 }
 @media (max-width: 900px) {
-    .hrm-form-grid,
     .hrm-filter {
         grid-template-columns: 1fr;
     }

@@ -58,7 +58,7 @@
 
                             <form action="{{ route('admin.leaves.reject', $item->id) }}" method="POST" id="form-reject-{{ $item->id }}" class="form-action form-reject">
                                 @csrf
-                                <button type="button" onclick="confirmReject('{{ $item->id }}')" class="btn btn-danger btn-action" title="Từ chối">
+                                <button type="button" onclick="confirmReject('{{ $item->id }}')" class="btn btn-outline-danger btn-action" title="Từ chối">
                                     Từ chối
                                 </button>
                             </form>

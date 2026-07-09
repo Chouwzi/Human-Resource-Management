@@ -143,7 +143,7 @@
                                 @php $logDate = date('d/m/Y', strtotime($log->work_date)); @endphp
                                 <button class="btn btn-danger btn-sm" type="submit"
                                     onclick="return confirm('Xóa chấm công ngày {{ $logDate }} của {{ $log->employee->full_name }}?')">
-                                    Xóa
+                                    <i class="fas fa-trash-alt"></i> Xóa
                                 </button>
                             </form>
                         </div>

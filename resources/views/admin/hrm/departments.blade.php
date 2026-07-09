@@ -50,11 +50,15 @@
                         <td>{{ $department->positions_count }}</td>
                         <td>
                             <div class="table-actions">
-                                <a href="{{ route('admin.departments.index', ['edit_department' => $department->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
+                                <a href="{{ route('admin.departments.index', ['edit_department' => $department->id]) }}" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-edit"></i> Sửa
+                                </a>
                                 @if(session('user_role') === 'admin')
                                 <form method="POST" action="{{ route('admin.departments.destroy', $department) }}">
                                     @csrf @method('DELETE')
-                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa phòng ban này?')">Xóa</button>
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa phòng ban này?')">
+                                        <i class="fas fa-trash-alt"></i> Xóa
+                                    </button>
                                 </form>
                                 @endif
                             </div>
