@@ -1,4 +1,4 @@
-# CẨM NANG TOÀN DIỆN: BỐ CỤC SLIDE, KỊCH BẢN THOẠI & KỸ THUẬT THUYẾT TRÌNH BÁO CÁO BÀI TẬP LỚN HRM
+# CẨM NANG TOÀN DIỆN: BỐ CỤC SLIDE, KỊCH BẢN THOẠI & KỸ THUẬT THUYẾT TRÌNH BẠO CÁO BÀI TẬP LỚN HRM
 **Người thuyết trình & Demo:** Nguyễn Trần Đình Chương (Trưởng nhóm - Đại diện nhóm thuyết trình toàn bài)
 **Đối tượng lắng nghe:** Giảng viên phụ trách môn học & Các bạn sinh viên trong lớp
 **Thời lượng:** 15 phút tổng (Thuyết trình: 8-9 phút | Live Demo: 4-5 phút | Hỏi đáp Q&A: 2 phút)
@@ -8,7 +8,7 @@
 
 ## PHẦN 1: KỸ NĂNG LÀM CHỦ SÂN KHẤU CHO DIỄN GIẢ ĐỘC THOẠI
 
-Khi thuyết trình và demo một mình toàn bộ đề tài với **micro cầm tay có dây** và **màn hình LCD lớn**, cần kiểm soát tốt năng lượng và các ràng buộc vật lý:
+Khi thuyết trình và demo một mình toàn bộ đề tài với **micro cầm tay có dây** và **màn hình LCD lớn**, cần kiểm soát tốt năng lượng và các ràng buộc lý học:
 
 ### 1. Kỹ thuật xử lý Micro & Thiết bị khi Demo một mình
 *   **Thách thức vật lý:** Một tay cầm mic, một tay cầm Clicker thuyết trình slide. Đến phần Live Demo, nếu vừa cầm mic vừa gõ bàn phím/di chuột bằng 1 tay sẽ cực kỳ luống cuống và thiếu chuyên nghiệp.
@@ -38,7 +38,7 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 *   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng thẳng ở trung tâm sân khấu, tay trái cầm mic cách cằm 5cm. Tay phải mở tự nhiên, lòng bàn tay hướng về phía cả lớp. Mắt quét qua giảng viên và các bạn sinh viên, mỉm cười và chào tự tin.
 *   **Kịch bản thoại:**
     > *"Kính chào giảng viên cùng toàn thể các bạn sinh viên đang có mặt trong buổi báo cáo bài tập lớn ngày hôm nay. Nhóm mình là Nhóm 14. Hôm nay, mình xin đại diện nhóm trình bày kết quả nghiên cứu và phát triển sản phẩm của bài tập lớn môn Lập trình Web với đề tài: **'Hệ thống Quản lý Nhân sự - HRM'**. 
-    > Đây là một ứng dụng được nhóm mình xây dựng trên nền tảng framework Laravel 11, hướng tới việc tối ưu hóa toàn diện công tác quản trị nhân sự, chấm công và tính toán bảng lương cho các doanh nghiệp vừa và nhỏ. Sau đây, nhóm xin phép bắt đầu phần trình bày."*
+    > Đây là một ứng dụng được nhóm mình xây dựng trên nền tảng framework Laravel 11 - một bộ khung phát triển web bằng ngôn ngữ PHP, kết hợp cơ sở dữ liệu MySQL và thư viện giao diện Bootstrap 5, hướng tới việc tối ưu hóa toàn diện công tác quản trị nhân sự, chấm công và tính toán bảng lương cho các doanh nghiệp vừa và nhỏ. Sau đây, nhóm xin phép bắt đầu phần trình bày."*
 
 ---
 
@@ -50,7 +50,7 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 *   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng chếch 45 độ so với màn hình LCD. Dùng tay phải mở ngửa bàn tay hướng về phía cột "Nỗi đau", nét mặt hơi nghiêm túc để biểu thị thách thức. Sau đó xoay tay chỉ sang cột "Giải pháp", mỉm cười để biểu thị sự giải tỏa khó khăn.
 *   **Kịch bản thoại:**
     > *"Thưa giảng viên và các bạn, phần lớn các doanh nghiệp quy mô vừa và nhỏ hiện nay vẫn đang quản lý hồ sơ nhân viên và tính lương thông qua các file Excel thủ công. Cách làm này không chỉ gây tốn kém thời gian mà còn dễ dẫn đến sai lệch số liệu ngày công và rò rỉ thông tin lương nhạy cảm. 
-    > Mục tiêu của hệ thống HRM do nhóm mình xây dựng là số hóa toàn diện quy trình này: từ việc lưu trữ hồ sơ, ký kết hợp đồng, đến việc cung cấp cổng tự chấm công hàng ngày cho nhân viên, tự động đối chiếu đơn xin nghỉ phép để tính toán bảng lương cuối tháng chính xác 100%."*
+    > Mục tiêu của hệ thống HRM do nhóm mình xây dựng là số hóa toàn diện - tức là chuyển đổi toàn bộ quy trình giấy tờ thủ công sang dữ liệu số lưu trên cơ sở dữ liệu tập trung, giúp chấm công trực tuyến tức thời, tự động đối chiếu đơn xin nghỉ phép và tính toán bảng lương cuối tháng chính xác 100%."*
 
 ---
 
@@ -59,8 +59,8 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 *   **Keywords:** Kiến trúc MVC, Eloquent ORM, Responsive Bootstrap 5.
 *   **Cử chỉ & Ngôn ngữ cơ thể:** Vẫn giữ tư thế đứng chéo 45 độ. Tay phải chỉ vào khối trung tâm "Middleware & Controller" trên sơ đồ LCD để biểu thị nơi xử lý chính của hệ thống. Nói chậm lại khi liệt kê các công nghệ cốt lõi.
 *   **Kịch bản thoại:**
-    > *"Về mặt kiến trúc, nhóm mình lựa chọn mô hình MVC cổ điển được hỗ trợ mạnh mẽ bởi Laravel 11. Laravel giúp tổ chức mã nguồn sạch sẽ, bảo mật cao nhờ tích hợp sẵn các cơ chế bảo vệ ứng dụng web. 
-    > Giao diện người dùng được xây dựng hoàn toàn responsive bằng Bootstrap 5 giúp nhân viên dễ dàng check-in ngay trên điện thoại di động khi đến văn phòng. Toàn bộ dữ liệu được lưu trữ có cấu trúc trong MySQL, quản lý nhất quán qua hệ thống migrations của Laravel. Tiếp theo, nhóm mình xin trình bày về phần thiết kế cơ sở dữ liệu."*
+    > *"Về mặt kiến trúc, nhóm mình lựa chọn mô hình MVC cổ điển - tức là phân chia ứng dụng thành 3 phần: View là giao diện người dùng hiển thị, Controller đóng vai trò điều khiển logic và Model quản lý dữ liệu. Hệ thống chạy trên nền tảng Laravel 11 bảo mật cao. 
+    > Nhóm cũng sử dụng Eloquent ORM - một công cụ giúp code PHP giao tiếp với cơ sở dữ liệu MySQL mà không cần viết các câu truy vấn SQL thô phức tạp. Giao diện được xây dựng responsive bằng Bootstrap 5 để tự động co giãn đẹp mắt trên cả PC lẫn điện thoại. Tiếp theo, nhóm mình xin trình bày về phần thiết kế cơ sở dữ liệu."*
 
 ---
 
@@ -69,20 +69,18 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 *   **Keywords:** Quan hệ 1-1, Khóa ngoại đệ quy `manager_id`, Chỉ mục duy nhất (Unique Index).
 *   **Cử chỉ & Ngôn ngữ cơ thể:** Tay phải chỉ vào liên kết tự đệ quy của `manager_id` trong bảng `employees` để giải thích sơ đồ cây quản lý của công ty.
 *   **Kịch bản thoại:**
-    > *"Về mặt cơ sở dữ liệu, nhóm mình thiết kế 11 bảng dữ liệu được chuẩn hóa để tránh dư thừa thông tin. 
-    > Mối quan hệ 1-1 giữa `users` và `employees` giúp phân tách rõ ràng thông tin tài khoản đăng nhập và hồ sơ nhân sự thực tế. Điểm nổi bật là trường `manager_id` tự liên kết trong bảng `employees` để quản lý cây sơ đồ tổ chức công ty (nhân viên thuộc quản lý của ai). Nhóm mình cũng thiết lập các ràng buộc duy nhất (Unique Constraints) ở mức database trên bảng `salaries` nhằm ngăn chặn hoàn toàn lỗi nghiệp vụ tạo trùng lặp bảng lương của một nhân viên trong cùng một tháng. Tiếp theo, nhóm xin đi vào hệ thống phân quyền."*
+    > *"Về mặt cơ sở dữ liệu, nhóm mình thiết kế 11 bảng dữ liệu được chuẩn hóa theo chuẩn 3NF để tránh dư thừa và trùng lặp thông tin. 
+    > Mối quan hệ 1-1 giữa bảng tài khoản `users` và hồ sơ nhân viên `employees` giúp tách biệt thông tin đăng nhập và thông tin cá nhân. Điểm đặc biệt ở đây là khóa ngoại đệ quy `manager_id` tự liên kết lại chính bảng `employees`, giúp hệ thống biết được mỗi nhân viên thuộc quyền quản lý của ai để xây dựng sơ đồ tổ chức. Nhóm mình cũng thiết lập các ràng buộc duy nhất (Unique Index) để cơ sở dữ liệu tự động ngăn chặn việc tạo trùng lặp bảng lương cho cùng một nhân viên trong cùng một tháng. Tiếp theo, nhóm xin đi vào hệ thống phân quyền."*
 
 ---
 
-### SLIDE 5: THIẾT KẾ HỆ THỐNG PHÂN QUYỀN (RBAC)
+### SLIDE 5: THIẾT HỆ HỆ THỐNG PHÂN QUYỀN (RBAC)
 *   **Bố cục hiển thị:** Bảng ma trận phân quyền (Role Matrix Table) so sánh quyền hạn của 3 vai trò: Admin (Tick xanh toàn bộ), HR (Không có quyền Lương/Hợp đồng), Employee (Chỉ được xem thông tin cá nhân).
 *   **Keywords:** Role-based Access Control (RBAC), Route Middleware, Đặc quyền Xóa.
 *   **Cử chỉ & Ngôn ngữ cơ thể:** Mắt nhìn bao quát cả lớp để nhấn mạnh yếu tố bảo mật và an toàn thông tin của hệ thống doanh nghiệp.
 *   **Kịch bản thoại:**
-    > *"Để bảo vệ an toàn thông tin tổ chức, hệ thống áp dụng cơ chế phân quyền dựa trên vai trò kiểm soát chặt chẽ thông qua Middleware của Laravel. 
-    > Quyền cao nhất thuộc về Admin, người duy nhất được quản lý hợp đồng lao động, phê duyệt bảng lương tài chính và thực hiện thao tác xóa dữ liệu. 
-    > Vai trò HR tập trung vào nghiệp vụ quản lý hồ sơ nhân sự và phê duyệt phép, bị giới hạn hoàn toàn không được xem thông tin lương hay thực hiện thao tác xóa để tránh rò rỉ dữ liệu. 
-    > Cuối cùng, nhân viên thông thường chỉ có quyền thao tác trên các tài nguyên cá nhân của chính họ. Tiếp theo, nhóm mình xin giới thiệu phân hệ quản lý nhân sự."*
+    > *"Để bảo vệ an toàn thông tin tổ chức, hệ thống áp dụng cơ chế phân quyền dựa trên vai trò, viết tắt là RBAC. Cơ chế này được kiểm soát chặt chẽ thông qua Route Middleware. Các bạn có thể hiểu đơn giản, **Middleware giống như những chốt bảo vệ hoặc bộ lọc** đứng giữa các đường dẫn (URL). Khi người dùng nhấn vào một trang nhạy cảm như xem lương, Middleware sẽ kiểm tra vai trò của họ. Nếu không phải Admin, Middleware sẽ chặn ngay lập tức và trả về mã lỗi từ chối truy cập 403. 
+    > Nhờ đó, Admin có toàn quyền quản lý tài chính; HR chỉ quản lý hồ sơ và duyệt phép mà không được xem lương; còn Nhân viên chỉ xem được thông tin của chính mình. Tiếp theo, nhóm mình xin giới thiệu phân hệ quản lý nhân sự."*
 
 ---
 
@@ -92,7 +90,7 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 *   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng ở tư thế mở, tay trái cầm mic, tay phải chỉ vào form thêm mới nhân viên trên màn hình LCD để cả lớp thấy rõ giao diện sạch sẽ, chuyên nghiệp.
 *   **Kịch bản thoại:**
     > *"Đây là giao diện Quản lý Nhân sự dành cho Admin và HR. Hệ thống hỗ trợ khởi tạo cơ cấu tổ chức động thông qua việc tạo phòng ban và các chức vụ tương ứng với mức lương mặc định. 
-    > Khi tiếp nhận nhân viên mới, HR sẽ điền thông tin chi tiết vào form mẫu. Hệ thống tự động kiểm tra các ràng buộc duy nhất như mã nhân viên và CCCD để tránh trùng lặp thông tin, đồng thời cho phép lựa chọn người quản lý trực tiếp từ danh sách nhân viên hiện hữu. Tiếp theo, nhóm xin trình bày phân hệ hợp đồng và lương."*
+    > Khi tiếp nhận nhân viên mới, HR sẽ điền thông tin chi tiết vào form mẫu. Hệ thống tự động kiểm tra các ràng buộc duy nhất như mã nhân viên và số CCCD để tránh trùng lặp thông tin, đồng thời cho phép lựa chọn người quản lý trực tiếp từ danh sách nhân viên hiện hữu. Tiếp theo, nhóm xin trình bày phân hệ hợp đồng và lương."*
 
 ---
 
@@ -102,7 +100,7 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 *   **Cử chỉ & Ngôn ngữ cơ thể:** Tay phải chỉ lên công thức tính lương trên màn hình LCD, thực hiện cử chỉ nâng tay lên khi nói về "Lương Gross" và hạ tay xuống khi nói đến "Khấu trừ/Lương Net".
 *   **Kịch bản thoại:**
     > *"Tiếp theo là Phân hệ quản lý Hợp đồng và Lương của Admin. Mỗi nhân viên khi làm việc sẽ gắn liền với một Hợp đồng lao động quy định mức lương cơ bản và loại hợp đồng. 
-    > Bảng lương hàng tháng được tính toán tự động dựa trên mức lương hợp đồng, cộng với phụ cấp và tiền thưởng dự án, đồng thời trừ đi các khoản phạt đi muộn hoặc nghỉ không phép được lấy ra từ dữ liệu chấm công. Bảng lương sẽ được lưu ở trạng thái Nháp (Draft) để Admin rà soát kỹ lưỡng, và chỉ khi Admin đổi trạng thái sang Đã thanh toán (Paid) thì nhân viên mới có thể tra cứu trực tuyến phiếu lương của mình. Tiếp theo là phân hệ chấm công của nhân viên."*
+    > Bảng lương hàng tháng được tính toán tự động dựa trên mức lương hợp đồng, cộng với phụ cấp và tiền thưởng dự án, đồng thời trừ đi các khoản khấu trừ (Deductions) như tiền phạt đi muộn hoặc nghỉ không phép được lấy ra từ dữ liệu chấm công. Bảng lương sẽ được lưu ở trạng thái Nháp (Draft) để Admin rà soát kỹ lưỡng, và chỉ khi Admin đổi trạng thái sang Đã thanh toán (Paid) thì nhân viên mới có thể tra cứu trực tuyến phiếu lương của mình. Tiếp theo là phân hệ chấm công của nhân viên."*
 
 ---
 
@@ -201,7 +199,7 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 2.  **Thao tác trên màn hình:** Vào mục **Bảng lương** (Salaries) trên PC -> Nhập tháng/năm, chọn nhân viên tương ứng và bấm **Lưu bảng lương**.
     *   *Lời thoại:* *"Tại màn hình Bảng lương, mình tiến hành tạo bảng lương tháng hiện tại cho nhân viên. Hệ thống tự động tính toán Lương Gross và thực lĩnh Net dựa trên lương cơ bản cùng dữ liệu ngày công thực tế sau khi đã khấu trừ các ngày nghỉ không phép hoặc đi muộn. Trạng thái bảng lương lúc này là Nháp (Draft)."*
 3.  **Thao tác trên màn hình:** Đổi trạng thái bảng lương của nhân viên từ `Draft` sang `Paid` (Đã thanh toán).
-    *   *Lời thoại:* *"Sau khi rà soát kỹ lưỡng, Admin đổi trạng thái bảng lương sang Đã thanh toán (Paid) để ghi nhận chi trả thành công và cho phép nhân viên tra cứu."*
+    *   *Lời thoại:* *"Sau khi rà soát kỹ lưu lượng, Admin đổi trạng thái bảng lương sang Đã thanh toán (Paid) để ghi nhận chi trả thành công và cho phép nhân viên tra cứu."*
 4.  **Thao tác trên màn hình:** Quay lại trình duyệt di động của nhân viên (bên phải), reload trang. Vào mục **Lịch sử phép** chỉ ra trạng thái đã là `Approved`. Vào mục **Bảng lương** cá nhân chỉ ra phiếu lương tháng vừa rồi đã hiển thị thông tin chi tiết.
     *   *Lời thoại:* *"Quay trở lại giao diện di động của nhân viên. Khi mình tải lại trang, đơn xin nghỉ đã được cập nhật thành Đã duyệt (Approved) và phiếu lương tháng này đã xuất hiện trực quan trên màn hình cá nhân của nhân viên đó một cách tuyệt đối bảo mật. Buổi demo của nhóm 14 đến đây là kết thúc."*
 
@@ -211,7 +209,7 @@ Khi thuyết trình và demo một mình toàn bộ đề tài với **micro c�
 Nếu trong lúc bấm demo mà trang bị lỗi hoặc server bị đắt, hãy tuân thủ quy trình xử lý khủng hoảng sau:
 1.  **Tuyệt đối bình tĩnh:** Không giải thích vòng vo, không cuống cuồng sửa code tại chỗ.
 2.  **Mẫu câu phát ngôn chuẩn:** 
-    > *"Thưa giảng viên và các bạn, có một xung đột tài nguyên nhỏ trên môi trường demo chạy cục bộ lúc này. Nhóm mình đã chuẩn bị sẵn một video demo ghi lại toàn bộ quy trình này chạy mượt mà trên môi trường sạch trước buổi bảo vệ. Mình xin phép được mở video để tiếp tục phân hệ này nhằm đảm bảo thời gian cho buổi báo cáo ạ."*
+    > *"Thưa giảng viên và các bạn, có một xung đột tài nguyên nhỏ trên môi trường demo chạy cục bộ lúc này. Nhóm mình đã chuẩn bị sẵn một video demo ghi lại toàn bộ quy trình này chạy mượt mà trên môi trường sạch trước buổi báo cáo ạ."*
 3.  Mở ngay video backup ở giây tương ứng và thuyết minh trực tiếp theo hình ảnh trong video.
 
 ---
@@ -220,7 +218,7 @@ Nếu trong lúc bấm demo mà trang bị lỗi hoặc server bị đắt, hãy
 *Áp dụng bản chất câu trả lời thẳng thắn, phản xạ khoa học theo cấu trúc **R-T-R (Rationale - Trade-off - Reflection)**.*
 
 ### Câu 1: Tại sao trong CSDL có cả bảng `leaves` và bảng `leave_requests` nhưng code chỉ dùng bảng `leaves`?
-*   **Tư duy trả lời (R-T-R):** Thừa nhận thiết kế dư thừa trong quá trình làm bài tập lớn.
+*   **Tư duyệt trả lời (R-T-R):** Thừa nhận thiết kế dư thừa trong quá trình làm bài tập lớn.
 *   **Mẫu trả lời:**
     > *"Thưa thầy/cô, ý kiến của thầy/cô hoàn toàn chính xác ạ. Đây là một tàn dư trong thiết kế cơ sở dữ liệu ban đầu của nhóm. Ban đầu, nhóm dự định xây dựng một quy trình duyệt phép đa cấp phức tạp qua bảng trung gian `leave_requests`. Tuy nhiên, để ưu tiên hoàn thiện luồng nghiệp vụ chấm công và tính lương đúng tiến độ của bài tập lớn, nhóm đã tạm thời đơn giản hóa quy trình và lưu dữ liệu trực tiếp vào bảng phẳng `leaves`. Nhóm đã giữ lại bảng `leave_requests` trong database như một định hướng nâng cấp trong phiên bản tiếp theo để tích hợp luồng duyệt phép đa cấp qua nhiều phòng ban."*
 
@@ -263,3 +261,59 @@ Nếu trong lúc bấm demo mà trang bị lỗi hoặc server bị đắt, hãy
 *   **Nguyên tắc vàng:** Tuyệt đối không "chém gió" hoặc giải thích lòng vòng gây mất thời gian và mất thiện cảm.
 *   **Mẫu trả lời:**
     > *"Thưa thầy/cô, đây là một khía cạnh kỹ thuật rất hay và sâu sắc mà nhóm mình chưa kịp nghiên cứu kỹ hoặc chưa lường trước được trong quá trình thực hiện bài tập lớn lần này. Nhóm mình xin phép được ghi nhận câu hỏi của thầy/cô vào biên bản và sẽ tìm đọc thêm các tài liệu liên quan ngay sau buổi báo cáo hôm nay để bổ sung kiến thức ạ."*
+
+---
+
+## PHẦN 5: TỪ ĐIỂN THUẬT NGỮ KỸ THUẬT CHO NGƯỜI THUYẾT TRÌNH (DÀNH CHO CHƯƠNG)
+
+*Dưới đây là định nghĩa và các so sánh trực quan cực kỳ đơn giản để bạn Chương hiểu sâu bản chất, tự tin trả lời bất kỳ câu hỏi phản biện nào trước lớp.*
+
+### 1. Framework & Laravel 11 là gì?
+*   **Giải thích dễ hiểu:** Hãy tưởng tượng bạn muốn xây một ngôi nhà. Thay vì tự đi đúc từng viên gạch, tự đục từng cái ống nước (code chay), bạn mua một khung nhà lắp ghép đã có sẵn móng, cột, hệ thống điện nước cơ bản. Bạn chỉ việc thiết kế nội thất và xây tường theo ý mình.
+*   **Thuật ngữ:** **Framework** chính là bộ khung lắp ghép sẵn đó. **Laravel** là framework nổi tiếng nhất của ngôn ngữ lập trình **PHP**. Nó cung cấp sẵn bộ khung cho bảo mật, cơ sở dữ liệu, quản lý đường dẫn (routing) để nhóm tập trung phát triển nghiệp vụ nhân sự.
+
+### 2. Mô hình MVC (Model - View - Controller)
+*   **Giải thích dễ hiểu:** Giống như quy trình phục vụ trong một nhà hàng:
+    *   **View (Giao diện):** Là thực đơn và không gian bàn ăn nơi khách hàng ngồi (nơi người dùng nhìn thấy, click vào nút bấm).
+    *   **Controller (Bộ điều khiển):** Là người phục vụ bàn. Khi khách gọi món (yêu cầu gửi đi), phục vụ tiếp nhận, chạy vào bếp yêu cầu đầu bếp làm, rồi bê món ăn ra cho khách.
+    *   **Model (Dữ liệu):** Là nhà kho thực phẩm và đầu bếp. Nơi quản lý, lấy nguyên liệu (dữ liệu trong database) và chế biến chúng.
+*   **Mục đích:** Giúp chia nhỏ code thành các phần độc lập, dễ sửa lỗi, dễ nâng cấp.
+
+### 3. Middleware (Bộ lọc / Chốt bảo vệ)
+*   **Giải thích dễ hiểu:** Giống như **anh bảo vệ đứng ở cửa quán Bar**. 
+    *   Khi có khách muốn đi vào (người dùng nhấn vào một liên kết URL), anh bảo vệ sẽ chặn lại kiểm tra chứng minh nhân dân (kiểm tra vai trò Role/Session trong mã nguồn).
+    *   Nếu đủ tuổi/hợp lệ (là Admin), anh bảo vệ mở cửa cho vào.
+    *   Nếu không đủ quyền (là Employee cố vào trang duyệt lương), anh bảo vệ chặn đứng lại và đuổi đi (trả về lỗi `403 Forbidden`).
+*   **Mục đích:** Bảo vệ các đường dẫn nhạy cảm khỏi sự truy cập trái phép.
+
+### 4. Eloquent ORM (Trình dịch ngôn ngữ DB)
+*   **Giải thích dễ hiểu:** Cơ sở dữ liệu MySQL chỉ hiểu tiếng SQL (ví dụ: `SELECT * FROM employees WHERE id = 1`). Nhưng lập trình viên lại viết code bằng PHP. 
+*   **Eloquent ORM** đóng vai trò là một **phiên dịch viên**. Nó dịch những dòng code PHP ngắn gọn (ví dụ: `Employee::find(1)`) thành câu lệnh SQL tương ứng để truy vấn MySQL. Giúp code ngắn, sạch và an toàn hơn.
+
+### 5. Database Migrations (Lịch sử cập nhật bảng vẽ)
+*   **Giải thích dễ hiểu:** Giống như **lịch sử cập nhật của bản vẽ thiết kế**. Thay vì bạn tự vào MySQL tạo bảng bằng tay và gửi file SQL cho bạn cùng nhóm (dễ bị lệch phiên bản database), bạn viết code định nghĩa cấu trúc bảng trong các file migration. Khi chạy lệnh `php artisan migrate`, Laravel sẽ tự động tạo bảng đồng bộ cho tất cả mọi người trong nhóm.
+
+### 6. Ràng buộc khóa ngoại đệ quy `manager_id` (Khóa ngoại tự tham chiếu)
+*   **Giải thích dễ hiểu:** Thông thường, khóa ngoại của bảng A sẽ trỏ đến ID của bảng B. Nhưng ở đây, trường `manager_id` của bảng `employees` lại **trỏ ngược lại trường `id` của chính bảng `employees`**. 
+*   Bởi vì người quản lý (Manager) cũng là một nhân viên (Employee). Thiết kế này giúp hệ thống tạo ra một sơ đồ cây nhân sự nhiều cấp (quản lý trực tiếp) mà không cần tạo thêm một bảng quản lý riêng biệt nào.
+
+### 7. Khóa phức hợp (Composite Key) & Ràng buộc Unique
+*   **Giải thích dễ hiểu:** Bình thường khóa chính là 1 trường (như `id`). **Khóa phức hợp** là sự kết hợp của 2 hoặc nhiều trường để tạo ra một định danh duy nhất.
+*   *Ví dụ trong bảng lương:* Nhóm kết hợp `employee_id` (mã nhân viên) và `salary_month` (tháng tính lương) làm khóa phức hợp duy nhất. Cơ sở dữ liệu sẽ chặn ngay lập tức nếu bạn cố tình chèn thêm dòng lương mới cho cùng một nhân viên trong cùng một tháng đã tồn tại.
+
+### 8. Lương Gross và Lương Net
+*   **Lương Gross (Lương tổng):** Là tổng thu nhập của nhân viên chưa trừ các khoản phí đóng góp (bằng lương cơ bản + phụ cấp + thưởng).
+*   **Lương Net (Lương thực lĩnh):** Là số tiền thực tế nhân viên được cầm về tay sau khi đã trừ đi các khoản khấu trừ (Deductions - như phạt đi muộn, nghỉ không phép, bảo hiểm). 
+*   *Công thức:* `Net = Gross - Khấu trừ`.
+
+### 9. AJAX (Asynchronous JavaScript and XML)
+*   **Giải thích dễ hiểu:** Giống như tính năng bình luận trên Facebook: Khi bạn bấm nút gửi bình luận, chỉ có đúng khung bình luận đó được cập nhật nội dung mới mà toàn bộ trang Facebook không bị tải lại (không bị màn hình trắng rồi load lại từ đầu).
+*   **Mục đích:** Giúp ứng dụng web HRM của nhóm chạy cực kỳ mượt mà, tải dữ liệu ngầm và cập nhật một phần giao diện lập tức.
+
+### 10. SQL Injection & Cross-Site Scripting (XSS)
+*   **SQL Injection (Tiêm mã độc SQL):** Là việc kẻ tấn công cố tình nhập các ký tự đặc biệt vào ô input (ví dụ ô tìm kiếm) để đánh lừa ứng dụng chạy các câu lệnh SQL phá hoại database. Laravel đã tự động chống lại điều này bằng Eloquent.
+*   **XSS (Tấn công chèn mã script):** Kẻ tấn công nhập các đoạn mã JavaScript độc hại vào form. Khi người dùng khác vào xem trang, trình duyệt sẽ tự động thực thi đoạn mã độc này. Laravel chống lại bằng cách tự động mã hóa (escape) mọi đầu ra bằng cú pháp `{{ $variable }}` của Blade.
+
+### 11. PHPUnit & Feature Tests (Kiểm thử tự động)
+*   **Feature Test (Kiểm thử chức năng):** Là viết code để giả lập hành vi người dùng (ví dụ: viết code tự động điền form đăng nhập và nhấn nút). 
+*   **PHPUnit:** Là thư viện chạy các kịch bản test này. Nó tự động chạy qua hàng chục luồng thao tác trong tích tắc để xem ứng dụng có trả về lỗi hay không, giúp nhóm phát hiện lỗi logic ngay khi đổi code mà không cần tự tay click chuột test lại từ đầu.
