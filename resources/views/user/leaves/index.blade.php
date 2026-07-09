@@ -10,12 +10,7 @@
         <a href="{{ route('leaves.create') }}" class="btn btn-primary">Tạo đơn mới</a>
     </div>
 
-    @if(session('success'))
-        <div class="alert-success">{{ session('success') }}</div>
-    @endif
-    @if(session('error'))
-        <div class="alert-error">{{ session('error') }}</div>
-    @endif
+    @include('admin.hrm.partials.flash')
 
     <div class="table-responsive m-0">
         <table class="table" style="min-width: 650px;">
