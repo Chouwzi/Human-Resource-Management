@@ -132,7 +132,18 @@
                     <td>{{ $employee->position->department->name }}</td>
                     <td>{{ $employee->position->name }}</td>
                     <td>{{ $employee->phone }}</td>
-                    <td><span class="badge badge-{{ $employee->status === 'active' ? 'success' : ($employee->status === 'probation' ? 'warning' : 'secondary') }}">{{ $employee->status }}</span></td>
+                    <td>
+                        @php
+                            $statusMap = [
+                                'active'    => ['class' => 'badge-success', 'text' => 'Đang làm'],
+                                'probation' => ['class' => 'badge-warning', 'text' => 'Thử việc'],
+                                'resigned'  => ['class' => 'badge-danger',  'text' => 'Đã nghỉ'],
+                                'inactive'  => ['class' => 'badge-danger',  'text' => 'Đã nghỉ'],
+                            ];
+                            $s = $statusMap[$employee->status] ?? ['class' => '', 'text' => $employee->status];
+                        @endphp
+                        <span class="badge {{ $s['class'] }}">{{ $s['text'] }}</span>
+                    </td>
                     <td class="table-actions">
                         <a href="{{ route('admin.employees.index', ['edit_employee' => $employee->id]) }}" class="btn btn-secondary btn-sm">Sửa</a>
                         @if(session('user_role') === 'admin')
