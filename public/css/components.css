@@ -330,6 +330,22 @@ textarea:focus {
 .form-group {
     margin-bottom: 1.5rem;
 }
+
+/* Biểu mẫu chia lưới lưới cột đôi linh hoạt và tự thích ứng di động */
+.hrm-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+}
+.hrm-form-full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+    .hrm-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
 .form-label {
     display: block;
     margin-bottom: 0.5rem;

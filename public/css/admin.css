@@ -126,7 +126,7 @@
 }
 
 /* responsive cho moblie và tablet */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .btn-toggle-sidebar {
         display: block;
     }
@@ -139,6 +139,12 @@
     }
     .admin-sidebar.active {
         transform: translateX(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar-right span {
+        display: none; /* Ẩn tên tài khoản trên mobile để tránh chật chội, giữ lại avatar */
     }
 }
 
@@ -191,11 +197,18 @@
 }
 
 /* Ép độ rộng tối thiểu cho cột Thao tác/Hành động cuối cùng để tránh bị co/vỡ layout */
-.table-actions,
+.table-actions {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
+}
+
 .table th:last-child,
 .table td:last-child {
     min-width: 140px;
     width: 140px;
+    text-align: center;
 }
 
 /* Định dạng thanh tìm kiếm/lọc nhân viên đồng bộ và thẳng hàng */

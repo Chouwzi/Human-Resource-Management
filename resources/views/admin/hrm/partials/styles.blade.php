@@ -23,6 +23,7 @@
     display: flex;
     gap: 0.4rem;
     align-items: center;
+    justify-content: center;
     min-width: 140px;
     width: 140px;
 }

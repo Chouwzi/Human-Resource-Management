@@ -190,9 +190,11 @@ class AdminHrmController extends Controller
             ->orderByDesc('work_date')
             ->orderBy('employee_id')
             ->get();
-        $employees = Employee::orderBy('full_name')->get();
+        $employees = Employee::with('position')->orderBy('full_name')->get();
+        $departments = Department::orderBy('name')->get();
+        $positions = Position::orderBy('name')->get();
 
-        return view('admin.hrm.attendance', compact('logs', 'employees', 'month', 'year'));
+        return view('admin.hrm.attendance', compact('logs', 'employees', 'month', 'year', 'departments', 'positions'));
     }
 
     public function exportAttendance(Request $request)

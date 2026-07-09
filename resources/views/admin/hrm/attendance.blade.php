@@ -12,10 +12,29 @@
         @csrf
         <div>
             <label>Nhân viên</label>
-            <select name="employee_id" required>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <select id="filter_department" style="flex: 1;">
+                    <option value="">-- Tất cả phòng ban --</option>
+                    @foreach($departments as $dept)
+                        <option value="{{ $dept->id }}">{{ $dept->name }}</option>
+                    @endforeach
+                </select>
+                <select id="filter_position" style="flex: 1;">
+                    <option value="">-- Tất cả chức vụ --</option>
+                    @foreach($positions as $pos)
+                        <option value="{{ $pos->id }}" data-dept="{{ $pos->department_id }}">{{ $pos->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <select name="employee_id" id="employee_select" required>
                 <option value="">-- Chọn nhân viên --</option>
                 @foreach($employees as $employee)
-                    <option value="{{ $employee->id }}" @selected(old('employee_id') == $employee->id)>{{ $employee->employee_code }} - {{ $employee->full_name }}</option>
+                    <option value="{{ $employee->id }}" 
+                            data-dept="{{ $employee->position->department_id ?? '' }}" 
+                            data-pos="{{ $employee->position_id ?? '' }}"
+                            @selected(old('employee_id') == $employee->id)>
+                        {{ $employee->employee_code }} - {{ $employee->full_name }}
+                    </option>
                 @endforeach
             </select>
         </div>
@@ -141,9 +160,57 @@
 
 @push('styles')
 @include('admin.hrm.partials.styles')
-<style>
-.hrm-form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.hrm-form-full { grid-column: 1 / -1; }
-@media (max-width: 900px) { .hrm-form-grid { grid-template-columns: 1fr; } }
-</style>
+@endpush
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterDept = document.getElementById('filter_department');
+    const filterPos = document.getElementById('filter_position');
+    const employeeSelect = document.getElementById('employee_select');
+    
+    if (filterDept && filterPos && employeeSelect) {
+        const originalOptions = Array.from(employeeSelect.options);
+        const originalPosOptions = Array.from(filterPos.options);
+        
+        function filterEmployees() {
+            const selectedDept = filterDept.value;
+            const selectedPos = filterPos.value;
+            
+            // 1. Lọc danh sách chức vụ theo phòng ban
+            filterPos.innerHTML = '';
+            originalPosOptions.forEach(opt => {
+                if (opt.value === '' || !selectedDept || opt.getAttribute('data-dept') === selectedDept) {
+                    filterPos.appendChild(opt);
+                }
+            });
+            if (Array.from(filterPos.options).some(opt => opt.value === selectedPos)) {
+                filterPos.value = selectedPos;
+            } else {
+                filterPos.value = '';
+            }
+            
+            // 2. Lọc danh sách nhân viên theo phòng ban và chức vụ
+            const finalDept = filterDept.value;
+            const finalPos = filterPos.value;
+            
+            employeeSelect.innerHTML = '';
+            originalOptions.forEach(opt => {
+                const optDept = opt.getAttribute('data-dept');
+                const optPos = opt.getAttribute('data-pos');
+                
+                const matchDept = !finalDept || optDept === finalDept;
+                const matchPos = !finalPos || optPos === finalPos;
+                
+                if (opt.value === '' || (matchDept && matchPos)) {
+                    employeeSelect.appendChild(opt);
+                }
+            });
+        }
+        
+        filterDept.addEventListener('change', filterEmployees);
+        filterPos.addEventListener('change', filterEmployees);
+    }
+});
+</script>
 @endpush

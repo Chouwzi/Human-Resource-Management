@@ -20,7 +20,7 @@
                         <th style="width: 10%;">Ngày bắt đầu</th>
                         <th style="width: 10%;">Ngày kết thúc</th>
                         <th style="width: 7%;">Số ngày</th>
-                        <th style="width: 18%; text-align: left;">Lý do</th>
+                        <th style="width: 18%; text-align: center;">Lý do</th>
                         <th style="width: 20%; text-align: center;">Hành động</th>
                     </tr>
                 </thead>
@@ -91,7 +91,7 @@
                         <th style="width: 10%;">Ngày bắt đầu</th>
                         <th style="width: 10%;">Ngày kết thúc</th>
                         <th style="width: 7%;">Số ngày</th>
-                        <th style="width: 18%; text-align: left;">Lý do</th>
+                        <th style="width: 18%; text-align: center;">Lý do</th>
                         <th style="width: 20%; text-align: center;">Trạng thái</th>
                     </tr>
                 </thead>
