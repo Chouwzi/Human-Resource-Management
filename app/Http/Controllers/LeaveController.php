@@ -44,10 +44,21 @@ class LeaveController extends Controller
         $employee = Employee::where('user_id', $userId)->first();
         $empName = $employee?->full_name ?? ($user ? $user->email : 'Không rõ');
 
-        // Tính số ngày nghỉ theo khoảng ngày người dùng chọn.
+        // Tính số ngày nghỉ theo khoảng ngày người dùng chọn, loại trừ ngày nghỉ cuối tuần.
         $start = Carbon::parse($request->start_date);
         $end = Carbon::parse($request->end_date);
-        $days = $start->diffInDays($end) + 1;
+        
+        $days = 0;
+        $workSaturday = env('APP_WORK_SATURDAY', false);
+        for ($date = $start->copy(); $date->lte($end); $date->addDay()) {
+            if ($date->isSunday()) {
+                continue;
+            }
+            if ($date->isSaturday() && !$workSaturday) {
+                continue;
+            }
+            $days++;
+        }
 
         Leave::create([
             'emp_id' => $userId,
@@ -76,10 +87,14 @@ class LeaveController extends Controller
         return view('admin.leaves.pending', compact('pendingLeaves', 'processedLeaves'));
     }
 
-    // 5. Admin bấm "Duyệt" đơn
     public function approve($id)
     {
         $leave = Leave::findOrFail($id);
+
+        // Chặn tự phê duyệt đơn của chính mình
+        if ($leave->emp_id == session('user_id')) {
+            return redirect()->back()->with('error', 'Bạn không thể tự phê duyệt đơn nghỉ phép của chính mình!');
+        }
 
         $leave->status = 'approved';
 
@@ -100,6 +115,11 @@ class LeaveController extends Controller
     public function reject($id)
     {
         $leave = Leave::findOrFail($id);
+
+        // Chặn tự từ chối đơn của chính mình
+        if ($leave->emp_id == session('user_id')) {
+            return redirect()->back()->with('error', 'Bạn không thể tự từ chối đơn nghỉ phép của chính mình!');
+        }
 
         $leave->status = 'rejected';
 
@@ -134,6 +154,12 @@ class LeaveController extends Controller
     public function destroy($id)
     {
         $leave = Leave::where('emp_id', session('user_id'))->findOrFail($id);
+
+        // Chỉ cho phép xóa đơn ở trạng thái pending hoặc cancelled
+        if (!in_array($leave->status, ['pending', 'cancelled'], true)) {
+            return redirect()->route('leaves.index')->with('error', 'Không thể xóa đơn nghỉ phép đã được xử lý!');
+        }
+
         $leave->delete();
 
         return redirect()->route('leaves.index')->with('success', 'Đã xóa đơn nghỉ phép thành công!');

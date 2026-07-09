@@ -92,13 +92,15 @@ class AttendanceController extends Controller
         $checkOutTime = $now;
 
         $totalMinutes = abs($checkOutTime->diffInMinutes($checkInTime));
+        // Khấu trừ 60 phút nghỉ trưa nếu tổng thời gian lớn hơn 4 tiếng
+        $effectiveMinutes = $totalMinutes > 240 ? $totalMinutes - 60 : $totalMinutes;
         $standardMinutes = 480; // 8 tiếng
 
-        if ($totalMinutes > $standardMinutes) {
+        if ($effectiveMinutes > $standardMinutes) {
             $attendance->worked_minutes = $standardMinutes;
-            $attendance->overtime_minutes = $totalMinutes - $standardMinutes;
+            $attendance->overtime_minutes = $effectiveMinutes - $standardMinutes;
         } else {
-            $attendance->worked_minutes = $totalMinutes;
+            $attendance->worked_minutes = $effectiveMinutes;
             $attendance->overtime_minutes = 0;
             // Về trước 17:00
             if ($checkOutTime->format('H:i:s') < '17:00:00') {
@@ -115,7 +117,7 @@ class AttendanceController extends Controller
     // 4. Admin chốt công ngày (quét vắng mặt và nghỉ phép)
     public function finalizeAttendance(Request $request)
     {
-        $targetDate = date('Y-m-d');
+        $targetDate = Carbon::yesterday()->toDateString();
         $employees = Employee::all();
         $addedCount = 0;
 
