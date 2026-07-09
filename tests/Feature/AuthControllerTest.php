@@ -25,6 +25,14 @@ class AuthControllerTest extends TestCase
         $response->assertViewIs('auth.login');
     }
 
+    #[Test]
+    public function truy_cap_duong_dan_login_se_chuyen_huong_ve_trang_dang_nhap(): void
+    {
+        $response = $this->get('/login');
+
+        $response->assertRedirect(route('login'));
+    }
+
     // --- Validation ---
 
     #[Test]
