@@ -389,3 +389,12 @@ textarea.form-control {
 .close-btn:hover {
     color: #000;
 }
+
+/* Sửa lỗi icon bị dính sát vào chữ trên toàn hệ thống */
+.btn i,
+button i,
+a i,
+.alert i,
+.menu-item i {
+    margin-right: 0.4rem;
+}
