@@ -72,15 +72,24 @@
     min-width: 700px;
     border-collapse: collapse;
     text-align: center;
-    font-size: 0.825rem;
+    font-size: 0.875rem;
 }
 
 .table th,
 .table td {
-    padding: 0.75rem 0.5rem;
+    padding: 1rem;
     border-bottom: 1px solid var(--border-color);
     white-space: nowrap;
     vertical-align: middle;
+}
+
+/* Bảng thu nhỏ đặc biệt cho các trang chứa nhiều cột (Hợp đồng, Bảng lương, Duyệt đơn) */
+.table-dense {
+    font-size: 0.815rem;
+}
+.table-dense th,
+.table-dense td {
+    padding: 0.7rem 0.4rem;
 }
 
 /* badges */

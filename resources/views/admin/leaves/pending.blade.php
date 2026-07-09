@@ -11,7 +11,7 @@
         <h4 class="content-card-header pending-header">Đơn chờ xử lý</h4>
 
         <div class="table-responsive m-0">
-            <table class="table table-custom">
+            <table class="table table-custom table-dense">
                 <thead>
                     <tr>
                         <th class="w-5">STT</th>
@@ -82,7 +82,7 @@
         <h4 class="content-card-header pending-header">Lịch sử đơn đã xử lý</h4>
 
         <div class="table-responsive m-0">
-            <table class="table table-custom">
+            <table class="table table-custom table-dense">
                 <thead>
                     <tr>
                         <th class="w-5">STT</th>

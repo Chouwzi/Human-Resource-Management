@@ -79,7 +79,7 @@
 <div class="content-card">
     <h4 class="content-card-header">Danh sách hợp đồng</h4>
     <div class="table-responsive m-0">
-        <table class="table">
+        <table class="table table-dense">
             <thead>
                 <tr>
                     <th>Mã HĐ</th>
