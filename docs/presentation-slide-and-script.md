@@ -29,15 +29,17 @@
 
 ### SLIDE 2: LÝ DO CHỌN ĐỀ TÀI & MỤC TIÊU HỆ THỐNG
 *   **Bố cục hiển thị:** Bento Grid 2 cột:
-    *   *Cột 1 (Nỗi đau thực tế):* **Số liệu khảo sát: 70% - 78% doanh nghiệp vừa và nhỏ (SME) tại Việt Nam vẫn dùng Excel để tính lương thủ công.** Lỗi nhập liệu, thất thoát ngày công, rò rỉ lương.
+    *   *Cột 1 (Nỗi đau thực tế):* **Số liệu dẫn chứng: 70% - 78% doanh nghiệp nhỏ và vừa (SME) dùng Excel để tính lương (Khảo sát của MISA & Báo cáo thường niên của Cục Phát triển doanh nghiệp - Bộ KH&ĐT).** Lỗi nhập liệu, thất thoát ngày công, rò rỉ lương.
     *   *Cột 2 (Giải pháp HRM):* Chấm công trực tuyến, tự động tính lương, duyệt phép tức thời, cơ sở dữ liệu tập trung.
 *   **Cử chỉ:** Tay phải mở ngửa chỉ cột "Nỗi đau" (nét mặt nghiêm túc), sau đó xoay tay chỉ sang cột "Giải pháp" (mỉm cười nhẹ).
 *   **Kịch bản thoại:**
-    > *"Thưa giảng viên và các bạn, theo các số liệu khảo sát thực tế tại thị trường Việt Nam, hiện nay có từ **70% đến 78%** các doanh nghiệp vừa và nhỏ vẫn đang dựa hoàn toàn vào Microsoft Excel làm công cụ chính để tính lương và quản lý nhân sự. 
-    > Cách làm thủ công này rất tốn thời gian, dễ xảy ra sai sót khi nhập liệu ngày công và tiềm ẩn nguy cơ bảo mật khi các file lương bị rò rỉ. Mục tiêu của hệ thống HRM này là số hóa toàn bộ quy trình: lưu dữ liệu tập trung, cho phép nhân viên chấm công trực tuyến bằng điện thoại, tự động đối chiếu ngày nghỉ phép để tính lương cuối tháng chính xác 100%."*
+    > *"Thưa giảng viên và các bạn, theo **Báo cáo thường niên về Chuyển đổi số của Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư** phối hợp với USAID, cùng khảo sát diện rộng của **Tập đoàn Công nghệ MISA**, hiện nay có từ **70% đến 78%** doanh nghiệp vừa và nhỏ tại Việt Nam vẫn đang sử dụng Microsoft Excel làm công cụ chính để tính lương và quản lý nhân sự hàng ngày. 
+    > Việc tính công bằng bảng tính thủ công rất tốn thời gian, dễ xảy ra sai sót khi tính toán ngày công thực tế và có nguy cơ rò rỉ bảng lương nhạy cảm. Vì vậy, mục tiêu của nhóm mình khi xây dựng hệ thống HRM này là số hóa toàn bộ quy trình: chấm công trực tuyến, tự động đối chiếu đơn xin nghỉ phép và tính lương chính xác 100% trên cơ sở dữ liệu tập trung."*
 *   **💡 Giải thích thuật ngữ cho Chương:**
     *   **Số hóa:** Chuyển đổi toàn bộ quy trình giấy tờ, file Excel rời rạc sang lưu trữ dữ liệu số trên máy chủ để máy tính tự động xử lý.
-    *   **Nguồn số liệu dẫn chứng:** Dữ liệu khảo sát từ các đơn vị cung cấp giải pháp nhân sự lớn tại Việt Nam (như khảo sát phần mềm doanh nghiệp của MISA, EasyHRM, 1C). Tỷ lệ sử dụng Excel cho kế toán lương của nhóm doanh nghiệp nhỏ (dưới 50 nhân sự) dao động ổn định ở mức 70-78%.
+    *   **Ai là người khảo sát:** 
+        1.  **Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư** (phối hợp với tổ chức USAID của Mỹ): Công bố trong Báo cáo thường niên về chuyển đổi số doanh nghiệp Việt Nam.
+        2.  **Tập đoàn Công nghệ MISA:** Khảo sát diện rộng trên tệp khách hàng hơn 250.000 doanh nghiệp nhỏ và vừa (SME) tại Việt Nam.
 
 ---
 
