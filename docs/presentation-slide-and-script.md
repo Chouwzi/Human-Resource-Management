@@ -29,17 +29,15 @@
 
 ### SLIDE 2: LÝ DO CHỌN ĐỀ TÀI & MỤC TIÊU HỆ THỐNG
 *   **Bố cục hiển thị:** Bento Grid 2 cột:
-    *   *Cột 1 (Nỗi đau thực tế):* **Số liệu dẫn chứng: 70% - 78% doanh nghiệp nhỏ và vừa (SME) dùng Excel để tính lương (Báo cáo năm 2023 - 2024 của Bộ KH&ĐT và MISA).** Lỗi nhập liệu, thất thoát ngày công, rò rỉ lương.
+    *   *Cột 1 (Nỗi đau thực tế):* **Số liệu dẫn chứng: 70% - 78% doanh nghiệp SME dùng Excel để tính lương (Báo cáo 2023 - 2024 của Bộ KH&ĐT và MISA).** Lỗi nhập liệu, thất thoát ngày công, rò rỉ lương.
     *   *Cột 2 (Giải pháp HRM):* Chấm công trực tuyến, tự động tính lương, duyệt phép tức thời, cơ sở dữ liệu tập trung.
 *   **Cử chỉ:** Tay phải mở ngửa chỉ cột "Nỗi đau" (nét mặt nghiêm túc), sau đó xoay tay chỉ sang cột "Giải pháp" (mỉm cười nhẹ).
 *   **Kịch bản thoại:**
-    > *"Thưa giảng viên và các bạn, theo **Báo cáo thường niên về Chuyển đổi số doanh nghiệp năm 2023 và 2024** của Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư, kết hợp với các khảo sát diện rộng năm **2023 - 2024** của **Tập đoàn Công nghệ MISA**, hiện nay có từ **70% đến 78%** doanh nghiệp vừa và nhỏ tại Việt Nam vẫn đang sử dụng Microsoft Excel làm công cụ chính để tính lương và quản lý nhân sự hàng ngày. 
-    > Việc tính công bằng bảng tính thủ công rất tốn thời gian, dễ xảy ra sai sót khi tính toán ngày công thực tế và có nguy cơ rò rỉ bảng lương nhạy cảm. Vì vậy, mục tiêu của nhóm mình khi xây dựng hệ thống HRM này là số hóa toàn bộ quy trình: chấm công trực tuyến, tự động đối chiếu đơn xin nghỉ phép và tính lương chính xác 100% trên cơ sở dữ liệu tập trung."*
+    > *"Thưa giảng viên và các bạn, theo báo cáo chuyển đổi số năm 2023 - 2024 của Bộ Kế hoạch & Đầu tư cùng khảo sát của MISA, hiện có từ **70% đến 78%** doanh nghiệp vừa và nhỏ tại Việt Nam vẫn sử dụng Excel để tính lương và quản lý nhân sự hàng ngày. 
+    > Việc tính công thủ công này rất tốn thời gian, dễ xảy ra sai sót khi tính toán ngày công thực tế và có nguy cơ rò rỉ bảng lương. Vì vậy, mục tiêu của nhóm mình khi xây dựng hệ thống HRM này là số hóa toàn bộ quy trình: chấm công trực tuyến, tự động đối chiếu đơn xin nghỉ phép và tính lương chính xác 100% trên cơ sở dữ liệu tập trung."*
 *   **💡 Giải thích thuật ngữ cho Chương:**
     *   **Số hóa:** Chuyển đổi toàn bộ quy trình giấy tờ, file Excel rời rạc sang lưu trữ dữ liệu số trên máy chủ để máy tính tự động xử lý.
-    *   **Nguồn số liệu & Năm khảo sát:** 
-        1.  **Báo cáo thường niên Chuyển đổi số doanh nghiệp năm 2023 và 2024** của Cục Phát triển doanh nghiệp - Bộ Kế hoạch và Đầu tư phối hợp với USAID (công bố chính thức vào đầu năm 2024 và đầu năm 2025).
-        2.  **Khảo sát thực trạng doanh nghiệp Việt Nam giai đoạn 2023 - 2024** của Tập đoàn Công nghệ MISA thực hiện trên quy mô hơn 250.000 doanh nghiệp vừa và nhỏ (SME).
+    *   **Nguồn số liệu khảo sát:** Báo cáo chuyển đổi số năm 2023 - 2024 của Cục Phát triển doanh nghiệp (Bộ KH&ĐT) phối hợp với USAID và khảo sát diện rộng của MISA.
 
 ---
 
@@ -125,7 +123,7 @@
 *   **Bố cục hiển thị:** Danh sách giải pháp bảo mật và screenshot terminal chạy **47 tests passed**.
 *   **Cử chỉ:** Chỉ tay vào dòng chữ kết quả kiểm thử màu xanh trên màn hình.
 *   **Kịch bản thoại:**
-    > *"Hệ thống được bảo mật chặt chẽ: chống xem trộm lương bằng cách truy vấn ID trực tiếp từ session session máy chủ thay vì truyền tham số lên URL; chống tấn công SQL Injection và XSS. Nhóm mình cũng viết 47 kịch bản kiểm thử tự động qua PHPUnit để đảm bảo logic chạy đúng và không phát sinh lỗi."*
+    > *"Hệ thống được bảo mật chặt chẽ: chống xem trộm lương bằng cách truy vấn ID trực tiếp từ session máy chủ thay vì truyền tham số lên URL; chống tấn công SQL Injection và XSS. Nhóm mình cũng viết 47 kịch bản kiểm thử tự động qua PHPUnit để đảm bảo logic chạy đúng và không phát sinh lỗi."*
 *   **💡 Giải thích thuật ngữ cho Chương:**
     *   **SQL Injection:** Kẻ tấn công nhập lệnh SQL phá hoại vào các ô input để hack database.
     *   **XSS:** Kẻ tấn công chèn mã JavaScript độc hại vào form nhằm ăn cắp thông tin người xem.
@@ -147,7 +145,7 @@
 *   **Bố cục hiển thị:** Chữ lớn: **"TRÂN TRỌNG CẢM ƠN THẦY VÀ CÁC BẠN ĐÃ LẮNG NGHE!"** và định hướng tương lai.
 *   **Cử chỉ:** Đứng thẳng ở trung tâm, nói chậm lại. Sau khi kết thúc, cúi đầu nhẹ chào lịch sự và bắt đầu bước sang phần Live Demo.
 *   **Kịch bản thoại:**
-    > *"Tóm lại, ứng dụng HRM của nhóm mình đã vận hành ổn định các tính năng cốt lõi, giao diện responsive mượt mà và bảo mật tốt. Hướng phát triển tiếp theo là tích hợp chấm công sinh trắc học và xuất file báo cáo lương. 
+    > *"Tóm lại, ứng dụng HRM của nhóm mình đã vận hành ổn định các tính năng cốt lõi, giao diện responsive mượt mượt mà và bảo mật tốt. Hướng phát triển tiếp theo là tích hợp chấm công sinh trắc học và xuất file báo cáo lương. 
     > Sau đây, mình xin phép chạy **Demo trực tiếp trang web** trên máy tính để giảng viên và các bạn có cái nhìn trực quan nhất. Nhóm mình rất mong nhận được những câu hỏi và nhận xét từ giảng viên cùng các bạn. Nhóm xin trân trọng cảm ơn!"*
 
 ---
