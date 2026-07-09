@@ -1,67 +1,52 @@
 # CẨM NANG TOÀN DIỆN: BỐ CỤC SLIDE, KỊCH BẢN THOẠI & KỸ THUẬT THUYẾT TRÌNH BẢO VỆ ĐỒ ÁN HRM
-
-*Tài liệu này được biên soạn dựa trên nghiên cứu các tiêu chuẩn thuyết trình chuyên nghiệp của Toastmasters, kỹ thuật Demo phần mềm của Y Combinator và phương pháp bảo vệ đồ án trước hội đồng phản biện đại học.*
+**Người thuyết trình & Demo:** Nguyễn Trần Đình Chương (Trưởng nhóm - Độc thoại toàn bài)
+**Thời lượng:** 15 phút tổng (Thuyết trình: 8-9 phút | Live Demo: 4-5 phút | Hỏi đáp Q&A: 2 phút)
+**Công nghệ:** Laravel 11 + MySQL + Bootstrap 5
 
 ---
 
-## PHẦN 1: KỸ NĂNG LÀM CHỦ SÂN KHẤU DƯỚI CÁC RÀNG BUỘC VẬT LÝ
+## PHẦN 1: KỸ NĂNG LÀM CHỦ SÂN KHẤU CHO DIỄN GIẢ ĐỘC THOẠI
 
-Khi đứng trên bục bảo vệ, nhóm sẽ đối mặt với các điều kiện vật lý: **1 màn hình LCD lớn để chiếu slide/demo**, **1 bảng trắng viết phấn/bút dạ** và **1 micro cầm tay có dây**. Cả nhóm cần tuân thủ các quy tắc sau:
+Khi thuyết trình và demo một mình toàn bộ đề tài với **micro cầm tay có dây** và **màn hình LCD lớn**, bạn cần kiểm soát tốt năng lượng và các ràng buộc vật lý:
 
-### 1. Kỹ thuật sử dụng Micro có dây cầm tay
-*   **Cầm mic bằng tay không thuận:** Giữ micro ở khoảng giữa thân máy bằng tay trái (nếu bạn thuận tay phải). Điều này giải phóng tay thuận (tay phải) để cầm **Clicker chuyển slide** hoặc chỉ lên bảng/màn hình LCD.
-*   **Tạo vòng lặp an toàn (Safety Loop):** Quấn nhẹ một vòng dây cáp micro quanh cổ tay hoặc ngón tay cầm mic. Vòng lặp này giúp giảm lực kéo; nếu bạn vô tình giẫm lên dây khi di chuyển, lực kéo sẽ tác động vào tay bạn thay vì làm giật giắc cắm hoặc làm rơi mic.
-*   **Khoảng cách vàng và góc nghiêng:** Đầu micro cách miệng từ **5 - 8 cm** (khoảng 3 ngón tay), đặt chếch **45 độ** dưới cằm. Nói lướt qua lưới lọc thay vì thổi thẳng trực tiếp vào mic để triệt tiêu tiếng bụp (Popping) khi phát âm các chữ "P", "B", "T".
-*   **Đồng bộ đầu và tay mic:** Khi bạn quay đầu sang nhìn màn hình LCD hoặc quay sang các thành viên khác, **tay cầm mic phải di chuyển đồng bộ theo hướng quay của đầu** để âm lượng không bị tụt đột ngột.
+### 1. Kỹ thuật xử lý Micro & Thiết bị khi Demo một mình
+*   **Thách thức vật lý:** Một tay bạn cầm mic, một tay cầm Clicker thuyết trình slide. Đến phần Live Demo, nếu bạn vừa cầm mic vừa gõ bàn phím/di chuột bằng 1 tay sẽ cực kỳ luống cuống và mất chuyên nghiệp.
+*   **Giải pháp tối ưu (Phân công hỗ trợ kỹ thuật):** 
+    *   Mặc dù bạn là người thuyết trình và nói 100%, hãy chỉ định **1 thành viên trong nhóm (ví dụ bạn Long hoặc Minh) ngồi sẵn ở máy tính kỹ thuật** để thao tác click chuột và gõ bàn phím theo lời nói của bạn.
+    *   Bạn đứng chếch cạnh màn hình LCD, cầm mic bằng tay trái, tay phải cử chỉ tự do và điều hướng: *"Bây giờ, xin mời hội đồng quan sát màn hình khi thành viên nhóm em thực hiện bấm Check-in..."*. Việc này giúp bạn luôn đối mặt với thầy cô, giữ vững phong thái chủ động.
+    *   *Trường hợp bắt buộc tự bấm máy:* Hãy đặt micro lên **chân đế mic (stand)** trên bàn máy tính hoặc kẹp mic vào giá đỡ trước khi ngồi xuống, giải phóng hoàn toàn 2 tay để gõ code và di chuột mượt mà.
+*   **Quản lý dây mic:** Do nói liên tục 12 slide và demo, hãy quấn nhẹ một vòng dây cáp quanh tay cầm mic để giữ dây cố định, tránh kéo căng dây gây lỏng giắc cắm trên bục.
 
 ### 2. Tư thế đứng cạnh màn hình LCD lớn và Bảng viết
-*   **Tư thế đứng chéo 45 độ (The Diagonal Stance):** Đứng nghiêng 45 độ so với bề mặt hiển thị. Một vai hướng về bảng/màn hình để chỉ hoặc viết, vai còn lại và ngực hướng về phía hội đồng. **Tuyệt đối không quay lưng 100% về phía giảng viên.**
-*   **Cử chỉ chỉ dẫn mở (Open Gestures):** 
-    *   Nếu đứng bên phải màn hình (nhìn từ dưới lớp lên): Dùng **tay trái** để chỉ.
-    *   Nếu đứng bên trái màn hình: Dùng **tay phải** để chỉ.
-    *   *Quy tắc:* Luôn dùng cánh tay gần màn hình nhất để chỉ và dùng **lòng bàn tay ngửa mở hướng lên trên**, không chỉ bằng một ngón tay trỏ. Điều này giúp lồng ngực bạn luôn mở về phía khán giả và không che khuất slide.
-*   **Nguyên tắc "Viết xong mới nói" (Stop and Talk):** Khi cần viết lên bảng trắng, hãy dừng nói -> xoay người viết nhanh từ khóa hoặc vẽ sơ đồ -> xoay người lại đối mặt với hội đồng -> bắt đầu giải thích. Không vừa viết bảng vừa nói khi lưng đang quay về phía thầy cô.
+*   **Tư thế đứng chéo 45 độ (The Diagonal Stance):** Đứng nghiêng 45 độ so với bề mặt hiển thị. Một vai hướng về bảng/màn hình để chỉ thông tin, vai còn lại và lồng ngực luôn mở hướng về phía hội đồng. **Tuyệt đối không quay lưng 100% về phía giảng viên.**
+*   **Cử chỉ chỉ dẫn mở (Open Gestures):** Đứng bên trái màn hình thì dùng tay phải để chỉ, đứng bên phải màn hình thì dùng tay trái. Chỉ bằng **lòng bàn tay ngửa mở hướng lên trên**, không chỉ bằng một ngón tay trỏ.
+*   **Nguyên tắc "Viết xong mới nói" (Stop and Talk):** Khi cần viết lên bảng trắng, hãy dừng nói -> xoay người viết nhanh từ khóa hoặc vẽ sơ đồ -> xoay người lại đối mặt với hội đồng -> bắt đầu giải thích.
 
-### 3. Đội hình nhóm 5 người và Quy trình chuyển giao
-*   **Đội hình vòng cung nhẹ (Semi-Circle):** 5 thành viên đứng dàn đều thành hình vòng cung nhẹ. Đội hình này giúp hội đồng bao quát được tất cả thành viên và tạo cảm giác đồng lòng.
-*   **Quy tắc Tiến - Lùi:** 
-    *   Thành viên đang thuyết trình chính sẽ **tiến lên phía trước 1 bước** và đứng gần màn hình/bảng.
-    *   Bốn thành viên còn lại đứng **lùi lại phía sau 1 bước**, giữ tư thế đứng thẳng, mắt tập trung nhìn về phía người đang thuyết trình (Lắng nghe chủ động - Active Listening), không nói chuyện riêng hay bấm điện thoại.
-*   **Chuyển giao bằng phương pháp TNT (Topic - Name - Title):**
-    *   Khi chuyển mic cho người tiếp theo, hãy nói: *"[Tóm tắt ý vừa nói] + [Giới thiệu tên người tiếp theo] + [Chủ đề người tiếp theo sẽ nói]"*.
-    *   *Ví dụ:* *"Vừa rồi là phần trình bày về thiết kế cơ sở dữ liệu. Tiếp theo, để làm rõ cơ chế bảo mật và phân quyền hệ thống, em xin nhường mic cho bạn Dũng, phụ trách Backend."*
-    *   Hai người quay mặt vào nhau, mỉm cười nhẹ. Người trao đưa mic bằng **cả hai tay** (đuôi mic hướng về phía mình, đầu mic hướng về bạn). Người nhận nhận mic bằng hai tay, cúi đầu nhẹ cảm ơn và bắt đầu nói.
+### 3. Điều phối năng lượng và Nhịp điệu nói (Vocal Pacing)
+*   **Tránh monotone (giọng đều đều):** Do nói liên tục 10 phút một mình, giọng bạn rất dễ bị rơi vào trạng thái đều đều gây buồn ngủ. Hãy chủ động nhấn giọng ở các danh từ kỹ thuật và các con số kết quả (ví dụ: *chốt công tự động*, *mã hóa một chiều*, *47 bài test*).
+*   **Khoảng dừng quyền lực (Power of Pause):** Dành từ **1 đến 2 giây** dừng lại sau khi kết thúc một Slide hoặc sau khi đưa ra một kết luận cốt lõi để thầy cô kịp quan sát slide và tiêu hóa thông tin.
+*   **Phát âm thuật ngữ kỹ thuật:** Đọc rõ ràng và chuẩn xác: *Laravel* (La-ra-vel), *Middleware* (Mít-đơn-we), *Eloquent ORM* (Ê-lô-quần O-R-M), *Bootstrap* (Bút-strap), *AJAX* (A-dắc), *SweetAlert* (Suýt A-lợt).
 
 ---
 
-## PHẦN 2: CHI TIẾT 12 SLIDE BÁO CÁO & KỊCH BẢN THOẠI (SPEAKING SCRIPT)
+## PHẦN 2: CHI TIẾT 12 SLIDE BÁO CÁO & KỊCH BẢN THOẠI ĐỘC THOẠI (SPEAKING SCRIPT)
 
 ### SLIDE 1: GIỚI THIỆU ĐỀ TÀI & THÀNH VIÊN
-*   **Người trình bày (Speaker):** Nguyễn Trần Đình Chương (Leader).
-*   **Bố cục hiển thị & Hình ảnh trực quan:** 
-    *   *Bên trái:* Logo trường Đại học, Tên đề tài lớn: **"HỆ THỐNG QUẢN LÝ NHÂN SỰ (HRM SYSTEM)"**.
-    *   *Bên phải:* Danh sách 5 thành viên Nhóm 14 kèm MSSV xếp gọn gàng. Dưới cùng hiển thị logo các công nghệ: Laravel, PHP, Bootstrap, MySQL.
-*   **Từ khóa cần nhấn mạnh (Keywords):** Hệ thống HRM, Đồ án cuối kỳ, Nhóm 14, Laravel 11.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:** 
-    *   Đứng thẳng ở trung tâm sân khấu, ngang hàng với màn hình LCD lớn.
-    *   Cầm mic bằng tay trái (tay không thuận) cách cằm 5cm. Tay phải mở tự nhiên, lòng bàn tay hướng về phía thầy cô.
-    *   Mắt nhìn trực tiếp vào thầy cô hội đồng ở hàng ghế đầu, mỉm cười nhẹ.
+*   **Bố cục hiển thị:** Logo trường Đại học, Tên đề tài lớn: **"HỆ THỐNG QUẢN LÝ NHÂN SỰ (HRM SYSTEM)"**. Danh sách 5 thành viên Nhóm 14 kèm MSSV xếp gọn gàng. Dưới cùng hiển thị logo các công nghệ: Laravel, PHP, Bootstrap, MySQL.
+*   **Keywords:** Hệ thống HRM, Đồ án cuối kỳ, Nhóm 14, Laravel 11.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng thẳng ở trung tâm sân khấu, tay trái cầm mic cách cằm 5cm. Tay phải mở tự nhiên, lòng bàn tay hướng về phía thầy cô. Mắt nhìn trực tiếp vào thầy cô hội đồng ở hàng ghế đầu, mỉm cười và chào tự tin.
 *   **Kịch bản thoại:**
-    > *"Lời đầu tiên, em xin gửi lời chào trân trọng nhất đến Thầy và toàn thể các bạn có mặt trong buổi bảo vệ ngày hôm nay. Chúng em là Nhóm 14. Hôm nay, nhóm rất hào hứng được đại diện trình bày kết quả dự án cuối kỳ môn Lập trình Web với đề tài: **'Hệ thống Quản lý Nhân sự - HRM System'**. 
-    > Dự án này được thiết kế và hiện thực hóa dựa trên quy trình phát triển phần mềm thực tế, tối ưu hóa quy trình vận hành cho các doanh nghiệp vừa và nhỏ. Nhóm chúng em gồm 5 thành viên: em là Nguyễn Trần Đình Chương - trưởng nhóm, cùng các bạn Nguyễn Trung Nguyên, Phạm Hoàng Dũng, Kim Long và Trần Nhật Minh. Sau đây em xin phép bắt đầu buổi thuyết trình."*
+    > *"Kính chào Thầy và các bạn đã đến với buổi bảo vệ đồ án cuối kỳ môn Lập trình Web của nhóm 14 chúng em. Em tên là Nguyễn Trần Đình Chương - trưởng nhóm, hôm nay em xin phép được đại diện cho cả nhóm trình bày toàn bộ kết quả nghiên cứu và phát triển dự án: **'Hệ thống Quản lý Nhân sự - HRM'**. 
+    > Đây là một sản phẩm thực tiễn được xây dựng trên nền tảng framework Laravel 11, hướng tới việc tối ưu hóa toàn diện công tác quản trị nhân sự, chấm công và tính toán bảng lương cho các doanh nghiệp vừa và nhỏ. Sau đây, em xin phép bắt đầu buổi trình bày của mình."*
 
 ---
 
 ### SLIDE 2: LÝ DO CHỌN ĐỀ TÀI & MỤC TIÊU HỆ THỐNG
-*   **Người trình bày (Speaker):** Nguyễn Trần Đình Chương.
-*   **Bố cục hiển thị & Hình ảnh trực quan:** Bố cục Bento Grid 2 cột đối lập:
+*   **Bố cục hiển thị:** Bento Grid 2 cột đối lập:
     *   *Cột 1 (Nỗi đau doanh nghiệp):* Các icon cảnh báo lỗi Excel thủ công, thất thoát ngày công, rò rỉ bảng lương.
     *   *Cột 2 (Giải pháp HRM):* Các icon cơ sở dữ liệu tập trung, chấm công trực tuyến, tự động tính lương, duyệt phép trực quan.
-*   **Từ khóa cần nhấn mạnh:** Quản lý thủ công, Excel rời rạc, Số hóa toàn diện.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Đứng chếch 45 độ so với màn hình LCD.
-    *   Dùng tay phải (tay cầm Clicker) mở ngửa bàn tay hướng về phía cột "Nỗi đau doanh nghiệp", nét mặt hơi nghiêm túc để biểu thị thách thức. Sau đó xoay tay chỉ sang cột "Giải pháp", mỉm cười để biểu thị sự giải tỏa khó khăn.
-    *   Mắt quét nhanh qua thầy cô rồi quay lại nhìn màn hình LCD (Quy tắc 3 giây).
+*   **Keywords:** Quản lý thủ công, Excel rời rạc, Số hóa toàn diện.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng chếch 45 độ so với màn hình LCD. Dùng tay phải mở ngửa bàn tay hướng về phía cột "Nỗi đau", nét mặt hơi nghiêm túc để biểu thị thách thức. Sau đó xoay tay chỉ sang cột "Giải pháp", mỉm cười để biểu thị sự giải tỏa khó khăn.
 *   **Kịch bản thoại:**
     > *"Thưa Thầy, phần lớn các doanh nghiệp quy mô vừa và nhỏ hiện nay vẫn đang quản lý hồ sơ nhân viên và tính lương thông qua các file Excel thủ công. Cách làm này không chỉ gây tốn kém thời gian mà còn dễ dẫn đến sai lệch số liệu ngày công và rò rỉ thông tin lương nhạy cảm. 
     > Mục tiêu của hệ thống HRM do nhóm xây dựng là số hóa toàn diện quy trình này: từ việc lưu trữ hồ sơ, ký kết hợp đồng, đến việc cung cấp cổng tự chấm công hàng ngày cho nhân viên, tự động đối chiếu đơn xin nghỉ phép để tính toán bảng lương cuối tháng chính xác 100%."*
@@ -69,153 +54,110 @@ Khi đứng trên bục bảo vệ, nhóm sẽ đối mặt với các điều k
 ---
 
 ### SLIDE 3: CÔNG NGHỆ CHỦ ĐẠO & KIẾN TRÚC HỆ THỐNG
-*   **Người trình bày (Speaker):** Nguyễn Trần Đình Chương.
-*   **Bố cục hiển thị & Hình ảnh trực quan:**
-    *   Sơ đồ khối kiến trúc 3 lớp (3-Tier Architecture) chạy trên mô hình MVC: Client (Blade views) <=> Application Backend (Laravel 11 Controllers/Middleware) <=> Database Storage (MySQL).
-*   **Từ khóa cần nhấn mạnh:** Kiến trúc MVC, Eloquent ORM, Responsive Bootstrap 5.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Vẫn giữ tư thế đứng chéo 45 độ. Tay phải chỉ vào khối trung tâm "Middleware & Controller" trên sơ đồ LCD để biểu thị nơi xử lý chính của hệ thống.
-    *   Nói chậm lại khi liệt kê các công nghệ cốt lõi để đảm bảo phát âm chuẩn các thuật ngữ tiếng Anh.
+*   **Bố cục hiển thị:** Sơ đồ khối kiến trúc 3 lớp (3-Tier Architecture) chạy trên mô hình MVC: Client (Blade views) <=> Application Backend (Laravel 11 Controllers/Middleware) <=> Database Storage (MySQL).
+*   **Keywords:** Kiến trúc MVC, Eloquent ORM, Responsive Bootstrap 5.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Vẫn giữ tư thế đứng chéo 45 độ. Tay phải chỉ vào khối trung tâm "Middleware & Controller" trên sơ đồ LCD để biểu thị nơi xử lý chính của hệ thống. Nói chậm lại khi liệt kê các công nghệ cốt lõi.
 *   **Kịch bản thoại:**
-    > *"Về mặt kiến trúc, chúng em lựa chọn mô hình MVC cổ điển được hỗ trợ mạnh mẽ bởi Laravel 11. Laravel giúp chúng em tổ chức mã nguồn sạch sẽ, bảo mật cao nhờ tích hợp sẵn các cơ chế bảo vệ web. 
-    > Giao diện người dùng được xây dựng hoàn toàn responsive bằng Bootstrap 5 giúp nhân viên dễ dàng check-in ngay trên điện thoại di động khi đến văn phòng. Toàn bộ dữ liệu được lưu trữ có cấu trúc trong MySQL, quản lý nhất quán qua hệ thống migrations của Laravel. Sau đây, em xin chuyển mic cho bạn Kim Long trình bày chi tiết về phần thiết kế cơ sở dữ liệu."*
-    > *(Thực hiện bàn giao mic bằng 2 tay cho Long. Chương lùi lại 1 bước, Long tiến lên 1 bước).*
+    > *"Về mặt kiến trúc, hệ thống lựa chọn mô hình MVC cổ điển được hỗ trợ mạnh mẽ bởi Laravel 11. Laravel giúp chúng em tổ chức mã nguồn sạch sẽ, bảo mật cao nhờ tích hợp sẵn các cơ chế bảo vệ web. 
+    > Giao diện người dùng được xây dựng hoàn toàn responsive bằng Bootstrap 5 giúp nhân viên dễ dàng check-in ngay trên điện thoại di động khi đến văn phòng. Toàn bộ dữ liệu được lưu trữ có cấu trúc trong MySQL, quản lý nhất quán qua hệ thống migrations của Laravel. Tiếp theo, em xin trình bày về phần thiết kế cơ sở dữ liệu."*
 
 ---
 
 ### SLIDE 4: THIẾT KẾ CƠ SỞ DỮ LIỆU (CSDL - ERD)
-*   **Người trình bày (Speaker):** Kim Long.
-*   **Bố cục hiển thị & Hình ảnh trực quan:** Sơ đồ ERD phóng lớn. Làm nổi bật các bảng cốt lõi: `users`, `employees`, `departments`, `positions`, `contracts`, `attendance_logs`, `salaries`, `leaves` và mối liên kết khóa ngoại.
-*   **Từ khóa cần nhấn mạnh:** Quan hệ 1-1, Khóa ngoại đệ quy `manager_id`, Chỉ mục duy nhất (Unique Index).
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Đứng ở bên phải màn hình LCD (nhìn từ dưới lớp lên).
-    *   Cầm mic bằng tay phải, dùng tay trái chỉ vào liên kết tự đệ quy của `manager_id` trong bảng `employees` để giải thích sơ đồ cây quản lý.
-    *   Mắt hướng về thầy cô dạy môn Hệ quản trị CSDL hoặc môn Lập trình Web để chứng minh tính toàn vẹn dữ liệu.
+*   **Bố cục hiển thị:** Sơ đồ ERD phóng lớn. Làm nổi bật các bảng cốt lõi: `users`, `employees`, `departments`, `positions`, `contracts`, `attendance_logs`, `salaries`, `leaves` và mối liên kết khóa ngoại.
+*   **Keywords:** Quan hệ 1-1, Khóa ngoại đệ quy `manager_id`, Chỉ mục duy nhất (Unique Index).
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Tay phải chỉ vào liên kết tự đệ quy của `manager_id` trong bảng `employees` để giải thích sơ đồ cây quản lý của công ty.
 *   **Kịch bản thoại:**
-    > *"Xin chào Thầy và các bạn, em là Kim Long, em xin phép trình bày về thiết kế cơ sở dữ liệu của hệ thống. Hệ thống gồm 11 bảng dữ liệu được thiết kế chuẩn hóa để tránh dư thừa thông tin. 
-    > Mối quan hệ 1-1 giữa `users` và `employees` giúp phân tách rõ ràng thông tin tài khoản đăng nhập và hồ sơ nhân sự thực tế. Điểm nổi bật là trường `manager_id` tự liên kết trong bảng `employees` để quản lý cây sơ đồ tổ chức công ty (nhân viên thuộc quản lý của ai). Nhóm cũng thiết lập các ràng buộc duy nhất (Unique Constraints) ở mức database trên bảng `salaries` nhằm ngăn chặn hoàn toàn lỗi nghiệp vụ tạo trùng lặp bảng lương của một nhân viên trong cùng một tháng. Sau đây, xin mời bạn Hoàng Dũng trình bày về phân quyền."*
-    > *(Bàn giao mic cho Dũng. Long lùi lại, Dũng tiến lên).*
+    > *"Về mặt cơ sở dữ liệu, hệ thống gồm 11 bảng dữ liệu được thiết kế chuẩn hóa để tránh dư thừa thông tin. 
+    > Mối quan hệ 1-1 giữa `users` và `employees` giúp phân tách rõ ràng thông tin tài khoản đăng nhập và hồ sơ nhân sự thực tế. Điểm nổi bật là trường `manager_id` tự liên kết trong bảng `employees` để quản lý cây sơ đồ tổ chức công ty (nhân viên thuộc quản lý của ai). Nhóm cũng thiết lập các ràng buộc duy nhất (Unique Constraints) ở mức database trên bảng `salaries` nhằm ngăn chặn hoàn toàn lỗi nghiệp vụ tạo trùng lặp bảng lương của một nhân viên trong cùng một tháng. Tiếp theo, em xin đi vào hệ thống phân quyền."*
 
 ---
 
-### SLIDE 5: THIẾT KẾ HỆ THỐNG PHÂN QUYỀN (RBAC)
-*   **Người trình bày (Speaker):** Phạm Hoàng Dũng.
-*   **Bố cục hiển thị & Hình ảnh trực quan:** Bảng ma trận phân quyền (Role Matrix Table). Cột ngang là các chức năng (Lương, Hợp đồng, Công, Phép). Hàng dọc là 3 vai trò: Admin (Tick xanh toàn bộ), HR (Không có quyền Lương/Hợp đồng), Employee (Chỉ được xem thông tin cá nhân).
-*   **Từ khóa cần nhấn mạnh:** Role-based Access Control (RBAC), Route Middleware, Đặc quyền Xóa.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Đứng thẳng tự tin, tay trái cầm mic giữ nguyên vị trí trước miệng.
-    *   Mở rộng tay phải quét ngang bảng ma trận phân quyền trên LCD khi nói đến giới hạn quyền hạn của HR để nhấn mạnh sự an toàn dữ liệu. Mắt nhìn thẳng giảng viên.
+### SLIDE 5: THIẾT HỆ HỆ THỐNG PHÂN QUYỀN (RBAC)
+*   **Bố cục hiển thị:** Bảng ma trận phân quyền (Role Matrix Table) so sánh quyền hạn của 3 vai trò: Admin (Tick xanh toàn bộ), HR (Không có quyền Lương/Hợp đồng), Employee (Chỉ được xem thông tin cá nhân).
+*   **Keywords:** Role-based Access Control (RBAC), Route Middleware, Đặc quyền Xóa.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Mắt nhìn thẳng vào thầy cô dưới lớp để nhấn mạnh yếu tố bảo mật và an toàn thông tin của hệ thống doanh nghiệp.
 *   **Kịch bản thoại:**
-    > *"Xin chào Thầy, em là Hoàng Dũng. Để bảo vệ an toàn thông tin tổ chức, hệ thống áp dụng cơ chế phân quyền dựa trên vai trò kiểm soát chặt chẽ thông qua Middleware. 
+    > *"Để bảo vệ an toàn thông tin tổ chức, hệ thống áp dụng cơ chế phân quyền dựa trên vai trò kiểm soát chặt chẽ thông qua Middleware. 
     > Quyền cao nhất thuộc về Admin, người duy nhất được quản lý hợp đồng lao động, phê duyệt bảng lương tài chính và thực hiện thao tác xóa dữ liệu. 
     > Vai trò HR tập trung vào nghiệp vụ quản lý hồ sơ nhân sự và phê duyệt phép, bị giới hạn hoàn toàn không được xem thông tin lương hay thực hiện thao tác xóa để tránh rò rỉ dữ liệu. 
-    > Cuối cùng, nhân viên thông thường chỉ có quyền thao tác trên các tài nguyên cá nhân của chính họ. Tiếp theo, bạn Kim Long sẽ trình bày về phân hệ quản lý nhân sự."*
-    > *(Dũng chuyển giao mic lịch sự cho Long. Dũng lùi lại, Long tiến lên).*
+    > Cuối cùng, nhân viên thông thường chỉ có quyền thao tác trên các tài nguyên cá nhân của chính họ. Tiếp theo, em xin giới thiệu phân hệ quản lý nhân sự."*
 
 ---
 
 ### SLIDE 6: PHÂN HỆ ADMIN/HR - QUẢN LÝ NHÂN SỰ & CƠ CẤU
-*   **Người trình bày (Speaker):** Kim Long.
-*   **Bố cục hiển thị & Hình ảnh trực quan:**
-    *   Screenshot danh sách nhân viên có bộ lọc phòng ban và chức vụ đồng bộ.
-    *   Screenshot form thêm mới nhân viên có đầy đủ trường email, mật khẩu, vị trí, người quản lý, CCCD.
-*   **Từ khóa cần nhấn mạnh:** Cơ cấu tổ chức động, Ràng buộc duy nhất, Bộ lọc thông minh.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Đứng ở tư thế mở, tay trái cầm mic, tay phải chỉ vào form thêm mới nhân viên trên màn hình LCD để thầy cô thấy rõ giao diện sạch sẽ, chuyên nghiệp.
+*   **Bố cục hiển thị:** Screenshot danh sách nhân viên có bộ lọc phòng ban và chức vụ đồng bộ. Screenshot form thêm mới nhân viên có đầy đủ các trường nhập liệu.
+*   **Keywords:** Cơ cấu tổ chức động, Ràng buộc duy nhất, Bộ lọc thông minh.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng ở tư thế mở, tay trái cầm mic, tay phải chỉ vào form thêm mới nhân viên trên màn hình LCD để thầy cô thấy rõ giao diện sạch sẽ, chuyên nghiệp.
 *   **Kịch bản thoại:**
-    > *"Em xin quay lại để trình bày về giao diện Quản lý Nhân sự dành cho Admin và HR. Hệ thống hỗ trợ khởi tạo cơ cấu tổ chức động thông qua việc tạo phòng ban và các chức vụ tương ứng với mức lương mặc định. 
-    > Khi tiếp nhận nhân viên mới, HR sẽ điền thông tin chi tiết vào form mẫu. Hệ thống tự động kiểm tra các ràng buộc duy nhất như mã nhân viên và CCCD để tránh trùng lặp thông tin, đồng thời cho phép lựa chọn người quản lý trực tiếp từ danh sách nhân viên hiện hữu. Sau đây, xin mời bạn Nhật Minh trình bày phân hệ hợp đồng và lương."*
-    > *(Long bàn giao mic cho Minh. Long lùi lại, Minh tiến lên).*
+    > *"Đây là giao diện Quản lý Nhân sự dành cho Admin và HR. Hệ thống hỗ trợ khởi tạo cơ cấu tổ chức động thông qua việc tạo phòng ban và các chức vụ tương ứng với mức lương mặc định. 
+    > Khi tiếp nhận nhân viên mới, HR sẽ điền thông tin chi tiết vào form mẫu. Hệ thống tự động kiểm tra các ràng buộc duy nhất như mã nhân viên và CCCD để tránh trùng lặp thông tin, đồng thời cho phép lựa chọn người quản lý trực tiếp từ danh sách nhân viên hiện hữu. Tiếp theo, em xin trình bày phân hệ hợp đồng và lương."*
 
 ---
 
 ### SLIDE 7: PHÂN HỆ ADMIN - QUẢN LÝ HỢP ĐỒNG & BẢNG LƯƠNG
-*   **Người trình bày (Speaker):** Trần Nhật Minh.
-*   **Bố cục hiển thị & Hình ảnh trực quan:**
-    *   Screenshot màn hình Quản lý Hợp đồng lao động (thời hạn, mức lương cơ bản).
-    *   Screenshot Bảng lương tự động tháng (Base salary, Allowance, Bonus, Deduction, Gross/Net).
-*   **Từ khóa cần nhấn mạnh:** Hợp đồng lao động, Lương Thực lĩnh (Net), Trạng thái thanh toán (Paid).
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Cầm mic bằng tay trái. Tay phải chỉ lên công thức tính lương trên màn hình LCD, thực hiện cử chỉ nâng tay lên khi nói về "Lương Gross" và hạ tay xuống khi nói đến "Khấu trừ/Lương Net".
+*   **Bố cục hiển thị:** Screenshot màn hình Quản lý Hợp đồng lao động và Bảng lương tự động tháng (Base salary, Allowance, Bonus, Deduction, Gross/Net).
+*   **Keywords:** Hợp đồng lao động, Lương Thực lĩnh (Net), Trạng thái thanh toán (Paid).
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Tay phải chỉ lên công thức tính lương trên màn hình LCD, thực hiện cử chỉ nâng tay lên khi nói về "Lương Gross" và hạ tay xuống khi nói đến "Khấu trừ/Lương Net".
 *   **Kịch bản thoại:**
-    > *"Xin chào Thầy và các bạn, em là Trần Nhật Minh. Em xin phép trình bày Phân hệ quản lý Hợp đồng và Lương của Admin. Mỗi nhân viên khi làm việc sẽ gắn liền với một Hợp đồng lao động quy định mức lương cơ bản và loại hợp đồng. 
-    > Bảng lương hàng tháng được tính toán tự động dựa trên mức lương hợp đồng, cộng với phụ cấp và tiền thưởng dự án, đồng thời trừ đi các khoản phạt đi muộn hoặc nghỉ không phép được lấy ra từ dữ liệu chấm công. Bảng lương sẽ được lưu ở trạng thái Nháp (Draft) để Admin rà soát kỹ lưỡng, và chỉ khi Admin đổi trạng thái sang Đã thanh toán (Paid) thì nhân viên mới có thể tra cứu trực tuyến phiếu lương của mình. Sau đây, xin mời bạn Trung Nguyên trình bày về phân hệ chấm công."*
-    > *(Minh bàn giao mic cho Nguyên. Minh lùi lại, Nguyên tiến lên).*
+    > *"Tiếp theo là Phân hệ quản lý Hợp đồng và Lương của Admin. Mỗi nhân viên khi làm việc sẽ gắn liền với một Hợp đồng lao động quy định mức lương cơ bản và loại hợp đồng. 
+    > Bảng lương hàng tháng được tính toán tự động dựa trên mức lương hợp đồng, cộng với phụ cấp và tiền thưởng dự án, đồng thời trừ đi các khoản phạt đi muộn hoặc nghỉ không phép được lấy ra từ dữ liệu chấm công. Bảng lương sẽ được lưu ở trạng thái Nháp (Draft) để Admin rà soát kỹ lưỡng, và chỉ khi Admin đổi trạng thái sang Đã thanh toán (Paid) thì nhân viên mới có thể tra cứu trực tuyến phiếu lương của mình. Tiếp theo là phân hệ chấm công của nhân viên."*
 
 ---
 
 ### SLIDE 8: PHÂN HỆ NHÂN VIÊN - CHẤM CÔNG VÀ XIN NGHỈ PHÉP
-*   **Người trình bày (Speaker):** Nguyễn Trung Nguyên.
-*   **Bố cục hiển thị & Hình ảnh trực quan:**
-    *   Screenshot nút bấm Check-in/Check-out lớn dạng vòng tròn màu sắc sinh động trên giả lập di động.
-    *   Screenshot biểu mẫu làm đơn xin nghỉ phép (loại phép, ngày nghỉ, lý do nghỉ).
-*   **Từ khóa cần nhấn mạnh:** Chấm công một chạm, Số phút làm việc thực tế, Đơn phép trực tuyến.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Đứng tự tin, tay cầm mic chuẩn cách miệng 5cm. Tay tự do gạt nhẹ dây mic ra sau nếu dây bị chùng dưới đất.
-    *   Mắt nhìn bao quát toàn bộ lớp để tạo không khí tương tác.
+*   **Bố cục hiển thị:** Screenshot nút bấm Check-in/Check-out lớn trên giả lập di động. Screenshot biểu mẫu làm đơn xin nghỉ phép.
+*   **Keywords:** Chấm công một chạm, Số phút làm việc thực tế, Đơn phép trực tuyến.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng tự tin, tay cầm mic chuẩn cách miệng 5cm. Mắt nhìn bao quát toàn bộ lớp để tạo không khí tương tác.
 *   **Kịch bản thoại:**
-    > *"Xin chào Thầy, em là Nguyễn Trung Nguyên. Đối với phân hệ Nhân viên, chúng em thiết kế giao diện tối giản, tập trung vào hai tác vụ cốt lõi hàng ngày là Chấm công và Nghỉ phép. 
+    > *"Đối với phân hệ Nhân viên, chúng em thiết kế giao diện tối giản, tập trung vào hai tác vụ cốt lõi hàng ngày là Chấm công và Nghỉ phép. 
     > Khi nhân viên bấm Check-in, backend sẽ đối chiếu với mốc thời gian 8 giờ sáng, nếu trễ hơn sẽ tự động chuyển trạng thái ngày công thành đi muộn (late). Khi Check-out, hệ thống tự động so khớp giờ ra về, nếu trước 17 giờ chiều sẽ đánh dấu ghi chú về sớm, ngược lại sẽ tính số phút làm việc thực tế và quy đổi số phút tăng ca (overtime) chính xác làm căn cứ tính lương."*
 
 ---
 
 ### SLIDE 9: KIẾN TRÚC CODE & XỬ LÝ NGHIỆP VỤ NỔI BẬT
-*   **Người trình bày (Speaker):** Nguyễn Trung Nguyên.
-*   **Bố cục hiển thị & Hình ảnh trực quan:**
-    *   *Bên trái:* Sơ đồ luồng xử lý Request trong Laravel (Kernel -> Middleware -> Controller -> Model).
+*   **Bố cục hiển thị:**
+    *   *Bên trái:* Sơ đồ luồng xử lý Request trong Laravel.
     *   *Bên phải:* Đoạn code thực tế chứa hàm chốt công tự động `finalizeAttendance`.
-*   **Từ khóa cần nhấn mạnh:** Custom Middleware, Chốt công tự động (`finalizeAttendance`), ORM Relationships.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Xoay nghiêng người chỉ tay vào đoạn code hàm `finalizeAttendance` trên màn hình LCD, đi nhanh vào logic nghiệp vụ để thầy cô thấy được chất lượng lập trình thực tế của nhóm.
+*   **Keywords:** Custom Middleware, Chốt công tự động (`finalizeAttendance`), ORM Relationships.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Xoay nghiêng người chỉ tay vào đoạn code hàm `finalizeAttendance` trên màn hình LCD để thầy cô thấy được logic chốt công tự động.
 *   **Kịch bản thoại:**
     > *"Về mặt kỹ thuật, nhóm xây dựng bộ lọc **Kiểm tra quyền truy cập** (Middleware). Khi người dùng nhấn vào bất kỳ liên kết nào, bộ lọc này sẽ đối chiếu vai trò của họ (Admin, HR hay Nhân viên) được lưu trong Session. Nếu không đúng quyền, hệ thống sẽ lập tiếp chặn lại và trả về lỗi từ chối truy cập. 
-    > Một điểm sáng nghiệp vụ khác là thuật toán **Chốt công ngày** (`finalizeAttendance`). Cuối ngày làm việc, hệ thống tự động quét danh sách nhân sự không chấm công. Nếu họ đã có đơn nghỉ phép được duyệt, hệ thống ghi nhận là nghỉ có phép (`leave`), ngược lại sẽ ghi nhận vắng không phép (`absent`) để trừ lương tự động. Việc này giúp HR cắt giảm hoàn toàn thời gian đối chiếu thủ công. Tiếp theo, bạn Hoàng Dũng trình bày phần bảo mật thực tế và kiểm thử."*
-    > *(Nguyên bàn giao mic cho Dũng. Nguyên lùi lại, Dũng tiến lên).*
+    > Một điểm sáng nghiệp vụ khác là thuật toán **Chốt công ngày** (`finalizeAttendance`). Cuối ngày làm việc, hệ thống tự động quét danh sách nhân sự không chấm công. Nếu họ đã có đơn nghỉ phép được duyệt, hệ thống ghi nhận là nghỉ có phép (`leave`), ngược lại sẽ ghi nhận vắng không phép (`absent`) để trừ lương tự động. Việc này giúp HR cắt giảm hoàn toàn thời gian đối chiếu thủ công. Tiếp theo là phần bảo mật thực tế và kiểm thử."*
 
 ---
 
 ### SLIDE 10: BẢO MẬT THỰC TẾ & KIỂM THỬ TỰ ĐỘNG
-*   **Người trình bày (Speaker):** Phạm Hoàng Dũng.
-*   **Bố cục hiển thị & Hình ảnh trực quan:**
+*   **Bố cục hiển thị:**
     *   *Bên trái:* Danh sách 3 giải pháp bảo mật của hệ thống.
     *   *Bên phải:* Screenshot terminal chạy `php artisan test` với kết quả **47 tests passed**.
-*   **Từ khóa cần nhấn mạnh:** SQL Injection, Cross-Site Scripting (XSS), Integration Testing, PHPUnit.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Đứng thẳng nghiêm túc, nói với giọng chắc chắn, đanh thép để khẳng định độ tin cậy của mã nguồn. Chỉ tay vào dòng chữ "47 tests passed" màu xanh trên màn hình.
+*   **Keywords:** SQL Injection, Cross-Site Scripting (XSS), Integration Testing, PHPUnit.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng thẳng nghiêm túc, nói với giọng chắc chắn, đanh thép để khẳng định độ tin cậy của mã nguồn. Chỉ tay vào dòng chữ "47 tests passed" màu xanh trên màn hình.
 *   **Kịch bản thoại:**
-    > *"Em xin quy lại để trình bày về các giải pháp bảo mật và kiểm thử thực tế của hệ thống. Nhóm tập trung giải quyết các bài toán bảo mật dữ liệu nhân sự nhạy cảm:
+    > *"Em xin trình bày về các giải pháp bảo mật và kiểm thử thực tế của hệ thống. Nhóm tập trung giải quyết các bài toán bảo mật dữ liệu nhân sự nhạy cảm:
     > Thứ nhất, **Chống xem trộm lương:** Hệ thống không truyền mã nhân viên lên URL. Khi xem lương, code sẽ lấy trực tiếp ID tài khoản từ session trên máy chủ để truy vấn, ngăn chặn tuyệt đối việc đổi số trên URL để xem lương người khác. 
     > Thứ hai, **Bảo mật phiên:** Ngay khi đăng nhập thành công, hệ thống làm mới mã định danh session để bảo vệ tài khoản. 
     > Thứ ba, **Chống mã độc:** Chúng em tận dụng cơ chế lọc tham số của Eloquent và tự động mã hóa ký tự đặc biệt của Blade. 
-    > Cuối cùng, nhóm viết 47 kịch bản kiểm thử tự động bằng công cụ PHPUnit để kiểm tra nhanh các chức năng cốt lõi mỗi khi có thay đổi code. Tiếp theo, bạn Nhật Minh sẽ trình bày phần phân công công việc."*
-    > *(Dũng bàn giao mic cho Minh. Dũng lùi lại, Minh tiến lên).*
+    > Cuối cùng, nhóm viết 47 kịch bản kiểm thử tự động bằng công cụ PHPUnit để kiểm tra nhanh các chức năng cốt lõi mỗi khi có thay đổi code. Tiếp theo, em xin đi vào phân phối công việc nhóm."*
 
 ---
 
 ### SLIDE 11: PHÂN PHỐI CÔNG VIỆC NHÓM & TỶ LỆ HOÀN THÀNH
-*   **Người trình bày (Speaker):** Trần Nhật Minh.
-*   **Bố cục hiển thị & Hình ảnh trực quan:** Bảng phân công nhiệm vụ của 5 thành viên (Họ tên, Vai trò chính, Module đảm nhiệm, Tỷ lệ đóng góp 100%).
-*   **Từ khóa cần nhấn mạnh:** Phối hợp đồng bộ, Tỷ lệ hoàn thành 100%, Đúng tiến độ.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Mỉm cười tự tin, tay chỉ nhẹ vào bảng phân công. Mắt nhìn sang các thành viên trong nhóm đang đứng cạnh để thể hiện tinh thần đoàn kết.
+*   **Bố cục hiển thị:** Bảng phân công nhiệm vụ của 5 thành viên (Họ tên, Vai trò chính, Module đảm nhiệm, Tỷ lệ đóng góp 100%).
+*   **Keywords:** Phối hợp đồng bộ, Tỷ lệ hoàn thành 100%, Đúng tiến độ.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Mỉm cười tự tin, tay chỉ nhẹ vào bảng phân công. Mắt nhìn sang các thành viên trong nhóm đang đứng cạnh để thể hiện sự cảm ơn và tinh thần đồng lòng.
 *   **Kịch bản thoại:**
-    > *"Để hoàn thành dự án đúng thời hạn, nhóm chúng em đã phân chia công việc rõ ràng dựa trên thế mạnh của từng thành viên. Bạn Chương trưởng nhóm đảm nhiệm vai trò kiến trúc sư dữ liệu và lương hợp đồng. Bạn Nguyên chịu trách nhiệm chấm công và duyệt phép. Bạn Dũng phụ trách bảo mật, session và auth. Bạn Long thiết kế css layout và responsive, còn em phụ trách UI/UX và logic Ajax real-time. Toàn bộ các thành viên đều nỗ lực hoàn thành công việc xuất sắc với mức đóng góp đồng thuận là 100%. Sau đây, trưởng nhóm Chương sẽ tổng kết."*
-    > *(Minh chuyển giao mic lần cuối cho Chương. Minh lùi lại, Chương bước lên trung tâm sân khấu để kết thúc bài nói và chuyển sang Demo).*
+    > *"Để hoàn thành dự án đúng thời hạn, nhóm chúng em đã phân chia công việc rõ ràng dựa trên thế mạnh của từng thành viên. Em đảm nhiệm vai trò kiến trúc sư dữ liệu và lương hợp đồng. Bạn Nguyên chịu trách nhiệm chấm công và duyệt phép. Bạn Dũng phụ trách bảo mật, session và auth. Bạn Long thiết kế css layout và responsive, còn bạn Minh phụ trách UI/UX và logic Ajax real-time. Toàn bộ các thành viên đều nỗ lực hoàn thành công việc xuất sắc với mức đóng góp đồng thuận là 100%."*
 
 ---
 
 ### SLIDE 12: TỔNG KẾT, HƯỚNG PHÁT TRIỂN & Q&A
-*   **Người trình bày (Speaker):** Nguyễn Trần Đình Chương (Leader).
-*   **Bố cục hiển thị & Hình ảnh trực quan:**
-    *   Chữ lớn nổi bật: **"TRÂN TRỌNG CẢM ƠN THẦY VÀ CÁC BẠN ĐÃ LẮNG NGHE!"**.
-    *   *Bên dưới:* Định hướng nâng cấp hệ thống (FaceID, Xuất Excel/PDF, Email Alert).
-*   **Từ khóa cần nhấn mạnh:** Vận hành ổn định, Sinh trắc học, Live Demo trực quan.
-*   **Cử chỉ vật lý & Ngôn ngữ cơ thể:**
-    *   Đứng thẳng ở trung tâm. Tay cầm mic chuẩn. Nói với giọng truyền cảm, tốc độ chậm rãi.
-    *   Sau khi kết thúc câu thoại cuối cùng, cúi đầu nhẹ 15 độ để chào cảm ơn hội đồng một cách lịch sự, sau đó di chuyển nhanh nhẹn sang máy tính để chuẩn bị Live Demo.
+*   **Bố cục hiển thị:** Chữ lớn nổi bật: **"TRÂN TRỌNG CẢM ƠN THẦY VÀ CÁC BẠN ĐÃ LẮNG NGHE!"**. Định hướng nâng cấp hệ thống (FaceID, Xuất Excel/PDF, Email Alert).
+*   **Keywords:** Vận hành ổn định, Sinh trắc học, Live Demo trực quan.
+*   **Cử chỉ & Ngôn ngữ cơ thể:** Đứng thẳng ở trung tâm. Tay cầm mic chuẩn. Nói với giọng truyền cảm, tốc độ chậm rãi. Sau khi kết thúc câu thoại cuối cùng, cúi đầu nhẹ 15 độ để chào cảm ơn hội đồng một cách lịch sự, sau đó di chuyển nhanh nhẹn sang máy tính để chuẩn bị Live Demo.
 *   **Kịch bản thoại:**
     > *"Tổng kết lại, sản phẩm Website Quản lý Nhân sự của nhóm đã đạt được các mục tiêu đề ra ban đầu, hoạt động trơn tru tất cả các tính năng cơ bản, bảo mật vững chắc và có giao diện responsive mượt mà. Trong tương lai, chúng em định hướng nâng cấp hệ thống để hỗ trợ xuất báo cáo lương ra file Excel và gửi email thông báo tự động cho quản lý mỗi khi có đơn phép mới. 
-    > Sau đây, em xin phép đại diện nhóm tiến hành chạy **Demo trực tiếp trang web** trên máy tính để Thầy có cái nhìn trực quan nhất về sản phẩm. Nhóm chúng em rất mong nhận được những nhận xét và câu hỏi từ phía Thầy để nhóm hoàn thiện đồ án tốt hơn nữa. Em xin trân trọng cảm ơn Thầy!"*
+    > Sau đây, em xin phép tiến hành chạy **Demo trực tiếp trang web** trên máy tính để Thầy có cái nhìn trực quan nhất về sản phẩm. Nhóm chúng em rất mong nhận được những nhận xét và câu hỏi từ phía Thầy để nhóm hoàn thiện đồ án tốt hơn nữa. Em xin trân trọng cảm ơn Thầy!"*
 
 ---
 
@@ -228,7 +170,7 @@ Khi đứng trên bục bảo vệ, nhóm sẽ đối mặt với các điều k
     *   *Cửa sổ bên trái (PC View):* Đăng nhập tài khoản Admin/HR (`admin@example.com` / mật khẩu `password`).
     *   *Cửa sổ bên phải (Mobile View - F12 di động):* Đăng nhập tài khoản Nhân viên (`employee@example.com` / mật khẩu `password`).
 *   **Bước 3:** Đảm bảo hệ thống Toast thông báo lỗi/thành công và thư viện SweetAlert hoạt động bình thường.
-*   **Bước 4 (Kế hoạch dự phòng):** Chuẩn bị sẵn file video demo đã ghi màn hình dài 3 phút lưu trên ổ cứng để mở ngay lập tức nếu internet phòng thi bị rớt hoặc máy chủ bị đơ.
+*   **Bước 4 (Hỗ trợ vận hành):** **Chỉ định bạn Long hoặc Minh ngồi máy tính để click chuột và gõ phím theo lời nói của bạn.** Bạn Chương đứng cầm mic thuyết trình và tương tác với màn hình LCD. Đây là cách làm chuyên nghiệp nhất, giúp bạn rảnh tay tập trung thuyết minh.
 
 ---
 
