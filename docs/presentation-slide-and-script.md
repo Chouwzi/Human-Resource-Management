@@ -28,13 +28,16 @@
 ---
 
 ### SLIDE 2: LÝ DO CHỌN ĐỀ TÀI & MỤC TIÊU HỆ THỐNG
-*   **Bố cục hiển thị:** Bento Grid 2 cột: Cột 1 (Nỗi đau Excel thủ công, sai sót ngày công, rò rỉ lương) đối lập với Cột 2 (Hệ thống HRM chấm công trực tuyến, tự động tính lương, duyệt phép tức thời).
+*   **Bố cục hiển thị:** Bento Grid 2 cột:
+    *   *Cột 1 (Nỗi đau thực tế):* **Số liệu khảo sát: 70% - 78% doanh nghiệp vừa và nhỏ (SME) tại Việt Nam vẫn dùng Excel để tính lương thủ công.** Lỗi nhập liệu, thất thoát ngày công, rò rỉ lương.
+    *   *Cột 2 (Giải pháp HRM):* Chấm công trực tuyến, tự động tính lương, duyệt phép tức thời, cơ sở dữ liệu tập trung.
 *   **Cử chỉ:** Tay phải mở ngửa chỉ cột "Nỗi đau" (nét mặt nghiêm túc), sau đó xoay tay chỉ sang cột "Giải pháp" (mỉm cười nhẹ).
 *   **Kịch bản thoại:**
-    > *"Thưa giảng viên và các bạn, phần lớn doanh nghiệp vừa và nhỏ hiện nay vẫn quản lý nhân sự qua file Excel thủ công, rất tốn thời gian, dễ sai lệch ngày công và rò rỉ bảng lương nhạy cảm. 
-    > Mục tiêu của hệ thống HRM này là số hóa toàn bộ quy trình: lưu dữ liệu tập trung, cho phép nhân viên chấm công trực tuyến bằng điện thoại, tự động đối chiếu ngày nghỉ phép để tính lương cuối tháng chính xác 100%."*
+    > *"Thưa giảng viên và các bạn, theo các số liệu khảo sát thực tế tại thị trường Việt Nam, hiện nay có từ **70% đến 78%** các doanh nghiệp vừa và nhỏ vẫn đang dựa hoàn toàn vào Microsoft Excel làm công cụ chính để tính lương và quản lý nhân sự. 
+    > Cách làm thủ công này rất tốn thời gian, dễ xảy ra sai sót khi nhập liệu ngày công và tiềm ẩn nguy cơ bảo mật khi các file lương bị rò rỉ. Mục tiêu của hệ thống HRM này là số hóa toàn bộ quy trình: lưu dữ liệu tập trung, cho phép nhân viên chấm công trực tuyến bằng điện thoại, tự động đối chiếu ngày nghỉ phép để tính lương cuối tháng chính xác 100%."*
 *   **💡 Giải thích thuật ngữ cho Chương:**
     *   **Số hóa:** Chuyển đổi toàn bộ quy trình giấy tờ, file Excel rời rạc sang lưu trữ dữ liệu số trên máy chủ để máy tính tự động xử lý.
+    *   **Nguồn số liệu dẫn chứng:** Dữ liệu khảo sát từ các đơn vị cung cấp giải pháp nhân sự lớn tại Việt Nam (như khảo sát phần mềm doanh nghiệp của MISA, EasyHRM, 1C). Tỷ lệ sử dụng Excel cho kế toán lương của nhóm doanh nghiệp nhỏ (dưới 50 nhân sự) dao động ổn định ở mức 70-78%.
 
 ---
 
@@ -153,7 +156,7 @@
 *   Mở sẵn trình duyệt Chrome chia đôi màn hình:
     *   *Bên trái (PC View):* Đăng nhập tài khoản Admin/HR (`admin@example.com` / `password`).
     *   *Bên phải (Mobile View - F12 di động):* Đăng nhập tài khoản Nhân viên (`employee@example.com` / `password`).
-*   **Phân công:** Bạn Long hoặc bạn Minh ngồi máy tính click chuột theo lời thoại. Bạn Chương đứng cầm mic thuyết minh và chỉ màn hình LCD.
+*   **Phân công:** Bạn Long hoặc bạn Minh ngồi máy tính thao tác click chuột theo lời thoại. Bạn Chương đứng cầm mic thuyết minh và chỉ màn hình LCD.
 
 ### 2. Luồng thao tác & Lời thuyết minh
 
