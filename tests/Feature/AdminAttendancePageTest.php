@@ -57,4 +57,30 @@ class AdminAttendancePageTest extends TestCase
         $response->assertSee('Vui lòng kiểm tra lại dữ liệu nhập');
         $response->assertSee('Giờ ra phải sau giờ vào.', false);
     }
+
+    #[Test]
+    public function loi_validate_cham_cong_khi_check_in_bang_check_out(): void
+    {
+        $role = Role::create([
+            'name' => 'admin',
+            'description' => 'Quản trị viên',
+        ]);
+
+        $admin = User::factory()->create(['role_id' => $role->id]);
+
+        $response = $this->followingRedirects()->withSession([
+            'user_id' => $admin->id,
+            'user_role' => 'admin',
+        ])->from(route('admin.attendance.index'))->post(route('admin.attendance.store'), [
+            'employee_id' => 999,
+            'work_date' => '2026-07-05',
+            'check_in_at' => '00:59',
+            'check_out_at' => '00:59',
+            'status' => 'present',
+        ]);
+
+        $response->assertOk();
+        $response->assertSee('Vui lòng kiểm tra lại dữ liệu nhập');
+        $response->assertSee('Giờ ra phải sau giờ vào.', false);
+    }
 }

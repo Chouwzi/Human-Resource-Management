@@ -198,6 +198,17 @@ class AdminHrmController extends Controller
     public function storeAttendance(Request $request): RedirectResponse
     {
         $data = $request->validate($this->attendanceRules(), $this->validationMessages(), $this->validationAttributes());
+
+        if ($request->filled('check_in_at') && $request->filled('check_out_at')) {
+            $checkIn  = \Carbon\Carbon::parse($request->work_date . ' ' . $request->check_in_at);
+            $checkOut = \Carbon\Carbon::parse($request->work_date . ' ' . $request->check_out_at);
+            if ($checkOut->lte($checkIn)) {
+                return redirect()->back()
+                    ->withInput()
+                    ->with('error', 'Giờ check-out phải sau giờ check-in.');
+            }
+        }
+
         $data = $this->calculateAttendance($data);
 
         AttendanceLog::updateOrCreate(
