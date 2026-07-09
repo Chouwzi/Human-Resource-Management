@@ -43,9 +43,14 @@
                         Nhân sự
                     </a>
                     <a href="{{ route('admin.departments.index') }}"
-                       class="menu-item {{ (request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*')) ? 'active' : '' }}">
+                       class="menu-item {{ request()->routeIs('admin.departments.*') ? 'active' : '' }}">
                         <i class="fas fa-sitemap" style="margin-right:8px; width:16px;"></i>
                         Cơ cấu tổ chức
+                    </a>
+                    <a href="{{ route('admin.positions.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.positions.*') ? 'active' : '' }}">
+                        <i class="fas fa-briefcase" style="margin-right:8px; width:16px;"></i>
+                        Chức vụ
                     </a>
                     <a href="{{ route('admin.leaves.pending') }}"
                         class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
@@ -79,9 +84,14 @@
                         Nhân sự
                     </a>
                     <a href="{{ route('admin.departments.index') }}"
-                       class="menu-item {{ (request()->routeIs('admin.departments.*') || request()->routeIs('admin.positions.*')) ? 'active' : '' }}">
+                       class="menu-item {{ request()->routeIs('admin.departments.*') ? 'active' : '' }}">
                         <i class="fas fa-sitemap" style="margin-right:8px; width:16px;"></i>
                         Cơ cấu tổ chức
+                    </a>
+                    <a href="{{ route('admin.positions.index') }}"
+                       class="menu-item {{ request()->routeIs('admin.positions.*') ? 'active' : '' }}">
+                        <i class="fas fa-briefcase" style="margin-right:8px; width:16px;"></i>
+                        Chức vụ
                     </a>
                     <a href="{{ route('admin.leaves.pending') }}"
                         class="menu-item {{ request()->routeIs('admin.leaves.pending') ? 'active' : '' }}">
