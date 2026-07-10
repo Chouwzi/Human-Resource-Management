@@ -24,7 +24,7 @@
         </div>
         <div>
             <label>Mã nhân viên</label>
-            <input name="employee_code" title="Nhập mã định danh nhân viên" value="{{ old('employee_code', $editingEmployee->employee_code ?? '') }}" required>
+            <input name="employee_code" title="Mã định danh nhân viên (Tự động tạo)" value="{{ old('employee_code', $editingEmployee ? $editingEmployee->employee_code : $nextEmployeeCode) }}" readonly style="background-color: #f3f4f6; cursor: not-allowed;" required>
             @error('employee_code')<small class="form-error">{{ $message }}</small>@enderror
         </div>
         <div>

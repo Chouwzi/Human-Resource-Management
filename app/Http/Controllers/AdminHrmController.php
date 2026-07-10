@@ -132,7 +132,27 @@ class AdminHrmController extends Controller
             ? Employee::with('user')->find($request->integer('edit_employee'))
             : null;
 
-        return view('admin.hrm.employees', compact('employees', 'positions', 'departments', 'managers', 'editingEmployee'));
+        // Tính mã nhân viên tự động cho bản ghi tiếp theo
+        $nextEmployeeCode = 'NV001';
+        $latestEmployee = Employee::orderBy('id', 'desc')->first();
+        if ($latestEmployee) {
+            preg_match('/NV(\d+)/', $latestEmployee->employee_code, $matches);
+            if (!empty($matches[1])) {
+                $nextNumber = intval($matches[1]) + 1;
+                $nextEmployeeCode = 'NV' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+            } else {
+                $nextEmployeeCode = 'NV' . str_pad($latestEmployee->id + 1, 3, '0', STR_PAD_LEFT);
+            }
+        }
+
+        return view('admin.hrm.employees', compact(
+            'employees', 
+            'positions', 
+            'departments', 
+            'managers', 
+            'editingEmployee',
+            'nextEmployeeCode'
+        ));
     }
 
     public function storeEmployee(Request $request): RedirectResponse
