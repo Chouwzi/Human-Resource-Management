@@ -32,19 +32,19 @@
         </div>
         <div>
             <label>Lương cơ bản</label>
-            <input name="base_salary" type="number" min="0" step="100000" title="Nhập mức lương cơ bản (VND)" value="{{ old('base_salary', 8000000) }}" required>
+            <input name="base_salary" type="text" class="format-currency" title="Nhập mức lương cơ bản (VND)" value="{{ old('base_salary', 8000000) }}" required>
         </div>
         <div>
             <label>Phụ cấp</label>
-            <input name="allowance" type="number" min="0" step="100000" title="Nhập phụ cấp thêm (VND)" value="{{ old('allowance', 0) }}">
+            <input name="allowance" type="text" class="format-currency" title="Nhập phụ cấp thêm (VND)" value="{{ old('allowance', 0) }}">
         </div>
         <div>
             <label>Thưởng</label>
-            <input name="bonus" type="number" min="0" step="100000" title="Nhập các khoản thưởng hiệu suất (VND)" value="{{ old('bonus', 0) }}">
+            <input name="bonus" type="text" class="format-currency" title="Nhập các khoản thưởng hiệu suất (VND)" value="{{ old('bonus', 0) }}">
         </div>
         <div>
             <label>Khấu trừ</label>
-            <input name="deduction" type="number" min="0" step="100000" title="Nhập các khoản khấu trừ (VND)" value="{{ old('deduction', 0) }}">
+            <input name="deduction" type="text" class="format-currency" title="Nhập các khoản khấu trừ (VND)" value="{{ old('deduction', 0) }}">
         </div>
         <div>
             <label>Trạng thái</label>
@@ -151,15 +151,55 @@
 document.addEventListener('DOMContentLoaded', function() {
     const employeeSelect = document.getElementById('employee_salary_select');
     const baseSalaryInput = document.querySelector('input[name="base_salary"]');
+    const currencyInputs = document.querySelectorAll('.format-currency');
 
+    function formatNumberString(val) {
+        if (val === null || val === undefined) return "";
+        // Xóa mọi ký tự không phải số
+        let clean = val.toString().replace(/[^\d]/g, "");
+        if (clean === "") return "";
+        // Thêm dấu phẩy phân cách hàng nghìn
+        return parseInt(clean, 10).toLocaleString('en-US');
+    }
+
+    function formatInput(input) {
+        const originalVal = input.value;
+        const formatted = formatNumberString(originalVal);
+        input.value = formatted;
+    }
+
+    // Định dạng toàn bộ ô nhập liệu khi tải trang
+    currencyInputs.forEach(input => {
+        formatInput(input);
+        
+        // Sự kiện gõ phím để tự động thêm dấu phẩy
+        input.addEventListener('input', function() {
+            formatInput(this);
+        });
+    });
+
+    // Khi chọn nhân viên, tự động điền lương chức vụ và định dạng
     if (employeeSelect && baseSalaryInput) {
         employeeSelect.addEventListener('change', function() {
             const selectedOption = this.options[this.selectedIndex];
             const defaultSalary = selectedOption.getAttribute('data-default-salary');
             
             if (defaultSalary && parseInt(defaultSalary) > 0) {
-                baseSalaryInput.value = defaultSalary;
+                // defaultSalary có thể chứa phần thập phân .00 từ DB, ta làm tròn số nguyên
+                const roundedSalary = Math.round(parseFloat(defaultSalary));
+                baseSalaryInput.value = roundedSalary;
+                formatInput(baseSalaryInput);
             }
+        });
+    }
+
+    // Khi gửi biểu mẫu (submit), gỡ bỏ dấu phẩy để vượt qua validation numeric của Laravel
+    const form = document.querySelector('form.hrm-form');
+    if (form) {
+        form.addEventListener('submit', function() {
+            currencyInputs.forEach(input => {
+                input.value = input.value.replace(/,/g, '');
+            });
         });
     }
 });
