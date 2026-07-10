@@ -293,15 +293,57 @@ class AdminHrmController extends Controller
         return back()->with('success', 'Đã xóa bản ghi chấm công.');
     }
 
-    public function salaries(): View
+    public function salaries(Request $request): View
     {
-        $salaries = Salary::with('employee')
-            ->orderByDesc('year')
+        $query = Salary::with(['employee.position.department']);
+
+        // Lọc theo phòng ban
+        if ($request->filled('department_id')) {
+            $query->whereHas('employee.position', function ($builder) use ($request) {
+                $builder->where('department_id', $request->integer('department_id'));
+            });
+        }
+
+        // Lọc theo chức vụ
+        if ($request->filled('position_id')) {
+            $query->whereHas('employee', function ($builder) use ($request) {
+                $builder->where('position_id', $request->integer('position_id'));
+            });
+        }
+
+        // Lọc theo tháng
+        if ($request->filled('month')) {
+            $query->where('month', $request->integer('month'));
+        }
+
+        // Lọc theo năm
+        if ($request->filled('year')) {
+            $query->where('year', $request->integer('year'));
+        }
+
+        $salaries = $query->orderByDesc('year')
             ->orderByDesc('month')
             ->get();
-        $employees = Employee::with('position')->orderBy('full_name')->get();
 
-        return view('admin.hrm.salaries', compact('salaries', 'employees'));
+        $employees = Employee::with('position')->orderBy('full_name')->get();
+        $departments = Department::orderBy('name')->get();
+        $positions = Position::orderBy('name')->get();
+
+        $month = $request->input('month');
+        $year = $request->input('year');
+        $department_id = $request->input('department_id');
+        $position_id = $request->input('position_id');
+
+        return view('admin.hrm.salaries', compact(
+            'salaries', 
+            'employees', 
+            'departments', 
+            'positions',
+            'month',
+            'year',
+            'department_id',
+            'position_id'
+        ));
     }
 
     public function storeSalary(Request $request): RedirectResponse

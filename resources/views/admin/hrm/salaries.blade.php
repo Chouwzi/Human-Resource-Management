@@ -60,7 +60,32 @@
 </div>
 
 <div class="content-card">
-    <h4 class="content-card-header">Danh sách bảng lương</h4>
+    <div class="content-card-header-flex" style="flex-wrap: wrap; gap: 1rem;">
+        <h4>Danh sách bảng lương</h4>
+        <form method="GET" action="{{ route('admin.salaries.index') }}" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin: 0;">
+            <select name="department_id" title="Lọc theo phòng ban" style="padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+                <option value="">-- Tất cả phòng ban --</option>
+                @foreach($departments as $dept)
+                    <option value="{{ $dept->id }}" @selected($department_id == $dept->id)>{{ $dept->name }}</option>
+                @endforeach
+            </select>
+
+            <select name="position_id" title="Lọc theo chức vụ" style="padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+                <option value="">-- Tất cả chức vụ --</option>
+                @foreach($positions as $pos)
+                    <option value="{{ $pos->id }}" @selected($position_id == $pos->id)>{{ $pos->name }}</option>
+                @endforeach
+            </select>
+
+            <div style="display: flex; gap: 0.25rem; align-items: center;">
+                <input name="month" type="number" min="1" max="12" placeholder="Tháng" title="Lọc theo tháng" value="{{ $month }}" style="width: 70px; padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+                <input name="year" type="number" min="2020" max="2100" placeholder="Năm" title="Lọc theo năm" value="{{ $year }}" style="width: 85px; padding: 0.35rem 0.5rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+            </div>
+
+            <button type="submit" class="btn btn-secondary" style="padding: 0.35rem 0.75rem;">Lọc</button>
+            <a href="{{ route('admin.salaries.index') }}" class="btn btn-secondary" style="padding: 0.35rem 0.75rem; background: #9ca3af; border-color: #9ca3af; text-decoration: none;" title="Xóa bộ lọc">Xóa</a>
+        </form>
+    </div>
     <div class="table-responsive m-0">
         <table class="table table-dense">
             <thead>
