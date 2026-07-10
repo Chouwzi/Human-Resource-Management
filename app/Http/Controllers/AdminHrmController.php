@@ -361,6 +361,88 @@ class AdminHrmController extends Controller
         ));
     }
 
+    public function exportSalaries(Request $request)
+    {
+        $month = $request->input('month', date('n'));
+        $year = $request->input('year', date('Y'));
+        $department_id = $request->input('department_id');
+        $position_id = $request->input('position_id');
+
+        $query = Salary::with(['employee.position.department']);
+
+        if ($department_id) {
+            $query->whereHas('employee.position', function ($builder) use ($department_id) {
+                $builder->where('department_id', $department_id);
+            });
+        }
+
+        if ($position_id) {
+            $query->whereHas('employee', function ($builder) use ($position_id) {
+                $builder->where('position_id', $position_id);
+            });
+        }
+
+        $query->where('month', $month)->where('year', $year);
+
+        $salaries = $query->orderByDesc('created_at')->get();
+
+        $fileName = "bang-luong-thang-{$month}-{$year}.csv";
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"{$fileName}\"",
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        $callback = function () use ($salaries) {
+            $file = fopen('php://output', 'w');
+            fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF)); // UTF-8 BOM
+
+            fputcsv($file, [
+                'Tháng/Năm',
+                'Mã NV',
+                'Họ tên',
+                'Phòng ban',
+                'Chức vụ',
+                'Lương cơ bản',
+                'Phụ cấp',
+                'Thưởng',
+                'Khấu trừ',
+                'Tổng lương Gross',
+                'Thực lĩnh (Net)',
+                'Trạng thái'
+            ]);
+
+            $statusMap = [
+                'draft' => 'Nháp',
+                'paid' => 'Đã trả',
+            ];
+
+            foreach ($salaries as $salary) {
+                fputcsv($file, [
+                    "{$salary->month}/{$salary->year}",
+                    $salary->employee->employee_code,
+                    $salary->employee->full_name,
+                    $salary->employee->position->department->name ?? '-',
+                    $salary->employee->position->name ?? '-',
+                    $salary->base_salary,
+                    $salary->allowance,
+                    $salary->bonus,
+                    $salary->deduction,
+                    $salary->gross_salary,
+                    $salary->net_salary,
+                    $statusMap[$salary->status] ?? $salary->status,
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
     public function storeSalary(Request $request): RedirectResponse
     {
         $data = $request->validate($this->salaryRules(), $this->validationMessages(), $this->validationAttributes());

@@ -151,6 +151,7 @@ Route::prefix('admin')->name('admin.')->middleware('require.role:admin,hr')->gro
 // Chỉ Admin mới được phép quản lý Hợp đồng, Lương và XÓA dữ liệu
 Route::prefix('admin')->name('admin.')->middleware('require.role:admin')->group(function () {
     Route::get('/salaries', [AdminHrmController::class, 'salaries'])->name('salaries.index');
+    Route::get('/salaries/export', [AdminHrmController::class, 'exportSalaries'])->name('salaries.export');
     Route::post('/salaries', [AdminHrmController::class, 'storeSalary'])->name('salaries.store');
     Route::delete('/salaries/{salary}', [AdminHrmController::class, 'destroySalary'])->name('salaries.destroy');
     Route::delete('/attendance/{log}', [AdminHrmController::class, 'destroyAttendance'])->name('attendance.destroy');

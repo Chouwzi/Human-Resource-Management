@@ -84,6 +84,9 @@
 
             <button type="submit" class="btn btn-secondary" style="padding: 0.35rem 0.75rem;">Lọc</button>
             <a href="{{ route('admin.salaries.index') }}" class="btn btn-secondary" style="padding: 0.35rem 0.75rem; background: #9ca3af; border-color: #9ca3af; text-decoration: none;" title="Xóa bộ lọc">Xóa</a>
+            <a href="{{ route('admin.salaries.export', request()->all()) }}" class="btn btn-primary" style="padding: 0.35rem 0.75rem; text-decoration: none;" title="Xuất danh sách lương ra file CSV">
+                <i class="fas fa-file-csv"></i> Xuất CSV
+            </a>
         </form>
     </div>
     <div class="table-responsive m-0">
