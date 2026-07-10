@@ -101,6 +101,8 @@ class SalaryFilteringTest extends TestCase
         $techDept = Department::where('name', 'Kỹ thuật')->first();
         $response = $this->actingAsAdmin()->get(route('admin.salaries.index', [
             'department_id' => $techDept->id,
+            'month' => 7,
+            'year' => 2026,
         ]));
 
         $response->assertOk();
@@ -116,6 +118,8 @@ class SalaryFilteringTest extends TestCase
         $hrPos = Position::where('name', 'Chuyên viên nhân sự')->first();
         $response = $this->actingAsAdmin()->get(route('admin.salaries.index', [
             'position_id' => $hrPos->id,
+            'month' => 6,
+            'year' => 2026,
         ]));
 
         $response->assertOk();

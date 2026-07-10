@@ -295,6 +295,9 @@ class AdminHrmController extends Controller
 
     public function salaries(Request $request): View
     {
+        $month = $request->input('month', date('n'));
+        $year = $request->input('year', date('Y'));
+
         $query = Salary::with(['employee.position.department']);
 
         // Lọc theo phòng ban
@@ -311,15 +314,9 @@ class AdminHrmController extends Controller
             });
         }
 
-        // Lọc theo tháng
-        if ($request->filled('month')) {
-            $query->where('month', $request->integer('month'));
-        }
-
-        // Lọc theo năm
-        if ($request->filled('year')) {
-            $query->where('year', $request->integer('year'));
-        }
+        // Luôn lọc theo tháng và năm
+        $query->where('month', $month);
+        $query->where('year', $year);
 
         $salaries = $query->orderByDesc('year')
             ->orderByDesc('month')
@@ -329,8 +326,6 @@ class AdminHrmController extends Controller
         $departments = Department::orderBy('name')->get();
         $positions = Position::orderBy('name')->get();
 
-        $month = $request->input('month');
-        $year = $request->input('year');
         $department_id = $request->input('department_id');
         $position_id = $request->input('position_id');
 
