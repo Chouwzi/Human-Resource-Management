@@ -164,6 +164,13 @@ class AdminHrmController extends Controller
             $userData['password'] = Hash::make($data['password']);
         }
 
+        // Đồng bộ hóa trạng thái tài khoản người dùng dựa trên trạng thái nhân viên
+        if (in_array($data['status'], ['active', 'probation'], true)) {
+            $userData['status'] = 'active';
+        } elseif ($data['status'] === 'resigned') {
+            $userData['status'] = 'locked';
+        }
+
         $employee->user->update($userData);
         unset($data['email'], $data['password']);
         $employee->update($data);
