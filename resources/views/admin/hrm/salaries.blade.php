@@ -12,11 +12,13 @@
         @csrf
         <div>
             <label>Nhân viên</label>
-            <select name="employee_id" title="Chọn nhân viên cần tính lương" required>
+            <select name="employee_id" id="employee_salary_select" title="Chọn nhân viên cần tính lương" required>
                 <option value="">-- Chọn nhân viên --</option>
                 @foreach($employees as $employee)
-                    <option value="{{ $employee->id }}" @selected(old('employee_id') == $employee->id)>
-                        {{ $employee->employee_code }} - {{ $employee->full_name }}
+                    <option value="{{ $employee->id }}" 
+                            data-default-salary="{{ $employee->position->default_salary ?? 0 }}"
+                            @selected(old('employee_id') == $employee->id)>
+                        {{ $employee->employee_code }} - {{ $employee->full_name }} ({{ $employee->position->name ?? 'Không có chức vụ' }})
                     </option>
                 @endforeach
             </select>
@@ -115,3 +117,24 @@
 .month-year { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
 </style>
 @endpush
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const employeeSelect = document.getElementById('employee_salary_select');
+    const baseSalaryInput = document.querySelector('input[name="base_salary"]');
+
+    if (employeeSelect && baseSalaryInput) {
+        employeeSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            const defaultSalary = selectedOption.getAttribute('data-default-salary');
+            
+            if (defaultSalary && parseInt(defaultSalary) > 0) {
+                baseSalaryInput.value = defaultSalary;
+            }
+        });
+    }
+});
+</script>
+@endpush
+
